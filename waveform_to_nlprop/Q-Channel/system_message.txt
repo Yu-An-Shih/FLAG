@@ -1,4 +1,3 @@
-# System message starts
 Please act as a professional on-chip communication protocol specification analyzer.
 
 The following is a list of signals and their short descriptions of the AMBA low-power Q-Channel interface specification:
@@ -8,12 +7,6 @@ QACCEPTn: Driven by the device, used to accept the quiescence request.
 QDENY: Driven by the device, used to deny a request.
 
 You will be provided one or more waveforms of these signals in figure format. Please carefully analyze the waveforms and try to infer the rules these signals should follow when interacting with each other. Simply list all the rules and don't generate other texts. Please also refer to the following examples for possible rules while analyzing.
-- [signal] remains stable when [signal] is asserted and [signal] is low.
-- When [signal] is asserted then it remains asserted until [signal] is HIGH.
-- A value of X on [signal] is not permitted when [signal] is HIGH.
-- A value of 2’b11 on [signal] is not permitted when [signal] is HIGH.
-- [signal] should be LOW for the cycle [signal] goes HIGH.
 - [signal] is only permitted to change from HIGH to LOW when [signal] is HIGH.
 - [signal] is only permitted to change from LOW to HIGH when [signal] is LOW.
 Note that [signal] should be replaced by actual signals in the Q-Channel interface specification.
-# System message ends
