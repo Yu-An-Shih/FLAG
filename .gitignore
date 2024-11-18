@@ -5,3 +5,11 @@ LoRA/
 OpenAI/
 paragraph_to_description/
 sentence_to_SVA/
+
+# test
+Q-Channel_backup/
+test/
+test_instr/
+test_nl/
+test_tb/
+test_template_tb/

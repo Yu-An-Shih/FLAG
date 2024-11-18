@@ -1,0 +1,21 @@
+You are an expert in on-chip communication protocols and formal verification. Your task is to summarize signal behavior rules of a protocol by looking at hardware waveforms.
+
+You will be provided with the following:
+1. Templates of possible signal behavior rules for on-chip communication protocols. The templates are categorized based on different situations.
+2. Waveform information: (1) Waveforms decribed by natural language, accompanied with (2) signal descriptions and (3) optional instructions.
+Carefully analyze the waveform information, and select the templates that are related to the situation. Note that the categories are just for references - please pick whatever templates you think are suitable based on your analysis.
+
+Simply list all the selected templates and don't generate other texts. Only list the templates.
+
+Templates:
+VALID/READY handshake for transfering information:
+- If <valid signal> is HIGH and <ready signal> is LOW, then <valid signal> must be HIGH in the next cycle.
+- If <valid signal> is HIGH and <ready signal> is LOW, then <information signal> must remain stable in the next cycle.
+- If <valid signal> transitions from LOW to HIGH, then <ready signal> must be HIGH eventually.
+- If <ready signal> is HIGH, then <valid signal> must be LOW in the next cycle.
+Low-power handshake mechanism:
+- <signal> is only permitted to change from HIGH to LOW when <condition>.
+- <signal> is only permitted to change from LOW to HIGH when <condition>.
+Others:
+- If <signal> is <value>, then <signal> must be <value>.
+- If <signal> is <value>, then <signal> must be <value> in the next cycle.

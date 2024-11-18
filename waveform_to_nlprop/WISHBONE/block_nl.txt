@@ -1,0 +1,9 @@
+WISHBONE bus cycle vs data transfer cycles:
+    Trace:
+        The trace executes for 11 clock cycles. Initially at cycle 1, (CYC_I, STB_I, ACK_O) = (LOW, LOW, LOW). Cycle 3: CYC_I and STB_I turn HIGH. Cycle 5: ACK_O turns HIGH. Cycle 6: STB_I and ACK_O turn LOW. Cycle 8: STB_I turns HIGH. Cycle 9: ACK_O turns HIGH. Cycle 10: STB_I and ACK_O turn LOW. Cycle 11: CYC_I turns LOW.
+    Signal descriptions:
+        CYC_I (source: master): Active-high cycle signal. Indicates that a valid bus cycle is in progress.
+        STB_I (source: master): Active-high strobe signal. Indicates that a data transfer cycle is in progress. A valid bus cycle can consist of multiple data transfer cycles.
+        ACK_O (source: slave): Active-high acknowledge signal. Indicates the termination of a normal data transfer cycle.
+    Instructions:
+        1. Please observe the relationship between CYC_I and STB_I.

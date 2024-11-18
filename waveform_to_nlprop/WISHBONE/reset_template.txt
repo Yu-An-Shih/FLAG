@@ -1,0 +1,2 @@
+- If <signal> is <value>, then <signal> must be <value>.
+- If <signal> is <value>, then <signal> must be <value> in the next cycle.

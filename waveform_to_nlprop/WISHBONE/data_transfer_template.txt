@@ -1,0 +1,4 @@
+- If <valid signal> is HIGH and <ready signal> is LOW, then <valid signal> must be HIGH in the next cycle.
+- If <valid signal> is HIGH and <ready signal> is LOW, then <information signal> must remain stable in the next cycle.
+- If <valid signal> transitions from LOW to HIGH, then <ready signal> must be HIGH eventually.
+- If <ready signal> is HIGH, then <valid signal> must be LOW in the next cycle.

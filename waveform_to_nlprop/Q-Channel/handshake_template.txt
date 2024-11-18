@@ -1,0 +1,2 @@
+- <signal> is only permitted to change from HIGH to LOW when <condition>.
+- <signal> is only permitted to change from LOW to HIGH when <condition>.

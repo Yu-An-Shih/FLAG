@@ -1,0 +1,12 @@
+Q-Channel reset behavior:
+    Trace 1: QREQn LOW during reset
+        The trace executes for 24 clock cycles. Initially at cycle 1, (RESETn, QREQn, QACCEPTn, QDENY) = (LOW, LOW, LOW, LOW). Cycle 4: RESETn turns HIGH. Cycle 7: QREQn turns HIGH. Cycle 10: QACCEPTn turns HIGH. Cycle 16: QREQn turns LOW. Cycle 19: QACCEPTn turns LOW. Cycle 22: RESETn turns LOW.
+    Trace 2: QREQn HIGH during reset
+        The trace executes for 21 clock cycles. Initially at cycle 1, (RESETn, QREQn, QACCEPTn, QDENY) = (LOW, HIGH, LOW, LOW). Cycle 4: RESETn turns HIGH. Cycle 7: QACCEPTn turns HIGH. Cycle 13: QREQn turns LOW. Cycle 16: QACCEPTn turns LOW. Cycle 19: RESETn turns LOW.
+    Signal descriptions:
+        RESETn: Active-low reset signal.
+        QREQn (source: power controller): Active-low quiescence request signal.
+        QACCEPTn (source: device): Active-low quiescence acceptance signal.
+        QDENY (source: device): Active-high quiescence denial signal.
+    Instructions:
+        1. What rules should be followed during reset?

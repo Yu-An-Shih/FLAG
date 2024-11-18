@@ -1,0 +1,12 @@
+WISHBONE reset behavior:
+    Trace:
+        RST_I: 0 1 1 0 0
+        STB_I: X X 0 0 X
+        CYC_I: X X 0 0 X
+        X means the signal can evaluate to any value at that cycle.
+    Signal descriptions:
+        RST_I: Active-high reset signal.
+        STB_I (source: master): Active-high strobe signal.
+        CYC_I (source: master): Active-high cycle signal.
+    Instructions:
+        1. Please focus on how RST_I affect other signals.
