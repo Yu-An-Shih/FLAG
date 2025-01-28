@@ -1,0 +1,33 @@
+{
+    "signals": [
+        { "name": "VALID", "type": "signal" },
+        { "name": "READY", "type": "signal" },
+        { "name": "INFORMATION", "type": "bus", "width": 2 }
+    ],
+    "waveforms": [
+        {
+            "name": "VALID/READY handshake (VALID before READY)",
+            "signals": [
+                { "name": "VALID", "type": "signal", "values": [0, 1, 1, 0] },
+                { "name": "READY", "type": "signal", "values": [0, 0, 1, 0] },
+                { "name": "INFORMATION", "type": "bus", "width": 2, "values": ["X", "V1", "V1", "X"] }
+            ]
+        },
+        {
+            "name": "VALID/READY handshake (READY before VALID)",
+            "signals": [
+                { "name": "VALID", "type": "signal", "values": [0, 0, 1, 0] },
+                { "name": "READY", "type": "signal", "values": [1, 1, 1, 0] },
+                { "name": "INFORMATION", "type": "bus", "width": 2, "values": ["X", "X", "V1", "X"] }
+            ]
+        },
+        {
+            "name": "VALID/READY handshake (VALID with READY)",
+            "signals": [
+                { "name": "VALID", "type": "signal", "values": [0, 1, 0, 0] },
+                { "name": "READY", "type": "signal", "values": [0, 1, 0, 0] },
+                { "name": "INFORMATION", "type": "bus", "width": 2, "values": ["X", "V1", "X", "X"] }
+            ]
+        }
+    ]
+}
