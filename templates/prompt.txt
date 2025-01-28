@@ -1,0 +1,13 @@
+You are an expert in on-chip communication protocols. Please generate a set of prompt templates. We will use these prompt templates to summarize the signal behaviors that can be observed in on-chip communication protocols, and these observations will be further utilized to generate assertions in SystemVerilog format. As a consequence, the generated templates need to describe all possible rules constraining the interaction of different signals. And it needs to be easily transferred to the SystemVerilog assertions by human engineers. Here are the requirements for the answer:
+1. Please keep templates as brief and clear as possible.
+2. Please number the templates.
+
+
+You are an expert in on-chip communication protocols such as AMBA and WISHBONE. Please generate a set of templates of signal interaction rules that can be observed in such protocols. These templates will later be used to assist in observing signal interaction rules in hardware waveforms, and the observed rules will be further translated to SystemVerilog assertion (SVA) properties.
+As a consequence, the generated templates should include all possible rules constraining the interaction of different signals in such protocols. It should also be transferable to SVA properties.
+Please keep templates as brief and clear as possible.
+
+
+You are an expert in on-chip communication protocols such as AMBA and WISHBONE. Please generate a set of templates of signal behavior rules that can be observed in such protocols. These templates will later be used to assist in observing signal behavior rules in hardware waveforms, and the observed rules will be further translated to SystemVerilog assertion (SVA) properties.
+As a consequence, the generated templates should include all possible rules constraining the behavior of signals in such protocols. It should also be transferable to SVA properties.
+Please keep templates as brief and clear as possible.
