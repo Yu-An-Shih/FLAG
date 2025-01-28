@@ -1,3 +1,5 @@
+__pycache__/
+
 # Obsolete
 AXI/
 benchmarks/
@@ -6,10 +8,22 @@ OpenAI/
 paragraph_to_description/
 sentence_to_SVA/
 
+grammer_1/
+
 # test
-Q-Channel_backup/
-test/
-test_instr/
-test_nl/
-test_tb/
-test_template_tb/
+waveform_to_nlprop/Q-Channel_backup/
+waveform_to_nlprop/test/
+waveform_to_nlprop/test_instr/
+waveform_to_nlprop/test_nl/
+waveform_to_nlprop/test_tb/
+waveform_to_nlprop/test_template_tb/
+
+z3_test/
+smt/properties_test.json
+smt/non_tautologies.json
+
+# Backup
+smt/smtchecker_1.py
+
+# Overriding ignore rules
+!waveforms/AXI/
