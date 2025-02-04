@@ -48,7 +48,54 @@ class SMTChecker:
                 non_tautologies.append(property)
         
         self._properties = non_tautologies
+
+        print('Properties after removing tautologies:', len(self._properties))
+
+        # with open('non_tautologies.json', 'w') as f:
+        #     import json
+        #     json.dump(self._properties, f, indent=4)
+        # sys.exit(0)
+
     
+    def _removeDuplicates(self) -> None:
+        ### Remove duplicate properties ###
+
+        # Create an unconstrained waveform
+        signals_new = []
+        for signal in self._waveforms[0]['signals']:
+            signal_new = signal.copy()
+            signal_new['values'] = ['X', 'X', 'X']
+            signals_new.append(signal_new)
+        waveform = {'name': self._waveforms[0]['name'], 'signals': signals_new}
+
+        # Create waverform variables
+        self._createVars(waveform)
+
+        # DON'T encode waveform constraints
+        # self._encodeWaveformConstraints(waveform)
+        
+        unique_props = []
+        for property in self._properties:
+            unique = True
+            for unique_prop in unique_props:
+                # encode1 = self._encodeProp_localize(property['ast'], 0)
+                # encode2 = self._encodeProp_localize(unique_prop['ast'], 0)
+                # if Solver().check(Not(And(Implies(encode1, encode2), Implies(encode2, encode1)))) == z3.unsat:
+                if Solver().check(self._encodeProp_localize(property['ast'], 0) != self._encodeProp_localize(unique_prop['ast'], 0)) == z3.unsat:
+                    unique = False
+                    break
+            if unique:
+                unique_props.append(property)
+        
+        self._properties = unique_props
+
+        print('Properties after removing duplicates:', len(self._properties))
+
+        # with open('unique.json', 'w') as f:
+        #     import json
+        #     json.dump(self._properties, f, indent=4)
+        #sys.exit(0)
+
 
     def _createVars(self, waveform: dict) -> None:
         ### Create waveform variables ###
@@ -152,13 +199,6 @@ class SMTChecker:
         
         # Remove tautologies
         self._removeTautologies()
-
-        print('Properties after removing tautologies:', len(self._properties))
-
-        # with open('non_tautologies.json', 'w') as f:
-        #     import json
-        #     json.dump(self._properties, f, indent=4)
-        # sys.exit(0)
         
         for waveform in self._waveforms:
             # Create waveform variables
@@ -184,6 +224,9 @@ class SMTChecker:
             self._solver.reset()
 
             print(f'Properties held after waveform \'{waveform['name']}\':', len(self._properties))
+        
+        # Remove duplicates
+        #self._removeDuplicates()
 
 
     def getProperties_LTL(self) -> list:
