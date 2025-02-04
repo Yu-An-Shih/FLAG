@@ -1,0 +1,32 @@
+{
+    "signals": [
+        { "name": "CSYSREQ", "type": "signal" },
+        { "name": "CSYSACK", "type": "signal" },
+        { "name": "CACTIVE", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "CSYREQ and CSYSACK handshake",
+            "signals": [
+                { "name": "CSYSREQ", "type": "signal", "values": [1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1] },
+                { "name": "CSYSACK", "type": "signal", "values": [1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1] }
+            ]
+        },
+        {
+            "name": "Acceptance of a low-power request",
+            "signals": [
+                { "name": "CSYSREQ", "type": "signal", "values": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "CACTIVE", "type": "signal", "values": [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1] },
+                { "name": "CSYSACK", "type": "signal", "values": [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1] }
+            ]
+        },
+        {
+            "name": "Denial of a low-power request",
+            "signals": [
+                { "name": "CSYSREQ", "type": "signal", "values": [1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1] },
+                { "name": "CACTIVE", "type": "signal", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "CSYSACK", "type": "signal", "values": [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1] }
+            ]
+        }
+    ]
+}

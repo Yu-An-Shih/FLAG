@@ -1,0 +1,17 @@
+Valid/Ready handshake:
+- If VALID is HIGH and READY is LOW, then VALID is HIGH in the next cycle.
+- If VALID is HIGH and READY is LOW, then INFORMATION must remain stable in the next cycle.
+- If VALID is HIGH, then INFORMATION should not be X.
+
+Exit from reset:
+- If ARESETn is LOW, then VALID must be LOW.
+- If ARESETn changes from LOW to HIGH, then VALID must be LOW.
+
+Low-power handshake:
+- If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH (in the previous cycle).
+- If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW (in the previous cycle).
+- If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW (in the previous cycle).
+- If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH (in the previous cycle).
+Or, 
+- If CSYSREQ is permitted to change from HIGH to LOW, then CSYSACK is HIGH.
+...

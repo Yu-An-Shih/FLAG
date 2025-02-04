@@ -1,0 +1,87 @@
+{
+    "signals":[
+        { "name": "ADR_O", "type": "bus", "width": 32 },
+        { "name": "DAT_I", "type": "bus", "width": 32 },
+        { "name": "DAT_O", "type": "bus", "width": 32 },
+        { "name": "WE_O", "type": "signal" },
+        { "name": "SEL_O", "type": "bus", "width": 4 },
+        { "name": "STB_O", "type": "signal" },
+        { "name": "ACK_I", "type": "signal" },
+        { "name": "CYC_O", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "SINGLE READ cycle",
+            "signals": [
+                { "name": "ADR_O", "type": "bus", "width": 32, "values": ["X", "V1", "V1", "V1", "X"] },
+                { "name": "DAT_I", "type": "bus", "width": 32, "values": ["X", "X", "X", "V2", "X"] },
+                { "name": "DAT_O", "type": "bus", "width": 32, "values": ["X", "X", "X", "X", "X"] },
+                { "name": "WE_O", "type": "signal", "values": ["X", 0, 0, 0, "X"] },
+                { "name": "SEL_O", "type": "bus", "width": 4, "values": ["X", "V3", "V3", "V3", "X"] },
+                { "name": "STB_O", "type": "signal", "values": [0, 1, 1, 1, 0] },
+                { "name": "ACK_I", "type": "signal", "values": [0, 0, 0, 1, 0] },
+                { "name": "CYC_O", "type": "signal", "values": [0, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "SINGLE WRITE cycle",
+            "signals": [
+                { "name": "ADR_O", "type": "bus", "width": 32, "values": ["X", "V1", "V1", "V1", "X"] },
+                { "name": "DAT_I", "type": "bus", "width": 32, "values": ["X", "X", "X", "X", "X"] },
+                { "name": "DAT_O", "type": "bus", "width": 32, "values": ["X", "V2", "V2", "V2", "X"] },
+                { "name": "WE_O", "type": "signal", "values": ["X", 1, 1, 1, "X"] },
+                { "name": "SEL_O", "type": "bus", "width": 4, "values": ["X", "V3", "V3", "V3", "X"] },
+                { "name": "STB_O", "type": "signal", "values": [0, 1, 1, 1, 0] },
+                { "name": "ACK_I", "type": "signal", "values": [0, 0, 0, 1, 0] },
+                { "name": "CYC_O", "type": "signal", "values": [0, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "Use of CYC_O signal during BLOCK cycles",
+            "signals": [
+                { "name": "CYC_O", "type": "signal", "values": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0] },
+                { "name": "STB_O", "type": "signal", "values": [0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0] },
+                { "name": "ACK_I", "type": "signal", "values": [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0] }
+            ]
+        },
+        {
+            "name": "BLOCK READ cycle",
+            "signals": [
+                { "name": "ADR_O", "type": "bus", "width": 32, "values": ["X", "V11", "V12", "X", "X", "V13", "V14", "V15", "V15", "X"] },
+                { "name": "DAT_I", "type": "bus", "width": 32, "values": ["X", "V21", "V22", "X", "X", "V23", "V24", "X", "V25", "X" ] },
+                { "name": "DAT_O", "type": "bus", "width": 32, "values": ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "WE_O", "type": "signal", "values": ["X", 0, 0, 0, 0, 0, 0, 0, 0, "X"] },
+                { "name": "SEL_O", "type": "bus", "width": 4, "values": ["X", "V51", "V52", "X", "X", "V53", "V54", "V55", "V55", "X"] },
+                { "name": "STB_O", "type": "signal", "values": [0, 1, 1, 0, 0, 1, 1, 1, 1, 0] },
+                { "name": "ACK_I", "type": "signal", "values": [0, 1, 1, 0, 0, 1, 1, 0, 1, 0] },
+                { "name": "CYC_O", "type": "signal", "values": [0, 1, 1, 1, 1, 1, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "BLOCK WRITE cycle",
+            "signals": [
+                { "name": "ADR_O", "type": "bus", "width": 32, "values": ["X", "V11", "V12", "X", "X", "V13", "V14", "V15", "V15", "X"] },
+                { "name": "DAT_I", "type": "bus", "width": 32, "values": ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "DAT_O", "type": "bus", "width": 32, "values": ["X", "V31", "V32", "X", "X", "V33", "V34", "V35", "V35", "X"] },
+                { "name": "WE_O", "type": "signal", "values": ["X", 1, 1, 1, 1, 1, 1, 1, 1, "X"] },
+                { "name": "SEL_O", "type": "bus", "width": 4, "values": ["X", "V51", "V52", "X", "X", "V53", "V54", "V55", "V55", "X"] },
+                { "name": "STB_O", "type": "signal", "values": [0, 1, 1, 0, 0, 1, 1, 1, 1, 0] },
+                { "name": "ACK_I", "type": "signal", "values": [0, 1, 1, 0, 0, 1, 1, 0, 1, 0] },
+                { "name": "CYC_O", "type": "signal", "values": [0, 1, 1, 1, 1, 1, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "RMW cycle",
+            "signals": [
+                { "name": "ADR_O", "type": "bus", "width": 32, "values": ["X", "V1", "V1", "V1", "V1", "V1", "X"] },
+                { "name": "DAT_I", "type": "bus", "width": 32, "values": ["X", "V2", "X", "X", "X", "X", "X"] },
+                { "name": "DAT_O", "type": "bus", "width": 32, "values": ["X", "X", "X", "X", "V3", "V3", "X"] },
+                { "name": "WE_O", "type": "signal", "values": ["X", 0, "X", "X", 1, 1, "X"] },
+                { "name": "SEL_O", "type": "bus", "width": 4, "values": ["X", "V51", "X", "X", "V52", "V52", "X"] },
+                { "name": "STB_O", "type": "signal", "values": [0, 1, 0, 0, 1, 1, 0] },
+                { "name": "ACK_I", "type": "signal", "values": [0, 1, 0, 0, 0, 1, 0] },
+                { "name": "CYC_O", "type": "signal", "values": [0, 1, 1, 1, 1, 1, 0] }
+            ]
+        }
+    ]
+}

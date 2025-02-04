@@ -1,0 +1,25 @@
+{
+    "signals": [
+        { "name": "QREQn", "type": "signal" },
+        { "name": "QACCEPTn", "type": "signal" },
+        { "name": "QDENY", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Q-Channel accepted quiescence request sequence",
+            "signals": [
+                { "name": "QREQn", "type": "signal", "values": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1] },
+                { "name": "QACCEPTn", "type": "signal", "values": [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] },
+                { "name": "QDENY", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Q-Channel denied quiescence request sequence",
+            "signals": [
+                { "name": "QREQn", "type": "signal", "values": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "QACCEPTn", "type": "signal", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "QDENY", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0] }
+            ]
+        }
+    ]
+}

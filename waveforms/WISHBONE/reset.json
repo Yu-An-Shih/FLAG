@@ -1,0 +1,17 @@
+{
+    "signals": [
+        { "name": "RST_I", "type": "signal" },
+        { "name": "STB_O", "type": "signal" },
+        { "name": "CYC_O", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Reset cycle",
+            "signals": [
+                { "name": "RST_I", "type": "signal", "values": [0, 1, 1, 0, 0] },
+                { "name": "STB_O", "type": "signal", "values": ["X", "X", 0, 0, "X"] },
+                { "name": "CYC_O", "type": "signal", "values": ["X", "X", 0, 0, "X"] }
+            ]
+        }
+    ]
+}

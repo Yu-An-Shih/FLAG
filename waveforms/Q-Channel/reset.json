@@ -1,0 +1,28 @@
+{
+    "signals": [
+        { "name": "RESETn", "type": "signal" },
+        { "name": "QREQn", "type": "signal" },
+        { "name": "QACCEPTn", "type": "signal" },
+        { "name": "QDENY", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "QREQn LOW at reset deassertion",
+            "signals": [
+                { "name": "RESETn", "type": "signal", "values": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0] },
+                { "name": "QREQn", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "QACCEPTn", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0] },
+                { "name": "QDENY", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "QREQn HIGH at reset deassertion",
+            "signals": [
+                { "name": "RESETn", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0] },
+                { "name": "QREQn", "type": "signal", "values": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "QACCEPTn", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0] },
+                { "name": "QDENY", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        }
+    ]
+}

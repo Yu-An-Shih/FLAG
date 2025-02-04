@@ -1,0 +1,17 @@
+{
+    "signals": [
+        { "name": "CYC_O", "type": "signal" },
+        { "name": "STB_O", "type": "signal" },
+        { "name": "ACK_I", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Use of CYC_O signal during BLOCK cycles",
+            "signals": [
+                { "name": "CYC_O", "type": "signal", "values": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0] },
+                { "name": "STB_O", "type": "signal", "values": [0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0] },
+                { "name": "ACK_I", "type": "signal", "values": [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0] }
+            ]
+        }
+    ]
+}

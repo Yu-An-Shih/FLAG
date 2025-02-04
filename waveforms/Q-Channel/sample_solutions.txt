@@ -1,0 +1,12 @@
+Handshake:
+- If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH and QDENY is LOW (in the previous cycle).
+- If QREQn changes from LOW to HIGH, then either QACCEPTn is LOW and QDENY is LOW, or QACCEPTn is HIGH and QDENY is HIGH (in the previous cycle).
+  + Or: If QREQn changes from LOW to HIGH, then either QACCEPTn is LOW or QDENY is HIGH (in the previous cycle).
+- If QACCEPTn changes from HIGH to LOW, then QREQn is LOW and QDENY is LOW (in the previous cycle).
+- If QACCEPTn changes from LOW to HIGH, then QREQn is HIGH and QDENY is LOW (in the previous cycle).
+- If QDENY changes from HIGH to LOW, then QREQn is HIGH and QACCEPTn is HIGH (in the previous cycle).
+- If QDENY changes from LOW to HIGH, then QREQn is LOW and QACCEPTn is HIGH (in the previous cycle).
+
+Reset:
+- If RESETn is LOW, then QACCEPTn is LOW.
+- If RESETn is LOW, then QDENY is LOW.

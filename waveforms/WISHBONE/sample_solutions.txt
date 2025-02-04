@@ -1,0 +1,15 @@
+Reset:
+- If RST_I is HIGH, then STB_O is LOW in the next cycle.
+- If RST_I is HIGH, then CYC_O is LOW in the next cycle.
+
+Data transfer:
+- If STB_O is HIGH and ACK_I is LOW, then STB_O should be HIGH in the next cycle.
+- If STB_O is HIGH and ACK_I is LOW, then ADR_O should remain stable in the next cycle.
+- If STB_O is HIGH and ACK_I is LOW, then WE_O should remain stable in the next cycle.
+- If STB_O is HIGH and ACK_I is LOW, then SEL_O should remain stable in the next cycle.
+- If STB_O is HIGH, ACK_I is LOW and WE_O is HIGH, then DAT_O should remain stable in the next cycle.
+(- If STB_O changes from LOW to HIGH, then ACK_I must be HIGH eventually.)
+(- If STB_O is HIGH, then CYC_I is HIGH.)
+
+STB vs CYC:
+- If STB_O is HIGH, then CYC_I is HIGH.
