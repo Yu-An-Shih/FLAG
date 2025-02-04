@@ -1,5 +1,6 @@
 from itertools import product
 import sys
+from typing import Callable
 
 sys.path.append('../util')
 import ast2concrete
@@ -24,6 +25,27 @@ class Temp2Prop:
         self._run()
 
 
+    def _check_communicative_order(self, ast: dict, operator: str, comparator: Callable[[str, str], bool]) -> bool:
+        ### Check if the template/property maintains the communicative order of the operators ###
+
+        if ast['type'] == 'basic':
+            return True
+        else:
+            assert ast['type'] == 'operator'
+            
+            if ast['operator'] == operator:
+                # NOTE: Assume there are no nested operators of the same type
+                operand_list = [ast2concrete.ast_to_ltl(operand) for operand in ast['operands']]
+                if not all(comparator(operand_list[i], operand_list[i+1]) for i in range(len(operand_list)-1)):
+                    return False
+            
+            for operand in ast['operands']:
+                if self._check_communicative_order(operand, operator, comparator) == False:
+                    return False
+            
+            return True
+
+
     def _substitute(self, phrase: dict) -> list:
         ### Substitute the signal values into the template and return properties ###
         # WARNING: This function should be modified or extended if new operators are added to the grammar
@@ -33,8 +55,9 @@ class Temp2Prop:
             match phrase['operator']:
                 case '==' | '!=':
                     assert phrase['operands'][0]['variable'] == 'signal/bus' and phrase['operands'][1]['variable'] == 'level/value'
-                    for signal in self._signals:
-                        new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}, {'type': 'variable', 'variable': str(i)}]} for i in [0, 1]]
+                    if phrase['operator'] == '==':  # NOTE: '!=' is not considered to avoid redundancy
+                        for signal in self._signals:
+                            new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}, {'type': 'variable', 'variable': str(i)}]} for i in [0, 1]]
                     for bus, width in self._buses:
                         new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': bus}, {'type': 'variable', 'variable': str(i)}]} for i in range(2**width)]
                 case '$rose' | '$fell':
@@ -67,14 +90,34 @@ class Temp2Prop:
     def _run(self):
         ### Generate the properties ###
 
+        # Remove duplicate templates
+        valid_templates = []
+        for template in self._templates:
+            if self._check_communicative_order(template['ast'], 'Or', lambda x, y: x <= y) and self._check_communicative_order(template['ast'], 'And', lambda x, y: x <= y):
+                valid_templates.append(template)
+        self._templates = valid_templates
+        
+        # Generate properties from templates
         properties = []
         for template in self._templates:
             properties += self._substitute(template['ast'])
         
         for property in properties:
             self._properties.append({'nl': ast2concrete.ast_to_nl(property), 'ltl': ast2concrete.ast_to_ltl(property), 'ast': property})
+        
+        # Remove duplicate properties
+        valid_properties = []
+        for property in self._properties:
+            if self._check_communicative_order(property['ast'], 'Or', lambda x, y: x < y) and self._check_communicative_order(property['ast'], 'And', lambda x, y: x < y):
+                valid_properties.append(property)
+        self._properties = valid_properties
 
 
+    def getTemplates_LTL(self) -> list:
+        ### Return the generated templates in LTL format ###
+
+        return [template['ltl'] for template in self._templates]
+    
     def getProperties_LTL(self) -> list:
         ### Return the generated properties in LTL format ###
 

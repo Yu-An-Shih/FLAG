@@ -3,6 +3,7 @@ import json
 from temp2prop import Temp2Prop
 
 DATA_DIR = '/scratch/gpfs/ys3146/Workspace/spec_to_SVA'
+PROP_DIR = f"{DATA_DIR}/candidate_props"
 
 def main():
     # TODO: command line argument parser (argparse)
@@ -19,14 +20,20 @@ def main():
     t2p = Temp2Prop(signals, templates)
     properties = t2p.getProperties()
 
+    print("Number of properties:", len(properties))
+
+    # Print the updated (filtered) templates
+    with open(f"{PROP_DIR}/filtered_templates_LTL.json", "w") as f:
+        json.dump(t2p.getTemplates_LTL(), f, indent=4)
+
     # Write the properties
-    with open(f"{DATA_DIR}/candidate_props/properties.json", "w") as f:
+    with open(f"{PROP_DIR}/properties.json", "w") as f:
         json.dump(properties, f, indent=4)
     
-    with open(f"{DATA_DIR}/candidate_props/properties_LTL.json", "w") as f:
+    with open(f"{PROP_DIR}/properties_LTL.json", "w") as f:
         json.dump(t2p.getProperties_LTL(), f, indent=4)
 
-    with open(f"{DATA_DIR}/candidate_props/properties_NL.json", "w") as f:
+    with open(f"{PROP_DIR}/properties_NL.json", "w") as f:
         json.dump(t2p.getProperties_NL(), f, indent=4)
 
 if __name__ == '__main__':
