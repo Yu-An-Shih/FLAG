@@ -1,0 +1,50 @@
+Bus Transactions (Figure 3-5, 3-6):
+  Auxiliary signals: READ_TRANS, WRITE_TRANS
+                     Adress phase, data phase (read vs write phase?), last data phase?
+- If DATA_PHASE and (IRDY# / TRDY#) is HIGH, then C/BE# must remain stable in the next cycle.
+- (Turnaround cycle) If ADDR_PHASE and READ_TRANS, then TRDY# must be HIGH in the next cycle.
+                     Or: If $rose(READ_DATA_PHASE), then TRDY# must be HIGH.
+- If TRDY# is LOW, then DEVSEL# must be LOW.
+  (Or: If $fell(TRDY#), then DEVSEL# must be LOW.)?
+- If $rose(FRAME#), then IDRY# must be LOW.
+  Or: If FRAME# is LOW, then (either FRAME# remains LOW or IRDY# is LOW) in the next cycle.
+
+(Not described by text)
+- If READ_DATA_PHASE, TRDY# is LOW and IRDY# is HIGH, then AD must remain stable in the next cycle.
+- If WRITE_DATA_PHASE, IRDY# is LOW and TRDY# is HIGH, then AD must remain stable in the next cycle.
+
+- If $fell(DEVSEL#), then FRAME must be LOW in the previous cycle.
+
+
+Master Initiated Termination (Figure 3-7, 3-8):
+(- (master-abort) If $fell(FRAME#), then $rose(IRDY#) is not allowed within five clock cycles.)
+
+(Rule 2 on page 51)
+- If $fell(FRAME#), then IDRY# must be HIGH in the previous cycle.
+  Or: If FRAME# is HIGH and IDRY# is LOW, then FRAME# must remain HIGH in the next cycle.
+(Rule 3 on page 51)
+- (repeated) If $rose(FRAME#), then IDRY# must be LOW.
+(Rule 4 on page 51)
+- If IRDY# is LOW, TRDY# is HIGH and DEVSEL# is LOW, then IRDY# must remain LOW in the next cycle.
+- If FRAME# is LOW, IRDY# is LOW, TRDY# is HIGH and DEVSEL# is LOW, then FRAME# must remain LOW in the next cycle.
+- (subsumption) If FRAME# is HIGH, IRDY# is LOW, TRDY# is HIGH and DEVSEL# is LOW, then FRAME# must remain HIGH in the next cycle.
+(Rule 5 on page 51)
+- If FRAME# is HIGH, IRDY# is LOW and TRDY# is LOW, then IRDY# is HIGH in the next cycle.
+
+
+Target Initiated Termination (Figure 3-9 ~ 3-14):
+(Rule 3 on page 53)
+- If STOP# is LOW and FRAME# is LOW, then STOP remains LOW in the next cycle.
+- If STOP# is LOW and FRAME# is HIGH, then STOP should be HIGH in the next cycle.
+(Rule 4 on page 53)
+- If (TRDY# / STOP#) is LOW and IRDY# is HIGH, then (DEVSEL# / TRDY# / STOP#) remains stable in the next cycle.
+(Rule 5 on page 53)
+- If $past(STOP#) is LOW and IRDY# is LOW, then FRAME# is HIGH.
+(Rule 6 on page 54)
+- If FRAME# is HIGH, IRDY# is LOW and (TRDY# / STOP#) is LOW, then (TRDY# / STOP# / DEVSEL#) should be HIGH in the next cycle.
+
+(Not described by text)
+What is the condition when DEVSEL# is allowed to be asserted/deasserted? What are the effects?
+What are the conditions when STOP# is allowed to be asserted?
+
+Excercise: Try creating an invalid sequence which bypasses all the rules above.

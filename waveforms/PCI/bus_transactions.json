@@ -1,0 +1,31 @@
+{
+    "signals": [],
+    "waveforms": [
+        {
+            "name": "Figure 3-5: Basic Read Operation",
+            "signals": [
+                { "name": "FRAME#", "type": "signal", "values": [1, 0, 0, 0, 0, 0, 0, 1, 1] },
+                { "name": "AD", "type": "bus", "width": 32, "values": ["X", "VA", "X", "VD1", "X", "VD2", "VD3", "VD3", "X"] },
+                { "name": "C/BE#", "type": "bus", "width": 4, "values": ["X", 10, "VB", "VB", "VB", "VB", "VB", "VB", "X"] },
+                { "name": "IRDY#", "type": "signal", "values": [1, 1, 0, 0, 0, 0, 1, 0, 1] },
+                { "name": "TRDY#", "type": "signal", "values": [1, 1, 1, 0, 1, 0, 0, 0, 1] },
+                { "name": "DEVSEL#", "type": "signal", "values": [1, 1, 0, 0, 0, 0, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-6: Basic Write Operation",
+            "signals": [
+                { "name": "FRAME#", "type": "signal", "values": [1, 0, 0, 0, 0, 1, 1, 1, 1] },
+                { "name": "AD", "type": "bus", "width": 32, "values": ["X", "VA", "VD1", "VD2", "X", "VD3", "VD3", "VD3", "X"] },
+                { "name": "C/BE#", "type": "bus", "width": 4, "values": ["X", 11, "VB1", "VB2", "VB3", "VB3", "VB3", "VB3", "X"] },
+                { "name": "IRDY#", "type": "signal", "values": [1, 1, 0, 0, 1, 0, 0, 0, 1] },
+                { "name": "TRDY#", "type": "signal", "values": [1, 1, 0, 0, 1, 1, 1, 0, 1] },
+                { "name": "DEVSEL#", "type": "signal", "values": [1, 1, 0, 0, 0, 0, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-7: Master Initiated Termination",
+            "signals": []
+        }
+    ]
+}
