@@ -1,6 +1,5 @@
 Bus Transactions (Figure 3-5, 3-6):
-  Auxiliary signals: READ_TRANS, WRITE_TRANS
-                     Adress phase, data phase (read vs write phase?), last data phase?
+  Auxiliary signals: ADDR_PHASE, READ_DATA_PHASE, WRITE_DATA_PHASE
 - If DATA_PHASE and (IRDY# / TRDY#) is HIGH, then C/BE# must remain stable in the next cycle.
 - (Turnaround cycle) If ADDR_PHASE and READ_TRANS, then TRDY# must be HIGH in the next cycle.
                      Or: If $rose(READ_DATA_PHASE), then TRDY# must be HIGH.
