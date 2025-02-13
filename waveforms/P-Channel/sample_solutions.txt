@@ -1,0 +1,18 @@
+Handshake (Figure 3-2, 3-3, 3-7, 3-14):
+(Handshake Rules on page 3-47)
+- If PREQ is LOW and (PACCEPT / PDENY) is HIGH, then PREQ should remain LOW in the next cycle.
+- If PREQ is HIGH, PACCEPT is LOW and PDENY is LOW, then PREQ should remain HIGH in the next cycle.
+- If PACCEPT is LOW and (PREQ is LOW / PDENY is HIGH), then PACCEPT should remain LOW in the next cycle.
+- If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT should remain HIGH in the next cycle.
+- If PDENY is LOW and (PREQ is LOW / PACCEPT is HIGH), the PDENY should remain LOW in the next cycle.
+- If PDENY is HIGH and PREQ is HIGH, then PDENY should remain HIGH in the next cycle.
+- If PREQ is HIGH, (PACCEPT is LOW) and PDENY is LOW, then PSTATE should remain stable in the next cycle.
+
+- (How to interpret?) PACCEPT and PDENY should not (be HIGH / rise) at the same time.
+
+Q: Should PSTATE return to state A if request is denied?
+
+Reset (Figure 3-4, 3-5, 3-6):
+- If RESETn is LOW, then PACCEPT is LOW.
+- If RESETn is LOW, then PDENY is LOW.
+(- If RESETn is HIGH and (PREQ / PACCEPT / PDENY) is HIGH, then RESETn shuld remain HIGH in the next cycle.)
