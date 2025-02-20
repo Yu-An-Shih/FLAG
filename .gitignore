@@ -9,6 +9,8 @@ paragraph_to_description/
 sentence_to_SVA/
 
 grammer_1/
+property_gen/
+smt/
 
 # test
 waveform_to_nlprop/Q-Channel_backup/
