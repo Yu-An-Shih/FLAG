@@ -4,15 +4,15 @@ from z3 import *
 
 class SMTChecker:
 
-    def __init__(self, signals: list, waveforms: list, properties: list):
+    def __init__(self, waveform_info: dict, properties: list):
         ### Initialize the SMTCheck object ###
         
-        self._signals = signals
-        self._waveforms = waveforms
+        self._signals = waveform_info['signals']
+        self._waveforms = waveform_info['waveforms']
         self._properties = properties
         
-        # Signals information (for removing tautologies)
-        self._sigvars = dict()
+        # Signals information
+        self._sigwidths = {signal['name']: signal['width'] if 'width' in signal else 1 for signal in self._signals}
         
         self._solver = Solver()
         
@@ -21,80 +21,6 @@ class SMTChecker:
         self._cycles = 0
 
         self._run()
-    
-
-    def _removeTautologies(self) -> None:
-        ### Remove tautologies from the property list ###
-
-        # Create an unconstrained waveform
-        signals_new = []
-        for signal in self._waveforms[0]['signals']:
-            signal_new = signal.copy()
-            signal_new['values'] = ['X', 'X', 'X']
-            signals_new.append(signal_new)
-        waveform = {'name': self._waveforms[0]['name'], 'signals': signals_new}
-
-        # Create waverform variables
-        self._createVars(waveform)
-
-        # DON'T encode waveform constraints
-        # self._encodeWaveformConstraints(waveform)
-
-        non_tautologies = []
-        for property in self._properties:
-            # A property is a tauology iff it holds on any (a.k.a. unconstrained) waveform
-            # A property holds on a waveform iff it's negation is unsatisfiable
-            if Solver().check(Not(self._encodeProp_localize(property['ast'], 0))) != z3.unsat:
-                non_tautologies.append(property)
-        
-        self._properties = non_tautologies
-
-        print('Properties after removing tautologies:', len(self._properties))
-
-        # with open('non_tautologies.json', 'w') as f:
-        #     import json
-        #     json.dump(self._properties, f, indent=4)
-        # sys.exit(0)
-
-    
-    def _removeDuplicates(self) -> None:
-        ### Remove duplicate properties ###
-
-        # Create an unconstrained waveform
-        signals_new = []
-        for signal in self._waveforms[0]['signals']:
-            signal_new = signal.copy()
-            signal_new['values'] = ['X', 'X', 'X']
-            signals_new.append(signal_new)
-        waveform = {'name': self._waveforms[0]['name'], 'signals': signals_new}
-
-        # Create waverform variables
-        self._createVars(waveform)
-
-        # DON'T encode waveform constraints
-        # self._encodeWaveformConstraints(waveform)
-        
-        unique_props = []
-        for property in self._properties:
-            unique = True
-            for unique_prop in unique_props:
-                # encode1 = self._encodeProp_localize(property['ast'], 0)
-                # encode2 = self._encodeProp_localize(unique_prop['ast'], 0)
-                # if Solver().check(Not(And(Implies(encode1, encode2), Implies(encode2, encode1)))) == z3.unsat:
-                if Solver().check(self._encodeProp_localize(property['ast'], 0) != self._encodeProp_localize(unique_prop['ast'], 0)) == z3.unsat:
-                    unique = False
-                    break
-            if unique:
-                unique_props.append(property)
-        
-        self._properties = unique_props
-
-        print('Properties after removing duplicates:', len(self._properties))
-
-        # with open('unique.json', 'w') as f:
-        #     import json
-        #     json.dump(self._properties, f, indent=4)
-        #sys.exit(0)
 
 
     def _createVars(self, waveform: dict) -> None:
@@ -104,7 +30,7 @@ class SMTChecker:
         self._cycles = len(waveform['signals'][0]['values'])
         
         for signal in waveform['signals']:
-            width = signal['width'] if 'width' in signal else 1
+            width = self._sigwidths[signal['name']]
 
             self._variables[signal['name']] = [ BitVec('%s_%s' % (signal['name'], t), width) for t in range(self._cycles) ]
         
@@ -192,6 +118,78 @@ class SMTChecker:
             raise ValueError(f"Invalid AST type: {ast['type']}")
 
 
+    def _removeTautologies(self) -> None:
+        ### Remove tautologies from the property list ###
+
+        # Create an unconstrained waveform
+        unconstrained_signals = [{'name': signal['name'], 'values': ['X', 'X', 'X']} for signal in self._signals]
+        waveform = {'name': 'unconstrained', 'signals': unconstrained_signals}
+
+        # Create waverform variables
+        self._createVars(waveform)
+
+        # DON'T encode waveform constraints
+        # self._encodeWaveformConstraints(waveform)
+
+        non_tautologies = []
+        for property in self._properties:
+            # A property is a tauology iff it holds on any (a.k.a. unconstrained) waveform
+            # A property holds on a waveform iff it's negation is unsatisfiable
+            if Solver().check(Not(self._encodeProp_localize(property['ast'], 0))) != z3.unsat:
+                non_tautologies.append(property)
+        
+        self._properties = non_tautologies
+
+        print('Properties after removing tautologies:', len(self._properties))
+
+        # with open('non_tautologies.json', 'w') as f:
+        #     import json
+        #     json.dump(self._properties, f, indent=4)
+        # sys.exit(0)
+
+    
+    """
+    def _removeDuplicates(self) -> None:
+        ### Remove duplicate properties ###
+
+        # Create an unconstrained waveform
+        signals_new = []
+        for signal in self._waveforms[0]['signals']:
+            signal_new = signal.copy()
+            signal_new['values'] = ['X', 'X', 'X']
+            signals_new.append(signal_new)
+        waveform = {'name': self._waveforms[0]['name'], 'signals': signals_new}
+
+        # Create waverform variables
+        self._createVars(waveform)
+
+        # DON'T encode waveform constraints
+        # self._encodeWaveformConstraints(waveform)
+        
+        unique_props = []
+        for property in self._properties:
+            unique = True
+            for unique_prop in unique_props:
+                # encode1 = self._encodeProp_localize(property['ast'], 0)
+                # encode2 = self._encodeProp_localize(unique_prop['ast'], 0)
+                # if Solver().check(Not(And(Implies(encode1, encode2), Implies(encode2, encode1)))) == z3.unsat:
+                if Solver().check(self._encodeProp_localize(property['ast'], 0) != self._encodeProp_localize(unique_prop['ast'], 0)) == z3.unsat:
+                    unique = False
+                    break
+            if unique:
+                unique_props.append(property)
+        
+        self._properties = unique_props
+
+        print('Properties after removing duplicates:', len(self._properties))
+
+        # with open('unique.json', 'w') as f:
+        #     import json
+        #     json.dump(self._properties, f, indent=4)
+        #sys.exit(0)
+    """
+    
+
     def _run(self):
         ### Run the SMT check to filter out invalid properties ###
 
@@ -200,6 +198,7 @@ class SMTChecker:
         # Remove tautologies
         self._removeTautologies()
         
+        # Check properties for each waveform
         for waveform in self._waveforms:
             # Create waveform variables
             self._createVars(waveform)
