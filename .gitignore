@@ -11,6 +11,7 @@ sentence_to_SVA/
 grammer_1/
 property_gen/
 smt/
+util/
 
 # test
 waveform_to_nlprop/Q-Channel_backup/
