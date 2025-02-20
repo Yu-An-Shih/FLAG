@@ -11,12 +11,12 @@ class Temp2Prop:
         ### Initialize the Temp2Prop object ###
 
         self._signals = []
-        self._buses = []
+        self._words = []
         for signal in signals:
             if signal['type'] == 'signal':
                 self._signals.append(signal['name'])
-            elif signal['type'] == 'bus':
-                self._buses.append(tuple([signal['name'], signal['width']]))
+            elif signal['type'] == 'word':
+                self._words.append(tuple([signal['name'], signal['width']]))
 
         self._templates = templates
 
@@ -52,24 +52,32 @@ class Temp2Prop:
 
         new_phrases = []
         if phrase['type'] == 'basic':
+            vartype = phrase['operands'][0]['variable']
+            assert vartype in ['signal', 'word', 'signal/word']
+
+            # NOTE: Python 3.10+ is required for the match-case syntax
             match phrase['operator']:
                 case '==' | '!=':
-                    assert phrase['operands'][0]['variable'] == 'signal/bus' and phrase['operands'][1]['variable'] == 'level/value'
-                    if phrase['operator'] == '==':  # NOTE: '!=' is not considered to avoid redundancy
+                    # NOTE: 'sig != 0' is same as 'sig == 1' -- Only use '==' for signals to avoid redundancy
+                    if phrase['operator'] == '!=':
+                        assert vartype == 'word'
+                    if vartype == 'signal' or vartype == 'signal/word':
                         for signal in self._signals:
                             new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}, {'type': 'variable', 'variable': str(i)}]} for i in [0, 1]]
-                    for bus, width in self._buses:
-                        new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': bus}, {'type': 'variable', 'variable': str(i)}]} for i in range(2**width)]
+                    if vartype == 'word' or vartype == 'signal/word':
+                        for word, width in self._words:
+                            new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': word}, {'type': 'variable', 'variable': str(i)}]} for i in range(2**width)]
                 case '$rose' | '$fell':
-                    assert phrase['operands'][0]['variable'] == 'signal'
+                    assert vartype == 'signal'
                     for signal in self._signals:
                         new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}]})
                 case '$stable':
-                    assert phrase['operands'][0]['variable'] == 'signal/bus'
-                    for signal in self._signals:
-                        new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}]})
-                    for bus, width in self._buses:
-                        new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': bus}]})
+                    if vartype == 'signal' or vartype == 'signal/word':
+                        for signal in self._signals:
+                            new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}]})
+                    if vartype == 'word' or vartype == 'signal/word':
+                        for word, width in self._words:
+                            new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': word}]})
                 case _:
                     raise ValueError(f"Unknown operator: {phrase['operator']}")
         elif phrase['type'] == 'operator':
@@ -78,7 +86,14 @@ class Temp2Prop:
             for operand in phrase['operands']:
                 subphrases_list.append(self._substitute(operand))
             # Enumerate all combinations of the expanded subphrases
-            operand_combinations = list(product(*subphrases_list))
+            if (phrase['operator'] == 'And' or phrase['operator'] == 'Or') and phrase['operands'][0] == phrase['operands'][1]:
+                # Avoid generating redundant combinations for commutative operators
+                # TODO: This is a temporary fix -- Need to find a better way to handle commutative operators
+                operand_combinations = list((x, y) for x, y in product(*subphrases_list) if ast2concrete.ast_to_ltl(x) < ast2concrete.ast_to_ltl(y))
+            else:
+                operand_combinations = list(product(*subphrases_list))
+            #operand_combinations = list(product(*subphrases_list))
+            
             # Expand the operator with each combination of operands
             for new_operands in operand_combinations:
                 new_phrases.append({'type': 'operator', 'operator': phrase['operator'], 'operands': list(new_operands)})
@@ -91,11 +106,11 @@ class Temp2Prop:
         ### Generate the properties ###
 
         # Remove duplicate templates
-        valid_templates = []
-        for template in self._templates:
-            if self._check_communicative_order(template['ast'], 'Or', lambda x, y: x <= y) and self._check_communicative_order(template['ast'], 'And', lambda x, y: x <= y):
-                valid_templates.append(template)
-        self._templates = valid_templates
+        # valid_templates = []
+        # for template in self._templates:
+        #     if self._check_communicative_order(template['ast'], 'Or', lambda x, y: x <= y) and self._check_communicative_order(template['ast'], 'And', lambda x, y: x <= y):
+        #         valid_templates.append(template)
+        # self._templates = valid_templates
         
         # Generate properties from templates
         properties = []
@@ -106,11 +121,11 @@ class Temp2Prop:
             self._properties.append({'nl': ast2concrete.ast_to_nl(property), 'ltl': ast2concrete.ast_to_ltl(property), 'ast': property})
         
         # Remove duplicate properties
-        valid_properties = []
-        for property in self._properties:
-            if self._check_communicative_order(property['ast'], 'Or', lambda x, y: x < y) and self._check_communicative_order(property['ast'], 'And', lambda x, y: x < y):
-                valid_properties.append(property)
-        self._properties = valid_properties
+        # valid_properties = []
+        # for property in self._properties:
+        #     if self._check_communicative_order(property['ast'], 'Or', lambda x, y: x < y) and self._check_communicative_order(property['ast'], 'And', lambda x, y: x < y):
+        #         valid_properties.append(property)
+        # self._properties = valid_properties
 
 
     def getTemplates_LTL(self) -> list:
