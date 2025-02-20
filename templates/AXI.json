@@ -1,0 +1,218 @@
+[
+    {
+        "nl": "If signal == level and signal == level, then signal == level in the next cycle.",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "variable",
+                                            "variable": "signal"
+                                        },
+                                        {
+                                            "type": "variable",
+                                            "variable": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "variable",
+                                            "variable": "signal"
+                                        },
+                                        {
+                                            "type": "variable",
+                                            "variable": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "variable",
+                                            "variable": "signal"
+                                        },
+                                        {
+                                            "type": "variable",
+                                            "variable": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If signal == level and signal == level, then $stable(signal/word) in the next cycle.",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "variable",
+                                            "variable": "signal"
+                                        },
+                                        {
+                                            "type": "variable",
+                                            "variable": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "variable",
+                                            "variable": "signal"
+                                        },
+                                        {
+                                            "type": "variable",
+                                            "variable": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "variable",
+                                            "variable": "signal/word"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If signal == level, then signal == level.",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "variable",
+                                    "variable": "signal"
+                                },
+                                {
+                                    "type": "variable",
+                                    "variable": "level"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "variable",
+                                    "variable": "signal"
+                                },
+                                {
+                                    "type": "variable",
+                                    "variable": "level"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If $rose(signal), then signal/word == level/value.",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "variable",
+                                    "variable": "signal"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "variable",
+                                    "variable": "signal/word"
+                                },
+                                {
+                                    "type": "variable",
+                                    "variable": "level/value"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]
