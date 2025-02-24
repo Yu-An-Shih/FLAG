@@ -1,0 +1,21 @@
+[
+    "If RST_I == 0 and STB_O == 1, then RST_I == 1 in the next cycle.",
+    "If RST_I == 1 and STB_O == 0, then STB_O == 0 in the next cycle.",
+    "If RST_I == 1 and STB_O == 0, then CYC_O == 0 in the next cycle.",
+    "If RST_I == 1 and STB_O == 1, then RST_I == 1 in the next cycle.",
+    "If RST_I == 1 and STB_O == 1, then STB_O == 0 in the next cycle.",
+    "If RST_I == 1 and STB_O == 1, then CYC_O == 0 in the next cycle.",
+    "If CYC_O == 0 and RST_I == 1, then STB_O == 0 in the next cycle.",
+    "If CYC_O == 0 and RST_I == 1, then CYC_O == 0 in the next cycle.",
+    "If CYC_O == 0 and STB_O == 1, then RST_I == 1 in the next cycle.",
+    "If CYC_O == 1 and RST_I == 0, then RST_I == 1 in the next cycle.",
+    "If CYC_O == 1 and RST_I == 1, then RST_I == 1 in the next cycle.",
+    "If CYC_O == 1 and RST_I == 1, then STB_O == 0 in the next cycle.",
+    "If CYC_O == 1 and RST_I == 1, then CYC_O == 0 in the next cycle.",
+    "If CYC_O == 1 and STB_O == 0, then RST_I == 1 in the next cycle.",
+    "If CYC_O == 1 and STB_O == 1, then RST_I == 1 in the next cycle.",
+    "If RST_I == 1 and STB_O == 0, then $stable(STB_O) in the next cycle.",
+    "If RST_I == 1 and STB_O == 1, then $stable(RST_I) in the next cycle.",
+    "If CYC_O == 0 and RST_I == 1, then $stable(CYC_O) in the next cycle.",
+    "If CYC_O == 1 and RST_I == 1, then $stable(RST_I) in the next cycle."
+]
