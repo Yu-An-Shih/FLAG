@@ -1,0 +1,10 @@
+[
+    "If PENABLE == 0 and PSEL == 1, then PSEL == 1 in the next cycle.",
+    "If PENABLE == 0 and PSEL == 1, then PENABLE == 1 in the next cycle.",
+    "If PREADY == 0 and PSEL == 1, then PSEL == 1 in the next cycle.",
+    "If PENABLE == 0 and PSEL == 1, then $stable(PWRITE) in the next cycle.",
+    "If PENABLE == 0 and PSEL == 1, then $stable(PADDR) in the next cycle.",
+    "If PREADY == 0 and PSEL == 1, then $stable(PWRITE) in the next cycle.",
+    "If PREADY == 0 and PSEL == 1, then $stable(PADDR) in the next cycle.",
+    "If $rose(PSEL), then PENABLE == 0."
+]
