@@ -1,0 +1,12 @@
+[
+    "If PACCEPT == 0 and PREQ == 0, then PACCEPT == 0 in the next cycle.",
+    "If PACCEPT == 0 and PDENY == 1, then PACCEPT == 0 in the next cycle.",
+    "If PACCEPT == 1 and PREQ == 0, then PREQ == 0 in the next cycle.",
+    "If PACCEPT == 1 and PREQ == 1, then PACCEPT == 1 in the next cycle.",
+    "If PACCEPT == 1 and PDENY == 0, then PDENY == 0 in the next cycle.",
+    "If PDENY == 0 and PREQ == 0, then PDENY == 0 in the next cycle.",
+    "If PDENY == 1 and PREQ == 0, then PREQ == 0 in the next cycle.",
+    "If PDENY == 1 and PREQ == 1, then PDENY == 1 in the next cycle.",
+    "If PDENY == 0 and PREQ == 1, then $stable(PSTATE) in the next cycle.",
+    "If PACCEPT == 1, then PDENY == 0."
+]
