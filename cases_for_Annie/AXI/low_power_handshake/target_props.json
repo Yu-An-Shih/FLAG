@@ -1,0 +1,6 @@
+[
+    "If CSYSACK == 0 and CSYSREQ == 0, then CSYSACK == 0 in the next cycle.",
+    "If CSYSACK == 0 and CSYSREQ == 1, then CSYSREQ == 1 in the next cycle.",
+    "If CSYSACK == 1 and CSYSREQ == 0, then CSYSREQ == 0 in the next cycle.",
+    "If CSYSACK == 1 and CSYSREQ == 1, then CSYSACK == 1 in the next cycle."
+]
