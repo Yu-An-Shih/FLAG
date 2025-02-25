@@ -1,0 +1,9 @@
+[
+    "If IRDY# == 1 and READ_DATA_PHASE == 1, then $stable(C/BE#) in the next cycle.",
+    "If IRDY# == 1 and WRITE_DATA_PHASE == 1, then $stable(C/BE#) in the next cycle.",
+    "If TRDY# == 1 and WRITE_DATA_PHASE == 1, then $stable(C/BE#) in the next cycle.",
+    "If READ_DATA_PHASE == 1 and TRDY# == 1, then $stable(C/BE#) in the next cycle.",
+    "If TRDY# == 0, then DEVSEL# == 0.",
+    "If $rose(FRAME#), then IRDY# == 0.",
+    "If $rose(READ_DATA_PHASE), then TRDY# == 1."
+]

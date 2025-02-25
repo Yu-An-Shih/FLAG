@@ -1,0 +1,10 @@
+[
+    "If FRAME# == 0 and STOP# == 0, then STOP# == 0 in the next cycle.",
+    "If FRAME# == 1 and STOP# == 0, then STOP# == 1 in the next cycle.",
+    "If IRDY# == 1 and TRDY# == 0, then $stable(TRDY#) in the next cycle.",
+    "If IRDY# == 1 and TRDY# == 0, then $stable(STOP#) in the next cycle.",
+    "If IRDY# == 1 and TRDY# == 0, then $stable(DEVSEL#) in the next cycle.",
+    "If IRDY# == 1 and STOP# == 0, then $stable(TRDY#) in the next cycle.",
+    "If IRDY# == 1 and STOP# == 0, then $stable(STOP#) in the next cycle.",
+    "If IRDY# == 1 and STOP# == 0, then $stable(DEVSEL#) in the next cycle."
+]
