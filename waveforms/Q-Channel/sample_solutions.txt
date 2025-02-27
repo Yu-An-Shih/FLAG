@@ -3,7 +3,7 @@ Handshake (Figure 2-2, 2-3):
 - If QREQn is LOW, QACCEPTn is HIGH and QDENY is LOW, then QREQn should remain LOW in the next cycle.
 - If QACCEPTn is HIGH and (QREQn is HIGH / QDENY is HIGH), then QACCEPTn should remain HIGH in the next cycle.
 - If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn should remain LOW in the next cycle.
-- If QDENY is LOW and (QREQn is HIGH / QACCEPTn is HIGH), then QDENY should remain LOW in the next cycle.
+- If QDENY is LOW and (QREQn is HIGH / QACCEPTn is LOW), then QDENY should remain LOW in the next cycle.
 - If QDENY is HIGH and QREQn is LOW, then QDENY should remain HIGH in the next cycle.
 Or,
 - If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH and QDENY is LOW (in the previous cycle).
@@ -15,6 +15,8 @@ Or,
 - If QDENY changes from LOW to HIGH, then QREQn is LOW and QACCEPTn is HIGH (in the previous cycle).
 
 - (How to interpret?) QACCEPTn is LOW and QDENY is HIGH should never occur at the same time.
+  + If $rose(QDENY), then QACCEPTn == 1?
+  + If QACCEPTn == 0, then QDENY == 0.?
 
 Reset (Figure 2-4, 2-5):
 - If RESETn is LOW, then QACCEPTn is LOW.

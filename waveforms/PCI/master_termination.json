@@ -1,0 +1,38 @@
+{
+    "signals": [
+        { "name": "GNT#", "type": "signal" },
+        { "name": "FRAME#", "type": "signal" },
+        { "name": "IRDY#", "type": "signal" },
+        { "name": "TRDY#", "type": "signal" },
+        { "name": "DEVSEL#", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 3-7: Master Initiated Termination (1)",
+            "signals": [
+                { "name": "GNT#", "values": ["X", 1, 1, 1] },
+                { "name": "FRAME#", "values": [0, 0, 1, 1] },
+                { "name": "IRDY#", "values": ["X", 0, 0, 1] },
+                { "name": "TRDY#", "values": [1, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-7: Master Initiated Termination (2)",
+            "signals": [
+                { "name": "GNT#", "values": ["X", 1, 1, 1] },
+                { "name": "FRAME#", "values": [0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [0, 1, 0, 1] },
+                { "name": "TRDY#", "values": [0, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-8: Master-Abort Termination",
+            "signals": [
+                { "name": "FRAME#", "values": [1, 0, 0, 0, 0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [1, 1, 1, 0, 0, 0, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "DEVSEL#", "values": [1, 1, 1, 1, 1, 1, 1, 1] }
+            ]
+        }
+    ]
+}

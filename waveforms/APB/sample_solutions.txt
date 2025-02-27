@@ -5,5 +5,5 @@ Transfers (Figure 3-1, 3-2, 3-4, 3-5, 3-6):
 (Constraints for PENABLE)
 - If $rose(PSEL), then PENABLE should be LOW.
 - If PSEL is HIGH and PENABLE is LOW, then PENABLE should be HIGH in the next cycle.
-- If PENABLE is HIGH and PREADY is LOW, then PENABLE should remain HIGH in the next cycle.
-- If PENABLE is HIGH and PREADY is HIGH, then PENABLE should be LOW in the next cycle.
+- If PSEL is HIGH, PENABLE is HIGH and PREADY is LOW, then PENABLE should remain HIGH in the next cycle.
+- If PSEL is HIGH, PENABLE is HIGH and PREADY is HIGH, then PENABLE should be LOW in the next cycle.

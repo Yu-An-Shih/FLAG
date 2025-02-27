@@ -6,7 +6,7 @@
     ],
     "waveforms": [
         {
-            "name": "VALID/READY handshake (VALID before READY)",
+            "name": "Figure 3-1: VALID/READY handshake (VALID before READY)",
             "signals": [
                 { "name": "VALID", "values": [0, 1, 1, 0] },
                 { "name": "READY", "values": [0, 0, 1, 0] },
@@ -14,7 +14,7 @@
             ]
         },
         {
-            "name": "VALID/READY handshake (READY before VALID)",
+            "name": "Figure 3-2: VALID/READY handshake (READY before VALID)",
             "signals": [
                 { "name": "VALID", "values": [0, 0, 1, 0] },
                 { "name": "READY", "values": [1, 1, 1, 0] },
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "name": "VALID/READY handshake (VALID with READY)",
+            "name": "Figure 3-3: VALID/READY handshake (VALID with READY)",
             "signals": [
                 { "name": "VALID", "values": [0, 1, 0, 0] },
                 { "name": "READY", "values": [0, 1, 0, 0] },

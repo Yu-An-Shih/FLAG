@@ -1,0 +1,51 @@
+{
+    "signals": [
+        { "name": "RESETn", "type": "signal" },
+        { "name": "PREQ", "type": "signal" },
+        { "name": "PACCEPT", "type": "signal" },
+        { "name": "PDENY", "type": "signal" },
+        { "name": "PSTATE", "type": "word", "width": 2 }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 3-2: P-Channel handshake sequence with accepted request",
+            "signals": [
+                { "name": "RESETn", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "PSTATE", "values": ["VA", "VA", "VA", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB"] },
+                { "name": "PREQ", "values": [0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "PACCEPT", "values": [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0] },
+                { "name": "PDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-3: P-Channel handshake sequence with denied request",
+            "signals": [
+                { "name": "RESETn", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "PSTATE", "values": ["VA", "VA", "VA", "VB", "VB", "VB", "VB", "VA", "VA", "VA", "VA", "VA", "VA", "VA"] },
+                { "name": "PREQ", "values": [0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "PACCEPT", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "PDENY", "values": [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-7: Multiple state transitions",
+            "signals": [
+                { "name": "RESETn", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "PSTATE", "values": ["VA", "VA", "VB", "VB", "VB", "VB", "VB", "VB", "VC", "VC", "VC", "VC", "VC", "VC"] },
+                { "name": "PREQ", "values": [0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0] },
+                { "name": "PACCEPT", "values": [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0] },
+                { "name": "PDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-14: Additional timing for PSTATE by asserting PSTATE before PREQ",
+            "signals": [
+                { "name": "RESETn", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "PSTATE", "values": ["VA", "VA", "VA", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB"] },
+                { "name": "PREQ", "values": [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "PACCEPT", "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0] },
+                { "name": "PDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        }
+    ]
+}

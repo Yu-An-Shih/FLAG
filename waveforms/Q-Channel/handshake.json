@@ -6,19 +6,19 @@
     ],
     "waveforms": [
         {
-            "name": "Q-Channel accepted quiescence request sequence",
+            "name": "Figure 2-2: Q-Channel accepted quiescence request sequence",
             "signals": [
-                { "name": "QREQn", "type": "signal", "values": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1] },
-                { "name": "QACCEPTn", "type": "signal", "values": [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] },
-                { "name": "QDENY", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+                { "name": "QREQn", "values": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1] },
+                { "name": "QACCEPTn", "values": [1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1] },
+                { "name": "QDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
             ]
         },
         {
-            "name": "Q-Channel denied quiescence request sequence",
+            "name": "Figure 2-3: Q-Channel denied quiescence request sequence",
             "signals": [
-                { "name": "QREQn", "type": "signal", "values": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1] },
-                { "name": "QACCEPTn", "type": "signal", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
-                { "name": "QDENY", "type": "signal", "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0] }
+                { "name": "QREQn", "values": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "QACCEPTn", "values": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "QDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0] }
             ]
         }
     ]

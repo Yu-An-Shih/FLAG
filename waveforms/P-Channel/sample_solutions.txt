@@ -15,4 +15,4 @@ Q: Should PSTATE return to state A if request is denied?
 Reset (Figure 3-4, 3-5, 3-6):
 - If RESETn is LOW, then PACCEPT is LOW.
 - If RESETn is LOW, then PDENY is LOW.
-(- If RESETn is HIGH and (PREQ / PACCEPT / PDENY) is HIGH, then RESETn shuld remain HIGH in the next cycle.)
+(- If RESETn is HIGH and (PREQ / PACCEPT / PDENY) is HIGH, then RESETn should remain HIGH in the next cycle.)

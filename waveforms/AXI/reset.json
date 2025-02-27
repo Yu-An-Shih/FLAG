@@ -1,14 +1,14 @@
 {
     "signals": [
         { "name": "ARESETn", "type": "signal" },
-        { "name": "VALID", "type": "signal"}
+        { "name": "VALID", "type": "signal" }
     ],
     "waveforms": [
         {
-            "name": "Exit from reset",
+            "name": "Figure 11-1: Exit from reset",
             "signals": [
-                { "name": "ARESETn", "type": "signal", "values": [0, 1, 1, 1] },
-                { "name": "VALID", "type": "signal", "values": [0, 0, 1, 1] }
+                { "name": "ARESETn", "values": [0, 1, 1, 1] },
+                { "name": "VALID", "values": [0, 0, 1, 1] }
             ]
         }
     ]
