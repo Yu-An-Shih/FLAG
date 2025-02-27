@@ -177,7 +177,7 @@
         }
     },
     {
-        "nl": "If $rose(signal), then signal/word == level/value.",
+        "nl": "If $rose(signal), then signal == level.",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -202,11 +202,11 @@
                             "operands": [
                                 {
                                     "type": "variable",
-                                    "variable": "signal/word"
+                                    "variable": "signal"
                                 },
                                 {
                                     "type": "variable",
-                                    "variable": "level/value"
+                                    "variable": "level"
                                 }
                             ]
                         }
