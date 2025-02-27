@@ -66,6 +66,7 @@ class Temp2Prop:
                             new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}, {'type': 'variable', 'variable': str(i)}]} for i in [0, 1]]
                     if vartype == 'word' or vartype == 'signal/word':
                         for word, width in self._words:
+                            # NOTE: This might generate too many properties for wide words. Should we constraint this?
                             new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': word}, {'type': 'variable', 'variable': str(i)}]} for i in range(2**width)]
                 case '$rose' | '$fell':
                     assert vartype == 'signal'

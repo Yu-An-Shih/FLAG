@@ -16,7 +16,7 @@ def main():
     parser.add_argument('-t', '--templates', type=str, required=True, help='Template file')
 
     # Optional arguments
-    parser.add_argument('-o', '--output-dir', type=str, default='', help='Output directory')
+    parser.add_argument('-o', '--output-dir', type=str, default='.', help='Output directory')
 
     args = parser.parse_args()
 
@@ -40,6 +40,10 @@ def main():
 
     smtchecker = SMTChecker(waveform_info, candid_props)
     valid_props = smtchecker.getProperties()
+
+    # Create output directory
+    if not os.path.exists(args.output_dir):
+        os.makedirs(args.output_dir)
 
     # Write the SMT-checked properties
     with open(f"{args.output_dir}/properties.json", "w") as f:

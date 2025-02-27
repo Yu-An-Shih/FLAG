@@ -64,23 +64,28 @@ class SMTChecker:
 
         # Propositions (base cases)
         if ast['type'] == 'basic':
+            signal = ast['operands'][0]['variable']
+            if signal not in self._variables:
+                # NOTE: Skip the property if it contains signals not in the waveform
+                return None
+
             match ast['operator']:
                 case '==':
-                    signal = ast['operands'][0]['variable']
+                    #signal = ast['operands'][0]['variable']
                     value = int(ast['operands'][1]['variable'])
                     return self._variables[signal][cyc] == value
                 case '!=':
-                    signal = ast['operands'][0]['variable']
+                    #signal = ast['operands'][0]['variable']
                     value = int(ast['operands'][1]['variable'])
                     return self._variables[signal][cyc] != value
                 case '$rose':
-                    signal = ast['operands'][0]['variable']
+                    #signal = ast['operands'][0]['variable']
                     return And(self._variables[signal][cyc - 1] == 0, self._variables[signal][cyc] == 1) if cyc > 0 else None
                 case '$fell':
-                    signal = ast['operands'][0]['variable']
+                    #signal = ast['operands'][0]['variable']
                     return And(self._variables[signal][cyc - 1] == 1, self._variables[signal][cyc] == 0) if cyc > 0 else None
                 case '$stable':
-                    signal = ast['operands'][0]['variable']
+                    #signal = ast['operands'][0]['variable']
                     return self._variables[signal][cyc - 1] == self._variables[signal][cyc] if cyc > 0 else None
                 case _:
                     raise ValueError(f"Unknown basic operator: {ast['operator']}")
@@ -110,7 +115,6 @@ class SMTChecker:
                 case 'G':
                     assert cyc == 0
                     events = [event for t in range(self._cycles) if (event := self._encodeProp_localize(ast['operands'][0], t)) is not None]
-                    assert events != []
                     return And(events) if events else None
                 case _:
                     raise ValueError(f"Unknown propositional/temporal operator: {ast['operator']}")
@@ -209,15 +213,21 @@ class SMTChecker:
             properties_held = []
             for property in self._properties:
 
-                # Save the current stack size - Paired with pop() to remove property constraints later
-                self._solver.push()
-                # Encode (negation of) property constraints
-                self._solver.add(Not(self._encodeProp_localize(property['ast'], 0)))
-                # Check the property and update the property list
-                if self._solver.check() == z3.unsat:
+                prop_local = self._encodeProp_localize(property['ast'], 0)
+                if prop_local is None:
+                    # NOTE: We assume the property holds if there is no constraint that can be checked
+                    #       Possible reason: the property contains signals not in the waveform
                     properties_held.append(property)
-                # Remove (negation of) property constraints
-                self._solver.pop()
+                else:
+                    # Save the current stack size - Paired with pop() to remove property constraints later
+                    self._solver.push()
+                    # Encode (negation of) property constraints
+                    self._solver.add(Not(prop_local))
+                    # Check the property and update the property list
+                    if self._solver.check() == z3.unsat:
+                        properties_held.append(property)
+                    # Remove (negation of) property constraints
+                    self._solver.pop()
             
             self._properties = properties_held
             self._solver.reset()
