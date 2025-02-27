@@ -26,7 +26,8 @@ def ast_to_nl(ast: dict) -> str:
                 return f"{ast['operator']}({ast_to_nl(ast['operands'][0])})"
             # Logical
             case 'And' | 'Or':
-                return f"{ast_to_nl(ast['operands'][0])} {ast['operator'].lower()} {ast_to_nl(ast['operands'][1])}"
+                return f" {ast['operator'].lower()} ".join(ast_to_nl(operand) for operand in ast['operands'])
+                #return f"{ast_to_nl(ast['operands'][0])} {ast['operator'].lower()} {ast_to_nl(ast['operands'][1])}"
             case 'Implies':
                 return f"If {ast_to_nl(ast['operands'][0])}, then {ast_to_nl(ast['operands'][1])}."
             # Temporal

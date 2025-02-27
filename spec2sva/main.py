@@ -3,7 +3,7 @@ import json
 import os
 
 from spec2sva.temp2prop import Temp2Prop
-from spec2sva.smtchecker import SMTChecker
+#from spec2sva.smtchecker import SMTChecker
 
 def main():
     ### Main function with command line interface ###

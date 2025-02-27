@@ -92,17 +92,17 @@ class Temp2Prop:
                 subphrases_list.append(self._substitute(operand))
             # Enumerate all combinations of the expanded subphrases
             operand_combinations = list(product(*subphrases_list))
-            # Avoid generating redundant combinations for commutative operators
+            # Avoid generating invalid combinations for commutative operators
             if phrase['operator'] == 'And' or phrase['operator'] == 'Or':
+                dict_lookup = {ast2concrete.ast_to_ltl(ast): ast for lst in subphrases_list for ast in lst}   # TODO: ltl to ast
+                str_combs = [tuple(map(ast2concrete.ast_to_ltl, comb)) for comb in operand_combinations]
+                
                 # Remove combinations with repeated operands
-                operand_combinations = [combination for combination in operand_combinations if len(set(combination)) == len(combination)]
+                str_combs = [comb for comb in str_combs if len(set(comb)) == len(comb)]
                 # Remove combinations with the same operands in a different order
-                operand_combinations = list(set(sorted(combination, key=ast2concrete.ast_to_ltl) for combination in operand_combinations))
-                # NOTE: Assumes that the operands in the template are written in a lexically sorted order
-                # TODO: This is a temporary fix -- Need to find a better way to handle commutative operators
-                #operand_combinations = list((x, y) for x, y in product(*subphrases_list) if ast2concrete.ast_to_ltl(x) < ast2concrete.ast_to_ltl(y))
-            # else:
-            #     operand_combinations = list(product(*subphrases_list))
+                str_combs = set(tuple(sorted(comb)) for comb in str_combs)
+                
+                operand_combinations = [tuple(dict_lookup[ltl] for ltl in comb) for comb in str_combs]
             
             # Expand the operator with each combination of operands
             for new_operands in operand_combinations:
