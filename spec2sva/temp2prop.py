@@ -72,12 +72,16 @@ class Temp2Prop:
                     assert vartype == 'signal'
                     for signal in self._signals:
                         new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}]})
+                case '$roseorfell':
+                    assert vartype == 'signal'
+                    for signal in self._signals:
+                        new_phrases += [{'type': 'basic', 'operator': '$rose', 'operands': [{'type': 'variable', 'variable': signal}]}, {'type': 'basic', 'operator': '$fell', 'operands': [{'type': 'variable', 'variable': signal}]}]
                 case '$stable':
                     if vartype == 'signal' or vartype == 'signal/word':
                         for signal in self._signals:
                             new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}]})
                     if vartype == 'word' or vartype == 'signal/word':
-                        for word, width in self._words:
+                        for word, _ in self._words:
                             new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': word}]})
                 case _:
                     raise ValueError(f"Unknown operator: {phrase['operator']}")
@@ -87,13 +91,18 @@ class Temp2Prop:
             for operand in phrase['operands']:
                 subphrases_list.append(self._substitute(operand))
             # Enumerate all combinations of the expanded subphrases
-            if (phrase['operator'] == 'And' or phrase['operator'] == 'Or') and phrase['operands'][0] == phrase['operands'][1]:
-                # Avoid generating redundant combinations for commutative operators
+            operand_combinations = list(product(*subphrases_list))
+            # Avoid generating redundant combinations for commutative operators
+            if phrase['operator'] == 'And' or phrase['operator'] == 'Or':
+                # Remove combinations with repeated operands
+                operand_combinations = [combination for combination in operand_combinations if len(set(combination)) == len(combination)]
+                # Remove combinations with the same operands in a different order
+                operand_combinations = list(set(sorted(combination, key=ast2concrete.ast_to_ltl) for combination in operand_combinations))
+                # NOTE: Assumes that the operands in the template are written in a lexically sorted order
                 # TODO: This is a temporary fix -- Need to find a better way to handle commutative operators
-                operand_combinations = list((x, y) for x, y in product(*subphrases_list) if ast2concrete.ast_to_ltl(x) < ast2concrete.ast_to_ltl(y))
-            else:
-                operand_combinations = list(product(*subphrases_list))
-            #operand_combinations = list(product(*subphrases_list))
+                #operand_combinations = list((x, y) for x, y in product(*subphrases_list) if ast2concrete.ast_to_ltl(x) < ast2concrete.ast_to_ltl(y))
+            # else:
+            #     operand_combinations = list(product(*subphrases_list))
             
             # Expand the operator with each combination of operands
             for new_operands in operand_combinations:
