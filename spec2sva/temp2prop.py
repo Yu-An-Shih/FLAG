@@ -94,15 +94,16 @@ class Temp2Prop:
             operand_combinations = list(product(*subphrases_list))
             # Avoid generating invalid combinations for commutative operators
             if phrase['operator'] == 'And' or phrase['operator'] == 'Or':
-                dict_lookup = {ast2concrete.ast_to_ltl(ast): ast for lst in subphrases_list for ast in lst}   # TODO: ltl to ast
-                str_combs = [tuple(map(ast2concrete.ast_to_ltl, comb)) for comb in operand_combinations]
+                #dict_lookup = {ast2concrete.ast_to_ltl(ast): ast for lst in subphrases_list for ast in lst}
+                ltl_combs = [tuple(ast2concrete.ast_to_ltl(ast) for ast in comb) for comb in operand_combinations]
                 
                 # Remove combinations with repeated operands
-                str_combs = [comb for comb in str_combs if len(set(comb)) == len(comb)]
+                ltl_combs = [comb for comb in ltl_combs if len(set(comb)) == len(comb)]
                 # Remove combinations with the same operands in a different order
-                str_combs = set(tuple(sorted(comb)) for comb in str_combs)
+                ltl_combs = set(tuple(sorted(comb)) for comb in ltl_combs)
                 
-                operand_combinations = [tuple(dict_lookup[ltl] for ltl in comb) for comb in str_combs]
+                #operand_combinations = [tuple(dict_lookup[ltl] for ltl in comb) for comb in str_combs]
+                operand_combinations = [tuple(ast2concrete.ltl_to_ast(ltl) for ltl in comb) for comb in ltl_combs]
             
             # Expand the operator with each combination of operands
             for new_operands in operand_combinations:
