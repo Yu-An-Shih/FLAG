@@ -3,7 +3,7 @@ import json
 import os
 
 from spec2sva.temp2prop import Temp2Prop
-#from spec2sva.smtchecker import SMTChecker
+from spec2sva.smtchecker import SMTChecker
 
 def main():
     ### Main function with command line interface ###
@@ -13,13 +13,17 @@ def main():
 
     # Required arguments
     parser.add_argument('-w', '--waveform-info', type=str, required=True, help='Waveform information file')
-    parser.add_argument('-t', '--templates', type=str, required=True, help='Template file')
+    # parser.add_argument('-t', '--templates', type=str, required=True, help='Template file')
 
     # Optional arguments
+    parser.add_argument('-t', '--templates', type=str, help='Template file')
+    parser.add_argument('-p', '--properties', type=str, help='Property file')
+
     parser.add_argument('-o', '--output-dir', type=str, default='.', help='Output directory')
     
     # TODO: Provide more execution options?
     parser.add_argument('--t2p', action='store_true', help='Run Temp2Prop only')
+    parser.add_argument('--smt', action='store_true', help='Run SMTChecker only')
 
     args = parser.parse_args()
 
@@ -29,13 +33,18 @@ def main():
     assert os.path.isfile(args.waveform_info), f"Waveform information file not found: {args.waveform_info}"
     with open(args.waveform_info, "r") as f:
         waveform_info = json.load(f)
-
-    assert os.path.isfile(args.templates), f"Template file not found: {args.templates}"
-    with open(args.templates, "r") as f:
-        templates = json.load(f)
     
-    t2p = Temp2Prop(waveform_info['signals'], templates)
-    candid_props = t2p.getProperties()
+    # Create output directory
+    if not os.path.exists(args.output_dir):
+        os.makedirs(args.output_dir)
+
+    if not args.smt:
+        assert os.path.isfile(args.templates), f"Template file not found: {args.templates}"
+        with open(args.templates, "r") as f:
+            templates = json.load(f)
+        
+        t2p = Temp2Prop(waveform_info['signals'], templates)
+        candid_props = t2p.getProperties()
 
     #print("Number of candidate properties:", len(candid_props))
     if args.t2p:
@@ -46,12 +55,13 @@ def main():
             json.dump(t2p.getProperties_NL(), f, indent=4)
         return
 
+    if args.smt:
+        assert os.path.isfile(args.properties), f"Property file not found: {args.properties}"
+        with open(args.properties, "r") as f:
+            candid_props = json.load(f)
+
     smtchecker = SMTChecker(waveform_info, candid_props)
     valid_props = smtchecker.getProperties()
-
-    # Create output directory
-    if not os.path.exists(args.output_dir):
-        os.makedirs(args.output_dir)
 
     # Write the SMT-checked properties
     with open(f"{args.output_dir}/properties.json", "w") as f:

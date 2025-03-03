@@ -30,8 +30,11 @@ class SMTChecker:
         self._cycles = len(waveform['signals'][0]['values'])
         
         for signal in waveform['signals']:
+            # Neglect unrelated signals
+            if signal['name'] not in self._sigwidths:
+                continue
+            
             width = self._sigwidths[signal['name']]
-
             self._variables[signal['name']] = [ BitVec('%s_%s' % (signal['name'], t), width) for t in range(self._cycles) ]
         
         #print(self._variables)
@@ -40,8 +43,14 @@ class SMTChecker:
     def _encodeWaveformConstraints(self, waveform: dict) -> None:
         ### Encode waveform constraints ###
     
+        # TODO: Combine _createVars and _encodeWaveformConstraints?
+        
         constants = dict()
         for signal in waveform['signals']:
+            # Neglect unrelated signals
+            if signal['name'] not in self._sigwidths:
+                continue
+
             signame = signal['name']
             for cyc, value in enumerate(signal['values']):
                 if isinstance(value, int):
@@ -93,13 +102,11 @@ class SMTChecker:
         elif ast['type'] == 'operator':
             match ast['operator']:
                 case 'And':
-                    op1 = self._encodeProp_localize(ast['operands'][0], cyc)
-                    op2 = self._encodeProp_localize(ast['operands'][1], cyc)
-                    return And(op1, op2) if op1 is not None and op2 is not None else None
+                    operands = [self._encodeProp_localize(operand, cyc) for operand in ast['operands']]
+                    return And(*operands) if all(op is not None for op in operands) else None
                 case 'Or':
-                    op1 = self._encodeProp_localize(ast['operands'][0], cyc)
-                    op2 = self._encodeProp_localize(ast['operands'][1], cyc)
-                    return Or(op1, op2) if op1 is not None and op2 is not None else None
+                    operands = [self._encodeProp_localize(operand, cyc) for operand in ast['operands']]
+                    return Or(*operands) if all(op is not None for op in operands) else None
                 case 'Implies':
                     antecedent = self._encodeProp_localize(ast['operands'][0], cyc)
                     consequent = self._encodeProp_localize(ast['operands'][1], cyc)
