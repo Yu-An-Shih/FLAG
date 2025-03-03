@@ -1,15 +1,15 @@
 [
-    "If READY == 0 and VALID == 1, then VALID == 1 in the next cycle.",
-    "If READY == 0 and VALID == 1, then READY == 1 in the next cycle.",
+    "If READY == 1 and VALID == 0, then READY == 1 in the next cycle.",
     "If READY == 1 and VALID == 1, then VALID == 0 in the next cycle.",
     "If READY == 1 and VALID == 1, then READY == 0 in the next cycle.",
-    "If READY == 1 and VALID == 0, then READY == 1 in the next cycle.",
+    "If READY == 0 and VALID == 1, then VALID == 1 in the next cycle.",
+    "If READY == 0 and VALID == 1, then READY == 1 in the next cycle.",
+    "If READY == 1 and VALID == 0, then $stable(READY) in the next cycle.",
     "If READY == 0 and VALID == 1, then $stable(VALID) in the next cycle.",
     "If READY == 0 and VALID == 1, then $stable(INFORMATION) in the next cycle.",
-    "If READY == 1 and VALID == 0, then $stable(READY) in the next cycle.",
     "If $rose(READY), then VALID == 1.",
-    "If VALID == 1, then READY == 0 or VALID == 1 in the next cycle.",
     "If VALID == 1, then READY == 1 or VALID == 0 in the next cycle.",
+    "If VALID == 1, then READY == 0 or VALID == 1 in the next cycle.",
     "If READY == 0, then READY == 0 or VALID == 1 in the next cycle.",
     "If READY == 1, then READY == 1 or VALID == 0 in the next cycle."
 ]
