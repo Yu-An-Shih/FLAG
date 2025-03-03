@@ -1,6 +1,5 @@
 {
     "signals": [
-        { "name": "RESETn", "type": "signal" },
         { "name": "PREQ", "type": "signal" },
         { "name": "PACCEPT", "type": "signal" },
         { "name": "PDENY", "type": "signal" },
@@ -45,6 +44,36 @@
                 { "name": "PREQ", "values": [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0] },
                 { "name": "PACCEPT", "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0] },
                 { "name": "PDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-4: P-Channel initialization with controller-timed tinit, followed by a reset assertion",
+            "signals": [
+                { "name": "RESETn", "values": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0] },
+                { "name": "PSTATE", "values": ["X", "X", "VA", "VA", "VA", "VA", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB"] },
+                { "name": "PREQ", "values": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "PACCEPT", "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0] },
+                { "name": "PDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-5: P-Channel initialization with PREQ HIGH at reset deassertion",
+            "signals": [
+                { "name": "RESETn", "values": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "PSTATE", "values": ["X", "VA", "VA", "VA", "VA", "VA", "VA", "VA", "VA", "VA", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB", "VB"] },
+                { "name": "PREQ", "values": [0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0] },
+                { "name": "PACCEPT", "values": [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0] },
+                { "name": "PDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-6: P-Channel initialization with PREQ HIGH during tinit",
+            "signals": [
+                { "name": "RESETn", "values": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] },
+                { "name": "PSTATE", "values": ["X", "X", "VA", "VA", "VA", "VA", "VA", "VA", "VA", "VB", "VB", "VB", "VB", "VB", "VB", "VB"] },
+                { "name": "PREQ", "values": [0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0] },
+                { "name": "PACCEPT", "values": [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0] },
+                { "name": "PDENY", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] }
             ]
         }
     ]

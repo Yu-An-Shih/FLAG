@@ -30,4 +30,4 @@ smt/smtchecker_1.py
 
 # Overriding ignore rules
 !waveforms/AXI/
-!cases_for_Annie/AXI/
+!cases_for_Annie/*/AXI/
