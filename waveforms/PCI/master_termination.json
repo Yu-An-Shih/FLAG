@@ -1,9 +1,9 @@
 {
     "signals": [
-        { "name": "GNT#", "type": "signal" },
         { "name": "FRAME#", "type": "signal" },
         { "name": "IRDY#", "type": "signal" },
         { "name": "TRDY#", "type": "signal" },
+        { "name": "STOP#", "type": "signal" },
         { "name": "DEVSEL#", "type": "signal" }
     ],
     "waveforms": [
@@ -32,6 +32,102 @@
                 { "name": "IRDY#", "values": [1, 1, 1, 0, 0, 0, 0, 1] },
                 { "name": "TRDY#", "values": [1, 1, 1, 1, 1, 1, 1, 1] },
                 { "name": "DEVSEL#", "values": [1, 1, 1, 1, 1, 1, 1, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-5: Basic Read Operation",
+            "signals": [
+                { "name": "FRAME#", "values": [1, 0, 0, 0, 0, 0, 0, 1, 1] },
+                { "name": "AD", "values": ["X", "VA", "X", "VD1", "X", "VD2", "VD3", "VD3", "X"] },
+                { "name": "C/BE#", "values": ["X", "VC", "VB", "VB", "VB", "VB", "VB", "VB", "X"] },
+                { "name": "IRDY#", "values": [1, 1, 0, 0, 0, 0, 1, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 1, 0, 1, 0, 0, 0, 1] },
+                { "name": "DEVSEL#", "values": [1, 1, "X", 0, 0, 0, 0, 0, 1] },
+                { "name": "READ_DATA_PHASE", "values": [0, 0, 1, 1, 1, 1, 1, 1, 0] },
+                { "name": "WRITE_DATA_PHASE", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-6: Basic Write Operation",
+            "signals": [
+                { "name": "FRAME#", "values": [1, 0, 0, 0, 0, 1, 1, 1, 1] },
+                { "name": "AD", "values": ["X", "VA", "VD1", "VD2", "X", "VD3", "VD3", "VD3", "X"] },
+                { "name": "C/BE#", "values": ["X", "VC", "VB1", "VB2", "VB3", "VB3", "VB3", "VB3", "X"] },
+                { "name": "IRDY#", "values": [1, 1, 0, 0, 1, 0, 0, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 0, 0, 1, 1, 1, 0, 1] },
+                { "name": "DEVSEL#", "values": [1, 1, 0, 0, 0, 0, 0, 0, 1] },
+                { "name": "READ_DATA_PHASE", "values": [0, 0, 0, 0, 0, 0, 0, 0, 0] },
+                { "name": "WRITE_DATA_PHASE", "values": [0, 0, 1, 1, 1, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-9: Retry",
+            "signals": [
+                { "name": "FRAME#", "values": [1, 0, 0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [1, 1, 0, 0, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 1, 1, 1, 1] },
+                { "name": "STOP#", "values": [1, 1, 1, 0, 0, 1] },
+                { "name": "DEVSEL#", "values": [1, 1, 1, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-10: Disconnect With Data (1)",
+            "signals": [
+                { "name": "FRAME#", "values": [0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [1, 1, 0, 1] },
+                { "name": "TRDY#", "values": [1, 0, 0, 1] },
+                { "name": "STOP#", "values": [1, 0, 0, 1] },
+                { "name": "DEVSEL#", "values": [0, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-10: Disconnect With Data (2)",
+            "signals": [
+                { "name": "FRAME#", "values": [0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [0, 0, 0, 1] },
+                { "name": "TRDY#", "values": [0, 0, 1, 1] },
+                { "name": "STOP#", "values": [1, 0, 0, 1] },
+                { "name": "DEVSEL#", "values": [0, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-11: Master Completion Termination",
+            "signals": [
+                { "name": "FRAME#", "values": [1, 0, 1, 1, 1] },
+                { "name": "IRDY#", "values": [1, 1, 0, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 1, 0, 1] },
+                { "name": "STOP#", "values": [1, 1, 1, 0, 1] },
+                { "name": "DEVSEL#", "values": [1, 1, 1, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-12: Disconnect-1 Without Data Termination",
+            "signals": [
+                { "name": "FRAME#", "values": [1, 0, 0, 0, 0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [1, 1, 0, 0, 0, 0, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 1, 0, 0, 1, 1, 1] },
+                { "name": "STOP#", "values": [1, 1, 1, 1, 1, 0, 0, 1] },
+                { "name": "DEVSEL#", "values": [1, 1, 1, 0, 0, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-13: Disconnect-2 Without Data Termination",
+            "signals": [
+                { "name": "FRAME#", "values": [1, 0, 0, 0, 0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [1, 1, 0, 0, 0, 1, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 1, 0, 0, 1, 1, 1] },
+                { "name": "STOP#", "values": [1, 1, 1, 1, 1, 0, 0, 1] },
+                { "name": "DEVSEL#", "values": [1, 1, 1, 0, 0, 0, 0, 1] }
+            ]
+        },
+        {
+            "name": "Figure 3-14: Target-Abort",
+            "signals": [
+                { "name": "FRAME#", "values": [0, 0, 1, 1] },
+                { "name": "IRDY#", "values": [0, 0, 0, 1] },
+                { "name": "TRDY#", "values": [1, 1, 1, 1] },
+                { "name": "STOP#", "values": [1, 0, 0, 1] },
+                { "name": "DEVSEL#", "values": [0, 1, 1, 1] }
             ]
         }
     ]

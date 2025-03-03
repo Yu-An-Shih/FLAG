@@ -21,9 +21,11 @@ Master Initiated Termination (Figure 3-7, 3-8):
 - If IRDY# is LOW, TRDY# is HIGH, STOP# is HIGH and DEVSEL# is LOW, then IRDY# must remain LOW in the next cycle.
 - If IRDY# is LOW, TRDY# is HIGH, STOP# is HIGH and DEVSEL# is LOW, then FRAME# must remain stable in the next cycle.
 (Rule 5 on page 51)
-- If FRAME# is HIGH, IRDY# is LOW and (TRDY# is LOW / STOP# is LOW / DEVSEL# is HIGH), then IRDY# is HIGH in the next cycle.
+- If FRAME# is HIGH, IRDY# is LOW and (TRDY# is LOW / STOP# is LOW), then IRDY# is HIGH in the next cycle.
 
-(- (master-abort) If $rose(IRDY), then MASTER_ABORT_NOT_ALLOWED == 0.)
+(Master-abort)
+- If $rose(IRDY), then MASTER_ABORT_NOT_ALLOWED == 0.
+- If FRAME# is HIGH, IRDY# is LOW, (DEVSEL# is HIGH) and MASTER_ABORT_NOT_ALLOWED == 0, then IRDY# is HIGH in the next cycle.
 
 
 Target Initiated Termination (Figure 3-9 ~ 3-14):
