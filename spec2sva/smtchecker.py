@@ -110,7 +110,19 @@ class SMTChecker:
                 case 'Implies':
                     antecedent = self._encodeProp_localize(ast['operands'][0], cyc)
                     consequent = self._encodeProp_localize(ast['operands'][1], cyc)
-                    return Implies(antecedent, consequent) if antecedent is not None and consequent is not None else None
+                    
+                    if antecedent is None or consequent is None:
+                        return None
+                    
+                    # NOTE: The property should only be checked if the antecedent is satisfiable
+                    checkable = True
+                    self._solver.push()
+                    self._solver.add(antecedent)
+                    if self._solver.check() == z3.unsat:
+                        checkable = False
+                    self._solver.pop()
+
+                    return Implies(antecedent, consequent) if checkable else None
                 case 'X':
                     if cyc == self._cycles - 1:
                         return None
@@ -144,6 +156,10 @@ class SMTChecker:
 
         non_tautologies = []
         for property in self._properties:
+            if self._encodeProp_localize(property['ast'], 0) == None:
+                # NOTE: The antecedent of an Implies operator is unsatisfiable - the property is a tautology
+                continue
+            
             # A property is a tauology iff it holds on any (a.k.a. unconstrained) waveform
             # A property holds on a waveform iff it's negation is unsatisfiable
             if Solver().check(Not(self._encodeProp_localize(property['ast'], 0))) != z3.unsat:
@@ -208,7 +224,10 @@ class SMTChecker:
         
         # Remove tautologies
         self._removeTautologies()
-        
+
+        checked_props = []
+        unchecked_props = self._properties.copy()
+
         # Check properties for each waveform
         for waveform in self._waveforms:
             # Create waveform variables
@@ -217,14 +236,15 @@ class SMTChecker:
             # Encode waveform constraints
             self._encodeWaveformConstraints(waveform)
 
-            properties_held = []
-            for property in self._properties:
-
+            checked_props_new = []
+            unchecked_props_new = []
+            for property in checked_props:
+                # Compute the SMT formula according to the property on the current waveform
                 prop_local = self._encodeProp_localize(property['ast'], 0)
+
                 if prop_local is None:
-                    # NOTE: We assume the property holds if there is no constraint that can be checked
-                    #       Possible reason: the property contains signals not in the waveform
-                    properties_held.append(property)
+                    # The property remains in the checked list if it is not checkable for the current waveform
+                    checked_props_new.append(property)
                 else:
                     # Save the current stack size - Paired with pop() to remove property constraints later
                     self._solver.push()
@@ -232,14 +252,38 @@ class SMTChecker:
                     self._solver.add(Not(prop_local))
                     # Check the property and update the property list
                     if self._solver.check() == z3.unsat:
-                        properties_held.append(property)
+                        # The property remains in the checked list if it holds for the current waveform
+                        checked_props_new.append(property)
+                        # The property is dropped if it does not hold for the current (any) waveform
                     # Remove (negation of) property constraints
                     self._solver.pop()
             
-            self._properties = properties_held
+            for property in unchecked_props:
+                prop_local = self._encodeProp_localize(property['ast'], 0)
+
+                if prop_local is None:
+                    # The property remains in the unchecked list if it is not checkable for the current waveform
+                    unchecked_props_new.append(property)
+                else:
+                    self._solver.push()
+                    self._solver.add(Not(prop_local))
+                    if self._solver.check() == z3.unsat:
+                        # The property is moved to the checked list if it holds for the current waveform
+                        checked_props_new.append(property)
+                        # The property is dropped if it does not hold for the current (any) waveform
+                    self._solver.pop()
+            
+            checked_props = checked_props_new.copy()
+            unchecked_props = unchecked_props_new.copy()
             self._solver.reset()
 
-            print(f'Properties held after waveform \'{waveform['name']}\':', len(self._properties))
+            # DEBUG
+            print(f'Waveform \'{waveform['name']}\':')
+            print(f'  Unchecked properties:', len(unchecked_props))
+            print(f'  Checked properties:', len(checked_props))
+        
+        self._properties = checked_props
+        print('Properties held after all waveforms:', len(self._properties))
         
         # Remove duplicates
         #self._removeDuplicates()
