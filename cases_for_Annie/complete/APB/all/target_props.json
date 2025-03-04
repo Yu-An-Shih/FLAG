@@ -9,6 +9,5 @@
     "If PREADY == 0 and PSEL == 1 and PWRITE == 1, then $stable(PWDATA) in the next cycle.",
     "If $rose(PSEL), then PENABLE == 0.",
     "If PENABLE == 0 and PSEL == 1, then PENABLE == 1 in the next cycle.",
-    "If PENABLE == 1 and PREADY == 0 and PSEL == 1, then PENABLE == 1 in the next cycle.",
-    "If PENABLE == 1 and PREADY == 1 and PSEL == 1, then PENABLE == 0 in the next cycle."
+    "If PENABLE == 1 and PREADY == 0 and PSEL == 1, then PENABLE == 1 in the next cycle."
 ]

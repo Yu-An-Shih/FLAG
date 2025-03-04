@@ -1,0 +1,4 @@
+[
+    "If RST_I == 1, then STB_O == 0 in the next cycle.",
+    "If RST_I == 1, then CYC_O == 0 in the next cycle."
+]

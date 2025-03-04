@@ -65,6 +65,18 @@
                 { "name": "PREADY", "values": ["X", "X", 0, 1, "X"] },
                 { "name": "PSLVERR", "values": ["X", "X", "X", 1, "X"] }
             ]
+        },
+        {
+            "name": "Figure 3-7: Example failing read transfer",
+            "signals": [
+                { "name": "PADDR", "values": ["X", "VA", "VA", "VA", "VA", "X"] },
+                { "name": "PWRITE", "values": ["X", 0, 0, 0, 0, "X"] },
+                { "name": "PSEL", "values": [0, 1, 1, 1, 1, 0] },
+                { "name": "PENABLE", "values": ["X", 0, 1, 1, 1, "X"] },
+                { "name": "PRDATA", "values": ["X", "X", "X", "X", "X", "X"] },
+                { "name": "PREADY", "values": ["X", "X", 0, 0, 1, "X"] },
+                { "name": "PSLVERR", "values": ["X", "X", "X", "X", 1, "X"] }
+            ]
         }
     ]
 }
