@@ -1,0 +1,4 @@
+[
+    "If ARESETn == 0, then VALID == 0.",
+    "If $rose(ARESETn), then VALID == 0."
+]
