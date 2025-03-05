@@ -1,5 +1,5 @@
 {
-    "signals":[
+    "signals": [
         { "name": "ADR_O", "type": "word", "width": 32 },
         { "name": "DAT_I", "type": "word", "width": 32 },
         { "name": "DAT_O", "type": "word", "width": 32 },
@@ -11,7 +11,7 @@
     ],
     "waveforms": [
         {
-            "name": "Single READ cycle",
+            "name": "Figure 3-3: SINGLE READ cycle",
             "signals": [
                 { "name": "ADR_O", "values": ["X", "V1", "V1", "V1", "X"] },
                 { "name": "DAT_I", "values": ["X", "X", "X", "V2", "X"] },
@@ -24,7 +24,7 @@
             ]
         },
         {
-            "name": "Single WRITE cycle",
+            "name": "Figure 3-4: SINGLE WRITE cycle",
             "signals": [
                 { "name": "ADR_O", "values": ["X", "V1", "V1", "V1", "X"] },
                 { "name": "DAT_I", "values": ["X", "X", "X", "X", "X"] },
@@ -34,6 +34,53 @@
                 { "name": "STB_O", "values": [0, 1, 1, 1, 0] },
                 { "name": "ACK_I", "values": [0, 0, 0, 1, 0] },
                 { "name": "CYC_O", "values": [0, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-5: Use of [CYC_O] signal during BLOCK cycles",
+            "signals": [
+                { "name": "CYC_O", "values": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0] },
+                { "name": "STB_O", "values": [0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0] },
+                { "name": "ACK_I", "values": [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-6: BLOCK READ cycle",
+            "signals": [
+                { "name": "ADR_O", "values": ["X", "V11", "V12", "X", "X", "V13", "V14", "V15", "V15", "X"] },
+                { "name": "DAT_I", "values": ["X", "V21", "V22", "X", "X", "V23", "V24", "X", "V25", "X" ] },
+                { "name": "DAT_O", "values": ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "WE_O", "values": ["X", 0, 0, 0, 0, 0, 0, 0, 0, "X"] },
+                { "name": "SEL_O", "values": ["X", "V51", "V52", "X", "X", "V53", "V54", "V55", "V55", "X"] },
+                { "name": "STB_O", "values": [0, 1, 1, 0, 0, 1, 1, 1, 1, 0] },
+                { "name": "ACK_I", "values": [0, 1, 1, 0, 0, 1, 1, 0, 1, 0] },
+                { "name": "CYC_O", "values": [0, 1, 1, 1, 1, 1, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-7: BLOCK WRITE cycle",
+            "signals": [
+                { "name": "ADR_O", "values": ["X", "V11", "V12", "X", "X", "V13", "V14", "V15", "V15", "X"] },
+                { "name": "DAT_I", "values": ["X", "X", "X", "X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "DAT_O", "values": ["X", "V31", "V32", "X", "X", "V33", "V34", "V35", "V35", "X"] },
+                { "name": "WE_O", "values": ["X", 1, 1, 1, 1, 1, 1, 1, 1, "X"] },
+                { "name": "SEL_O", "values": ["X", "V51", "V52", "X", "X", "V53", "V54", "V55", "V55", "X"] },
+                { "name": "STB_O", "values": [0, 1, 1, 0, 0, 1, 1, 1, 1, 0] },
+                { "name": "ACK_I", "values": [0, 1, 1, 0, 0, 1, 1, 0, 1, 0] },
+                { "name": "CYC_O", "values": [0, 1, 1, 1, 1, 1, 1, 1, 1, 0] }
+            ]
+        },
+        {
+            "name": "Figure 3-8: RMW cycle",
+            "signals": [
+                { "name": "ADR_O", "values": ["X", "V1", "V1", "V1", "V1", "V1", "X"] },
+                { "name": "DAT_I", "values": ["X", "V2", "X", "X", "X", "X", "X"] },
+                { "name": "DAT_O", "values": ["X", "X", "X", "X", "V3", "V3", "X"] },
+                { "name": "WE_O", "values": ["X", 0, "X", "X", 1, 1, "X"] },
+                { "name": "SEL_O", "values": ["X", "V51", "X", "X", "V52", "V52", "X"] },
+                { "name": "STB_O", "values": [0, 1, 0, 0, 1, 1, 0] },
+                { "name": "ACK_I", "values": [0, 1, 0, 0, 0, 1, 0] },
+                { "name": "CYC_O", "values": [0, 1, 1, 1, 1, 1, 0] }
             ]
         }
     ]
