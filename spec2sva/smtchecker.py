@@ -174,33 +174,26 @@ class SMTChecker:
         #     json.dump(self._properties, f, indent=4)
         # sys.exit(0)
 
-    
-    """
     def _removeDuplicates(self) -> None:
         ### Remove duplicate properties ###
 
         # Create an unconstrained waveform
-        signals_new = []
-        for signal in self._waveforms[0]['signals']:
-            signal_new = signal.copy()
-            signal_new['values'] = ['X', 'X', 'X']
-            signals_new.append(signal_new)
-        waveform = {'name': self._waveforms[0]['name'], 'signals': signals_new}
+        unconstrained_signals = [{'name': signal['name'], 'values': ['X', 'X', 'X', 'X', 'X']} for signal in self._signals]
+        waveform = {'name': 'unconstrained', 'signals': unconstrained_signals}
 
         # Create waverform variables
         self._createVars(waveform)
 
         # DON'T encode waveform constraints
         # self._encodeWaveformConstraints(waveform)
-        
+
         unique_props = []
         for property in self._properties:
+            prop_encode = self._encodeProp_localize(property['ast'], 0)
             unique = True
             for unique_prop in unique_props:
-                # encode1 = self._encodeProp_localize(property['ast'], 0)
-                # encode2 = self._encodeProp_localize(unique_prop['ast'], 0)
-                # if Solver().check(Not(And(Implies(encode1, encode2), Implies(encode2, encode1)))) == z3.unsat:
-                if Solver().check(self._encodeProp_localize(property['ast'], 0) != self._encodeProp_localize(unique_prop['ast'], 0)) == z3.unsat:
+                unique_prop_encode = self._encodeProp_localize(unique_prop['ast'], 0)
+                if Solver().check(prop_encode != unique_prop_encode) == z3.unsat:
                     unique = False
                     break
             if unique:
@@ -209,12 +202,6 @@ class SMTChecker:
         self._properties = unique_props
 
         print('Properties after removing duplicates:', len(self._properties))
-
-        # with open('unique.json', 'w') as f:
-        #     import json
-        #     json.dump(self._properties, f, indent=4)
-        #sys.exit(0)
-    """
     
 
     def _run(self):
@@ -278,15 +265,15 @@ class SMTChecker:
             self._solver.reset()
 
             # DEBUG
-            print(f'Waveform \'{waveform['name']}\':')
-            print(f'  Unchecked properties:', len(unchecked_props))
-            print(f'  Checked properties:', len(checked_props))
+            # print(f'Waveform \'{waveform['name']}\':')
+            # print(f'  Unchecked properties:', len(unchecked_props))
+            # print(f'  Checked properties:', len(checked_props))
         
         self._properties = checked_props
         print('Properties held after all waveforms:', len(self._properties))
         
         # Remove duplicates
-        #self._removeDuplicates()
+        # self._removeDuplicates()
 
 
     def getProperties_LTL(self) -> list:

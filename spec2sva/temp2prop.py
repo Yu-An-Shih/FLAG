@@ -102,8 +102,7 @@ class Temp2Prop:
                 # Remove combinations with the same operands in a different order
                 ltl_combs = set(tuple(sorted(comb)) for comb in ltl_combs)
                 
-                #operand_combinations = [tuple(dict_lookup[ltl] for ltl in comb) for comb in str_combs]
-                operand_combinations = [tuple(ast2concrete.ltl_to_ast(ltl) for ltl in comb) for comb in ltl_combs]
+                operand_combinations = [tuple(ast2concrete.ltl_to_ast(ltl) for ltl in comb) for comb in sorted(ltl_combs)]
             
             # Expand the operator with each combination of operands
             for new_operands in operand_combinations:
