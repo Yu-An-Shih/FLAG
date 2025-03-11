@@ -13,6 +13,8 @@ property_gen/
 smt/
 util/
 
+grammar/*.py
+
 # test
 waveform_to_nlprop/Q-Channel_backup/
 waveform_to_nlprop/test/

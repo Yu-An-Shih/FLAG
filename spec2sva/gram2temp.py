@@ -1,22 +1,20 @@
 from itertools import product
 import sys
 
-sys.path.append('../util')
-import ast2concrete
+import spec2sva.utils.ast2concrete as ast2concrete
 
 class Gram2Temp:
 
-    def __init__(self, grammer: dict, depths: dict):
+    def __init__(self, grammer: dict):
         ### Initialize the Gram2Temp object ###
 
         self._grammer = grammer
-        self._depths = depths
 
         # Generate the property templates
         self._templates = []
         self._run()
 
-
+    """
     def _isRecursive(self, phrase: dict, cat_name: str) -> bool:
         ### Check if the phrase contains the category itself (recursive) ###
         
@@ -27,7 +25,7 @@ class Gram2Temp:
                 if self._isRecursive(operand, cat_name):
                     return True
         return False
-    
+    """
 
     def _flatten_phrase(self, phrase: dict, base_cat_name: str, base_category: list) -> list:
         ### Flatten the phrase - If it contains the base category, replace the base category with its actual phrases, thus expanding the phrase ###
@@ -40,6 +38,8 @@ class Gram2Temp:
             # Base case 2
             new_phrases = [phrase]
         elif phrase['type'] == 'operator':
+            # TODO: Avoid getting invalid combinations of operands
+
             # Get the expanded subphrases by flattening each operand
             subphrases_list = []
             for operand in phrase['operands']:
@@ -68,6 +68,7 @@ class Gram2Temp:
         return category_new
 
 
+    """
     def _flatten_category_self(self, category: list, cat_name: str, depth: int) -> list:
         ### Flatten the category - Replace each appearance of the itself (recursively) with its actual phrases  ###
 
@@ -81,7 +82,8 @@ class Gram2Temp:
             if not self._isRecursive(phrase, cat_name):
                 category_new.append(phrase)
 
-        return category_new
+        return category_new"
+    """
     
 
     def _run(self):
@@ -94,8 +96,8 @@ class Gram2Temp:
         base_category = grammer.pop(base_cat_name)
         while grammer:
             # "Flatten" the base category if it contains itself
-            if base_cat_name in self._depths:
-                base_category = self._flatten_category_self(base_category, base_cat_name, self._depths[base_cat_name])
+            # if base_cat_name in self._depths:
+            #     base_category = self._flatten_category_self(base_category, base_cat_name, self._depths[base_cat_name])
             
             # "Flatten" other categories if they contain the base category
             grammer_new = dict()

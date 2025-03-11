@@ -1,0 +1,125 @@
+{
+    "assignment": [
+        {
+            "type": "basic",
+            "operator": "==",
+            "operands": [
+                { "type": "variable", "variable": "signal" },
+                { "type": "variable", "variable": "level" }
+            ]
+        }
+    ],
+    "stable": [
+        {
+            "type": "basic",
+            "operator": "$stable",
+            "operands": [
+                { "type": "variable", "variable": "signal/word" }
+            ]
+        }
+    ],
+    "change": [
+        {
+            "type": "basic",
+            "operator": "$rose",
+            "operands": [
+                { "type": "variable", "variable": "signal" }
+            ]
+        },
+        {
+            "type": "basic",
+            "operator": "$fell",
+            "operands": [
+                { "type": "variable", "variable": "signal" }
+            ]
+        }
+    ],
+    "conjunction": [
+        { "type": "category", "category": "assignment" },
+        {
+            "type": "operator",
+            "operator": "And",
+            "operands": [
+                { "type": "category", "category": "assignment" },
+                { "type": "category", "category": "assignment" }
+            ]
+        },
+        {
+            "type": "operator",
+            "operator": "And",
+            "operands": [
+                { "type": "category", "category": "assignment" },
+                { "type": "category", "category": "assignment" },
+                { "type": "category", "category": "assignment" }
+            ]
+        },
+        {
+            "type": "operator",
+            "operator": "And",
+            "operands": [
+                { "type": "category", "category": "assignment" },
+                { "type": "category", "category": "assignment" },
+                { "type": "category", "category": "assignment" },
+                { "type": "category", "category": "assignment" }
+            ]
+        }
+    ],
+    "disjunction": [
+        { "type": "category", "category": "assignment" },
+        {
+            "type": "operator",
+            "operator": "Or",
+            "operands": [
+                { "type": "category", "category": "assignment" },
+                { "type": "category", "category": "assignment" }
+            ]
+        }
+    ],
+    "consequent": [
+        { "type": "category", "category": "assignment" },
+        {
+            "type": "operator",
+            "operator": "X",
+            "operands": [
+                { "type": "category", "category": "disjunction" }
+            ]
+        },
+        {
+            "type": "operator",
+            "operator": "X",
+            "operands": [
+                { "type": "category", "category": "stable" }
+            ]
+        }
+    ],
+    "property": [
+        {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        { "type": "category", "category": "conjunction" },
+                        { "type": "category", "category": "consequent" }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        { "type": "category", "category": "change" },
+                        { "type": "category", "category": "disjunction" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

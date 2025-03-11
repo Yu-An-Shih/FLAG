@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 
+from spec2sva.gram2temp import Gram2Temp
 from spec2sva.temp2prop import Temp2Prop
 from spec2sva.smtchecker import SMTChecker
 
@@ -12,16 +13,19 @@ def main():
     parser = argparse.ArgumentParser(description='')
 
     # Required arguments
-    parser.add_argument('-w', '--waveform-info', type=str, required=True, help='Waveform information file')
+    # parser.add_argument('-w', '--waveform-info', type=str, required=True, help='Waveform information file')
     # parser.add_argument('-t', '--templates', type=str, required=True, help='Template file')
 
     # Optional arguments
+    parser.add_argument('-g', '--grammar', type=str, help='Grammar file')
+    parser.add_argument('-w', '--waveform-info', type=str, help='Waveform information file')
     parser.add_argument('-t', '--templates', type=str, help='Template file')
     parser.add_argument('-p', '--properties', type=str, help='Property file')
 
     parser.add_argument('-o', '--output-dir', type=str, default='.', help='Output directory')
     
     # TODO: Provide more execution options?
+    parser.add_argument('--g2t', action='store_true', help='Run Gram2Temp only')
     parser.add_argument('--t2p', action='store_true', help='Run Temp2Prop only')
     parser.add_argument('--smt', action='store_true', help='Run SMTChecker only')
 
@@ -29,15 +33,31 @@ def main():
 
     # TODO: Logger?
 
-    # Execute
-    assert os.path.isfile(args.waveform_info), f"Waveform information file not found: {args.waveform_info}"
-    with open(args.waveform_info, "r") as f:
-        waveform_info = json.load(f)
-    
     # Create output directory
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
 
+    # Execute
+    if args.g2t:
+        assert os.path.isfile(args.grammar), f"Grammar file not found: {args.grammar}"
+        with open(args.grammar, "r") as f:
+            grammar = json.load(f)
+        
+        g2t = Gram2Temp(grammar)
+        templates = g2t.getTemplates()
+
+        with open(f"{args.output_dir}/grammar_based.json", "w") as f:
+            json.dump(templates, f, indent=4)
+        with open(f"{args.output_dir}/grammar_based_NL.json", "w") as f:
+            json.dump(g2t.getTemplates_NL(), f, indent=4)
+
+        return
+
+
+    assert os.path.isfile(args.waveform_info), f"Waveform information file not found: {args.waveform_info}"
+    with open(args.waveform_info, "r") as f:
+        waveform_info = json.load(f)
+    
     if not args.smt:
         assert os.path.isfile(args.templates), f"Template file not found: {args.templates}"
         with open(args.templates, "r") as f:
