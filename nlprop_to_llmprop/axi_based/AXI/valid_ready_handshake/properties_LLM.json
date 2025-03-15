@@ -1,0 +1,6 @@
+[
+    "If READY == 0 and VALID == 1, then VALID == 1 in the next cycle.",
+    "If READY == 0 and VALID == 1, then $stable(INFORMATION) in the next cycle.",
+    "If READY == 1 and VALID == 1, then VALID == 0 in the next cycle.",
+    "If READY == 1 and VALID == 1, then READY == 0 in the next cycle."
+]
