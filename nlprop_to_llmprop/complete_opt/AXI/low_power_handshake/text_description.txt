@@ -1,0 +1,52 @@
+12.1 About the low-power interface 
+The low-power interface is an optional extension to the data transfer protocol that targets two different classes of peripherals: 
+	• Peripherals that require a power-down sequence, and that can have their clocks turned off only after they enter a low-power state. These peripherals require an indication from a system clock controller to determine when to initiate the power-down sequence. 
+	• Peripherals that have no power-down sequence, and that can independently indicate when it is acceptable to turn off their clocks. 
+
+12.2 Low-power clock control 
+The low-power clock control interface consists of the following signals: 
+	• a signal from the peripheral indicating when its clocks can be enabled or disabled 
+	• two handshake signals for the system clock controller to request exit or entry into a low-power state. 
+
+The primary signal in the clock control interface is CACTIVE. The peripheral uses this signal to indicate when it requires its clock to be enabled. The peripheral asserts CACTIVE to indicate that it requires the clock, and the system clock controller must enable the clock immediately. The peripheral deasserts CACTIVE to indicate that it does not require the clock. The system clock controller can then determine whether to enable or disable the peripheral clock. 
+
+A peripheral that can have its clock enabled or disabled at any time can drive CACTIVE LOW permanently. A peripheral that must have its clock always enabled must drive CACTIVE HIGH permanently. 
+
+This simple interface to the system clock controller is sufficient for some peripherals with no power-down or power-up sequence. 
+
+For a more complex peripheral with a power-down or power-up sequence, entry into a low-power state occurs only after a request from the system clock controller. The AXI protocol provides a two-wire request/acknowledge handshake to support this request: 
+CSYSREQ To request that the peripheral enter a low-power state, the system clock controller drives the CSYSREQ signal LOW. During normal operation, CSYSREQ is HIGH. 
+
+CSYSACK The peripheral uses the CSYSACK signal to acknowledge both the low-power state request and the exit from the low-power state. 
+
+Figure 12-1 shows the relationship between CSYSREQ and CSYSACK. 
+
+At the start of the sequence in Figure 12-1 on page 12-3, both CSYSREQ and CSYSACK are HIGH for normal clocked operation. At time T1, the system clock controller deasserts CSYSREQ, indicating a request to put the peripheral in a low-power state. The peripheral acknowledges the request at time T2 by deasserting CSYSACK. At T3, the system clock controller asserts CSYSREQ to indicate the exit from the low-power state, and the peripheral asserts CSYSACK at T4 to acknowledge the exit. 
+
+This relationship between CSYSREQ and CSYSACK is a requirement of the AXI protocol. 
+
+The peripheral can accept or deny the request for a low-power state from the system clock controller. The level of the CACTIVE signal when the peripheral acknowledges the request by deasserting CSYSACK indicates the acceptance or denial of the request. 
+
+12.2.1 Acceptance of low-power request 
+Figure 12-2 shows the sequence of events when a peripheral accepts a system low-power request.
+In Figure 12-2, the sequence begins at T1 when the system clock controller deasserts CSYSREQ to request that the peripheral enter a low power state. After the peripheral recognizes the request, it can then perform its power-down function and deassert CACTIVE. The peripheral then deasserts CSYSACK at T3 to complete the entry into the low-power state. 
+At T4, the system clock controller begins the low-power state exit sequence by asserting CSYSREQ. The peripheral then asserts CACTIVE at T5 and completes the exit sequence at T6 by asserting CSYSACK. 
+
+12.2.2 Denial of a low-power request 
+Figure 12-3 shows the sequence of events when a peripheral denies a system low-power request. 
+In Figure 12-3, the peripheral denies a low-power request by holding CACTIVE HIGH when it acknowledges the low-power request. After that point, the system clock controller must complete the low-power request handshake by asserting CSYSREQ before it can initiate another request. 
+
+12.2.3 Exiting a low-power state 
+Either the system clock controller or the peripheral can request to exit the low-power state and restore the clock. By definition, both CACTIVE and CSYSREQ are LOW during the low power state, and driving either of these signals HIGH initiates the exit sequence. 
+
+The system clock controller can initiate the exit from the low-power state by enabling the clock and driving CSYSREQ HIGH. The peripheral can then perform a power-up sequence in which it drives CACTIVE HIGH. Then it completes the exit by driving CSYSACK HIGH. 
+
+The peripheral can initiate the exit from a low-power state by driving CACTIVE HIGH. The system clock controller must then immediately restore the clock. It must also drive CSYSREQ HIGH to continue the handshake sequence. The peripheral then completes the sequence by driving CSYSACK HIGH while exiting the low-power state. The peripheral can keep CSYSACK LOW for as many cycles as it requires to complete the exit sequence. 
+
+12.2.5 Combining peripherals in a low-power domain 
+The system clock controller can combine a number of different peripherals within the same low-power clock domain. Then the clock domain can be treated in the same way as a single peripheral if the following rules are observed: 
+	• The clock domain CACTIVE signal is the logical OR of all the CACTIVE signals within the clock domain. This means that the system clock controller can disable the clocks only when all peripherals indicate that they can be disabled. 
+	• The system clock controller can use a single CSYSREQ signal that is routed to all peripherals within the clock domain. 
+	• The clock domain CSYSACK signal is generated as follows: 
+		○ the falling edge of CSYSACK occurs when the last falling edge from all of the peripherals occurs 
+		○ the rising edge of CSYSACK occurs when the last rising edge from all of the peripherals occurs. 
