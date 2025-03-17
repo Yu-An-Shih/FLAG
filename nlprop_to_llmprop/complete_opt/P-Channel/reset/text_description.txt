@@ -1,0 +1,5 @@
+NOTE: The prompt will include the additional information that RESETn is active LOW
+
+Device reset and initialization
+At reset assertion, a device must set both PACCEPT and PDENY LOW. PACTIVE bits can be reset LOW or HIGH. If the device must enter a specific power state to process start-up operations, then the relevant PACTIVE bit can be reset HIGH. It is recommended that all PACTIVE bits are reset LOW.
+Device reset assertion by a controller must occur only when the interface is in the P_STABLE state or when the controller and device are being reset simultaneously. This is consistent with the recommendation to isolate all signals LOW at power boundaries.

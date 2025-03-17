@@ -1,0 +1,7 @@
+[
+    "If ACK_I == 1 and STB_O == 1, then STB_O == 0 in the next cycle.",
+    "If CYC_O == 0 and STB_O == 1, then $stable(ADR_O) in the next cycle.",
+    "If CYC_O == 0 and STB_O == 1, then $stable(DAT_O) in the next cycle.",
+    "If CYC_O == 0 and STB_O == 1, then $stable(SEL_O) in the next cycle.",
+    "If CYC_O == 0 and STB_O == 1, then $stable(WE_O) in the next cycle."
+]
