@@ -2,8 +2,7 @@ from itertools import product
 import sys
 from typing import Callable
 
-#from spec2sva.utils.ast2concrete import ast2concrete
-import spec2sva.utils.ast2concrete as ast2concrete
+from spec2sva.utils.ast2concrete import ast_to_ltl, ast_to_nl, ast_to_sva
 
 class Temp2Prop:
 
@@ -35,7 +34,7 @@ class Temp2Prop:
             
             if ast['operator'] == operator:
                 # NOTE: Assume there are no nested operators of the same type
-                operand_list = [ast2concrete.ast_to_ltl(operand) for operand in ast['operands']]
+                operand_list = [ast_to_ltl(operand) for operand in ast['operands']]
                 if not all(comparator(operand_list[i], operand_list[i+1]) for i in range(len(operand_list)-1)):
                     return False
             
@@ -52,7 +51,7 @@ class Temp2Prop:
 
         new_phrases = []
         if phrase['type'] == 'basic':
-            vartype = phrase['operands'][0]['variable']
+            vartype = phrase['operands'][0]['type']
             assert vartype in ['signal', 'word', 'signal/word']
 
             # NOTE: Python 3.10+ is required for the match-case syntax
@@ -63,26 +62,26 @@ class Temp2Prop:
                         assert vartype == 'word'
                     if vartype == 'signal' or vartype == 'signal/word':
                         for signal in self._signals:
-                            new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}, {'type': 'variable', 'variable': str(i)}]} for i in [0, 1]]
+                            new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'signal', 'value': signal}, {'type': 'level', 'value': str(i)}]} for i in [0, 1]]
                     if vartype == 'word' or vartype == 'signal/word':
                         for word, width in self._words:
                             # NOTE: This might generate too many properties for wide words. Should we constraint this?
-                            new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': word}, {'type': 'variable', 'variable': str(i)}]} for i in range(2**width)]
+                            new_phrases += [{'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'word', 'value': word, 'width': str(width)}, {'type': 'value', 'value': str(i)}]} for i in range(2**width)]
                 case '$rose' | '$fell':
                     assert vartype == 'signal'
                     for signal in self._signals:
-                        new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}]})
+                        new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'signal', 'value': signal}]})
                 case '$roseorfell':
                     assert vartype == 'signal'
                     for signal in self._signals:
-                        new_phrases += [{'type': 'basic', 'operator': '$rose', 'operands': [{'type': 'variable', 'variable': signal}]}, {'type': 'basic', 'operator': '$fell', 'operands': [{'type': 'variable', 'variable': signal}]}]
+                        new_phrases += [{'type': 'basic', 'operator': '$rose', 'operands': [{'type': 'signal', 'value': signal}]}, {'type': 'basic', 'operator': '$fell', 'operands': [{'type': 'signal', 'value': signal}]}]
                 case '$stable':
                     if vartype == 'signal' or vartype == 'signal/word':
                         for signal in self._signals:
-                            new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': signal}]})
+                            new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'signal', 'value': signal}]})
                     if vartype == 'word' or vartype == 'signal/word':
                         for word, _ in self._words:
-                            new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'variable', 'variable': word}]})
+                            new_phrases.append({'type': 'basic', 'operator': phrase['operator'], 'operands': [{'type': 'word', 'value': word}]})
                 case _:
                     raise ValueError(f"Unknown operator: {phrase['operator']}")
         elif phrase['type'] == 'operator':
@@ -94,15 +93,19 @@ class Temp2Prop:
             operand_combinations = list(product(*subphrases_list))
             # Avoid generating invalid combinations for commutative operators
             if phrase['operator'] == 'And' or phrase['operator'] == 'Or':
-                #dict_lookup = {ast2concrete.ast_to_ltl(ast): ast for lst in subphrases_list for ast in lst}
-                ltl_combs = [tuple(ast2concrete.ast_to_ltl(ast) for ast in comb) for comb in operand_combinations]
+                # NOTE: There may be information loss when converting AST to LTL
+                #       This should be fine since any signal is either a 'signal' or 'word' type
+                dict_lookup = {ast_to_ltl(ast, IsTemplate=False): ast for lst in subphrases_list for ast in lst}
+                
+                ltl_combs = [tuple(ast_to_ltl(ast, IsTemplate=False) for ast in comb) for comb in operand_combinations]
                 
                 # Remove combinations with repeated operands
                 ltl_combs = [comb for comb in ltl_combs if len(set(comb)) == len(comb)]
                 # Remove combinations with the same operands in a different order
                 ltl_combs = set(tuple(sorted(comb)) for comb in ltl_combs)
                 
-                operand_combinations = [tuple(ast2concrete.ltl_to_ast(ltl) for ltl in comb) for comb in sorted(ltl_combs)]
+                operand_combinations = [tuple(dict_lookup[ltl] for ltl in comb) for comb in sorted(ltl_combs)]
+                #operand_combinations = [tuple(ltl_to_ast(ltl) for ltl in comb) for comb in sorted(ltl_combs)]
             
             # Expand the operator with each combination of operands
             for new_operands in operand_combinations:
@@ -128,7 +131,7 @@ class Temp2Prop:
             properties += self._substitute(template['ast'])
         
         for property in properties:
-            self._properties.append({'nl': ast2concrete.ast_to_nl(property), 'ltl': ast2concrete.ast_to_ltl(property), 'ast': property})
+            self._properties.append({'nl': ast_to_nl(property, IsTemplate=False), 'sva': ast_to_sva(property), 'ltl': ast_to_ltl(property, IsTemplate=False), 'ast': property})
         
         # Remove duplicate properties
         # valid_properties = []
@@ -152,6 +155,11 @@ class Temp2Prop:
         ### Return the generated properties in NL format ###
 
         return [property['nl'] for property in self._properties]
+    
+    def getProperties_SVA(self) -> list:
+        ### Return the generated properties in SVA format ###
+
+        return [property['sva'] for property in self._properties]
     
     def getProperties(self) -> list:
         ### Return the generated properties ###

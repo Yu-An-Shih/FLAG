@@ -1,7 +1,7 @@
 from itertools import product
 import sys
 
-import spec2sva.utils.ast2concrete as ast2concrete
+from spec2sva.utils.ast2concrete import ast_to_ltl, ast_to_nl
 
 class Gram2Temp:
 
@@ -111,7 +111,7 @@ class Gram2Temp:
         
         # Transfer the expanded grammer into property templates
         for template in base_category:
-            self._templates.append({'nl': ast2concrete.ast_to_nl(template), 'ltl': ast2concrete.ast_to_ltl(template), 'ast': template})
+            self._templates.append({'nl': ast_to_nl(template, IsTemplate=True), 'ltl': ast_to_ltl(template, IsTemplate=True), 'ast': template})
     
 
     def getTemplates_LTL(self) -> list:

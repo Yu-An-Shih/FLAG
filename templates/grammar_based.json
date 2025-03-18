@@ -1,7 +1,7 @@
 [
     {
-        "nl": "If signal == level, then signal == level.",
-        "ltl": "(G (Implies (== signal level) (== signal level)))",
+        "nl": "If [signal] == [level], then [signal] == [level].",
+        "ltl": "(G (Implies (== [signal] [level]) (== [signal] [level])))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -15,12 +15,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         },
@@ -29,12 +27,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         }
@@ -44,8 +40,8 @@
         }
     },
     {
-        "nl": "If signal == level, then signal == level in the next cycle.",
-        "ltl": "(G (Implies (== signal level) (X (== signal level))))",
+        "nl": "If [signal] == [level], then [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (== [signal] [level]) (X (== [signal] [level]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -59,12 +55,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         },
@@ -77,12 +71,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -94,8 +86,8 @@
         }
     },
     {
-        "nl": "If signal == level, then signal == level or signal == level in the next cycle.",
-        "ltl": "(G (Implies (== signal level) (X (Or (== signal level) (== signal level)))))",
+        "nl": "If [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (== [signal] [level]) (X (Or (== [signal] [level]) (== [signal] [level])))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -109,12 +101,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         },
@@ -131,12 +121,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         },
@@ -145,12 +133,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         }
@@ -164,8 +150,8 @@
         }
     },
     {
-        "nl": "If signal == level, then $stable(signal/word) in the next cycle.",
-        "ltl": "(G (Implies (== signal level) (X ($stable signal/word))))",
+        "nl": "If [signal] == [level], then [signal/word] remains stable in the next cycle.",
+        "ltl": "(G (Implies (== [signal] [level]) (X ($stable [signal/word]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -179,12 +165,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         },
@@ -197,8 +181,7 @@
                                     "operator": "$stable",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal/word"
+                                            "type": "signal/word"
                                         }
                                     ]
                                 }
@@ -210,8 +193,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level, then signal == level.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level)) (== signal level)))",
+        "nl": "If [signal] == [level] and [signal] == [level], then [signal] == [level].",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level])) (== [signal] [level])))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -229,12 +212,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -243,12 +224,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -259,12 +238,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         }
@@ -274,8 +251,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level, then signal == level in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level)) (X (== signal level))))",
+        "nl": "If [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level])) (X (== [signal] [level]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -293,12 +270,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -307,12 +282,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -327,12 +300,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -344,8 +315,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level, then signal == level or signal == level in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level)) (X (Or (== signal level) (== signal level)))))",
+        "nl": "If [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level])) (X (Or (== [signal] [level]) (== [signal] [level])))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -363,12 +334,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -377,12 +346,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -401,12 +368,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         },
@@ -415,12 +380,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         }
@@ -434,8 +397,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level, then $stable(signal/word) in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level)) (X ($stable signal/word))))",
+        "nl": "If [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level])) (X ($stable [signal/word]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -453,12 +416,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -467,12 +428,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -487,8 +446,7 @@
                                     "operator": "$stable",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal/word"
+                                            "type": "signal/word"
                                         }
                                     ]
                                 }
@@ -500,8 +458,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level, then signal == level.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level)) (== signal level)))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level].",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (== [signal] [level])))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -519,12 +477,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -533,12 +489,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -547,12 +501,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -563,12 +515,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         }
@@ -578,8 +528,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level, then signal == level in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level)) (X (== signal level))))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X (== [signal] [level]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -597,12 +547,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -611,12 +559,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -625,12 +571,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -645,12 +589,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -662,8 +604,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level, then signal == level or signal == level in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level)) (X (Or (== signal level) (== signal level)))))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X (Or (== [signal] [level]) (== [signal] [level])))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -681,12 +623,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -695,12 +635,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -709,12 +647,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -733,12 +669,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         },
@@ -747,12 +681,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         }
@@ -766,8 +698,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level, then $stable(signal/word) in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level)) (X ($stable signal/word))))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X ($stable [signal/word]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -785,12 +717,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -799,12 +729,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -813,12 +741,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -833,8 +759,7 @@
                                     "operator": "$stable",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal/word"
+                                            "type": "signal/word"
                                         }
                                     ]
                                 }
@@ -846,8 +771,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level and signal == level, then signal == level.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level) (== signal level)) (== signal level)))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level].",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (== [signal] [level])))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -865,12 +790,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -879,12 +802,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -893,12 +814,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -907,12 +826,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -923,12 +840,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         }
@@ -938,8 +853,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level and signal == level, then signal == level in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level) (== signal level)) (X (== signal level))))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X (== [signal] [level]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -957,12 +872,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -971,12 +884,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -985,12 +896,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -999,12 +908,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -1019,12 +926,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -1036,8 +941,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level and signal == level, then signal == level or signal == level in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level) (== signal level)) (X (Or (== signal level) (== signal level)))))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X (Or (== [signal] [level]) (== [signal] [level])))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -1055,12 +960,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1069,12 +972,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1083,12 +984,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1097,12 +996,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -1121,12 +1018,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         },
@@ -1135,12 +1030,10 @@
                                             "operator": "==",
                                             "operands": [
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "signal"
+                                                    "type": "signal"
                                                 },
                                                 {
-                                                    "type": "variable",
-                                                    "variable": "level"
+                                                    "type": "level"
                                                 }
                                             ]
                                         }
@@ -1154,8 +1047,8 @@
         }
     },
     {
-        "nl": "If signal == level and signal == level and signal == level and signal == level, then $stable(signal/word) in the next cycle.",
-        "ltl": "(G (Implies (And (== signal level) (== signal level) (== signal level) (== signal level)) (X ($stable signal/word))))",
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X ($stable [signal/word]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -1173,12 +1066,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1187,12 +1078,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1201,12 +1090,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1215,12 +1102,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -1235,8 +1120,7 @@
                                     "operator": "$stable",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal/word"
+                                            "type": "signal/word"
                                         }
                                     ]
                                 }
@@ -1248,8 +1132,8 @@
         }
     },
     {
-        "nl": "If $rose(signal), then signal == level.",
-        "ltl": "(G (Implies ($rose signal) (== signal level)))",
+        "nl": "If [signal] changes from LOW to HIGH, then [signal] == [level].",
+        "ltl": "(G (Implies ($rose [signal]) (== [signal] [level])))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -1263,8 +1147,7 @@
                             "operator": "$rose",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 }
                             ]
                         },
@@ -1273,12 +1156,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         }
@@ -1288,8 +1169,8 @@
         }
     },
     {
-        "nl": "If $rose(signal), then signal == level or signal == level.",
-        "ltl": "(G (Implies ($rose signal) (Or (== signal level) (== signal level))))",
+        "nl": "If [signal] changes from LOW to HIGH, then [signal] == [level] or [signal] == [level].",
+        "ltl": "(G (Implies ($rose [signal]) (Or (== [signal] [level]) (== [signal] [level]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -1303,8 +1184,7 @@
                             "operator": "$rose",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 }
                             ]
                         },
@@ -1317,12 +1197,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1331,12 +1209,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }
@@ -1348,8 +1224,8 @@
         }
     },
     {
-        "nl": "If $fell(signal), then signal == level.",
-        "ltl": "(G (Implies ($fell signal) (== signal level)))",
+        "nl": "If [signal] changes from HIGH to LOW, then [signal] == [level].",
+        "ltl": "(G (Implies ($fell [signal]) (== [signal] [level])))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -1363,8 +1239,7 @@
                             "operator": "$fell",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 }
                             ]
                         },
@@ -1373,12 +1248,10 @@
                             "operator": "==",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 },
                                 {
-                                    "type": "variable",
-                                    "variable": "level"
+                                    "type": "level"
                                 }
                             ]
                         }
@@ -1388,8 +1261,8 @@
         }
     },
     {
-        "nl": "If $fell(signal), then signal == level or signal == level.",
-        "ltl": "(G (Implies ($fell signal) (Or (== signal level) (== signal level))))",
+        "nl": "If [signal] changes from HIGH to LOW, then [signal] == [level] or [signal] == [level].",
+        "ltl": "(G (Implies ($fell [signal]) (Or (== [signal] [level]) (== [signal] [level]))))",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -1403,8 +1276,7 @@
                             "operator": "$fell",
                             "operands": [
                                 {
-                                    "type": "variable",
-                                    "variable": "signal"
+                                    "type": "signal"
                                 }
                             ]
                         },
@@ -1417,12 +1289,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 },
@@ -1431,12 +1301,10 @@
                                     "operator": "==",
                                     "operands": [
                                         {
-                                            "type": "variable",
-                                            "variable": "signal"
+                                            "type": "signal"
                                         },
                                         {
-                                            "type": "variable",
-                                            "variable": "level"
+                                            "type": "level"
                                         }
                                     ]
                                 }

@@ -4,8 +4,8 @@
             "type": "basic",
             "operator": "==",
             "operands": [
-                { "type": "variable", "variable": "signal" },
-                { "type": "variable", "variable": "level" }
+                { "type": "signal" },
+                { "type": "level" }
             ]
         }
     ],
@@ -14,7 +14,7 @@
             "type": "basic",
             "operator": "$stable",
             "operands": [
-                { "type": "variable", "variable": "signal/word" }
+                { "type": "signal/word" }
             ]
         }
     ],
@@ -23,14 +23,14 @@
             "type": "basic",
             "operator": "$rose",
             "operands": [
-                { "type": "variable", "variable": "signal" }
+                { "type": "signal" }
             ]
         },
         {
             "type": "basic",
             "operator": "$fell",
             "operands": [
-                { "type": "variable", "variable": "signal" }
+                { "type": "signal" }
             ]
         }
     ],

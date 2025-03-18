@@ -88,3 +88,5 @@ def main():
         json.dump(valid_props, f, indent=4)
     with open(f"{args.output_dir}/properties_NL.json", "w") as f:
         json.dump(smtchecker.getProperties_NL(), f, indent=4)
+    with open(f"{args.output_dir}/properties_SVA.json", "w") as f:
+        json.dump(smtchecker.getProperties_SVA(), f, indent=4)

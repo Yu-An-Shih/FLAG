@@ -73,28 +73,23 @@ class SMTChecker:
 
         # Propositions (base cases)
         if ast['type'] == 'basic':
-            signal = ast['operands'][0]['variable']
+            signal = ast['operands'][0]['value']
             if signal not in self._variables:
                 # NOTE: Skip the property if it contains signals not in the waveform
                 return None
 
             match ast['operator']:
                 case '==':
-                    #signal = ast['operands'][0]['variable']
-                    value = int(ast['operands'][1]['variable'])
+                    value = int(ast['operands'][1]['value'])
                     return self._variables[signal][cyc] == value
                 case '!=':
-                    #signal = ast['operands'][0]['variable']
-                    value = int(ast['operands'][1]['variable'])
+                    value = int(ast['operands'][1]['value'])
                     return self._variables[signal][cyc] != value
                 case '$rose':
-                    #signal = ast['operands'][0]['variable']
                     return And(self._variables[signal][cyc - 1] == 0, self._variables[signal][cyc] == 1) if cyc > 0 else None
                 case '$fell':
-                    #signal = ast['operands'][0]['variable']
                     return And(self._variables[signal][cyc - 1] == 1, self._variables[signal][cyc] == 0) if cyc > 0 else None
                 case '$stable':
-                    #signal = ast['operands'][0]['variable']
                     return self._variables[signal][cyc - 1] == self._variables[signal][cyc] if cyc > 0 else None
                 case _:
                     raise ValueError(f"Unknown basic operator: {ast['operator']}")
@@ -285,6 +280,11 @@ class SMTChecker:
         ### Return the properties that hold for all waveforms in NL format ###
 
         return [property['nl'] for property in self._properties]
+    
+    def getProperties_SVA(self) -> list:
+        ### Return the properties that hold for all waveforms in SVA format ###
+
+        return [property['sva'] for property in self._properties]
     
     def getProperties(self) -> list:
         ### Return the properties that hold for all waveforms ###
