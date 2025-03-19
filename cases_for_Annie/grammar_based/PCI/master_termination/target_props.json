@@ -1,0 +1,7 @@
+[
+    "If FRAME# changes from LOW to HIGH, then IRDY# is LOW.",
+    "If DEVSEL# is LOW and IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then IRDY# is LOW in the next cycle.",
+    "If DEVSEL# is LOW and IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then FRAME# remains stable in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then IRDY# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then IRDY# is HIGH in the next cycle."
+]
