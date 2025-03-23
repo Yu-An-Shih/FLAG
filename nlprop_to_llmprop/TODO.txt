@@ -16,3 +16,24 @@ For master termination, both the waveform and text do not contain the STOP# sign
 the relationship between TRDY# and STOP#
 A possible solution is to merge target termination and master termination
 
+APB:
+1. 
+During an Access phase, when PENABLE is HIGH, the Completer extends the transfer by driving PREADY LOW. The following signals remain unchanged while PREADY remains LOW:
+• Address signal, PADDR
+• Direction signal, PWRITE
+• Select signal, PSELx
+• Enable signal, PENABLE
+• Write data signal, PWDATA
+• Write strobe signal, PSTRB
+• Protection type signal, PPROT
+• User request attribute, PAUSER
+• User write data attribute, PWUSER
+PREADY can take any value when PENABLE is LOW. This ensures that peripherals that have a fixed two cycle access can tie PREADY HIGH.
+
+The target property is:
+If PENABLE == 0 and PSEL == 1 and PWRITE == 1, then $stable(PWDATA) in the next cycle.
+
+The extracted property is:
+"If PENABLE == 0 and PSEL == 1, then $stable(PWDATA) in the next cycle."
+
+Does PWRITE have to be HIGH in order for PWDATA to be stable?
