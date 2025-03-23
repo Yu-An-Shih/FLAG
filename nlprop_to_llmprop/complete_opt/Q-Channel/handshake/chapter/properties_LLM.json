@@ -1,0 +1,12 @@
+[
+    "If QACCEPTn == 1 and QREQn == 1, then QACCEPTn == 1 in the next cycle.",
+    "If QDENY == 0 and QREQn == 1, then QDENY == 0 in the next cycle.",
+    "If QACCEPTn == 0 and QREQn == 0, then QACCEPTn == 0 in the next cycle.",
+    "If QACCEPTn == 0 and QREQn == 0, then QDENY == 0 in the next cycle.",
+    "If QACCEPTn == 0, then QDENY == 0.",
+    "If $rose(QACCEPTn), then QREQn == 1.",
+    "If $rose(QACCEPTn), then QDENY == 0.",
+    "If QDENY == 1, then QACCEPTn == 1.",
+    "If $rose(QDENY), then QREQn == 0.",
+    "If $rose(QDENY), then QACCEPTn == 1."
+]

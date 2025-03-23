@@ -1,0 +1,4 @@
+[
+    "If $rose(FRAME#), then IRDY# == 0.",
+    "If FRAME# == 1 and IRDY# == 0, then $stable(FRAME#) in the next cycle."
+]

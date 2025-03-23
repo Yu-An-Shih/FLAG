@@ -1,0 +1,8 @@
+Note: The prompt will include the additional information that RESETn is the reset signal and is active LOW
+
+Device reset
+At reset assertion, a device must drive both QACCEPTn and QDENY LOW. QACTIVE can reset LOW or HIGH. If the device must perform start-up operations on exit from reset, then it can reset QACTIVE HIGH, otherwise it is recommended that QACTIVE is reset LOW.
+A controller can release a device from reset with either:
+• QREQn LOW with the interface in Q_STOPPED state.
+• QREQn HIGH with the interface in Q_EXIT state, provided any clock or power supply guarantee is met.
+A controller must only assert a device reset when the interface is in the Q_STOPPED state or when the controller and device are reset simultaneously. This is consistent with the recommendation to isolate all signals LOW at power boundaries.

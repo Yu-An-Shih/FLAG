@@ -1,0 +1,10 @@
+Handshake rules
+The handshake signaling rules are:
+• QREQn can only transition from HIGH to LOW when QACCEPTn is HIGH and QDENY is LOW.
+• QREQn can only transition from LOW to HIGH when either:
+— QACCEPTn and QDENY are both LOW.
+— QACCEPTn and QDENY are both HIGH.
+• QACCEPTn can only transition from HIGH to LOW when QREQn is LOW and QDENY is LOW.
+• QACCEPTn can only transition from LOW to HIGH when QREQn is HIGH and QDENY is LOW.
+• QDENY can only transition from HIGH to LOW when QREQn is HIGH and QACCEPTn is HIGH.
+• QDENY can only transition from LOW to HIGH when QREQn is LOW and QACCEPTn is HIGH.

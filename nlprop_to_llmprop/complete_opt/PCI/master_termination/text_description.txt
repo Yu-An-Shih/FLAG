@@ -1,0 +1,43 @@
+3.3.3. Transaction Termination
+
+Termination of a PCI transaction may be initiated by either the master or the target. While neither can actually stop the transaction unilaterally, the master remains in ultimate control, bringing all transactions to an orderly and systematic conclusion regardless of what caused the termination. All transactions are concluded when FRAME# and IRDY# are both deasserted, indicating an Idle state (e.g., clock 9 in Figure 3-6).
+
+3.3.3.1. Master Initiated Termination
+
+The mechanism used in master initiated termination is when FRAME# is deasserted and IRDY# is asserted. This condition signals the target that the final data phase is in progress. The final data transfer occurs when both IRDY# and TRDY# are asserted. The transaction reaches completion when both FRAME# and IRDY# are deasserted (Idle state).
+
+The master may initiate termination using this mechanism for one of two reasons:
+
+Completion refers to termination when the master has concluded its intended transaction. This is the most common reason for termination.
+
+Timeout refers to termination when the master’s GNT# line is deasserted and its internal Latency Timer has expired. The intended transaction is not necessarily concluded. The timer may have expired because of target-induced access latency or because the intended operation was very long. Refer to Section 3.5.4. for a description of the Latency Timer operation.
+
+A Memory Write and Invalidate transaction is not governed by the Latency Timer except at cacheline boundaries. A master that initiates a transaction with the Memory Write and Invalidate command ignores the Latency Timer until a cacheline boundary. When the transaction reaches a cacheline boundary and the Latency Timer has expired (and GNT# is deasserted), the master must terminate the transaction.
+
+A modified version of this termination mechanism allows the master to terminate the transaction when no target responds. This abnormal termination is referred to as Master-Abort. Although it may cause a fatal error for the application originally requesting the transaction, the transaction completes gracefully, thus preserving normal PCI operation for other agents.
+
+Two examples of normal completion are shown in Figure 3-7. The final data phase is indicated by the deassertion of FRAME# and the assertion of IRDY#. The final data phase completes when FRAME# is deasserted and IRDY# and TRDY# are both asserted. The bus reaches an Idle state when IRDY# is deasserted, which occurs on clock 4. Because the transaction has completed, TRDY# is deasserted on clock 4 also.
+
+Note: TRDY# is not required to be asserted on clock 3, but could have delayed the final data transfer (and transaction termination) until it is ready by delaying the final assertion of TRDY#. If the target does that, the master is required to keep IRDY# asserted until the final data transfer occurs.
+
+Both sides of Figure 3-7 could have been caused by a timeout termination. On the left side, FRAME# is deasserted on clock 3 because the timer expires, GNT# is deasserted, and the master is ready (IRDY# asserted) for the final transfer. Because GNT# was deasserted when the timer expired, continued use of the bus is not allowed except when using the Memory Write and Invalidate command (refer to Section 3.5.4.), which must be stopped at the cacheline boundary. Termination then proceeds as normal. If TRDY# is deasserted on clock 2, that data phase continues until TRDY# is asserted. FRAME# must remain deasserted and IRDY# must remain asserted until the data phase completes.
+
+The right-hand example shows a timer expiring on clock 1. Because the master is not ready to transfer data (IRDY# is deasserted on clock 2), FRAME# is required to stay asserted. FRAME# is deasserted on clock 3 because the master is ready (IRDY# is asserted) to complete the transaction on clock 3. The master must be driving valid data (write) or be capable of receiving data (read) whenever IRDY# is asserted. This delay in termination should not be extended more than two or three clocks. Also note that the transaction need not be terminated after timer expiration unless GNT# is deasserted.
+
+Master-Abort termination, as shown in Figure 3-8, is an abnormal case (except for configuration or Special Cycle commands) of master-initiated termination. A master determines that there will be no response to a transaction if DEVSEL# remains deasserted on clock 6. (For a complete description of DEVSEL# operation, refer to Section 3.6.1.) The master must assume that the target of the access is incapable of dealing with the requested transaction or that the address was bad and must not repeat the transaction. Once the master has detected the missing DEVSEL# (clock 6 in this example), FRAME# is deasserted on clock 7 and IRDY# is deasserted on clock 8. The earliest a master can terminate a transaction with Master-Abort is five clocks after FRAME# was first sampled asserted, which occurs when the master attempts a single data transfer. If a burst is attempted, the transaction is longer than five clocks. However, the master may take longer to deassert FRAME# and terminate the access. The master must support the FRAME# -- IRDY# relationship on all transactions including Master-Abort. FRAME# cannot be deasserted before IRDY# is asserted, and IRDY# must remain asserted for at least one clock after FRAME# is deasserted even when the transaction is terminated with Master-Abort.
+
+Alternatively, IRDY# could be deasserted on clock 7, if FRAME# was deasserted as in the case of a transaction with a single data phase. The master will normally not repeat a transaction terminated with Master-Abort. (Refer to Section 3.7.4.) Note: If DEVSEL# had been asserted on clocks 3, 4, 5, or 6 of this example, it would indicate the request had been acknowledged by an agent and Master-Abort termination would not be permissible.
+
+The host bus bridge, in PC-compatible systems, must return all 1's on a read transaction and discard data on a write transaction when terminated with Master-Abort. The bridge is required to set the Master-Abort detected bit in the status register. Other master devices may report this condition as an error by signaling SERR# when the master cannot report the error through its device driver. A PCI-to-PCI bridge must support PC compatibility as described for the host bus bridge. When the PCI-to-PCI bridge is used in other systems, the bridge behaves like other masters and reports an error. Prefetching of read data beyond the actual request by a bridge must be totally transparent to the system. This means that when a prefetched transaction is terminated with Master-Abort, the bridge must simply stop the transaction and continue normal operation without reporting an error. This occurs when a transaction is not claimed by a target.
+
+In summary, the following general rules govern FRAME# and IRDY# in all PCI transactions:
+
+FRAME# and its corresponding IRDY# define the Busy/Idle state of the bus; when either is asserted, the bus is Busy; when both are deasserted, the bus is Idle.
+
+Once FRAME# has been deasserted, it cannot be reasserted during the same transaction.
+
+FRAME# cannot be deasserted unless IRDY# is asserted. (IRDY# must always be asserted on the first clock edge that FRAME# is deasserted.)
+
+Once a master has asserted IRDY#, it cannot change IRDY# or FRAME# until the current data phase completes.
+
+The master must deassert IRDY# the clock after the completion of the last data phase.

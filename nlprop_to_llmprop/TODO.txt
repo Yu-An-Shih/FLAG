@@ -1,0 +1,18 @@
+TODO
+
+P-Channel:
+1. 
+• PSTATE can only transition when either:
+— PREQ, PACCEPT, and PDENY are all LOW.
+— PREQ and PDENY are both HIGH and PACCEPT is LOW.
+
+The LLM seems to struggle with this property. This is the target property:
+"If PDENY is LOW and PREQ is HIGH, then PSTATE remains stable in the next cycle."
+Could it be looking for properties that include all three signals (PREQ, PACCEPT, PDENY)?
+
+PCI:
+1. 
+For master termination, both the waveform and text do not contain the STOP# signal, and 
+the relationship between TRDY# and STOP#
+A possible solution is to merge target termination and master termination
+
