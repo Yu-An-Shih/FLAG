@@ -127,7 +127,7 @@
             "name": "Figure 3-14: Target-Abort",
             "signals": [
                 { "name": "FRAME#", "values": [0, 0, 1, 1] },
-                { "name": "IRDY#", "values": ["X", "X", 0, 1] },
+                { "name": "IRDY#", "values": [0, 0, 0, 1] },
                 { "name": "TRDY#", "values": [1, 1, 1, 1] },
                 { "name": "STOP#", "values": [1, 0, 0, 1] },
                 { "name": "DEVSEL#", "values": [0, 1, 1, 1] }
