@@ -1,0 +1,6 @@
+[
+    "If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH.",
+    "If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW.",
+    "If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW.",
+    "If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH."
+]

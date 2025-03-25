@@ -1,0 +1,6 @@
+[
+    "If READY is LOW and VALID is HIGH, then VALID remains stable in the next cycle.",
+    "If READY is LOW and VALID is HIGH, then INFORMATION remains stable in the next cycle.",
+    "If READY is HIGH and VALID is HIGH, then VALID is LOW in the next cycle.",
+    "If READY is HIGH and VALID is HIGH, then READY is LOW in the next cycle."
+]

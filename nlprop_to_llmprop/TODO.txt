@@ -1,5 +1,9 @@
 TODO
 
+AXI:
+1. 
+Still issues with valid-ready handshake and the assumption that the VALID and READY signals deassert after a data transfer
+
 P-Channel:
 1. 
 • PSTATE can only transition when either:
