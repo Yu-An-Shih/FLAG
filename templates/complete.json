@@ -412,7 +412,7 @@
         }
     },
     {
-        "nl": "If $rose(signal), then signal == level and signal == level.",
+        "nl": "If $rose(signal), then signal == level or signal == level.",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -430,7 +430,7 @@
                         },
                         {
                             "type": "operator",
-                            "operator": "And",
+                            "operator": "Or",
                             "operands": [
                                 {
                                     "type": "basic",
@@ -456,7 +456,7 @@
         }
     },
     {
-        "nl": "If $fell(signal), then signal == level and signal == level.",
+        "nl": "If $fell(signal), then signal == level or signal == level.",
         "ast": {
             "type": "operator",
             "operator": "G",
@@ -474,7 +474,7 @@
                         },
                         {
                             "type": "operator",
-                            "operator": "And",
+                            "operator": "Or",
                             "operands": [
                                 {
                                     "type": "basic",
