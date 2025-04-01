@@ -1,0 +1,9 @@
+[
+    "If PENABLE is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
+    "If PENABLE is LOW and PSEL is HIGH, then PWDATA remains stable in the next cycle.",
+    "If PREADY is LOW and PSEL is HIGH, then PSEL remains stable in the next cycle.",
+    "If PREADY is LOW and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
+    "If PREADY is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
+    "If PREADY is LOW and PSEL is HIGH, then PWDATA remains stable in the next cycle."
+]
+

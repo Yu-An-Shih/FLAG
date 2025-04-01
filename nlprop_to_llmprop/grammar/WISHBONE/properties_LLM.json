@@ -1,0 +1,5 @@
+[
+    "If STB_O is LOW, then ACK_I is LOW.",
+    "If ACK_I is HIGH, then STB_O is HIGH.",
+    "If STB_O changes from HIGH to LOW, then ACK_I is LOW."
+]
