@@ -1,0 +1,147 @@
+I am providing you a properties_NL_P-Channel_grammar_reset.json file. The file contains a set of properties that were generated using a template, from the waveforms in the text. I am now providing you a textual description of what the reset behavior should be. Please extract the properties that best describe the reset relationship described in the textual description and return them in a json file. The properties must come from the json file. Do not include properties that are not directly mentioned in the text. Do not make assumptions from the text.
+
+Here is the textual description. As a note, RESETn is active LOW:
+3.1 P-Channel interface specification
+This section describes the P-Channel interface that controls power state transitions. For the purposes of this specification:
+
+Lower-power state
+Typically is a state for which:
+• The power consumption is lower.
+• The device has less functionality, performance, or state retention than higher states.
+
+Higher-power state
+Typically is a state for which:
+• The power consumption is higher.
+• The device has more functionality, performance, or state retention than lower states
+
+3.1.1 P-Channel Signals
+Figure 3-1 shows the P-Channel signals between a device and a power controller.
+A P-Channel interface comprises the following signal groups.
+
+Device activity indication
+This group comprises an N-bit signal, PACTIVE[N-1:0]:
+• Each PACTIVE bit presented at a controller can be composed from a number of source signals. To provide wakeup capabilities, these source signals can include device input signals. Each PACTIVE bit is driven either directly by a register or by one or more registers and input signals whose outputs are logically combined. P-Channel implementation on page 3-57 gives implementation recommendations for PACTIVE combining logic.
+• All bits of PACTIVE are independent of each other and might come from various asynchronous sources. For more information, see P-Channel implementation on page 3-57.
+
+Handshake mechanism
+This group manages device power state transitions. The group has the following signals:
+PSTATE[M-1:0]: The power state to which a transition is requested.
+PREQ: Active HIGH request to transition to the power state indicated by PSTATE.
+PACCEPT: Active HIGH acceptance of the transition to the requested power state.
+PDENY: Active HIGH denial of the power state transition request.
+
+PREQ, PACCEPT, and PDENY form a handshake interface that is used to manage and guarantee safe state transitions. The handshake interface has a transition request signal, PREQ driven by a controller and an acknowledgment signal pair, PACCEPT and PDENY, which are driven by a device to indicate acceptance or denial of a request.
+The P-Channel specification requires that only one of PACCEPT or PDENY changes on a single handshake transition. This ensures that the interface can be implemented safely across asynchronous boundaries. PACCEPT is used to accept a request, and PDENY is used to deny a request.
+The PACCEPT and PDENY signals from a device and the PREQ and PSTATE signals from a controller must all be driven directly by registers. PSTATE enumerations are IMPLEMENTATION DEFINED. It is recommended to use the values defined in the Power Policy Unit Specification for compatibility. See Arm® Power Policy Unit, Architecture Specification, Version 1.1 for more information.
+The purpose of the denial mechanism is to enable a device to maintain its current state while also having a mechanism by which it can promptly complete the handshake. This means the controller can make another request, possibly to a different state, if there are changes in the system conditions.
+The polarities of the handshake signals are organized so they start and end each transition in a LOW state. This facilitates simple default isolation rules.
+The handshake signal states are independent of the PACTIVE bits. Transitions on PACTIVE bits are not restricted by the values on PREQ, PACCEPT, and PDENY.
+The P-Channel interface also has protocol relationships to the device, or device partition, reset. For a device with multiple resets, the reset relationships specified here are for the reset associated with the device P-Channel logic. In this specification, the name RESETn is used to represent this reset signal. However, the actual reset naming and polarity is outside the scope of this specification, and not restricted by this specification provided the relationships described are observed. Device reset and initialization on page 3-43 describes reset and initialization transitions.
+
+3.1.2 P-Channel handshake
+This section describes the permitted variations of the P-Channel interface handshake.
+Accepted state transition
+Figure 3-2 shows a transition request from State A to State B that is accepted by the device.
+Figure 3-2 omits PACTIVE because although PACTIVE can act as a stimulus for the controller to initiate a transition request, it is independent of the handshake. All transition requests can be initiated by the controller alone.
+
+The transitions shown in Figure 3-2 are:
+At T0, the interface is idle and all signals are LOW. The interface state is P_STABLE and the device remains in its current state.
+At T1, recognizing that a handshake request is required, the power controller must take any necessary pre-transition actions prior to requesting a new state. These actions are typically associated with a transition to a higher-power state. This might include powering up a domain or bringing RAM out of the retention state. The interface state remains P_STABLE.
+At T2, the power controller puts the required power state value on PSTATE and sets PREQ HIGH. The interface state is now P_REQUEST. The protocol requires that PSTATE is stable when PREQ going HIGH is detected at the device. This is typically achieved by resynchronizing PREQ to the device clock domain and using it to capture PSTATE.
+— A controller must only present supported PSTATE values and transitions to a device. See Device power state and transition support definition on page 3-49.
+At T3, the device accepts the transition by driving PACCEPT HIGH. PDENY must be kept LOW. The device can now use the capabilities of any higher state. The interface state is now P_ACCEPT.
+At T4, the power controller samples PACCEPT HIGH and sets PREQ LOW. The interface state is P_COMPLETE.
+At T5, the device samples PREQ LOW and sets PACCEPT LOW. Once the controller samples PACCEPT LOW, it can take any post-transition actions required. These actions are typically associated with transitioning to a lower-power state. This might include removing power from a power domain or placing a RAM into a retention state. The transition is now complete and the interface state returns to P_STABLE. When moving to a lower-power state after setting PACCEPT LOW, the device cannot assume the availability of any properties of a previous higher-power state.
+
+Denied state transition
+Figure 3-3 shows a transition request that is denied by the device.
+The transitions shown in Figure 3-3 are:
+• T0, T1, and T2 follow the same sequence as described in Accepted state transition on page 3-42.
+• At T3, the device denies the request by setting PDENY HIGH. PACCEPT must remain LOW. The interface state is P_DENIED.
+• At T4, the power controller samples PDENY HIGH and sets PREQ LOW and returns PSTATE to the value for the current state, state A. The protocol requires that PSTATE is stable and has the value of the original state when PREQ going low is detected at the device. The interface state is P_CONTINUE.
+• At T5, the device samples PREQ LOW and sets PDENY LOW. Once the power controller samples PDENY LOW, it can take any post-transition actions required. In the case of a denial, this will typically require reversing any pre-transition actions that were taken between T1 and T2. The denied transition sequence is complete and the interface state is again P_STABLE.
+
+
+Device reset and initialization
+At reset assertion, a device must set both PACCEPT and PDENY LOW. PACTIVE bits can be reset LOW or HIGH. If the device must enter a specific power state to process start-up operations, then the relevant PACTIVE bit can be reset HIGH. It is recommended that all PACTIVE bits are reset LOW.
+
+Device reset assertion by a controller must occur only when the interface is in the P_STABLE state or when the controller and device are being reset simultaneously. This is consistent with the recommendation to isolate all signals LOW at power boundaries.
+
+To facilitate device initialization to a desired state at reset deassertion, the controller provides a PSTATE value that the device must sample before taking appropriate initialization actions. The protocol requires that PSTATE is stable when the reset deassertion is detected at the device.
+The device must specify an initialization period tinit, which is the number of device clock cycles required after reset deassertion before the PSTATE value is guaranteed to be captured for all possible reset states. Device power state and transition support definition on page 3-49 specifies the requirements for this initialization period.
+A device must support all of the following valid controller behaviors during the initialization period.
+• PREQ is LOW at reset deassertion. The controller waits until tinit has expired before requesting a transition to a new state. The controller must ensure an appropriate clock is running for the tinit period to allow PSTATE to be sampled. This method is always applied to unused interfaces, see Unused interface on page 3-49.
+• Before reset deassertion, the controller asserts PREQ HIGH, then waits until the P-Channel transition has completed before requesting a transition to a new state. It is recommended to use this method in preference to the PREQ LOW behavior for actively managed interfaces.
+• PREQ is LOW at reset deassertion. After reset deassertion but before tinit has elapsed, the controller maintains the value of PSTATE and asserts PREQ HIGH. It is IMPLEMENTATION DEFINED whether the device interprets this as a second transition. The controller waits until the P-Channel transition has completed before requesting a transition to a new state.
+On sampling PREQ HIGH at reset exit or during tinit, a device must only complete the P-Channel transition when it is ready to receive another P-Channel request. The device must accept the first request made at reset exit or during tinit.
+Figure 3-4 shows the case where the controller waits until tinit has expired before issuing a new transition, followed by assertion of reset.
+
+The transitions shown in Figure 3-4 are:
+At T0, the interface is idle and the device is in the reset state.
+Between T0 and T1, the power controller must take any pre-transition actions required before deasserting the reset, for example powering-on the domain.
+At T1, the power controller puts the current power state on PSTATE and releases the reset. The device must capture the PSTATE value within tinit. The controller must ensure that PSTATE is stable when the reset deassertion is detected by the device. A device sampling an initial PSTATE that is different from its default state, will cause the device to perform an internal transition to that state. It should delay responding to subsequent P-Channel requests until that internal transition is completed.
+At T2, tinit is complete and transitions to new states can be made.
+At T3, the controller requests that the device be placed in a state, STATE B, from which it can be safely returned to reset.
+Between T3 and T6, the device completes the transition.
+At T7, the reset is asserted.
+Figure 3-5 shows the case where the controller sets PREQ HIGH before reset deassertion and then waits until the P-Channel transition is completed before issuing a further request. The device is guaranteed to be ready to receive another P-Channel request when this first transition completes, even if it completes within t_init.
+
+Figure 3-6 shows the case where the controller sets PREQ HIGH after reset deassertion with the same PSTATE value as at reset deassertion. The controller waits until the P-Channel transition is complete before issuing a further request. The device is guaranteed to be ready to receive another P-Channel request when this first transition completes, even if it completes within t_init.
+
+Handshake Rules 
+The handshake signaling rules are:
+• PREQ can only transition from LOW to HIGH when PACCEPT and PDENY are both LOW.
+• PREQ can only transition from HIGH to LOW when either:
+— PACCEPT is HIGH and PDENY is LOW.
+— PACCEPT is LOW and PDENY is HIGH.
+• PSTATE can only transition when either:
+— PREQ, PACCEPT, and PDENY are all LOW.
+— PREQ and PDENY are both HIGH and PACCEPT is LOW.
+• PACCEPT can only transition from LOW to HIGH when PREQ is HIGH and PDENY is LOW.
+• PACCEPT can only transition from HIGH to LOW when PREQ is LOW and PDENY is LOW.
+• PDENY can only transition from LOW to HIGH when PREQ is HIGH and PACCEPT is LOW.
+• PDENY can only transition from HIGH to LOW when PREQ is LOW and PACCEPT is LOW.
+
+3.1.3 PACTIVE operation
+PACTIVE output bits are used to indicate device requirements to the power controller with each bit representing a different requirement. A PACTIVE bit being HIGH indicates that the requirement should be provided to allow operations to progress. A PACTIVE bit being LOW is a hint that the requirement is no longer needed.
+The P-Channel handshake is independent of PACTIVE and the controller can make any policy decision irrespective of any transitions on PACTIVE. However, the device can deny any request that is not appropriate.
+
+The arrangement of PACTIVE bits is not restricted. However, a typical PACTIVE arrangement for each power state supported by the device is to have an associated PACTIVE output bit, ordered from the lowest state on the least significant bit (LSB) to the highest state on the most significant bit (MSB). The highest PACTIVE bit that is asserted then indicates the minimum power state required by the device to progress operations. In this example, the P-Channel controller transition requests behave as follows:
+• If the power controller is at a lower state than that corresponding to the highest PACTIVE bit set HIGH, the controller requests a transition to that state or any higher supported state to allow operations to progress. Failure by the power controller to respond to a request for a higher state might lead to system deadlock.
+• If the power controller is at a higher state than that corresponding to the highest PACTIVE bit set HIGH, the controller can request a transition to any state at or above the requested minimum.
+• A device might not make use of all PACTIVE bits to explicitly request the corresponding state. In this case, the following rules apply:
+— Unused PACTIVE bits must be omitted or tied LOW.
+— Entry to a state corresponding to an unused PACTIVE bit when it is above the minimum requested by
+driven PACTIVE bits, is an IMPLEMENTATION DEFINED system decision.
+The ordering of the states represented by the PACTIVE bits from least significant to most significant is
+IMPLEMENTATION DEFINED, but typically corresponds to increasing functionality and power consumption.
+In this example, the PACTIVE bits are mapped to power states as follows:
+• PACTIVE[2]: State C
+• PACTIVE[1]: State B
+• PACTIVE[0]: State A
+The transitions shown in Figure 3-9 are:
+At T1, PACTIVE[2] goes LOW making State B the new minimum as PACTIVE[1:0] are still HIGH. Between T2 and T5, the interface transitions to State B.
+At T6, PACTIVE[2] goes HIGH indicating that State C is required.
+Between T7 and T10, the interface transitions to State C.
+
+3.1.4 Device power state and transition support definition
+To allow for correct controller design, device documentation must include a full enumeration of its power states and the allowed transitions between them specifying the following:
+• All supported device power states including:
+— PSTATE definitions and encodings.
+— PACTIVE bit assignments to device requirements.
+— Recommended use of the PACTIVE outputs to initiate state transitions.
+— PACTIVE bits that are tied LOW or omitted.
+• Supported transitions between device power states including:
+— Any actions taken by the device if the controller requests a transition to the current device state.
+— Which supported device power state transitions can be conditionally denied.
+• PSTATE values supported at reset deassertion for device state initialization.
+• The period tinit, in device clock cycles after reset deassertion, after which the device is guaranteed to have sampled PSTATE for all possible valid reset states. If a device has multiple clocks, it must also specify the clock to which this period relates.
+— The defined period is typically dependent on any delay in availability of the clock from reset exit. If the clock availability timing is system-dependent, this must be taken into account.
+
+3.1.5 Signal subsets
+This section describes the requirements for signal subsets that allow some interface signals to be omitted.
+Unused interface
+An unused interface must have the PREQ input signal tied LOW and the PSTATE inputs tied to a value corresponding to the state the device is required to enter when reset is deasserted.
+Additionally, this PSTATE value must be tied to a functional state and the device must support entry into this state directly from reset to be operable.
+Omission of PDENY
+A device that has no requirement to deny a transition request can omit PDENY. In this case, PDENY must be tied LOW at the controller.
