@@ -1,0 +1,24 @@
+Below is the list of candidate rules that, taken together, correspond most closely to the handshake‐relationship described in the Q‑Channel specification. In the text the allowed transitions are as follows:
+
+• QREQn is allowed to go from HIGH→LOW only if QACCEPTn is HIGH and QDENY is LOW. (This is captured by the two rules below.)
+• QACCEPTn is allowed to go from HIGH→LOW only if QREQn is LOW and QDENY is LOW.
+• QACCEPTn is allowed to go from LOW→HIGH only if QREQn is HIGH and QDENY is LOW.
+• QDENY is allowed to go from HIGH→LOW only if QREQn is HIGH and QACCEPTn is HIGH.
+• QDENY is allowed to go from LOW→HIGH only if QREQn is LOW and QACCEPTn is HIGH.
+
+From the candidate list the following rules match these transitions:
+
+[
+  "If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH.",
+  "If QREQn changes from HIGH to LOW, then QDENY is LOW.",
+  "If QACCEPTn changes from HIGH to LOW, then QREQn is LOW.",
+  "If QACCEPTn changes from HIGH to LOW, then QDENY is LOW.",
+  "If QACCEPTn changes from LOW to HIGH, then QREQn is HIGH.",
+  "If QACCEPTn changes from LOW to HIGH, then QDENY is LOW.",
+  "If QDENY changes from HIGH to LOW, then QREQn is HIGH.",
+  "If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH.",
+  "If QDENY changes from LOW to HIGH, then QREQn is LOW.",
+  "If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH."
+]
+
+Each rule here corresponds to one of the direction‐and‐condition handshake restrictions given in the specification. (Note that the “LOW‐to‐HIGH” transition for QREQn is defined in two mutually–exclusive cases; none of the provided candidates exactly capture that “either … or …” requirement so we have omitted a candidate rule for that transition.)
