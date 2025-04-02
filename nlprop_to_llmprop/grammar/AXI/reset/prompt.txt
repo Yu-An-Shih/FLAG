@@ -1,0 +1,19 @@
+I am providing you a properties_NL_grammar_AXI_reset.json file. The file contains a set of properties that were generated using a template, from the waveforms in the text. I am now providing you a textual description of what the reset behavior should be. Please extract the properties that best describe the reset relationship described in the textual description and return them in a json file. The properties must come from the json file. Do not include properties that are not directly mentioned in the text. Do not make assumptions from the text.
+
+Here is the textual description:
+11.1 Clock and reset requirements 
+This section gives the requirements for implementing the ACLK and ARESETn signals. 
+
+11.1.1 Clock 
+Each AXI component uses a single clock signal, ACLK. All input signals are sampled on the rising edge of ACLK. All output signal changes must occur after the rising edge of ACLK. 
+There must be no combinatorial paths between input and output signals on both master and slave interfaces. 
+
+11.1.2 Reset 
+The AXI protocol includes a single active LOW reset signal, ARESETn. The reset signal can be asserted asynchronously, but deassertion must be synchronous after the rising edge of ACLK. 
+During reset the following interface requirements apply: 
+	• a master interface must drive ARVALID, AWVALID, and WVALID LOW 
+	• a slave interface must drive RVALID and BVALID LOW. 
+
+All other signals can be driven to any value. 
+
+A master interface must begin driving ARVALID, AWVALID, or WVALID HIGH only at a rising ACLK edge after ARESETn is HIGH. Figure 11-1 shows the first point after reset that ARVALID, AWVALID, or WVALID, can be driven HIGH. 
