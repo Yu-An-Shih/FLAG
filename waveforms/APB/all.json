@@ -6,76 +6,81 @@
         { "name": "PWRITE", "type": "signal" },
         { "name": "PWDATA", "type": "word", "width": 32 },
         { "name": "PREADY", "type": "signal" },
-        { "name": "PRDATA", "type": "word", "width": 32 },
-        { "name": "PSLVERR", "type": "signal" }
+        { "name": "PRDATA", "type": "word", "width": 32 }
     ],
     "waveforms": [
         {
             "name": "Figure 3-1: Write transfer with no wait states",
             "signals": [
-                { "name": "PADDR", "values": ["X", "VA", "VA", "X"] },
-                { "name": "PWRITE", "values": ["X", 1, 1, "X"] },
-                { "name": "PSEL", "values": [0, 1, 1, 0] },
-                { "name": "PENABLE", "values": ["X", 0, 1, "X"] },
-                { "name": "PWDATA", "values": ["X", "VD", "VD", "X"] },
-                { "name": "PREADY", "values": ["X", "X", 1, "X"] }
+                { "name": "PADDR", "values": ["X", "X", "VA", "VA", "X"] },
+                { "name": "PWRITE", "values": ["X", "X", 1, 1, "X"] },
+                { "name": "PSEL", "values": [0, 0, 1, 1, 0] },
+                { "name": "PENABLE", "values": ["X", "X", 0, 1, "X"] },
+                { "name": "PRDATA", "values": ["X", "X", "X", "X", "X"] },
+                { "name": "PWDATA", "values": ["X", "X", "VD", "VD", "X"] },
+                { "name": "PREADY", "values": ["X", "X", "X", 1, "X"] }
             ]
         },
         {
             "name": "Figure 3-2: Write transfer with wait states",
             "signals": [
-                { "name": "PADDR", "values": ["X", "VA", "VA", "VA", "VA", "X"] },
-                { "name": "PWRITE", "values": ["X", 1, 1, 1, 1, "X"] },
-                { "name": "PSEL", "values": [0, 1, 1, 1, 1, 0] },
-                { "name": "PENABLE", "values": ["X", 0, 1, 1, 1, "X"] },
-                { "name": "PWDATA", "values": ["X", "VD", "VD", "VD", "VD", "X"] },
-                { "name": "PREADY", "values": ["X", "X", 0, 0, 1, "X"] }
+                { "name": "PADDR", "values": ["X", "X", "VA", "VA", "VA", "VA", "X"] },
+                { "name": "PWRITE", "values": ["X", "X", 1, 1, 1, 1, "X"] },
+                { "name": "PSEL", "values": [0, 0, 1, 1, 1, 1, 0] },
+                { "name": "PENABLE", "values": ["X", "X", 0, 1, 1, 1, "X"] },
+                { "name": "PRDATA", "values": ["X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "PWDATA", "values": ["X", "X", "VD", "VD", "VD", "VD", "X"] },
+                { "name": "PREADY", "values": ["X", "X", "X", 0, 0, 1, "X"] }
             ]
         },
         {
             "name": "Figure 3-4: Read transfer with no wait states",
             "signals": [
-                { "name": "PADDR", "values": ["X", "VA", "VA", "X"] },
-                { "name": "PWRITE", "values": ["X", 0, 0, "X"] },
-                { "name": "PSEL", "values": [0, 1, 1, 0] },
-                { "name": "PENABLE", "values": ["X", 0, 1, "X"] },
-                { "name": "PRDATA", "values": ["X", "X", "VD", "X"] },
-                { "name": "PREADY", "values": ["X", "X", 1, "X"] }
+                { "name": "PADDR", "values": ["X", "X", "VA", "VA", "X"] },
+                { "name": "PWRITE", "values": ["X", "X", 0, 0, "X"] },
+                { "name": "PSEL", "values": [0, 0, 1, 1, 0] },
+                { "name": "PENABLE", "values": ["X", "X", 0, 1, "X"] },
+                { "name": "PRDATA", "values": ["X", "X", "X", "VD", "X"] },
+                { "name": "PWDATA", "values": ["X", "X", "X", "X", "X"] },
+                { "name": "PREADY", "values": ["X", "X", "X", 1, "X"] }
             ]
         },
         {
             "name": "Figure 3-5: Read transfer with wait states",
             "signals": [
-                { "name": "PADDR", "values": ["X", "VA", "VA", "VA", "VA", "X"] },
-                { "name": "PWRITE", "values": ["X", 0, 0, 0, 0, "X"] },
-                { "name": "PSEL", "values": [0, 1, 1, 1, 1, 0] },
-                { "name": "PENABLE", "values": ["X", 0, 1, 1, 1, "X"] },
-                { "name": "PRDATA", "values": ["X", "X", "X", "X", "VD", "X"] },
-                { "name": "PREADY", "values": ["X", "X", 0, 0, 1, "X"] }
+                { "name": "PADDR", "values": ["X", "X", "VA", "VA", "VA", "VA", "X"] },
+                { "name": "PWRITE", "values": ["X", "X", 0, 0, 0, 0, "X"] },
+                { "name": "PSEL", "values": [0, 0, 1, 1, 1, 1, 0] },
+                { "name": "PENABLE", "values": ["X", "X", 0, 1, 1, 1, "X"] },
+                { "name": "PRDATA", "values": ["X", "X", "X", "X", "X", "VD", "X"] },
+                { "name": "PWDATA", "values": ["X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "PREADY", "values": ["X", "X", "X", 0, 0, 1, "X"] }
             ]
         },
         {
             "name": "Figure 3-6: Example failing write transfer",
             "signals": [
-                { "name": "PADDR", "values": ["X", "VA", "VA", "VA", "X"] },
-                { "name": "PWRITE", "values": ["X", 1, 1, 1, "X"] },
-                { "name": "PSEL", "values": [0, 1, 1, 1, 0] },
-                { "name": "PENABLE", "values": ["X", 0, 1, 1, "X"] },
-                { "name": "PWDATA", "values": ["X", "VD", "VD", "VD", "X"] },
-                { "name": "PREADY", "values": ["X", "X", 0, 1, "X"] },
-                { "name": "PSLVERR", "values": ["X", "X", "X", 1, "X"] }
+                { "name": "PADDR", "values": ["X", "X", "VA", "VA", "VA", "X"] },
+                { "name": "PWRITE", "values": ["X", "X", 1, 1, 1, "X"] },
+                { "name": "PSEL", "values": [0, 0, 1, 1, 1, 0] },
+                { "name": "PENABLE", "values": ["X", "X", 0, 1, 1, "X"] },
+                { "name": "PRDATA", "values": ["X", "X", "X", "X", "X", "X"] },
+                { "name": "PWDATA", "values": ["X", "X", "VD", "VD", "VD", "X"] },
+                { "name": "PREADY", "values": ["X", "X", "X", 0, 1, "X"] },
+                { "name": "PSLVERR", "values": ["X", "X", "X", "X", 1, "X"] }
             ]
         },
         {
             "name": "Figure 3-7: Example failing read transfer",
             "signals": [
-                { "name": "PADDR", "values": ["X", "VA", "VA", "VA", "VA", "X"] },
-                { "name": "PWRITE", "values": ["X", 0, 0, 0, 0, "X"] },
-                { "name": "PSEL", "values": [0, 1, 1, 1, 1, 0] },
-                { "name": "PENABLE", "values": ["X", 0, 1, 1, 1, "X"] },
-                { "name": "PRDATA", "values": ["X", "X", "X", "X", "X", "X"] },
-                { "name": "PREADY", "values": ["X", "X", 0, 0, 1, "X"] },
-                { "name": "PSLVERR", "values": ["X", "X", "X", "X", 1, "X"] }
+                { "name": "PADDR", "values": ["X", "X", "VA", "VA", "VA", "VA", "X"] },
+                { "name": "PWRITE", "values": ["X", "X", 0, 0, 0, 0, "X"] },
+                { "name": "PSEL", "values": [0, 0, 1, 1, 1, 1, 0] },
+                { "name": "PENABLE", "values": ["X", "X", 0, 1, 1, 1, "X"] },
+                { "name": "PRDATA", "values": ["X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "PWDATA", "values": ["X", "X", "X", "X", "X", "X", "X"] },
+                { "name": "PREADY", "values": ["X", "X", "X", 0, 0, 1, "X"] },
+                { "name": "PSLVERR", "values": ["X", "X", "X", "X", "X", 1, "X"] }
             ]
         }
     ]

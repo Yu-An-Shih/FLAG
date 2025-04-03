@@ -1,0 +1,84 @@
+Textual Description of the APB protocol:
+"""
+1. Operating states
+
+IDLE:
+This is the default state of the APB interface.
+
+SETUP:
+When a transfer is required, the interface moves into the SETUP state, where the appropriate select signal, PSELx, is asserted. The interface only remains in the SETUP state for one clock cycle and always moves to the ACCESS state on the next rising edge of the clock.
+
+ACCESS:
+The enable signal, PENABLE, is asserted in the ACCESS state. The following signals must not change in the transition between SETUP and ACCESS and between cycles in the ACCESS state:
+• PADDR
+• PPROT
+• PWRITE
+• PWDATA, only for write transactions
+• PSTRB
+• PAUSER
+• PWUSER
+Exit from the ACCESS state is controlled by the PREADY signal from the Completer:
+• If PREADY is held LOW by the Completer, then the interface remains in the ACCESS state.
+• If PREADY is driven HIGH by the Completer then the ACCESS state is exited and the bus returns to the IDLE state if no more transfers are required. Alternatively, the bus moves directly to the SETUP state if another transfer follows.
+
+
+2. Write transfers
+
+This section describes the following types of write transfer:
+• With no wait states
+• With wait states
+All signals shown in this section are sampled at the rising edge of PCLK. 
+
+2.1 With no wait states
+
+Figure 3-1 shows a basic write transfer with no wait states.
+
+The Setup phase of the write transfer occurs at T1 in Figure 3-1. The select signal, PSEL, is asserted, which means that PADDR, PWRITE and PWDATA must be valid.
+
+The Access phase of the write transfer is shown at T2 in Figure 3-1 where PENABLE is asserted. PREADY is asserted by the Completer at the rising edge of PCLK to indicate that the write data will be accepted at T3. PADDR, PWDATA, and any other control signals, must be stable until the transfer completes.
+
+At the end of the transfer, PENABLE is deasserted. PSEL is also deasserted, unless there is another transfer to the same peripheral.
+
+2.2 With wait states
+
+Figure 3-2 shows how the Completer can use PREADY to extend the transfer.
+
+During an Access phase, when PENABLE is HIGH, the Completer extends the transfer by driving PREADY LOW. The following signals remain unchanged while PREADY remains LOW:
+• Address signal, PADDR
+• Direction signal, PWRITE
+• Select signal, PSELx
+• Enable signal, PENABLE
+• Write data signal, PWDATA
+• Write strobe signal, PSTRB
+• Protection type signal, PPROT
+• User request attribute, PAUSER
+• User write data attribute, PWUSER
+PREADY can take any value when PENABLE is LOW. This ensures that peripherals that have a fixed two cycle access can tie PREADY HIGH.
+
+
+3. Read transfers
+
+Two types of read transfer are described in this section:
+• With no wait states
+• With wait states
+All signals shown in this section are sampled at the rising edge of PCLK.
+
+3.1 With no wait states
+
+Figure 3-4 shows a read transfer.
+
+The timing of the address, PADDR, write, PWRITE, select, PSEL, and enable, PENABLE, signals are the same as described in Write transfers. The Completer must provide the data before the end of the read transfer.
+
+3.2 With wait states
+
+Figure 3-5 shows how the PREADY signal can extend the transfer.
+
+The transfer is extended if PREADY is driven LOW during an Access phase. The following signals remain unchanged while PREADY remains LOW:
+• Address signal, PADDR
+• Direction signal, PWRITE
+• Select signal, PSEL
+• Enable signal, PENABLE
+• Protection signal, PPROT
+• User signal, PAUSER
+Figure 3-5 shows that two cycles are added using PREADY. However, any number of additional cycles can be added, from zero upwards.
+"""
