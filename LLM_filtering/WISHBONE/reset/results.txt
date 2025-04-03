@@ -1,0 +1,30 @@
+Results 1:
+[
+  "If RST_I is HIGH, then STB_O is LOW in the next cycle.",
+  "If RST_I is HIGH, then CYC_O is LOW in the next cycle.",
+  "If RST_I changes from HIGH to LOW, then STB_O is LOW.",
+  "If RST_I changes from HIGH to LOW, then CYC_O is LOW."
+]
+==================
+
+
+Results 2:
+[
+  "If RST_I is HIGH, then STB_O is LOW in the next cycle.",
+  "If RST_I is HIGH, then CYC_O is LOW in the next cycle.",
+  "If RST_I changes from HIGH to LOW, then STB_O is LOW.",
+  "If RST_I changes from HIGH to LOW, then CYC_O is LOW."
+]
+==================
+
+
+Results 3:
+[
+  "If RST_I is HIGH, then STB_O is LOW in the next cycle.",
+  "If RST_I is HIGH, then CYC_O is LOW in the next cycle.",
+  "If RST_I changes from HIGH to LOW, then STB_O is LOW.",
+  "If RST_I changes from HIGH to LOW, then CYC_O is LOW."
+]
+==================
+
+

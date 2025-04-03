@@ -6,7 +6,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-case_dir = 'Q-Channel/handshake'
+case_dir = 'WISHBONE/transfer'
 iters = 3
 
 # prompt = """

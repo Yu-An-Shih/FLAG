@@ -1,0 +1,41 @@
+Results 1:
+[
+  "If STB_O is LOW, then ACK_I is LOW.",
+  "If STB_O is HIGH, then CYC_O is HIGH.",
+  "If ACK_I is HIGH, then STB_O is HIGH.",
+  "If ACK_I is HIGH, then CYC_O is HIGH.",
+  "If CYC_O is LOW, then STB_O is LOW.",
+  "If CYC_O is LOW, then ACK_I is LOW."
+]
+==================
+
+
+Results 2:
+[
+  "If STB_O is LOW, then ACK_I is LOW.",
+  "If STB_O is HIGH, then CYC_O is HIGH.",
+  "If ACK_I is HIGH, then STB_O is HIGH.",
+  "If ACK_I is HIGH, then CYC_O is HIGH.",
+  "If CYC_O is LOW, then STB_O is LOW.",
+  "If CYC_O is LOW, then ACK_I is LOW.",
+  "If ACK_I is LOW and STB_O is HIGH, then WE_O remains stable in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then STB_O remains stable in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then CYC_O remains stable in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then ADR_O remains stable in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then SEL_O remains stable in the next cycle."
+]
+==================
+
+
+Results 3:
+[
+  "If STB_O is LOW, then ACK_I is LOW.",
+  "If STB_O is HIGH, then CYC_O is HIGH.",
+  "If ACK_I is HIGH, then STB_O is HIGH.",
+  "If ACK_I is HIGH, then CYC_O is HIGH.",
+  "If CYC_O is LOW, then STB_O is LOW.",
+  "If CYC_O is LOW, then ACK_I is LOW."
+]
+==================
+
+

@@ -14,7 +14,7 @@ Data transfer:
 (RULE 3.35)
 (- If STB_O changes from LOW to HIGH, then ACK_I must be HIGH eventually.)
 (OBSERVATION 3.25)
-(- If STB_O is HIGH, then CYC_I is HIGH.)
+- If STB_O is HIGH, then CYC_I is HIGH.
 
 STB vs CYC:
 (OBSERVATION 3.25)
