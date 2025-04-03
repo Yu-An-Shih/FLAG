@@ -1,44 +1,12 @@
-I am providing you with a textual description of the Q-Channel handshake mechanism. I am also providing you with a list of candidate rules describing signal behaviors. Please extract the rules from the candidate list that best describe the handshake relationship described in the textual description. Output the selected rules in JSON list format.
-
-Textual Description:
+Textual Description of the Q-Channel handshake mechanism:
 """
-2.1 Q-Channel interface specification
-
-Q-Channel is an evolution of the AXI low-power interface and is backward-compatible in most situations. For more information, see Q-Channel backwards compatibility on page 2-37.
-Q-Channel simplifies clock domain crossing by making the handshake mechanism independent of the device activity indication.
-
-
-2.1.1 Q-Channel signals
-
-Figure 2-1 shows the signals between a device and a clock or power controller:
-
-The Q-Channel interface has the following independent signal groups.
-
-Device activity indication
-This group comprises a single signal, QACTIVE that can be driven HIGH by a device in any state to indicate that it has operations to perform. When QACTIVE is driven LOW by a device, then it is a hint, not a guarantee that the device might accept a quiescence request.
-The QACTIVE signal from a device can be composed from a number of source signals. To provide wakeup capabilities, these source signals can include device input signals. The final QACTIVE signal is driven either directly by a register or by one or more registers and input signals whose outputs are logically combined. Q-Channel implementation on page 2-31 gives implementation recommendations for QACTIVE combining logic.
-If the device itself is unable to assert QACTIVE HIGH in the absence of the clock or power supply managed according to the interface, then there must be a system-dependent method to facilitate wakeup outside of the device. This could be a QACTIVE from another device combined at the controller with the device QACTIVE.
-
-Handshake mechanism
-This group manages device quiescence and guarantees safe state transitions. The handshake interface has:
-• A quiescence request signal, QREQn driven by the controller.
-• An acknowledgment signal pair, QACCEPTn and QDENY, which is driven back to the controller by the device to indicate acceptance or denial of a request. The acknowledgment signals are organized such that only one of them changes per handshake transition. This ensures that the interface can be implemented safely across asynchronous boundaries. QACCEPTn is used to accept a request. QDENY is used to deny a request.
-The QACCEPTn and QDENY signals from a device and the QREQn signal from a controller must all be driven by registers.
-The purpose of the denial mechanism is to enable a device to maintain an operational state while also having a mechanism by which it can promptly complete the handshake.
-The polarities of the handshake signals are organized to provide a quiescent state where all interface signals are LOW. This facilitates simple default isolation rules.
-The handshake signal states are independent of the state of QACTIVE. Therefore, transitions on QACTIVE are not restricted by the values on QREQn or on the QACCEPTn and QDENY output pair.
-The controller can guarantee clock supply or power availability according to the handshake interface state. Q-Channel handshake describes these guarantees.
-
-All signals are assumed to be asynchronous.
-
-
 2.1.2 Q-Channel handshake
 
 This section describes the permitted variations of the Q-Channel interface handshake.
 
 Accepted quiescence request
 Figure 2-2 shows a handshake sequence for an accepted quiescence request. It includes the guaranteed activity of an optional controller-supplied clock that is managed according to the interface semantics.
-Figure 2-2 omits QACTIVE because although QACTIVE can act as a stimulus for the controller to change interface state, it is independent of the handshake. All interface state changes can be initiated by the controller alone. Controller policy and QACTIVE on page 2-23 describes the use of QACTIVE.
+Figure 2-2 omits QACTIVE because although QACTIVE can act as a stimulus for the controller to change interface state, it is independent of the handshake. All interface state changes can be initiated by the controller alone.
 The transitions shown in Figure 2-2 are:
 • At T1, QREQn and QACCEPTn are both HIGH. This state is referred to as Q_RUN and the device is operational. QDENY is LOW in Q_RUN. In this state, the controller guarantees the availability of any clock or power supply that is managed by the interface.
 • At T2, QREQn is driven LOW by the controller, requesting entry to a quiescent state. This state is referred to as Q_REQUEST. The device remains operational. In this state, the controller guarantees the availability of any clock or power supply that is managed by the interface.
@@ -49,21 +17,10 @@ The transitions shown in Figure 2-2 are:
 Denied quiescence request
 Figure 2-3 shows a handshake sequence for a denied quiescence request. It includes the guaranteed activity of an optional controller-supplied clock that is managed according to the interface semantics.
 The transitions shown in Figure 2-3 are:
-• The sequence from T1 to T2 is identical to that described in Accepted quiescence request on page 2-19.
+• The sequence from T1 to T2 is identical to that described in Accepted quiescence request.
 • At T3, the device drives QDENY HIGH while QACCEPTn remains HIGH. This state is referred to as Q_DENIED. The device remains operational and the controller must guarantee any clock or power supply managed by the interface.
 • At T4, the controller drives QREQn HIGH. This state is referred to as Q_CONTINUE and is in response to the quiescence request denial at T3. The device remains operational and the controller must guarantee any clock or power supply managed by the interface.
 • At T5, the device drives QDENY LOW. The interface has returned to the state Q_RUN, as at T1.
-
-Device reset
-At reset assertion, a device must drive both QACCEPTn and QDENY LOW. QACTIVE can reset LOW or HIGH. If the device must perform start-up operations on exit from reset, then it can reset QACTIVE HIGH, otherwise it is recommended that QACTIVE is reset LOW.
-A controller can release a device from reset with either:
-• QREQn LOW with the interface in Q_STOPPED state.
-• QREQn HIGH with the interface in Q_EXIT state, provided any clock or power supply guarantee is met.
-A controller must only assert a device reset when the interface is in the Q_STOPPED state or when the controller and device are reset simultaneously. This is consistent with the recommendation to isolate all signals LOW at power boundaries.
-
-Figure 2-4 shows a reset exit sequence into the Q_STOPPED state with QREQn LOW. At some time after reset deassertion, the interface progresses to Q_RUN, possibly in response to a QACTIVE assertion. It then stays active for a time before reentering the quiescent Q_STOPPED state after which reset is asserted.
-
-Figure 2-5 shows a reset exit sequence into the Q_EXIT state with QREQn HIGH. Once the reset is released, the interface responds to the QREQn HIGH signal and progresses to Q_RUN. It then stays active for a time before reentering the quiescent Q_STOPPED state after which reset is asserted.
 
 Handshake rules
 The handshake signaling rules are:
@@ -75,37 +32,4 @@ The handshake signaling rules are:
 • QACCEPTn can only transition from LOW to HIGH when QREQn is HIGH and QDENY is LOW.
 • QDENY can only transition from HIGH to LOW when QREQn is HIGH and QACCEPTn is HIGH.
 • QDENY can only transition from LOW to HIGH when QREQn is LOW and QACCEPTn is HIGH.
-
-
-2.1.3 Controller policy and QACTIVE
-
-A controller can make any policy decision concerning its management of QREQn irrespective of any activity on QACTIVE. However, this section describes Q-Channel policies that provide useful solutions.
-Asserting QACTIVE HIGH can be used as a stimulus for the controller to exit the Q_STOPPED state. The controller responds by driving QREQn HIGH exiting the quiescent state.
-
-Note
-In normal operation, this is required to allow the device to perform operations. Failure to implement the policy might lead to a system deadlock.
-
-Detecting QACTIVE LOW can be used by a controller in the Q_RUN state as a criterion for initiating a quiescence request. However, the controller can change the state of QREQn from HIGH to LOW at any time while it is in the Q_RUN state.
-Once QREQn is driven LOW, the controller does not have to consider the state of QACTIVE because QREQn cannot be driven HIGH until the handshake is completed by the device with either an acceptance or denial response.
-
-QACTIVE policy example
-Figure 2-7 shows a controller policy led by device transitions on QACTIVE. When the interface is in Q_STOPPED state, a HIGH level on QACTIVE stimulates an exit from the quiescent state. When the interface is in a Q_RUN state, a LOW level on QACTIVE causes the controller to make a quiescence request.
-
-
-2.1.4 Signal subsets
-
-This section describes the permitted signal subsets.
-
-Unused interface
-An unused interface must have the QREQn input tied HIGH if the device is to be operational. The system has full responsibility for managing the availability of the device by means outside the interface control.
-
-Omission of QDENY
-A device that has no requirement to deny a quiescence request can omit QDENY. This subset also offers backward compatibility with the AXI low-power interface specification for devices that have no requirement to deny a quiescence request. Q-Channel backwards compatibility on page 2-37 describes this backwards compatibility. In this case, QDENY must be tied LOW at the controller.
-
-Omission of QACTIVE
-In some applications, the initiation of or exit from device quiescence might not require any information from the device. In this case, the device can omit QACTIVE. QACTIVE must be tied LOW at the controller.
-
-QACTIVE-only interface
-A device can present a minimum interface comprising only QACTIVE to indicate a requirement to perform operations without any associated handshake. Typically this minimum interface might be used to provide an initial wakeup indication. However, it does not provide any means to guarantee any clock or power availability.
-The indication provided by QACTIVE alone must be combined with other arrangements of either hardware, software, or both, to provide working solutions. One arrangement might be to permit a device attached to a controller through a QACTIVE-only interface to wake a second device, which itself has a Q-Channel interface to the same controller used to guarantee clock or power availability.
 """

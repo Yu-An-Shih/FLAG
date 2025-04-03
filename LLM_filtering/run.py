@@ -6,7 +6,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-case_dir = 'APB/all'
+case_dir = 'Q-Channel/handshake'
 iters = 3
 
 # prompt = """
@@ -29,38 +29,37 @@ with open(f"{case_dir}/description.txt", "r") as f:
     description = f.read()
 prompt += description
 
-# results = []
-# for i in range(iters):
-#     response = client.responses.create(
-#         model="o1",
-#         reasoning={"effort": "high"},
-#         input=[
-#             # {
-#             #     "role": "developer",
-#             #     "content": "You are an expert in on-chip communication protocols. Please extract the rules from the candidate list that best describe the handshake relationship described in the textual description. The select rules must come from the candidate list."
-#             # },
-#             {
-#                 "role": "developer",
-#                 "content": "You are an expert in on-chip communication protocols, such as AXI, WISHBONE, APB and PCI."
-#             },
-#             {
-#                 "role": "user", 
-#                 "content": prompt
-#             }
-#         ]
-#     )
-#     results.append(response.output_text)
+results = []
+for i in range(iters):
+    response = client.responses.create(
+        model="o1",
+        reasoning={"effort": "high"},
+        input=[
+            # {
+            #     "role": "developer",
+            #     "content": "You are an expert in on-chip communication protocols. Please extract the rules from the candidate list that best describe the handshake relationship described in the textual description. The select rules must come from the candidate list."
+            # },
+            {
+                "role": "developer",
+                "content": "You are an expert in on-chip communication protocols, such as AXI, WISHBONE, APB and PCI."
+            },
+            {
+                "role": "user", 
+                "content": prompt
+            }
+        ]
+    )
+    results.append(response.output_text)
 
-# with open(f"{case_dir}/results.txt", "w") as f:
-#     for i, result in enumerate(results):
-#         f.write(f"Results {i+1}:\n")
-#         f.write(result)
-#         f.write("\n==================\n\n\n")
+with open(f"{case_dir}/results.txt", "w") as f:
+    for i, result in enumerate(results):
+        f.write(f"Results {i+1}:\n")
+        f.write(result)
+        f.write("\n==================\n\n\n")
 
 
 # Extract the rules from the results
 num_results = 0
-#rules = set()
 rules = []
 with open(f"{case_dir}/results.txt", "r") as f:
     inside_list = False
@@ -75,7 +74,6 @@ with open(f"{case_dir}/results.txt", "r") as f:
         elif inside_list:
             cleaned = re.sub(r'^"(.*)"[,]?$', r'\1', stripped)
             if cleaned not in rules:
-                #rules.add(cleaned)
                 rules.append(cleaned)
 
 assert num_results == iters

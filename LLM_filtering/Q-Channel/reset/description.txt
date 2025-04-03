@@ -1,0 +1,13 @@
+Textual Description of Q-Channel device reset:
+"""
+Device reset
+At reset assertion, a device must drive both QACCEPTn and QDENY LOW. QACTIVE can reset LOW or HIGH. If the device must perform start-up operations on exit from reset, then it can reset QACTIVE HIGH, otherwise it is recommended that QACTIVE is reset LOW.
+A controller can release a device from reset with either:
+• QREQn LOW with the interface in Q_STOPPED state.
+• QREQn HIGH with the interface in Q_EXIT state, provided any clock or power supply guarantee is met.
+A controller must only assert a device reset when the interface is in the Q_STOPPED state or when the controller and device are reset simultaneously. This is consistent with the recommendation to isolate all signals LOW at power boundaries.
+
+Figure 2-4 shows a reset exit sequence into the Q_STOPPED state with QREQn LOW. At some time after reset deassertion, the interface progresses to Q_RUN, possibly in response to a QACTIVE assertion. It then stays active for a time before reentering the quiescent Q_STOPPED state after which reset is asserted.
+
+Figure 2-5 shows a reset exit sequence into the Q_EXIT state with QREQn HIGH. Once the reset is released, the interface responds to the QREQn HIGH signal and progresses to Q_RUN. It then stays active for a time before reentering the quiescent Q_STOPPED state after which reset is asserted.
+"""
