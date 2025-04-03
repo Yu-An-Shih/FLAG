@@ -169,7 +169,7 @@ class SMTChecker:
         #     json.dump(self._properties, f, indent=4)
         # sys.exit(0)
 
-    def _removeDuplicates(self) -> None:
+    def _removeSubsumptions(self) -> None:
         ### Remove duplicate properties ###
 
         # Create an unconstrained waveform
@@ -188,15 +188,16 @@ class SMTChecker:
             unique = True
             for unique_prop in unique_props:
                 unique_prop_encode = self._encodeProp_localize(unique_prop['ast'], 0)
-                if Solver().check(prop_encode != unique_prop_encode) == z3.unsat:
-                    unique = False
-                    break
+                if Solver().check(And(unique_prop_encode, Not(prop_encode))) == z3.unsat:   # Subsumption
+                    if Solver().check(And(prop_encode, Not(unique_prop_encode))) == z3.sat:   # Not duplication
+                        unique = False
+                        break
             if unique:
                 unique_props.append(property)
         
         self._properties = unique_props
 
-        print('Properties after removing duplicates:', len(self._properties))
+        print('Properties after removing subsumptions:', len(self._properties))
     
 
     def _run(self):
@@ -268,7 +269,7 @@ class SMTChecker:
         print('Properties held after all waveforms:', len(self._properties))
         
         # Remove duplicates
-        # self._removeDuplicates()
+        #self._removeSubsumptions()
 
 
     def getProperties_LTL(self) -> list:
