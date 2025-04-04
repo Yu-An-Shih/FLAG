@@ -1,0 +1,55 @@
+Textual Description of the P-Channel handshake mechanism:
+"""
+3.1.2 P-Channel handshake
+
+This section describes the permitted variations of the P-Channel interface handshake.
+
+Accepted state transition
+Figure 3-2 shows a transition request from State A to State B that is accepted by the device.
+Figure 3-2 omits PACTIVE because although PACTIVE can act as a stimulus for the controller to initiate a transition request, it is independent of the handshake. All transition requests can be initiated by the controller alone.
+The transitions shown in Figure 3-2 are:
+• At T0, the interface is idle and all signals are LOW. The interface state is P_STABLE and the device remains in its current state.
+• At T1, recognizing that a handshake request is required, the power controller must take any necessary pre-transition actions prior to requesting a new state. These actions are typically associated with a transition to a higher-power state. This might include powering up a domain or bringing RAM out of the retention state. The interface state remains P_STABLE.
+• At T2, the power controller puts the required power state value on PSTATE and sets PREQ HIGH. The interface state is now P_REQUEST. The protocol requires that PSTATE is stable when PREQ going HIGH is detected at the device. This is typically achieved by resynchronizing PREQ to the device clock domain and using it to capture PSTATE.
+    — A controller must only present supported PSTATE values and transitions to a device.
+• At T3, the device accepts the transition by driving PACCEPT HIGH. PDENY must be kept LOW. The device can now use the capabilities of any higher state. The interface state is now P_ACCEPT.
+• At T4, the power controller samples PACCEPT HIGH and sets PREQ LOW. The interface state is P_COMPLETE.
+• At T5, the device samples PREQ LOW and sets PACCEPT LOW. Once the controller samples PACCEPT LOW, it can take any post-transition actions required. These actions are typically associated with transitioning to a lower-power state. This might include removing power from a power domain or placing a RAM into a retention state. The transition is now complete and the interface state returns to P_STABLE. When moving to a lower-power state after setting PACCEPT LOW, the device cannot assume the availability of any properties of a previous higher-power state.
+
+Note:
+If the P-Channel transitions to a lower-power state, the availability of any properties of the previous higher-power state can be removed. However, removal is not guaranteed so the device operation should not depend on it, or other associated actions, for example, device reset.
+
+Denied state transition
+Figure 3-3 shows a transition request that is denied by the device.
+The transitions shown in Figure 3-3 are:
+• T0, T1, and T2 follow the same sequence as described in Accepted state transition.
+• At T3, the device denies the request by setting PDENY HIGH. PACCEPT must remain LOW. The interface state is P_DENIED.
+• At T4, the power controller samples PDENY HIGH and sets PREQ LOW and returns PSTATE to the value for the current state, state A. The protocol requires that PSTATE is stable and has the value of the original state when PREQ going low is detected at the device. The interface state is P_CONTINUE.
+• At T5, the device samples PREQ LOW and sets PDENY LOW. Once the power controller samples PDENY LOW, it can take any post-transition actions required. In the case of a denial, this will typically require reversing any pre-transition actions that were taken between T1 and T2. The denied transition sequence is complete and the interface state is again P_STABLE.
+
+Note:
+In the denial sequence, the device retains all operational abilities associated with its current state. The operation of the device is therefore not interrupted by the transition request.
+
+Multiple power state transitions
+The P-Channel interface can be used to transition between multiple power states without having to pass through a common operational state.
+Figure 3-7 shows how the P-Channel interface transitions from State A to State B and then on to State C without having to return to State A.
+The transitions shown in Figure 3-7 are:
+• At T0, the interface is in the P_STABLE state.
+• Between T1 and T4, the interface transitions from State A to State B, returning to the P_STABLE interface
+state at T4.
+• Between T5 and T8, the interface transitions from State B to State C without having to first return to State A.
+
+Handshake Rules 
+The handshake signaling rules are:
+• PREQ can only transition from LOW to HIGH when PACCEPT and PDENY are both LOW.
+• PREQ can only transition from HIGH to LOW when either:
+    — PACCEPT is HIGH and PDENY is LOW.
+    — PACCEPT is LOW and PDENY is HIGH.
+• PSTATE can only transition when either:
+    — PREQ, PACCEPT, and PDENY are all LOW.
+    — PREQ and PDENY are both HIGH and PACCEPT is LOW.
+• PACCEPT can only transition from LOW to HIGH when PREQ is HIGH and PDENY is LOW.
+• PACCEPT can only transition from HIGH to LOW when PREQ is LOW and PDENY is LOW.
+• PDENY can only transition from LOW to HIGH when PREQ is HIGH and PACCEPT is LOW.
+• PDENY can only transition from HIGH to LOW when PREQ is LOW and PACCEPT is LOW.
+"""

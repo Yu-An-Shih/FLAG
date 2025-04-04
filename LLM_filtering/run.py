@@ -6,7 +6,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-case_dir = 'WISHBONE/transfer'
+case_dir = 'P-Channel/reset'
 iters = 3
 
 # prompt = """

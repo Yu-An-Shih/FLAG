@@ -1,0 +1,58 @@
+Results 1:
+```json
+[
+  "If PREQ changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PREQ changes from LOW to HIGH, then PDENY is LOW.",
+  "If PREQ changes from HIGH to LOW, then PACCEPT is LOW or PDENY is LOW.",
+  "If PREQ changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is HIGH.",
+  "If PACCEPT changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PACCEPT changes from LOW to HIGH, then PDENY is LOW.",
+  "If PACCEPT changes from HIGH to LOW, then PREQ is LOW.",
+  "If PACCEPT changes from HIGH to LOW, then PDENY is LOW.",
+  "If PDENY changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PDENY changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PDENY changes from HIGH to LOW, then PREQ is LOW.",
+  "If PDENY changes from HIGH to LOW, then PACCEPT is LOW."
+]
+```
+==================
+
+
+Results 2:
+[
+  "If PREQ changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PREQ changes from LOW to HIGH, then PDENY is LOW.",
+  "If PREQ changes from HIGH to LOW, then PACCEPT is LOW or PDENY is LOW.",
+  "If PREQ changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is HIGH.",
+  "If PACCEPT changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PACCEPT changes from LOW to HIGH, then PDENY is LOW.",
+  "If PACCEPT changes from HIGH to LOW, then PREQ is LOW.",
+  "If PACCEPT changes from HIGH to LOW, then PDENY is LOW.",
+  "If PDENY changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PDENY changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PDENY changes from HIGH to LOW, then PREQ is LOW.",
+  "If PDENY changes from HIGH to LOW, then PACCEPT is LOW."
+]
+==================
+
+
+Results 3:
+```json
+[
+  "If PREQ changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PREQ changes from LOW to HIGH, then PDENY is LOW.",
+  "If PREQ changes from HIGH to LOW, then PACCEPT is LOW or PDENY is LOW.",
+  "If PREQ changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is HIGH.",
+  "If PACCEPT changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PACCEPT changes from LOW to HIGH, then PDENY is LOW.",
+  "If PACCEPT changes from HIGH to LOW, then PREQ is LOW.",
+  "If PACCEPT changes from HIGH to LOW, then PDENY is LOW.",
+  "If PDENY changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PDENY changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PDENY changes from HIGH to LOW, then PREQ is LOW.",
+  "If PDENY changes from HIGH to LOW, then PACCEPT is LOW."
+]
+```
+==================
+
+
