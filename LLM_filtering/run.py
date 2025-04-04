@@ -6,7 +6,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-case_dir = 'P-Channel/reset'
+case_dir = 'AXI/low_power'
 iters = 3
 
 # prompt = """

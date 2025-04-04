@@ -1,6 +1,6 @@
 import json
 
-case_dir = 'P-Channel/handshake'
+case_dir = 'AXI/low_power'
 
 with open(f"{case_dir}/properties_NL.json", "r") as f:
     properties = json.load(f)
