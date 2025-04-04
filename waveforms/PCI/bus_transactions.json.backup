@@ -1,9 +1,11 @@
 {
     "signals": [
+        { "name": "FRAME#", "type": "signal" },
         { "name": "AD", "type": "word", "width": 32 },
         { "name": "C/BE#", "type": "word", "width": 4 },
         { "name": "IRDY#", "type": "signal" },
         { "name": "TRDY#", "type": "signal" },
+        { "name": "DEVSEL#", "type": "signal" },
         { "name": "READ_DATA_PHASE", "type": "signal" },
         { "name": "WRITE_DATA_PHASE", "type": "signal" }
     ],

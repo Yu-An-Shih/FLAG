@@ -1,0 +1,15 @@
+[
+    "If READ_DATA_PHASE is HIGH, then WRITE_DATA_PHASE is LOW.",
+    "If READ_DATA_PHASE is HIGH and TRDY# is LOW, then AD remains stable in the next cycle.",
+    "If IRDY# is LOW and TRDY# is HIGH and WRITE_DATA_PHASE is HIGH, then AD remains stable in the next cycle.",
+    "If IRDY# is LOW and TRDY# is LOW and WRITE_DATA_PHASE is HIGH, then AD remains stable in the next cycle.",
+    "If IRDY# is HIGH and READ_DATA_PHASE is HIGH, then READ_DATA_PHASE remains stable in the next cycle.",
+    "If READ_DATA_PHASE is HIGH and TRDY# is HIGH, then READ_DATA_PHASE remains stable in the next cycle.",
+    "If IRDY# is LOW and TRDY# is HIGH and WRITE_DATA_PHASE is HIGH, then WRITE_DATA_PHASE remains stable in the next cycle.",
+    "If IRDY# is HIGH and WRITE_DATA_PHASE is HIGH, then WRITE_DATA_PHASE remains stable in the next cycle.",
+    "If WRITE_DATA_PHASE is HIGH, then READ_DATA_PHASE is LOW.",
+    "If IRDY# is LOW and READ_DATA_PHASE is HIGH and TRDY# is LOW, then WRITE_DATA_PHASE is LOW.",
+    "If IRDY# is LOW and READ_DATA_PHASE is LOW and TRDY# is LOW, then WRITE_DATA_PHASE is HIGH.",
+    "If WRITE_DATA_PHASE is HIGH and TRDY# is HIGH, then WRITE_DATA_PHASE remains stable in the next cycle.",
+    "If TRDY# is HIGH and WRITE_DATA_PHASE is HIGH, then WRITE_DATA_PHASE remains stable in the next cycle."
+]

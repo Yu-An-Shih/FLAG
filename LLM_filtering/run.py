@@ -6,7 +6,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-case_dir = 'AXI/low_power'
+case_dir = 'PCI/transactions'
 iters = 3
 
 # prompt = """
@@ -76,7 +76,7 @@ with open(f"{case_dir}/results.txt", "r") as f:
             if cleaned not in rules:
                 rules.append(cleaned)
 
-assert num_results == iters
-
 with open(f"{case_dir}/results.json", "w") as f:
     json.dump(list(rules), f, indent=4)
+
+assert num_results == iters

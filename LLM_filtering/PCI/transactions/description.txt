@@ -1,0 +1,48 @@
+Textual description of the PCI protocol's bus transactions:
+"""
+2.2.2 Address and Data Pins
+
+AD[31::00]
+Address and Data are multiplexed on the same PCI pins. A bus transaction consists of an address phase followed by one or more data phases. PCI supports both read and write bursts.
+The address phase is the first clock cycle in which FRAME# is asserted. During the address phase, AD[31::00] contain a physical address (32 bits). For I/O, this is a byte address; for configuration and memory, it is a DWORD address. During data phases, AD[07::00] contain the least significant byte (lsb) and AD[31::24] contain the most significant byte (msb). Write data is stable and valid when IRDY# is asserted; read data is stable and valid when TRDY# is asserted. Data is transferred during those clocks where both IRDY# and TRDY# are asserted.
+
+C/BE[3::0]#
+Bus Command and Byte Enables are multiplexed on the same PCI pins. During the address phase of a transaction, C/BE[3::0]# define the bus command. During the data phase, C/BE[3::0]# are used as Byte Enables. The Byte Enables are valid for the entire data phase and determine which byte lanes carry meaningful data. C/BE[0]# applies to byte 0 (lsb) and C/BE[3]# applies to byte 3 (msb).
+
+2.2.3 Interface Control Pins
+
+IRDY#
+Initiator Ready indicates the initiating agent’s (bus master’s) ability to complete the current data phase of the transaction. IRDY# is used in conjunction with TRDY#. A data phase is completed on any clock both IRDY# and TRDY# are asserted. During a write, IRDY# indicates that valid data is present on AD[31::00]. During a read, it indicates the master is prepared to accept data. Wait cycles are inserted until both IRDY# and TRDY# are asserted together.
+
+TRDY#
+Target Ready indicates the target agent’s (selected device’s) ability to complete the current data phase of the transaction. TRDY# is used in conjunction with IRDY#. A data phase is completed on any clock both TRDY# and IRDY# are asserted. During a read, TRDY# indicates that valid data is present on AD[31::00]. During a write, it indicates the target is prepared to accept data. Wait cycles are inserted until both IRDY# and TRDY# are asserted together.
+
+2.2.10 Auxiliary Signals
+
+READ_DATA_PHASE: Indicates that the bus transaction is in read data phase.
+WRITE_DATA_PHASE: Indicates that the bus transaction is in read data phase.
+
+Note: A # symbol at the end of a signal name indicates that the asserted state occurs when the signal is at low voltage. When the # symbol is absent, the signal is asserted at a high voltage.
+
+3.3.1. Read Transaction
+
+Figure 3-5 illustrates a read transaction and starts with an address phase which occurs when FRAME# is asserted for the first time and occurs on clock 2. During the address phase, AD[31:00] contain a valid address and C/BE[3:0]# contain a valid bus command.
+
+The first clock of the first data phase is clock 3. During the data phase, C/BE# indicate which byte lanes are involved in the current data phase. A data phase may consist of wait cycles and a data transfer. The C/BE# output buffers must remain enabled (for both read and writes) from the first clock of the address phase through the end of the transaction. This ensures C/BE# are not floated for long intervals. The C/BE# lines contain valid byte enable information during the entire data phase independent of the state of IRDY#. The C/BE# lines contain the byte enable information for data phase N+1 on the clock following the completion of data phase N. This is not as serious, however, it shows that a burst read transaction typically has all byte enables asserted; figure 3 is somewhat incomplete. For example, note in clock 5 in Figure 3-6, the master inserted a wait state by deasserting IRDY#. However, the byte enables for data phase 2 are valid on clock 5 and remain valid until the data phase completes on clock 6.
+
+Byte enables on a read transaction requires a turnaround-cycle (enforced by the target via TRDY#). In this case, the address is valid on clock 2 and then the master stops driving AD. The earliest the target can provide valid data is clock 4. The target must drive the AD lines following the turnaround cycle when DEVSEL# is asserted. Once enabled, the output buffers must stay enabled through the end of the transaction. (This ensures that the AD lines are not left floating for long intervals.)
+
+One way for a data phase to complete is when data is transferred, which occurs when both IRDY# and TRDY# are asserted on the same rising clock edge.
+
+(TRDY# cannot be driven until DEVSEL# is asserted.) When either IRDY# or TRDY# is deasserted, a wait cycle is inserted and no data is transferred. As noted in Figure 3-5, data is successfully transferred on clocks 4, 6, and 8 and wait cycles are inserted on clocks 3, 5, and 7. The first data phase completes in the minimum time for a read transaction. The second data phase is extended because clock 5 because TRDY# is deasserted. The last data phase is extended because IRDY# was deasserted on clock 7.
+
+The master knows at clock 7 that the next data phase is the last. However, because the master is not ready to complete the last transfer (IRDY# is deasserted on clock 7), FRAME# stays asserted. Only when IRDY# is asserted can FRAME# be deasserted as occurs on clock 8, indicating to the target that this is the last data phase of the transaction.
+
+3.3.2. Write Transaction
+
+Figure 3-6 illustrates a write transaction. The transaction starts when FRAME# is asserted for the first time which occurs on clock 2. A write transaction is similar to a read transaction except no turnaround cycle is required following the address phase because the master provides both address and data. Data phases work the same for both read and write transactions.
+
+In Figure 3-6, the first and second data phases complete with zero wait cycles. However, the third data phase has three wait cycles inserted by the target. Notice both agents insert a wait cycle on clock 5. IRDY# must be asserted when FRAME# is deasserted indicating the last data phase.
+
+The data transfer was delayed by the master on clock 5 because IRDY# was deasserted. The last data phase is signaled by the master on clock 6, but it does not complete until clock 8.
+"""

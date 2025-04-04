@@ -1,0 +1,23 @@
+[
+    "If FRAME# changes from LOW to HIGH, then IRDY# is LOW.",
+    "If IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then IRDY# remains stable in the next cycle.",
+    "If IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then FRAME# remains stable in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then IRDY# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then IRDY# is HIGH in the next cycle.",
+
+    "If FRAME# is LOW and STOP# is LOW, then STOP# is LOW in the next cycle.",
+    "If FRAME# is HIGH and STOP# is LOW, then STOP# is HIGH in the next cycle.",
+    "If IRDY# is HIGH and TRDY# is LOW, then TRDY# remains stable in the next cycle.",
+    "If IRDY# is HIGH and TRDY# is LOW, then STOP# remains stable in the next cycle.",
+    "If IRDY# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.",
+    "If IRDY# is HIGH and STOP# is LOW, then TRDY# remains stable in the next cycle.",
+    "If IRDY# is HIGH and STOP# is LOW, then STOP# remains stable in the next cycle.",
+    "If IRDY# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.",
+    "If STOP# is LOW, then FRAME# is HIGH or IRDY# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then TRDY# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then STOP# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then DEVSEL# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then TRDY# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then STOP# is HIGH in the next cycle.",
+    "If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then DEVSEL# is HIGH in the next cycle."
+]

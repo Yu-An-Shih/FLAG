@@ -7,10 +7,10 @@ Bus Transactions (Figure 3-5, 3-6):
 Page 47: "The first data phase on a read transaction requires a turn-around cycle (enforced by the target via TRDY#)."
 - If $rose(READ_DATA_PHASE), then TRDY# must be HIGH.
 
-Page 48: " "TRDY# cannot be driven until DEVSEL# is asserted."
+*Page 48: " "TRDY# cannot be driven until DEVSEL# is asserted."
 - If TRDY# is LOW, then DEVSEL# must be LOW.
 
-Page 48: "Only when IDRY# is asserted can FRAME# be deasserted."
+*Page 48: "Only when IDRY# is asserted can FRAME# be deasserted."
 - (Repeated by Rule 3 on page 51) If $rose(FRAME#), then IDRY# must be LOW.
 
 Not described by text
@@ -22,7 +22,7 @@ Master Initiated Termination (Figure 3-7, 3-8):
 (Rule 2 on page 51)
 - (subsumption by Rule 4) If FRAME# is HIGH, IRDY# is LOW, TRDY# is HIGH, STOP# is HIGH and DEVSEL# is LOW, then FRAME# must remain HIGH in the next cycle.
 Or: (Hint: Page 49: All transactions are concluded when FRAME# and IDLE# are both deasserted, ...)
-- If $fell(FRAME), then IDRY# must be HIGH.
+- If $fell(FRAME#), then IDRY# must be HIGH.
 
 (Rule 3 on page 51)
 - If $rose(FRAME#), then IDRY# must be LOW.

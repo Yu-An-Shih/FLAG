@@ -1,0 +1,9 @@
+[
+    "If IRDY# is HIGH and READ_DATA_PHASE is HIGH, then C/BE# remains stable in the next cycle.",
+    "If IRDY# is HIGH and WRITE_DATA_PHASE is HIGH, then C/BE# remains stable in the next cycle.",
+    "If TRDY# is HIGH and WRITE_DATA_PHASE is HIGH, then C/BE# remains stable in the next cycle.",
+    "If READ_DATA_PHASE is HIGH and TRDY# is HIGH, then C/BE# remains stable in the next cycle.",
+    "If READ_DATA_PHASE changes from LOW to HIGH, then TRDY# is HIGH.",
+    "If IRDY# is HIGH and READ_DATA_PHASE is HIGH and TRDY# is LOW, then AD remains stable in the next cycle.",
+    "If IRDY# is LOW and TRDY# is HIGH and WRITE_DATA_PHASE is HIGH, then AD remains stable in the next cycle."
+]
