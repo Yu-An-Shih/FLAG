@@ -12,7 +12,7 @@ Data transfer:
 - If STB_O is HIGH and ACK_I is LOW, then SEL_O should remain stable in the next cycle.
 - If STB_O is HIGH, ACK_I is LOW and WE_O is HIGH, then DAT_O should remain stable in the next cycle.
 (RULE 3.35)
-(- If STB_O changes from LOW to HIGH, then ACK_I must be HIGH eventually.)
+- If STB_O changes from LOW to HIGH, then ACK_I must be HIGH eventually.
 (OBSERVATION 3.25)
 - If STB_O is HIGH, then CYC_I is HIGH.
 
