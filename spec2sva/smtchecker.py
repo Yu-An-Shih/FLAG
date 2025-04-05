@@ -109,13 +109,17 @@ class SMTChecker:
                     if antecedent is None or consequent is None:
                         return None
                     
-                    # NOTE: The property should only be checked if the antecedent is satisfiable
+                    # NOTE: The property should only be checked if:
                     checkable = True
+                    #       (1) the antecedent is satisfiable on the waveform, and 
                     self._solver.push()
                     self._solver.add(antecedent)
                     if self._solver.check() == z3.unsat:
                         checkable = False
                     self._solver.pop()
+                    #       (2) the antecedent is not a tautology on any waveform
+                    # if Solver().check(Not(antecedent)) == z3.unsat:
+                    #     checkable = False
 
                     return Implies(antecedent, consequent) if checkable else None
                 case 'X':

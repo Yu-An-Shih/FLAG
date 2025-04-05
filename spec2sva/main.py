@@ -46,9 +46,9 @@ def main():
         g2t = Gram2Temp(grammar)
         templates = g2t.getTemplates()
 
-        with open(f"{args.output_dir}/grammar_based.json", "w") as f:
+        with open(f"{args.output_dir}/templates.json", "w") as f:
             json.dump(templates, f, indent=4)
-        with open(f"{args.output_dir}/grammar_based_NL.json", "w") as f:
+        with open(f"{args.output_dir}/templates_NL.json", "w") as f:
             json.dump(g2t.getTemplates_NL(), f, indent=4)
 
         return
