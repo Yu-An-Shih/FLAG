@@ -1,7 +1,0 @@
-[
-    "If STOP# is LOW, then FRAME# is HIGH or IRDY# is LOW in the next cycle.",
-    "If STOP# changes from LOW to HIGH, then FRAME# is HIGH.",
-    "If STOP# changes from LOW to HIGH, then IRDY# is HIGH.",
-    "If STOP# changes from LOW to HIGH, then TRDY# is HIGH.",
-    "If STOP# changes from LOW to HIGH, then DEVSEL# is HIGH."
-]

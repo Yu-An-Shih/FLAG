@@ -1,6 +1,4 @@
 [
-    "If ARESETn is LOW, then VALID is LOW.",
-    "If VALID is HIGH, then ARESETn is HIGH.",
     "If ARESETn is LOW, then ARESETn is HIGH in the next cycle.",
     "If ARESETn is LOW, then VALID is LOW in the next cycle.",
     "If ARESETn is HIGH, then ARESETn is HIGH in the next cycle.",
@@ -45,5 +43,10 @@
     "If ARESETn changes from LOW to HIGH, then VALID is LOW.",
     "If VALID changes from LOW to HIGH, then ARESETn is HIGH.",
     "If ARESETn changes from LOW to HIGH, then ARESETn is LOW or VALID is LOW.",
-    "If VALID changes from LOW to HIGH, then ARESETn is HIGH or VALID is LOW."
+    "If VALID changes from LOW to HIGH, then ARESETn is HIGH or VALID is LOW.",
+    "If ARESETn is LOW, then VALID is LOW.",
+    "If VALID is HIGH, then ARESETn is HIGH.",
+    "If ARESETn changes from LOW to HIGH, then VALID is LOW eventually.",
+    "If ARESETn changes from LOW to HIGH, then VALID is HIGH eventually.",
+    "If VALID changes from LOW to HIGH, then ARESETn is HIGH eventually."
 ]

@@ -1,0 +1,679 @@
+[
+    {
+        "nl": "If [signal] == [level], then [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (== [signal] [level]) (X (== [signal] [level]))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                },
+                                {
+                                    "type": "level"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (== [signal] [level]) (X (Or (== [signal] [level]) (== [signal] [level])))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                },
+                                {
+                                    "type": "level"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal"
+                                                },
+                                                {
+                                                    "type": "level"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal"
+                                                },
+                                                {
+                                                    "type": "level"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level], then [signal/word] remains stable in the next cycle.",
+        "ltl": "(G (Implies (== [signal] [level]) (X ($stable [signal/word]))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                },
+                                {
+                                    "type": "level"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "signal/word"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level])) (X (== [signal] [level]))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level])) (X (Or (== [signal] [level]) (== [signal] [level])))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal"
+                                                },
+                                                {
+                                                    "type": "level"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal"
+                                                },
+                                                {
+                                                    "type": "level"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level])) (X ($stable [signal/word]))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "signal/word"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X (== [signal] [level]))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X (Or (== [signal] [level]) (== [signal] [level])))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal"
+                                                },
+                                                {
+                                                    "type": "level"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal"
+                                                },
+                                                {
+                                                    "type": "level"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+        "ltl": "(G (Implies (And (== [signal] [level]) (== [signal] [level]) (== [signal] [level])) (X ($stable [signal/word]))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "signal/word"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] changes from LOW to HIGH, then [signal] == [level].",
+        "ltl": "(G (Implies ($rose [signal]) (== [signal] [level])))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                },
+                                {
+                                    "type": "level"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If [signal] changes from HIGH to LOW, then [signal] == [level].",
+        "ltl": "(G (Implies ($fell [signal]) (== [signal] [level])))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                },
+                                {
+                                    "type": "level"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

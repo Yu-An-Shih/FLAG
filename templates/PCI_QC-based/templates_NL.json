@@ -1,0 +1,16 @@
+[
+    "If [signal] == [level], then [signal] == [level] in the next cycle.",
+    "If [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+    "If [signal] == [level], then [signal/word] remains stable in the next cycle.",
+    "If [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+    "If [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+    "If [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+    "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+    "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+    "If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+    "If [signal] changes from LOW to HIGH, then [signal] == [level].",
+    "If [signal] changes from LOW to HIGH, then [signal] == [level] or [signal] == [level].",
+    "If [signal] changes from HIGH to LOW, then [signal] == [level].",
+    "If [signal] changes from HIGH to LOW, then [signal] == [level] or [signal] == [level].",
+    "If [signal] == [level], then [signal] == [level]."
+]

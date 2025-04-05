@@ -170,5 +170,10 @@
     "If STB_O changes from HIGH to LOW, then RST_I is HIGH or STB_O is HIGH.",
     "If CYC_O changes from HIGH to LOW, then CYC_O is HIGH or RST_I is HIGH.",
     "If CYC_O changes from HIGH to LOW, then RST_I is HIGH or STB_O is LOW.",
-    "If CYC_O changes from HIGH to LOW, then RST_I is HIGH or STB_O is HIGH."
+    "If CYC_O changes from HIGH to LOW, then RST_I is HIGH or STB_O is HIGH.",
+    "If RST_I changes from LOW to HIGH, then RST_I is LOW eventually.",
+    "If RST_I changes from LOW to HIGH, then STB_O is LOW eventually.",
+    "If RST_I changes from LOW to HIGH, then CYC_O is LOW eventually.",
+    "If STB_O changes from LOW to HIGH, then RST_I is LOW eventually.",
+    "If CYC_O changes from LOW to HIGH, then RST_I is LOW eventually."
 ]

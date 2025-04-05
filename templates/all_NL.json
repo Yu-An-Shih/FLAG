@@ -1,0 +1,15 @@
+[
+    "1.   If [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+    "1-2. If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal/word] remains stable in the next cycle.",
+    "2.   If [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+    "2-2. If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] in the next cycle.",
+    "3.   If [signal] changes from LOW to HIGH, then [signal] == [level].",
+    "3.   If [signal] changes from HIGH to LOW, then [signal] == [level].",
+    "3-2. If [signal] changes from LOW to HIGH, then [signal] == [level] or [signal] == [level].",
+    "3-2. If [signal] changes from HIGH to LOW, then [signal] == [level] or [signal] == [level].",
+    "4.   If [signal] == [level], then [signal] == [level].",
+    "5.   If [signal] == [level], then [signal] == [level] in the next cycle.",
+    "6.   If [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+    "7.   If [signal] == [level] and [signal] == [level] and [signal] == [level], then [signal] == [level] or [signal] == [level] in the next cycle.",
+    "8.   If [signal] changes from LOW to HIGH, then [signal] == [level] eventually."
+]

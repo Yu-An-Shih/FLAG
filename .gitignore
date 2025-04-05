@@ -29,6 +29,10 @@ smt/non_tautologies.json
 
 # Backup
 smt/smtchecker_1.py
+grammar.backup/
+templates.backup/
+LLM_filtering.backup/
+waveforms.backup/
 
 # Overriding ignore rules
 !waveforms/AXI/
