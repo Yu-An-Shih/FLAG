@@ -1,5 +1,7 @@
 Textual description of the WISHBONE architecture's handshaking protocol:
 """
+NOTE: Our interface only supports the [ACK_I] ([ACK_O]) terminator signal. [ERR_I] ([ERR_O]) and [RTY_I] ([RTY_O]) are not used. Please keep this in mind when reading the following descriptions.
+
 3.1.3 Handshaking Protocol
 All bus cycles use a handshaking protocol between the MASTER and SLAVE interfaces. As shown in Figure 3-2, the MASTER asserts [STB_O] when it is ready to transfer data. [STB_O] remains asserted until the SLAVE asserts one of the cycle terminating signals [ACK_I], [ERR_I] or [RTY_I]. At every rising edge of [CLK_I] the terminating signal is sampled. If it is asserted, then [STB_O] is negated. This gives both MASTER and SLAVE interfaces the possibility to control the rate at which data is transferred.
 
