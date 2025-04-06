@@ -28,6 +28,8 @@
     "If READY changes from LOW to HIGH, then VALID is LOW eventually.",
     "If READY changes from LOW to HIGH, then VALID is HIGH eventually.",
     "If READY changes from LOW to HIGH, then READY is LOW eventually.",
+    "If VALID changes from HIGH to LOW, then READY is LOW eventually.",
+    "If READY changes from HIGH to LOW, then VALID is LOW eventually.",
     "If READY is HIGH and VALID is LOW, then READY is HIGH in the next cycle.",
     "If READY is HIGH and VALID is LOW, then READY is HIGH or VALID is LOW in the next cycle.",
     "If READY is HIGH and VALID is LOW, then READY is HIGH or VALID is HIGH in the next cycle.",

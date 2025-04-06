@@ -578,6 +578,15 @@
     "If PACCEPT changes from LOW to HIGH, then PREQ is HIGH eventually.",
     "If PACCEPT changes from LOW to HIGH, then PACCEPT is LOW eventually.",
     "If PACCEPT changes from LOW to HIGH, then PDENY is LOW eventually.",
+    "If RESETn changes from HIGH to LOW, then PREQ is LOW eventually.",
+    "If RESETn changes from HIGH to LOW, then PACCEPT is LOW eventually.",
+    "If RESETn changes from HIGH to LOW, then PDENY is LOW eventually.",
+    "If PREQ changes from HIGH to LOW, then RESETn is HIGH eventually.",
+    "If PREQ changes from HIGH to LOW, then PACCEPT is LOW eventually.",
+    "If PREQ changes from HIGH to LOW, then PDENY is LOW eventually.",
+    "If PACCEPT changes from HIGH to LOW, then RESETn is HIGH eventually.",
+    "If PACCEPT changes from HIGH to LOW, then PREQ is LOW eventually.",
+    "If PACCEPT changes from HIGH to LOW, then PDENY is LOW eventually.",
     "If PREQ is HIGH and RESETn is LOW, then RESETn is HIGH in the next cycle.",
     "If PREQ is HIGH and RESETn is LOW, then PREQ is HIGH in the next cycle.",
     "If PREQ is HIGH and RESETn is LOW, then PACCEPT is LOW in the next cycle.",
@@ -885,5 +894,8 @@
     "If PDENY changes from LOW to HIGH, then PREQ is LOW eventually.",
     "If PDENY changes from LOW to HIGH, then PREQ is HIGH eventually.",
     "If PDENY changes from LOW to HIGH, then PACCEPT is LOW eventually.",
-    "If PDENY changes from LOW to HIGH, then PDENY is LOW eventually."
+    "If PDENY changes from LOW to HIGH, then PDENY is LOW eventually.",
+    "If PDENY changes from HIGH to LOW, then RESETn is HIGH eventually.",
+    "If PDENY changes from HIGH to LOW, then PREQ is LOW eventually.",
+    "If PDENY changes from HIGH to LOW, then PACCEPT is LOW eventually."
 ]

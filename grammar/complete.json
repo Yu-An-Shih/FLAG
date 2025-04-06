@@ -18,17 +18,14 @@
             ]
         }
     ],
-    "rose": [
+    "change": [
         {
             "type": "basic",
             "operator": "$rose",
             "operands": [
                 { "type": "signal" }
             ]
-        }
-    ],
-    "change": [
-        { "type": "category", "category": "rose" },
+        },
         {
             "type": "basic",
             "operator": "$fell",
@@ -144,7 +141,7 @@
                     "type": "operator",
                     "operator": "Implies",
                     "operands": [
-                        { "type": "category", "category": "rose" },
+                        { "type": "category", "category": "change" },
                         { "type": "category", "category": "Finally" }
                     ]
                 }

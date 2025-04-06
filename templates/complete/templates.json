@@ -868,5 +868,48 @@
                 }
             ]
         }
+    },
+    {
+        "nl": "If [signal] changes from HIGH to LOW, then [signal] == [level] eventually.",
+        "ltl": "(G (Implies ($fell [signal]) (F (== [signal] [level]))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal"
+                                        },
+                                        {
+                                            "type": "level"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     }
 ]

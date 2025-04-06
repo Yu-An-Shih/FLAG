@@ -489,6 +489,18 @@
     "If READ_DATA_PHASE changes from LOW to HIGH, then TRDY# is HIGH eventually.",
     "If READ_DATA_PHASE changes from LOW to HIGH, then READ_DATA_PHASE is LOW eventually.",
     "If READ_DATA_PHASE changes from LOW to HIGH, then WRITE_DATA_PHASE is LOW eventually.",
+    "If IRDY# changes from HIGH to LOW, then IRDY# is HIGH eventually.",
+    "If IRDY# changes from HIGH to LOW, then TRDY# is HIGH eventually.",
+    "If IRDY# changes from HIGH to LOW, then READ_DATA_PHASE is LOW eventually.",
+    "If IRDY# changes from HIGH to LOW, then WRITE_DATA_PHASE is LOW eventually.",
+    "If TRDY# changes from HIGH to LOW, then IRDY# is LOW eventually.",
+    "If TRDY# changes from HIGH to LOW, then IRDY# is HIGH eventually.",
+    "If TRDY# changes from HIGH to LOW, then TRDY# is HIGH eventually.",
+    "If TRDY# changes from HIGH to LOW, then READ_DATA_PHASE is LOW eventually.",
+    "If TRDY# changes from HIGH to LOW, then WRITE_DATA_PHASE is LOW eventually.",
+    "If READ_DATA_PHASE changes from HIGH to LOW, then IRDY# is HIGH eventually.",
+    "If READ_DATA_PHASE changes from HIGH to LOW, then TRDY# is HIGH eventually.",
+    "If READ_DATA_PHASE changes from HIGH to LOW, then WRITE_DATA_PHASE is LOW eventually.",
     "If WRITE_DATA_PHASE is HIGH, then READ_DATA_PHASE is LOW in the next cycle.",
     "If WRITE_DATA_PHASE is HIGH, then IRDY# is LOW or READ_DATA_PHASE is LOW in the next cycle.",
     "If WRITE_DATA_PHASE is HIGH, then IRDY# is LOW or TRDY# is HIGH in the next cycle.",
@@ -806,5 +818,8 @@
     "If WRITE_DATA_PHASE changes from LOW to HIGH, then TRDY# is LOW eventually.",
     "If WRITE_DATA_PHASE changes from LOW to HIGH, then TRDY# is HIGH eventually.",
     "If WRITE_DATA_PHASE changes from LOW to HIGH, then READ_DATA_PHASE is LOW eventually.",
-    "If WRITE_DATA_PHASE changes from LOW to HIGH, then WRITE_DATA_PHASE is LOW eventually."
+    "If WRITE_DATA_PHASE changes from LOW to HIGH, then WRITE_DATA_PHASE is LOW eventually.",
+    "If WRITE_DATA_PHASE changes from HIGH to LOW, then IRDY# is HIGH eventually.",
+    "If WRITE_DATA_PHASE changes from HIGH to LOW, then TRDY# is HIGH eventually.",
+    "If WRITE_DATA_PHASE changes from HIGH to LOW, then READ_DATA_PHASE is LOW eventually."
 ]

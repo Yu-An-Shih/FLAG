@@ -13,5 +13,6 @@
     "If [signal] changes from HIGH to LOW, then [signal] == [level].",
     "If [signal] changes from HIGH to LOW, then [signal] == [level] or [signal] == [level].",
     "If [signal] == [level], then [signal] == [level].",
-    "If [signal] changes from LOW to HIGH, then [signal] == [level] eventually."
+    "If [signal] changes from LOW to HIGH, then [signal] == [level] eventually.",
+    "If [signal] changes from HIGH to LOW, then [signal] == [level] eventually."
 ]

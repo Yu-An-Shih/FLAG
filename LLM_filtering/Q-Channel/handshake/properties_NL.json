@@ -134,6 +134,10 @@
     "If QREQn changes from LOW to HIGH, then QDENY is LOW eventually.",
     "If QACCEPTn changes from LOW to HIGH, then QREQn is HIGH eventually.",
     "If QACCEPTn changes from LOW to HIGH, then QDENY is LOW eventually.",
+    "If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH eventually.",
+    "If QREQn changes from HIGH to LOW, then QDENY is LOW eventually.",
+    "If QACCEPTn changes from HIGH to LOW, then QREQn is LOW eventually.",
+    "If QACCEPTn changes from HIGH to LOW, then QDENY is LOW eventually.",
     "If QDENY is HIGH, then QACCEPTn is HIGH in the next cycle.",
     "If QDENY is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
     "If QDENY is HIGH, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
@@ -210,5 +214,7 @@
     "If QDENY changes from LOW to HIGH, then QREQn is LOW eventually.",
     "If QDENY changes from LOW to HIGH, then QREQn is HIGH eventually.",
     "If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH eventually.",
-    "If QDENY changes from LOW to HIGH, then QDENY is LOW eventually."
+    "If QDENY changes from LOW to HIGH, then QDENY is LOW eventually.",
+    "If QDENY changes from HIGH to LOW, then QREQn is HIGH eventually.",
+    "If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH eventually."
 ]
