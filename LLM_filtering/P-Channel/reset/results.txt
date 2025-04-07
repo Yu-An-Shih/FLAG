@@ -1,0 +1,28 @@
+Results 1:
+```json
+[
+  "If RESETn is LOW, then PACCEPT is LOW.",
+  "If RESETn is LOW, then PDENY is LOW.",
+  "If RESETn changes from HIGH to LOW, then PACCEPT is LOW.",
+  "If RESETn changes from HIGH to LOW, then PDENY is LOW."
+]
+```
+==================
+
+
+Results 2:
+[
+  "If RESETn is LOW, then PACCEPT is LOW.",
+  "If RESETn is LOW, then PDENY is LOW."
+]
+==================
+
+
+Results 3:
+[
+  "If RESETn is LOW, then PACCEPT is LOW.",
+  "If RESETn is LOW, then PDENY is LOW."
+]
+==================
+
+

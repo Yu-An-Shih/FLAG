@@ -6,7 +6,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-case_dir = 'PCI/transactions'
+case_dir = 'PCI/termination'
 iters = 3
 
 # prompt = """

@@ -1,6 +1,6 @@
 import json
 
-case_dir = 'PCI/transactions'
+case_dir = 'PCI/termination'
 
 with open(f"{case_dir}/properties_NL.json", "r") as f:
     properties = json.load(f)

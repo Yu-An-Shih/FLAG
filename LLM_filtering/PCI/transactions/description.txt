@@ -19,8 +19,8 @@ Target Ready indicates the target agent’s (selected device’s) ability to com
 
 2.2.10 Auxiliary Signals
 
-READ_DATA_PHASE: Indicates that the bus transaction is in read data phase.
-WRITE_DATA_PHASE: Indicates that the bus transaction is in read data phase.
+READ_DATA_PHASE: Indicates that the bus transaction is in the data phase of a read transaction.
+WRITE_DATA_PHASE: Indicates that the bus transaction is in the data phase of a write transaction.
 
 Note: A # symbol at the end of a signal name indicates that the asserted state occurs when the signal is at low voltage. When the # symbol is absent, the signal is asserted at a high voltage.
 
