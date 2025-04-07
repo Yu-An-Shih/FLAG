@@ -1,8 +1,7 @@
 {
     "signals": [
         { "name": "CSYSREQ", "type": "signal" },
-        { "name": "CSYSACK", "type": "signal" },
-        { "name": "CACTIVE", "type": "signal" }
+        { "name": "CSYSACK", "type": "signal" }
     ],
     "waveforms": [
         {

@@ -1,0 +1,6 @@
+[
+    "If ARESETn changes from LOW to HIGH, then VALID is LOW.",
+    "If VALID changes from LOW to HIGH, then ARESETn is HIGH.",
+    "If ARESETn is LOW, then VALID is LOW.",
+    "If VALID is HIGH, then ARESETn is HIGH."
+]

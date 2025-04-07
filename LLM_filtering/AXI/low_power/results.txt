@@ -1,0 +1,32 @@
+Results 1:
+[
+  "If CSYSREQ changes from LOW to HIGH, then CSYSACK is HIGH eventually.",
+  "If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH eventually.",
+  "If CSYSREQ changes from HIGH to LOW, then CSYSACK is LOW eventually.",
+  "If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW eventually."
+]
+==================
+
+
+Results 2:
+[
+  "If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH.",
+  "If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW.",
+  "If CSYSREQ changes from LOW to HIGH, then CSYSACK is HIGH eventually.",
+  "If CSYSREQ changes from HIGH to LOW, then CSYSACK is LOW eventually."
+]
+==================
+
+
+Results 3:
+[
+  "If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH.",
+  "If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW.",
+  "If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW.",
+  "If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH.",
+  "If CSYSREQ changes from LOW to HIGH, then CSYSACK is HIGH eventually.",
+  "If CSYSREQ changes from HIGH to LOW, then CSYSACK is LOW eventually."
+]
+==================
+
+
