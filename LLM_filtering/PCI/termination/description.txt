@@ -22,12 +22,18 @@ Note: A # symbol at the end of a signal name indicates that the asserted state o
 
 3.3.3.1. Master Initiated Termination
 
+The mechanism used in master initiated termination is when FRAME# is deasserted and IRDY# is asserted. This condition signals the target that the final data phase is in progress. The final data transfer occurs when both IRDY# and TRDY# are asserted. The transaction reaches completion when both FRAME# and IRDY# are deasserted (Idle state).
+
+Two examples of normal completion are shown in Figure 3-7. The final data phase is indicated by the deassertion of FRAME# and the assertion of IRDY#. The final data phase completes when FRAME# is deasserted and IRDY# and TRDY# are both asserted. The bus reaches an Idle state when IRDY# is deasserted, which occurs on clock 4. Because the transaction has completed, TRDY# is deasserted on clock 4 also.
+Note: TRDY# is not required to be asserted on clock 3, but could have delayed the final data transfer (and transaction termination) until it is ready by delaying the final assertion of TRDY#. If the target does that, the master is required to keep IRDY# asserted until the final data transfer occurs.
+
 In summary, the following general rules govern FRAME# and IRDY# in all PCI transactions:
 1. FRAME# and its corresponding IRDY# define the Busy/Idle state of the bus; when either is asserted, the bus is Busy; when both are deasserted, the bus is Idle.
 2. Once FRAME# has been deasserted, it cannot be reasserted during the same transaction.
 3. FRAME# cannot be deasserted unless IRDY# is asserted. (IRDY# must always be asserted on the first clock edge that FRAME# is deasserted.)
 4. Once a master has asserted IRDY#, it cannot change IRDY# or FRAME# until the current data phase completes.
 5. The master must deassert IRDY# the clock after the completion of the last data phase.
+
 
 3.3.3.2. Target Initiated Termination
 

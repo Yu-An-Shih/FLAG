@@ -2,6 +2,8 @@ import argparse
 import json
 import os
 
+import time
+
 from spec2sva.gram2temp import Gram2Temp
 from spec2sva.temp2prop import Temp2Prop
 from spec2sva.smtchecker import SMTChecker
@@ -80,7 +82,10 @@ def main():
         with open(args.properties, "r") as f:
             candid_props = json.load(f)
 
+    start_time = time.perf_counter()
     smtchecker = SMTChecker(waveform_info, candid_props)
+    end_time = time.perf_counter()
+    print(f"Check time: {end_time - start_time:.6f} seconds")
     valid_props = smtchecker.getProperties()
 
     # Write the SMT-checked properties

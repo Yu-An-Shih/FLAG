@@ -34,6 +34,17 @@ templates.backup/
 LLM_filtering.backup/
 waveforms.backup/
 
+LLM_filtering-majority/
+LLM_filtering/PCI/termination_reasoning/
+LLM_filtering/PCI/termination_100/
+LLM_filtering/PCI/termination_backup/
+LLM_filtering/PCI/termination_reasoning_backup/
+LLM_filtering/PCI/termination/description.txt.backup
+
+LLM_filtering/run_batch.py
+LLM_filtering/get_batch.py
+LLM_filtering/check_batch.py
+
 # Overriding ignore rules
 !waveforms/AXI/
 !cases_for_Annie/*/AXI/
