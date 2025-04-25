@@ -1,8 +1,0 @@
-[
-    "If $rose(PREQ), then PACCEPT == 0.",
-    "If $rose(PREQ), then PDENY == 0.",
-    "If $rose(PACCEPT), then PREQ == 1.",
-    "If $rose(PACCEPT), then PDENY == 0.",
-    "If $rose(PDENY), then PREQ == 1.",
-    "If $rose(PDENY), then PACCEPT == 0."
-]

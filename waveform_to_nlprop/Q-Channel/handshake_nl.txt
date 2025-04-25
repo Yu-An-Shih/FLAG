@@ -1,9 +1,0 @@
-Q-Channel low-power interface handshake mechanism:
-    Trace 1: Accepted quiesence request sequence
-        The trace executes for 19 clock cycles. Initially at cycle 1, (QREQn, QACCEPTn, QDENY) = (HIGH, HIGH, LOW). Cycle 4: QREQn turns LOW. Cycle 9: QACCEPTn turns LOW. Cycle 14: QREQn turns HIGH. Cycle 17: QACCEPTn turns HIGH.
-    Trace 2: Denied quiesence request sequence
-        The trace executes for 20 clock cycles. Initially at cycle 1, (QREQn, QACCEPTn, QDENY) = (HIGH, HIGH, LOW). Cycle 4: QREQn turns LOW. Cycle 9: QDENY turns HIGH. Cycle 13: QREQn turns HIGH. Cycle 18: QDENY turns LOW.
-    Signal descriptions:
-        QREQn (source: power controller): Active-low quiescence request signal.
-        QACCEPTn (source: device): Active-low quiescence acceptance signal.
-        QDENY (source: device): Active-high quiescence denial signal.

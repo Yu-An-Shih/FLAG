@@ -1,3 +1,0 @@
-- <signal> is only permitted to change from LOW to HIGH when <condition>.
-- If <signal> is <value>, then <signal> must be <value>.
-- If <signal> is <value>, then <signal> must be <value> in the next cycle.

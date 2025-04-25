@@ -1,6 +1,0 @@
-[
-    "If ARESETn == 0, then VALID == 0.",
-    "If VALID == 1, then ARESETn == 1.",
-    "If $rose(ARESETn), then VALID == 0.",
-    "If $rose(VALID), then ARESETn == 1."
-]

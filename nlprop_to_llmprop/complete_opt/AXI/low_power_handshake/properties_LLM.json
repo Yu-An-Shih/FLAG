@@ -1,4 +1,0 @@
-[
-    "If $rose(CSYSREQ), then CSYSACK == 0.",
-    "If $rose(CSYSACK), then CSYSREQ == 1."
-]

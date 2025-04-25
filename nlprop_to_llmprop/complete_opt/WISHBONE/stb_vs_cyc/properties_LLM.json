@@ -1,4 +1,0 @@
-[
-    "If CYC_O == 0, then STB_O == 0.",
-    "If STB_O == 1, then CYC_O == 1."
-]

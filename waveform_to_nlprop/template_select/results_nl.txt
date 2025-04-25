@@ -1,4 +1,0 @@
-(1)
-- If RST_I is HIGH, then STB_I must be LOW.
-- If RST_I is HIGH, then CYC_I must be LOW.
-

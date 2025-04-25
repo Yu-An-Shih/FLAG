@@ -1,6 +1,0 @@
-[
-    "If $rose(QACCEPTn), then QREQn == 1.",
-    "If $rose(QACCEPTn), then QDENY == 0.",
-    "If $rose(QDENY), then QREQn == 0.",
-    "If $rose(QDENY), then QACCEPTn == 1."
-  ]
