@@ -15,6 +15,10 @@ util/
 
 grammar/*.py
 
+cases_for_Annie/
+nlprop_to_llmprop/
+waveform_to_nlprop/
+
 # test
 waveform_to_nlprop/Q-Channel_backup/
 waveform_to_nlprop/test/
