@@ -28,5 +28,5 @@ You may observe some naming convention mismatch between the paper and this repos
 
 ## Software dependencies
 
-- [Z3] (https://github.com/Z3Prover/z3), version 4.13.3
-- [OpenAI Python API] (https://platform.openai.com/docs/api-reference/introduction)
+- [Z3](https://github.com/Z3Prover/z3), version 4.13.3
+- [OpenAI Python API](https://platform.openai.com/docs/api-reference/introduction)
