@@ -6,7 +6,7 @@ from openai import OpenAI
 
 client = OpenAI()
 
-case_dir = 'PCI/termination'
+case_dir = 'AXI/handshake'
 iters = 3
 
 # prompt = """
