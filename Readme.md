@@ -22,7 +22,7 @@ cd LLM_filtering
 python run.py
 ```
 
-The command-line interface for this step is under development and not flexible at this moment. So far, the formally-checked properties, textual description, and target properties and placed under their corresponding directory of the functionality group for each protocol. The results would be generated in the same directory. Please view `LLM_filtering/run.py` for more information.
+The command-line interface for this step is under development and not flexible at this moment. So far, the formally-checked properties, textual description, and target properties are placed under their corresponding directory of the functionality group for each protocol. The results would be generated in the same directory. Please view `LLM_filtering/run.py` for more information.
 
 You may observe some naming convention mismatch between the paper and this repository. We will gradually modify the naming conventions of this repository to match those in the paper.
 
