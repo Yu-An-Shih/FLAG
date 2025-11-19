@@ -1,4 +1,4 @@
-# FLAG: Formal and LLM-assisted SVA Generation for Formal Specifications of On-Chip Communication Protocols
+# SVAG: Formal and LLM-assisted SVA Generation for Formal Specifications of On-Chip Communication Protocols
 
 ## Reproducing the results
 
