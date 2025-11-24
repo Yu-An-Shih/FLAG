@@ -1,4 +1,0 @@
-[
-    "If RST_I is HIGH, then STB_O is LOW in the next cycle.",
-    "If RST_I is HIGH, then CYC_O is LOW in the next cycle."
-]

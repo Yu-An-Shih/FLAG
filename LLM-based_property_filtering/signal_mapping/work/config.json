@@ -1,0 +1,14 @@
+[
+    {
+        "protocol": "AXI channel handshake",
+        "spec_file_id": "file-8Kne7KXdhcgcvFpxwyAkZv",
+        "rules": "../../test_cases/AXI/channel_handshake/llm_filtered.json",
+        "instruction": "The rules are derived from the timing diagrams of the AXI channel handshake mechanism. Replace the signal names so that they correspond to the actual AXI signals in each channel."
+    },
+    {
+        "protocol": "AXI reset",
+        "spec_file_id": "file-8Kne7KXdhcgcvFpxwyAkZv",
+        "rules": "../../test_cases/AXI/reset/llm_filtered.json",
+        "instruction": "The rules are derived from the timing diagrams of the AXI reset mechanism. Replace the signal names so that they correspond to the actual AXI signals in each channel."
+    }
+]

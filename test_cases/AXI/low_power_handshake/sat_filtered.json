@@ -1,0 +1,2397 @@
+[
+    {
+        "nl": "If CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.",
+        "sva": "(CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies (== CSYSREQ 0) (X (Or (== CSYSACK 0) (== CSYSREQ 0)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "0"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.",
+        "sva": "(CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies (== CSYSREQ 1) (X (Or (== CSYSACK 1) (== CSYSREQ 1)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW, then CSYSACK is LOW or CSYSREQ is HIGH in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies (== CSYSACK 0) (X (Or (== CSYSACK 0) (== CSYSREQ 1)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "0"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH, then CSYSACK is HIGH or CSYSREQ is LOW in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies (== CSYSACK 1) (X (Or (== CSYSACK 1) (== CSYSREQ 0)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X (== CSYSACK 0))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSREQ is HIGH in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X (== CSYSREQ 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSREQ is LOW in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X (== CSYSREQ 0))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X (== CSYSACK 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X (Or (== CSYSACK 0) (== CSYSREQ 0)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is HIGH in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X (Or (== CSYSACK 0) (== CSYSREQ 1)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSACK is LOW or CSYSREQ is HIGH in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X (Or (== CSYSACK 0) (== CSYSREQ 1)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X (Or (== CSYSACK 1) (== CSYSREQ 1)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X (Or (== CSYSACK 0) (== CSYSREQ 0)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSACK is HIGH or CSYSREQ is LOW in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X (Or (== CSYSACK 1) (== CSYSREQ 0)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is LOW in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X (Or (== CSYSACK 1) (== CSYSREQ 0)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X (Or (== CSYSACK 1) (== CSYSREQ 1)))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "operator",
+                                    "operator": "Or",
+                                    "operands": [
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSACK"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basic",
+                                            "operator": "==",
+                                            "operands": [
+                                                {
+                                                    "type": "signal",
+                                                    "value": "CSYSREQ"
+                                                },
+                                                {
+                                                    "type": "level",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK remains stable in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 $stable(CSYSACK)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X ($stable CSYSACK))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSREQ remains stable in the next cycle.",
+        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 $stable(CSYSREQ)",
+        "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X ($stable CSYSREQ))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSREQ remains stable in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 $stable(CSYSREQ)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X ($stable CSYSREQ))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK remains stable in the next cycle.",
+        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 $stable(CSYSACK)",
+        "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X ($stable CSYSACK))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "operator",
+                            "operator": "And",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "X",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "$stable",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW.",
+        "sva": "$rose(CSYSREQ) |-> (CSYSACK == 1'b0)",
+        "ltl": "(G (Implies ($rose CSYSREQ) (== CSYSACK 0)))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH.",
+        "sva": "$rose(CSYSACK) |-> (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies ($rose CSYSACK) (== CSYSREQ 1)))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW or CSYSREQ is LOW.",
+        "sva": "$rose(CSYSREQ) |-> (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies ($rose CSYSREQ) (Or (== CSYSACK 0) (== CSYSREQ 0))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "Or",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from LOW to HIGH, then CSYSACK is LOW or CSYSREQ is HIGH.",
+        "sva": "$rose(CSYSACK) |-> (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies ($rose CSYSACK) (Or (== CSYSACK 0) (== CSYSREQ 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "Or",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH.",
+        "sva": "$fell(CSYSREQ) |-> (CSYSACK == 1'b1)",
+        "ltl": "(G (Implies ($fell CSYSREQ) (== CSYSACK 1)))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW.",
+        "sva": "$fell(CSYSACK) |-> (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies ($fell CSYSACK) (== CSYSREQ 0)))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "operator": "==",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                },
+                                {
+                                    "type": "level",
+                                    "value": "0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH or CSYSREQ is HIGH.",
+        "sva": "$fell(CSYSREQ) |-> (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies ($fell CSYSREQ) (Or (== CSYSACK 1) (== CSYSREQ 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "Or",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from HIGH to LOW, then CSYSACK is HIGH or CSYSREQ is LOW.",
+        "sva": "$fell(CSYSACK) |-> (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies ($fell CSYSACK) (Or (== CSYSACK 1) (== CSYSREQ 0))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "Or",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW eventually.",
+        "sva": "$rose(CSYSREQ) |-> ##[0:$] (CSYSACK == 1'b0)",
+        "ltl": "(G (Implies ($rose CSYSREQ) (F (== CSYSACK 0))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from LOW to HIGH, then CSYSACK is HIGH eventually.",
+        "sva": "$rose(CSYSREQ) |-> ##[0:$] (CSYSACK == 1'b1)",
+        "ltl": "(G (Implies ($rose CSYSREQ) (F (== CSYSACK 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH eventually.",
+        "sva": "$rose(CSYSACK) |-> ##[0:$] (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies ($rose CSYSACK) (F (== CSYSREQ 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$rose",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from HIGH to LOW, then CSYSREQ is HIGH eventually.",
+        "sva": "$fell(CSYSREQ) |-> ##[0:$] (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies ($fell CSYSREQ) (F (== CSYSREQ 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from HIGH to LOW, then CSYSACK is LOW eventually.",
+        "sva": "$fell(CSYSREQ) |-> ##[0:$] (CSYSACK == 1'b0)",
+        "ltl": "(G (Implies ($fell CSYSREQ) (F (== CSYSACK 0))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH eventually.",
+        "sva": "$fell(CSYSREQ) |-> ##[0:$] (CSYSACK == 1'b1)",
+        "ltl": "(G (Implies ($fell CSYSREQ) (F (== CSYSACK 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSREQ"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW eventually.",
+        "sva": "$fell(CSYSACK) |-> ##[0:$] (CSYSREQ == 1'b0)",
+        "ltl": "(G (Implies ($fell CSYSACK) (F (== CSYSREQ 0))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from HIGH to LOW, then CSYSREQ is HIGH eventually.",
+        "sva": "$fell(CSYSACK) |-> ##[0:$] (CSYSREQ == 1'b1)",
+        "ltl": "(G (Implies ($fell CSYSACK) (F (== CSYSREQ 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSREQ"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "nl": "If CSYSACK changes from HIGH to LOW, then CSYSACK is HIGH eventually.",
+        "sva": "$fell(CSYSACK) |-> ##[0:$] (CSYSACK == 1'b1)",
+        "ltl": "(G (Implies ($fell CSYSACK) (F (== CSYSACK 1))))",
+        "ast": {
+            "type": "operator",
+            "operator": "G",
+            "operands": [
+                {
+                    "type": "operator",
+                    "operator": "Implies",
+                    "operands": [
+                        {
+                            "type": "basic",
+                            "operator": "$fell",
+                            "operands": [
+                                {
+                                    "type": "signal",
+                                    "value": "CSYSACK"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "operator",
+                            "operator": "F",
+                            "operands": [
+                                {
+                                    "type": "basic",
+                                    "operator": "==",
+                                    "operands": [
+                                        {
+                                            "type": "signal",
+                                            "value": "CSYSACK"
+                                        },
+                                        {
+                                            "type": "level",
+                                            "value": "1"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

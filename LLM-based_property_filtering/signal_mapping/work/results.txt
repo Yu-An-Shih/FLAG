@@ -1,0 +1,65 @@
+Protocol: AXI channel handshake
+Mapped rules:
+[
+  "If AWREADY is LOW and AWVALID is HIGH, then AWVALID remains stable in the next cycle.",
+  "If WREADY is LOW and WVALID is HIGH, then WVALID remains stable in the next cycle.",
+  "If BREADY is LOW and BVALID is HIGH, then BVALID remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARVALID remains stable in the next cycle.",
+  "If RREADY is LOW and RVALID is HIGH, then RVALID remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWID remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWADDR remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWLEN remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWSIZE remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWBURST remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWLOCK remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWCACHE remains stable in the next cycle.",
+  "If AWREADY is LOW and AWVALID is HIGH, then AWPROT remains stable in the next cycle.",
+  "If WREADY is LOW and WVALID is HIGH, then WID remains stable in the next cycle.",
+  "If WREADY is LOW and WVALID is HIGH, then WDATA remains stable in the next cycle.",
+  "If WREADY is LOW and WVALID is HIGH, then WSTRB remains stable in the next cycle.",
+  "If WREADY is LOW and WVALID is HIGH, then WLAST remains stable in the next cycle.",
+  "If BREADY is LOW and BVALID is HIGH, then BID remains stable in the next cycle.",
+  "If BREADY is LOW and BVALID is HIGH, then BRESP remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARID remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARADDR remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARLEN remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARSIZE remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARBURST remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARLOCK remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARCACHE remains stable in the next cycle.",
+  "If ARREADY is LOW and ARVALID is HIGH, then ARPROT remains stable in the next cycle.",
+  "If RREADY is LOW and RVALID is HIGH, then RID remains stable in the next cycle.",
+  "If RREADY is LOW and RVALID is HIGH, then RDATA remains stable in the next cycle.",
+  "If RREADY is LOW and RVALID is HIGH, then RRESP remains stable in the next cycle.",
+  "If RREADY is LOW and RVALID is HIGH, then RLAST remains stable in the next cycle."
+]
+
+================================================================================
+
+Protocol: AXI reset
+Mapped rules:
+[
+  "If ARESETn is LOW, then AWVALID is LOW.",
+  "If AWVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then AWVALID is LOW.",
+  "If AWVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then WVALID is LOW.",
+  "If WVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then WVALID is LOW.",
+  "If WVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then BVALID is LOW.",
+  "If BVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then BVALID is LOW.",
+  "If BVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then ARVALID is LOW.",
+  "If ARVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then ARVALID is LOW.",
+  "If ARVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then RVALID is LOW.",
+  "If RVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then RVALID is LOW.",
+  "If RVALID changes from LOW to HIGH, then ARESETn is HIGH."
+]
+
+================================================================================
+

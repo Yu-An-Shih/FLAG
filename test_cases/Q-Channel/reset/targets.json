@@ -1,0 +1,7 @@
+[
+    "If RESETn is LOW, then QACCEPTn is LOW.",
+    "If RESETn is LOW, then QDENY is LOW.",
+
+    "If RESETn changes from LOW to HIGH, then QACCEPTn is LOW.",
+    "If RESETn changes from LOW to HIGH, then QDENY is LOW."
+]

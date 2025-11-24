@@ -1,6 +1,0 @@
-[
-    "If RESETn is LOW, then QACCEPTn is LOW.",
-    "If RESETn is LOW, then QDENY is LOW.",
-    "If RESETn changes from LOW to HIGH, then QREQn is LOW eventually.",
-    "If RESETn changes from LOW to HIGH, then QREQn is HIGH eventually."
-]

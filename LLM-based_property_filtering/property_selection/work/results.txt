@@ -1,0 +1,173 @@
+Protocol: Q-Channel handshake
+Selected properties:
+[
+  "If QREQn changes from LOW to HIGH, then QACCEPTn is LOW or QDENY is HIGH.",
+  "If QREQn changes from LOW to HIGH, then QACCEPTn is HIGH or QDENY is LOW.",
+  "If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH.",
+  "If QREQn changes from HIGH to LOW, then QDENY is LOW.",
+  "If QACCEPTn changes from LOW to HIGH, then QREQn is HIGH.",
+  "If QACCEPTn changes from LOW to HIGH, then QDENY is LOW.",
+  "If QACCEPTn changes from HIGH to LOW, then QREQn is LOW.",
+  "If QACCEPTn changes from HIGH to LOW, then QDENY is LOW.",
+  "If QDENY changes from LOW to HIGH, then QREQn is LOW.",
+  "If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH.",
+  "If QDENY changes from HIGH to LOW, then QREQn is HIGH.",
+  "If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH.",
+  "If QACCEPTn is LOW, then QDENY is LOW.",
+  "If QDENY is HIGH, then QACCEPTn is HIGH."
+]
+
+================================================================================
+
+Protocol: Q-Channel reset
+Selected properties:
+[
+    "If RESETn is LOW, then QACCEPTn is LOW.",
+    "If RESETn is LOW, then QDENY is LOW.",
+    "If RESETn changes from HIGH to LOW, then QREQn is LOW.",
+    "If RESETn changes from HIGH to LOW, then QACCEPTn is LOW.",
+    "If RESETn changes from HIGH to LOW, then QDENY is LOW.",
+    "If RESETn changes from LOW to HIGH, then QACCEPTn is LOW.",
+    "If RESETn changes from LOW to HIGH, then QDENY is LOW."
+]
+
+================================================================================
+
+Protocol: P-Channel handshake
+Selected properties:
+[
+  "If PACCEPT is HIGH, then PDENY is LOW.",
+  "If PDENY is HIGH, then PACCEPT is LOW.",
+  "If PACCEPT changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PACCEPT changes from LOW to HIGH, then PDENY is LOW.",
+  "If PDENY changes from LOW to HIGH, then PREQ is HIGH.",
+  "If PDENY changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT remains stable in the next cycle.",
+  "If PDENY is HIGH and PREQ is HIGH, then PDENY remains stable in the next cycle.",
+  "If PACCEPT changes from HIGH to LOW, then PREQ is LOW.",
+  "If PACCEPT changes from HIGH to LOW, then PDENY is LOW.",
+  "If PDENY changes from HIGH to LOW, then PREQ is LOW.",
+  "If PDENY changes from HIGH to LOW, then PACCEPT is LOW.",
+  "If PREQ changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If PREQ changes from LOW to HIGH, then PDENY is LOW.",
+  "If PREQ changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is HIGH.",
+  "If PDENY is LOW and PREQ is HIGH, then PSTATE remains stable in the next cycle.",
+  "If PACCEPT is HIGH, then PSTATE remains stable in the next cycle.",
+  "If PACCEPT is HIGH, then PDENY remains stable in the next cycle.",
+  "If PDENY is HIGH, then PACCEPT remains stable in the next cycle."
+]
+
+================================================================================
+
+Protocol: P-Channel reset
+Selected properties:
+[
+  "If RESETn is LOW, then PACCEPT is LOW.",
+  "If RESETn is LOW, then PDENY is LOW.",
+  "If RESETn changes from LOW to HIGH, then PACCEPT is LOW.",
+  "If RESETn changes from LOW to HIGH, then PDENY is LOW.",
+  "If RESETn changes from HIGH to LOW, then PACCEPT is LOW.",
+  "If RESETn changes from HIGH to LOW, then PDENY is LOW."
+]
+
+================================================================================
+
+Protocol: AXI channel handshake
+Selected properties:
+[
+  "If READY is LOW and VALID is HIGH, then VALID remains stable in the next cycle.",
+  "If READY is LOW and VALID is HIGH, then INFORMATION remains stable in the next cycle."
+]
+
+================================================================================
+
+Protocol: AXI reset
+Selected properties:
+[
+  "If ARESETn is LOW, then VALID is LOW.",
+  "If VALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then VALID is LOW.",
+  "If VALID changes from LOW to HIGH, then ARESETn is HIGH."
+]
+
+================================================================================
+
+Protocol: AXI low-power handshake
+Selected properties:
+[
+  "If CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.",
+  "If CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.",
+  "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW in the next cycle.",
+  "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH in the next cycle.",
+  "If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH.",
+  "If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW.",
+  "If CSYSREQ changes from LOW to HIGH, then CSYSACK is HIGH eventually.",
+  "If CSYSREQ changes from HIGH to LOW, then CSYSACK is LOW eventually."
+]
+
+================================================================================
+
+Protocol: WISHBONE data transfer
+Selected properties:
+[
+  "If STB_O changes from LOW to HIGH, then CYC_O is HIGH.",
+  "If STB_O is HIGH, then CYC_O is HIGH.",
+  "If CYC_O is LOW, then STB_O is LOW.",
+  "If CYC_O changes from HIGH to LOW, then STB_O is LOW.",
+  "If ACK_I is LOW and STB_O is HIGH, then STB_O is HIGH in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then CYC_O is HIGH in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then WE_O remains stable in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then ADR_O remains stable in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH, then SEL_O remains stable in the next cycle.",
+  "If ACK_I is LOW and STB_O is HIGH and WE_O is HIGH, then DAT_O remains stable in the next cycle.",
+  "If ACK_I changes from LOW to HIGH, then STB_O is LOW eventually."
+]
+
+================================================================================
+
+Protocol: WISHBONE reset
+Selected properties:
+[
+  "If RST_I is HIGH, then STB_O is LOW in the next cycle.",
+  "If RST_I is HIGH, then CYC_O is LOW in the next cycle.",
+  "If RST_I changes from HIGH to LOW, then STB_O is LOW.",
+  "If RST_I changes from HIGH to LOW, then CYC_O is LOW."
+]
+
+================================================================================
+
+Protocol: APB transfers
+Selected properties:
+[
+  "If PSEL changes from LOW to HIGH, then PENABLE is LOW.",
+  "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH in the next cycle.",
+  "If PENABLE is LOW and PSEL is HIGH, then PSEL remains stable in the next cycle.",
+  "If PENABLE is LOW and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
+  "If PENABLE is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
+  "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PWDATA remains stable in the next cycle.",
+  "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PSEL remains stable in the next cycle.",
+  "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE remains stable in the next cycle.",
+  "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
+  "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
+  "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PWDATA remains stable in the next cycle."
+]
+
+================================================================================
+
+Protocol: PCI transaction termination
+Selected properties:
+[
+  "If FRAME# changes from LOW to HIGH, then IRDY# is LOW.",
+  "If FRAME# changes from LOW to HIGH, then IRDY# is HIGH eventually.",
+  "If TRDY# is LOW, then DEVSEL# is LOW.",
+  "If TRDY# changes from HIGH to LOW, then DEVSEL# is LOW.",
+  "If IRDY# is HIGH and TRDY# is LOW, then TRDY# remains stable in the next cycle.",
+  "If IRDY# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.",
+  "If IRDY# is HIGH and STOP# is LOW, then STOP# remains stable in the next cycle.",
+  "If IRDY# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.",
+  "If FRAME# is LOW and STOP# is LOW, then STOP# remains stable in the next cycle.",
+  "If STOP# changes from LOW to HIGH, then FRAME# is HIGH."
+]
+
+================================================================================
+

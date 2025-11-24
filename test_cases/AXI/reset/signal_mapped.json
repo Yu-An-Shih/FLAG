@@ -1,0 +1,22 @@
+[
+  "If ARESETn is LOW, then AWVALID is LOW.",
+  "If AWVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then AWVALID is LOW.",
+  "If AWVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then WVALID is LOW.",
+  "If WVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then WVALID is LOW.",
+  "If WVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then BVALID is LOW.",
+  "If BVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then BVALID is LOW.",
+  "If BVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then ARVALID is LOW.",
+  "If ARVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then ARVALID is LOW.",
+  "If ARVALID changes from LOW to HIGH, then ARESETn is HIGH.",
+  "If ARESETn is LOW, then RVALID is LOW.",
+  "If RVALID is HIGH, then ARESETn is HIGH.",
+  "If ARESETn changes from LOW to HIGH, then RVALID is LOW.",
+  "If RVALID changes from LOW to HIGH, then ARESETn is HIGH."
+]

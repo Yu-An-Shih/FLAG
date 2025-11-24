@@ -1,0 +1,102 @@
+[
+    {
+        "protocol": "PCI transaction termination: batch 0",
+        "selected_properties": "[\n  \"If FRAME# is HIGH and IRDY# is LOW, then FRAME# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is HIGH, then TRDY# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is HIGH, then DEVSEL# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and TRDY# is LOW, then FRAME# is HIGH in the next cycle.\",\n  \"If IRDY# is HIGH and TRDY# is LOW, then TRDY# is LOW in the next cycle.\",\n  \"If IRDY# is HIGH and TRDY# is LOW, then DEVSEL# is LOW in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 1",
+        "selected_properties": "[\n    \"If FRAME# is HIGH and IRDY# is LOW, then FRAME# remains stable in the next cycle.\",\n    \"If FRAME# is HIGH and IRDY# is LOW, then FRAME# is HIGH or IRDY# is HIGH in the next cycle.\",\n    \"If FRAME# is LOW and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\",\n    \"If IRDY# is HIGH and TRDY# is LOW, then TRDY# remains stable in the next cycle.\",\n    \"If IRDY# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 2",
+        "selected_properties": "[\n    \"If DEVSEL# is LOW and FRAME# is LOW and TRDY# is LOW, then DEVSEL# is LOW in the next cycle.\",\n    \"If DEVSEL# is LOW and IRDY# is HIGH and TRDY# is LOW, then TRDY# is LOW in the next cycle.\",\n    \"If DEVSEL# is LOW and IRDY# is HIGH and TRDY# is LOW, then DEVSEL# is LOW in the next cycle.\",\n    \"If FRAME# is LOW and IRDY# is LOW and TRDY# is LOW, then DEVSEL# is LOW in the next cycle.\",\n    \"If FRAME# is LOW and IRDY# is HIGH and TRDY# is LOW, then TRDY# is LOW in the next cycle.\",\n    \"If FRAME# is LOW and IRDY# is HIGH and TRDY# is LOW, then DEVSEL# is LOW in the next cycle.\",\n    \"If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then FRAME# is HIGH in the next cycle.\",\n    \"If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then IRDY# is HIGH in the next cycle.\",\n    \"If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then TRDY# is HIGH in the next cycle.\",\n    \"If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then DEVSEL# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 3",
+        "selected_properties": "[\n  \"If FRAME# is LOW and IRDY# is LOW and TRDY# is HIGH, then IRDY# is LOW or TRDY# is LOW in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and TRDY# is LOW, then IRDY# is LOW or TRDY# is LOW in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 4",
+        "selected_properties": "[\n  \"If FRAME# changes from LOW to HIGH, then IRDY# is LOW.\",\n  \"If TRDY# changes from HIGH to LOW, then DEVSEL# is LOW.\",\n  \"If DEVSEL# changes from LOW to HIGH, then TRDY# is HIGH.\",\n  \"If DEVSEL# is LOW and IRDY# is HIGH and TRDY# is LOW, then TRDY# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is LOW and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is LOW and TRDY# is HIGH, then IRDY# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and IRDY# is LOW, then FRAME# remains stable in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 5",
+        "selected_properties": "[\n    \"If FRAME# changes from LOW to HIGH, then IRDY# is HIGH eventually.\",\n    \"If FRAME# changes from LOW to HIGH, then TRDY# is HIGH eventually.\",\n    \"If FRAME# changes from LOW to HIGH, then DEVSEL# is HIGH eventually.\",\n    \"If IRDY# changes from LOW to HIGH, then FRAME# is HIGH eventually.\",\n    \"If IRDY# changes from LOW to HIGH, then TRDY# is HIGH eventually.\",\n    \"If IRDY# changes from LOW to HIGH, then DEVSEL# is HIGH eventually.\",\n    \"If TRDY# changes from LOW to HIGH, then IRDY# is HIGH eventually.\",\n    \"If TRDY# changes from LOW to HIGH, then DEVSEL# is HIGH eventually.\",\n    \"If DEVSEL# changes from LOW to HIGH, then FRAME# is HIGH eventually.\",\n    \"If DEVSEL# changes from LOW to HIGH, then IRDY# is HIGH eventually.\",\n    \"If DEVSEL# changes from LOW to HIGH, then TRDY# is HIGH eventually.\",\n    \"If IRDY# changes from HIGH to LOW, then IRDY# is HIGH eventually.\",\n    \"If TRDY# changes from HIGH to LOW, then TRDY# is HIGH eventually.\",\n    \"If TRDY# changes from HIGH to LOW, then DEVSEL# is HIGH eventually.\",\n    \"If DEVSEL# changes from HIGH to LOW, then DEVSEL# is HIGH eventually.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 6",
+        "selected_properties": "[\n  \"If STOP# is LOW, then FRAME# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is LOW, then STOP# is LOW in the next cycle.\",\n  \"If FRAME# is HIGH and STOP# is LOW, then STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and STOP# is LOW, then IRDY# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and STOP# is LOW, then TRDY# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and STOP# is LOW, then DEVSEL# is HIGH in the next cycle.\",\n  \"If IRDY# is LOW and STOP# is LOW, then FRAME# is HIGH in the next cycle.\",\n  \"If STOP# is LOW and TRDY# is HIGH, then FRAME# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 7",
+        "selected_properties": "[\n    \"If FRAME# is LOW and STOP# is LOW, then FRAME# is LOW or STOP# is LOW in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 8",
+        "selected_properties": "[\n  \"If FRAME# is LOW and STOP# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If STOP# is LOW and TRDY# is HIGH, then TRDY# remains stable in the next cycle.\",\n  \"If IRDY# is LOW and STOP# is HIGH, then FRAME# remains stable in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 9",
+        "selected_properties": "[\n    \"If DEVSEL# is LOW and FRAME# is LOW and STOP# is LOW, then STOP# is LOW in the next cycle.\",\n    \"If DEVSEL# is LOW and FRAME# is LOW and STOP# is LOW, then DEVSEL# is LOW in the next cycle.\",\n    \"If DEVSEL# is LOW and FRAME# is HIGH and STOP# is LOW, then TRDY# is HIGH in the next cycle.\",\n    \"If DEVSEL# is LOW and FRAME# is HIGH and STOP# is LOW, then STOP# is HIGH in the next cycle.\",\n    \"If DEVSEL# is LOW and FRAME# is HIGH and STOP# is LOW, then DEVSEL# is HIGH in the next cycle.\",\n    \"If FRAME# is LOW and IRDY# is LOW and STOP# is LOW, then STOP# is LOW in the next cycle.\",\n    \"If FRAME# is LOW and STOP# is LOW and TRDY# is HIGH, then STOP# is LOW in the next cycle.\",\n    \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then STOP# is HIGH in the next cycle.\",\n    \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then DEVSEL# is HIGH in the next cycle.\",\n    \"If FRAME# is HIGH and STOP# is LOW and TRDY# is HIGH, then STOP# is HIGH in the next cycle.\",\n    \"If FRAME# is HIGH and STOP# is LOW and TRDY# is HIGH, then DEVSEL# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 10",
+        "selected_properties": "[\n  \"If DEVSEL# is LOW and FRAME# is HIGH and IRDY# is LOW, then STOP# is HIGH or TRDY# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and STOP# is LOW, then DEVSEL# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and STOP# is LOW, then FRAME# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and STOP# is LOW, then IRDY# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and STOP# is LOW, then STOP# is HIGH or TRDY# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and TRDY# is HIGH, then DEVSEL# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and TRDY# is HIGH, then FRAME# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is HIGH and TRDY# is HIGH, then STOP# is HIGH or TRDY# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and IRDY# is LOW and STOP# is LOW, then FRAME# is HIGH or IRDY# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and IRDY# is LOW and STOP# is LOW, then FRAME# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If DEVSEL# is LOW and IRDY# is LOW and STOP# is LOW, then FRAME# is HIGH or TRDY# is HIGH in the next cycle.\",\n  \"If DEVSEL# is LOW and STOP# is LOW and TRDY# is HIGH, then DEVSEL# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If DEVSEL# is LOW and STOP# is LOW and TRDY# is HIGH, then FRAME# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If DEVSEL# is LOW and STOP# is LOW and TRDY# is HIGH, then IRDY# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If DEVSEL# is LOW and STOP# is LOW and TRDY# is HIGH, then STOP# is LOW or TRDY# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 11",
+        "selected_properties": "[\n  \"If DEVSEL# is HIGH and FRAME# is LOW and STOP# is HIGH, then FRAME# is LOW or STOP# is HIGH in the next cycle.\",\n  \"If DEVSEL# is HIGH and FRAME# is LOW and TRDY# is HIGH, then STOP# is HIGH or TRDY# is HIGH in the next cycle.\",\n  \"If DEVSEL# is HIGH and FRAME# is HIGH and IRDY# is HIGH, then IRDY# is LOW or STOP# is HIGH in the next cycle.\",\n  \"If DEVSEL# is HIGH and FRAME# is HIGH and STOP# is HIGH, then DEVSEL# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If DEVSEL# is HIGH and FRAME# is HIGH and TRDY# is HIGH, then STOP# is HIGH or TRDY# is LOW in the next cycle.\",\n  \"If DEVSEL# is HIGH and IRDY# is LOW and STOP# is HIGH, then FRAME# is HIGH or IRDY# is LOW in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 12",
+        "selected_properties": "[\n  \"If DEVSEL# is HIGH and IRDY# is HIGH and STOP# is HIGH, then STOP# is HIGH or TRDY# is HIGH in the next cycle.\",\n  \"If DEVSEL# is HIGH and IRDY# is HIGH and TRDY# is HIGH, then FRAME# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is LOW and STOP# is HIGH, then FRAME# is LOW or STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and STOP# is HIGH, then FRAME# is LOW or STOP# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 13",
+        "selected_properties": "[\n  \"If FRAME# is LOW and STOP# is LOW and TRDY# is HIGH, then FRAME# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then DEVSEL# is HIGH or FRAME# is LOW in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then DEVSEL# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then DEVSEL# is HIGH or TRDY# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then FRAME# is LOW or IRDY# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then FRAME# is LOW or STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then FRAME# is LOW or TRDY# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 14",
+        "selected_properties": "[\n  \"If DEVSEL# is LOW and FRAME# is LOW and STOP# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and FRAME# is LOW and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 15",
+        "selected_properties": "[\n  \"If IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then FRAME# remains stable in the next cycle.\",\n  \"If IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then IRDY# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is LOW and TRDY# is HIGH, then TRDY# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is LOW and TRDY# is HIGH, then STOP# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is LOW and TRDY# is HIGH, then DEVSEL# remains stable in the next cycle.\",\n  \"If STOP# changes from LOW to HIGH, then FRAME# is HIGH.\",\n  \"If STOP# changes from LOW to HIGH, then TRDY# is HIGH.\",\n  \"If STOP# changes from LOW to HIGH, then DEVSEL# is HIGH.\",\n  \"If FRAME# changes from LOW to HIGH, then STOP# is HIGH eventually.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 16",
+        "selected_properties": "[\n  \"If STOP# changes from HIGH to LOW, then FRAME# is HIGH eventually.\",\n  \"If STOP# changes from HIGH to LOW, then IRDY# is LOW eventually.\",\n  \"If STOP# changes from HIGH to LOW, then STOP# is HIGH eventually.\",\n  \"If STOP# is LOW and TRDY# is LOW, then FRAME# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 17",
+        "selected_properties": "[\n  \"If IRDY# is HIGH and STOP# is LOW, then TRDY# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and STOP# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and TRDY# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If FRAME# is HIGH and STOP# is LOW and TRDY# is LOW, then TRDY# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and STOP# is LOW and TRDY# is LOW, then STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and STOP# is LOW and TRDY# is LOW, then DEVSEL# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 18",
+        "selected_properties": "[\n  \"If DEVSEL# is LOW and IRDY# is HIGH and STOP# is LOW, then FRAME# is HIGH or STOP# is LOW in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 19",
+        "selected_properties": "[\n  \"If FRAME# is LOW and IRDY# is HIGH and STOP# is LOW, then FRAME# is LOW or STOP# is LOW in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and STOP# is LOW, then FRAME# is HIGH or STOP# is LOW in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then DEVSEL# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then IRDY# is HIGH or STOP# is HIGH in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then STOP# is HIGH or TRDY# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 20",
+        "selected_properties": "[\n  \"If DEVSEL# is LOW and IRDY# is HIGH and STOP# is LOW, then TRDY# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and IRDY# is HIGH and STOP# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and IRDY# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and IRDY# is HIGH and TRDY# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and STOP# is LOW, then TRDY# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and STOP# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and IRDY# is HIGH and TRDY# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is LOW and TRDY# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is LOW and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and STOP# is LOW and TRDY# is LOW, then TRDY# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and STOP# is LOW and TRDY# is LOW, then STOP# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and STOP# is LOW and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 21",
+        "selected_properties": "[]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 22",
+        "selected_properties": "[\n  \"If DEVSEL# is LOW and IRDY# is LOW and STOP# is HIGH, then FRAME# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and STOP# is HIGH and TRDY# is LOW, then FRAME# remains stable in the next cycle.\",\n  \"If DEVSEL# is LOW and STOP# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is HIGH and TRDY# is LOW, then FRAME# remains stable in the next cycle.\",\n  \"If FRAME# is LOW and STOP# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If IRDY# is LOW and STOP# is HIGH and TRDY# is LOW, then FRAME# remains stable in the next cycle.\",\n  \"If IRDY# is LOW and STOP# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is HIGH, then FRAME# remains stable in the next cycle.\",\n  \"If FRAME# is HIGH and IRDY# is LOW and STOP# is HIGH, then IRDY# remains stable in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 23",
+        "selected_properties": "[\n  \"If IRDY# is HIGH and STOP# is LOW and TRDY# is HIGH, then TRDY# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and STOP# is LOW and TRDY# is HIGH, then STOP# remains stable in the next cycle.\",\n  \"If IRDY# is HIGH and STOP# is LOW and TRDY# is HIGH, then DEVSEL# remains stable in the next cycle.\",\n  \"If DEVSEL# is HIGH and STOP# is LOW, then TRDY# remains stable in the next cycle.\",\n  \"If DEVSEL# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\",\n  \"If DEVSEL# is HIGH and FRAME# is LOW and STOP# is LOW, then STOP# is LOW in the next cycle.\",\n  \"If DEVSEL# is HIGH and FRAME# is HIGH and STOP# is LOW, then STOP# is HIGH in the next cycle.\"\n]"
+    },
+    {
+        "protocol": "PCI transaction termination: batch 24",
+        "selected_properties": "[\n    \"If DEVSEL# is HIGH and FRAME# is LOW and STOP# is LOW, then IRDY# remains stable in the next cycle.\",\n    \"If DEVSEL# is HIGH and FRAME# is LOW and STOP# is LOW, then TRDY# remains stable in the next cycle.\",\n    \"If DEVSEL# is HIGH and FRAME# is LOW and STOP# is LOW, then STOP# remains stable in the next cycle.\",\n    \"If DEVSEL# is HIGH and FRAME# is LOW and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\",\n    \"If DEVSEL# is HIGH and IRDY# is LOW and STOP# is LOW, then TRDY# remains stable in the next cycle.\",\n    \"If DEVSEL# is HIGH and IRDY# is LOW and STOP# is LOW, then DEVSEL# remains stable in the next cycle.\",\n    \"If DEVSEL# is HIGH and STOP# is LOW and TRDY# is HIGH, then TRDY# remains stable in the next cycle.\",\n    \"If DEVSEL# is HIGH and STOP# is LOW and TRDY# is HIGH, then DEVSEL# remains stable in the next cycle.\"\n]"
+    }
+]

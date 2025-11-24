@@ -1,0 +1,8 @@
+[
+    {
+        "protocol": "PCI transaction termination",
+        "candidates": "../../test_cases/PCI/transaction_termination/sat_filtered_NL.json",
+        "approx_batch_num": 25,
+        "max_batch_size": 200
+    }
+]
