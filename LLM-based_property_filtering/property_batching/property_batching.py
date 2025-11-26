@@ -19,9 +19,7 @@ batch_input_file = f"{work_dir}/property_batching_input.jsonl"
 with open(config_file, "r") as f:
     config = json.load(f)
 
-# with open(candidates_file, "r") as f:
-#     candidates = json.load(f)
-
+# Create the batch in jsonl format
 requests = []
 for entry in config:
     protocol = entry["protocol"]
