@@ -1,0 +1,81 @@
+// LLM-generated SVA properties for Q-Channel handshake:
+// 1. If QREQn changes from LOW to HIGH, then QACCEPTn is LOW or QDENY is HIGH.
+$rose(QREQn) |-> (QACCEPTn == 1'b0) || (QDENY == 1'b1)
+
+// 2. If QREQn changes from LOW to HIGH, then QACCEPTn is HIGH or QDENY is LOW.
+$rose(QREQn) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b0)
+
+// 3. If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH.
+$fell(QREQn) |-> (QACCEPTn == 1'b1)
+
+// 4. If QREQn changes from HIGH to LOW, then QDENY is LOW.
+$fell(QREQn) |-> (QDENY == 1'b0)
+
+// 5. If QACCEPTn changes from LOW to HIGH, then QREQn is HIGH.
+$rose(QACCEPTn) |-> (QREQn == 1'b1)
+
+// 6. If QACCEPTn changes from LOW to HIGH, then QDENY is LOW.
+$rose(QACCEPTn) |-> (QDENY == 1'b0)
+
+// 7. If QACCEPTn changes from HIGH to LOW, then QREQn is LOW.
+$fell(QACCEPTn) |-> (QREQn == 1'b0)
+
+// 8. If QACCEPTn changes from HIGH to LOW, then QDENY is LOW.
+$fell(QACCEPTn) |-> (QDENY == 1'b0)
+
+// 9. If QDENY changes from LOW to HIGH, then QREQn is LOW.
+$rose(QDENY) |-> (QREQn == 1'b0)
+
+// 10. If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH.
+$rose(QDENY) |-> (QACCEPTn == 1'b1)
+
+// 11. If QDENY changes from HIGH to LOW, then QREQn is HIGH.
+$fell(QDENY) |-> (QREQn == 1'b1)
+
+// 12. If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH.
+$fell(QDENY) |-> (QACCEPTn == 1'b1)
+
+// 13. If QACCEPTn is LOW, then QDENY is LOW.
+(QACCEPTn == 1'b0) |-> (QDENY == 1'b0)
+
+// 14. If QDENY is HIGH, then QACCEPTn is HIGH.
+(QDENY == 1'b1) |-> (QACCEPTn == 1'b1)
+
+
+// Manually-developed SVA properties:
+// 1. If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH.
+$fell(QREQn) |-> (QACCEPTn == 1'b1)
+
+// 2. If QREQn changes from HIGH to LOW, then QDENY is LOW.
+$fell(QREQn) |-> (QDENY == 1'b0)
+
+// 3. If QREQn changes from LOW to HIGH, then QACCEPTn is LOW or QDENY is HIGH.
+$rose(QREQn) |-> (QACCEPTn == 1'b0) || (QDENY == 1'b1)
+
+// 4. If QREQn changes from LOW to HIGH, then QACCEPTn is HIGH or QDENY is LOW.
+$rose(QREQn) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b0)
+
+// 5. If QACCEPTn changes from HIGH to LOW, then QREQn is LOW.
+$fell(QACCEPTn) |-> (QREQn == 1'b0)
+
+// 6. If QACCEPTn changes from HIGH to LOW, then QDENY is LOW.
+$fell(QACCEPTn) |-> (QDENY == 1'b0)
+
+// 7. If QACCEPTn changes from LOW to HIGH, then QREQn is HIGH.
+$rose(QACCEPTn) |-> (QREQn == 1'b1)
+
+// 8. If QACCEPTn changes from LOW to HIGH, then QDENY is LOW.
+$rose(QACCEPTn) |-> (QDENY == 1'b0)
+
+// 9. If QDENY changes from HIGH to LOW, then QREQn is HIGH.
+$fell(QDENY) |-> (QREQn == 1'b1)
+
+// 10. If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH.
+$fell(QDENY) |-> (QACCEPTn == 1'b1)
+
+// 11. If QDENY changes from LOW to HIGH, then QREQn is LOW.
+$rose(QDENY) |-> (QREQn == 1'b0)
+
+// 12. If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH.
+$rose(QDENY) |-> (QACCEPTn == 1'b1)
+

@@ -21,13 +21,9 @@ If the verbose option (`-v`) is used, the following intermediate results will al
 
 Please view `spec2sva/main.py` for more execution options.
 
-### 2. LLM-based Property Filtering
+### 2. LLM-based Property Filtering & LLM-as-a-judge
 
-The LLM agents can be found in the `LLM-based_property_filtering/` directory. Each agent is implemented by Python scripts that (1) creates a batch file to query LLMs via the [OpenAI Batch API](https://platform.openai.com/docs/guides/batch) and (2) parses the model outputs to obtain the results. Please refer to the Python scripts for detailed prompts and configurations.
-
-### 3. LLM-as-a-judge
-
-The LLM agent for the judge model will be uploaded soon.
+All LLM agents can be found in the `LLM-based_property_filtering/` directory. Each agent is implemented by Python scripts that (1) creates a batch file to query LLMs via the [OpenAI Batch API](https://platform.openai.com/docs/guides/batch) and (2) parses the model outputs to obtain the results. Please refer to the Python scripts for detailed prompts and configurations.
 
 The grammars used in our experiments are listed under the `grammar/` directory. The corresponding template sets are under the `templates/` directory. The timing diagrams and results for each protocol mechanism can be found under the `test_cases/` directory. Intermediate results produced by each LLM agent are also stored in its corresponding `work/` directory.
 

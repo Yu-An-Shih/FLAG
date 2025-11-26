@@ -1,0 +1,187 @@
+// LLM-generated SVA properties for AXI channel handshake:
+// 1. If AWREADY is LOW and AWVALID is HIGH, then AWVALID remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWVALID)
+
+// 2. If WREADY is LOW and WVALID is HIGH, then WVALID remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WVALID)
+
+// 3. If BREADY is LOW and BVALID is HIGH, then BVALID remains stable in the next cycle.
+(BREADY == 1'b0) && (BVALID == 1'b1) |-> ##1 $stable(BVALID)
+
+// 4. If ARREADY is LOW and ARVALID is HIGH, then ARVALID remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARVALID)
+
+// 5. If RREADY is LOW and RVALID is HIGH, then RVALID remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RVALID)
+
+// 6. If AWREADY is LOW and AWVALID is HIGH, then AWID remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWID)
+
+// 7. If AWREADY is LOW and AWVALID is HIGH, then AWADDR remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWADDR)
+
+// 8. If AWREADY is LOW and AWVALID is HIGH, then AWLEN remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWLEN)
+
+// 9. If AWREADY is LOW and AWVALID is HIGH, then AWSIZE remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWSIZE)
+
+// 10. If AWREADY is LOW and AWVALID is HIGH, then AWBURST remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWBURST)
+
+// 11. If AWREADY is LOW and AWVALID is HIGH, then AWLOCK remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWLOCK)
+
+// 12. If AWREADY is LOW and AWVALID is HIGH, then AWCACHE remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWCACHE)
+
+// 13. If AWREADY is LOW and AWVALID is HIGH, then AWPROT remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWPROT)
+
+// 14. If WREADY is LOW and WVALID is HIGH, then WID remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WID)
+
+// 15. If WREADY is LOW and WVALID is HIGH, then WDATA remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WDATA)
+
+// 16. If WREADY is LOW and WVALID is HIGH, then WSTRB remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WSTRB)
+
+// 17. If WREADY is LOW and WVALID is HIGH, then WLAST remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WLAST)
+
+// 18. If BREADY is LOW and BVALID is HIGH, then BID remains stable in the next cycle.
+(BREADY == 1'b0) && (BVALID == 1'b1) |-> ##1 $stable(BID)
+
+// 19. If BREADY is LOW and BVALID is HIGH, then BRESP remains stable in the next cycle.
+(BREADY == 1'b0) && (BVALID == 1'b1) |-> ##1 $stable(BRESP)
+
+// 20. If ARREADY is LOW and ARVALID is HIGH, then ARID remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARID)
+
+// 21. If ARREADY is LOW and ARVALID is HIGH, then ARADDR remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARADDR)
+
+// 22. If ARREADY is LOW and ARVALID is HIGH, then ARLEN remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARLEN)
+
+// 23. If ARREADY is LOW and ARVALID is HIGH, then ARSIZE remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARSIZE)
+
+// 24. If ARREADY is LOW and ARVALID is HIGH, then ARBURST remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARBURST)
+
+// 25. If ARREADY is LOW and ARVALID is HIGH, then ARLOCK remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARLOCK)
+
+// 26. If ARREADY is LOW and ARVALID is HIGH, then ARCACHE remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARCACHE)
+
+// 27. If ARREADY is LOW and ARVALID is HIGH, then ARPROT remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARPROT)
+
+// 28. If RREADY is LOW and RVALID is HIGH, then RID remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RID)
+
+// 29. If RREADY is LOW and RVALID is HIGH, then RDATA remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RDATA)
+
+// 30. If RREADY is LOW and RVALID is HIGH, then RRESP remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RRESP)
+
+// 31. If RREADY is LOW and RVALID is HIGH, then RLAST remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RLAST)
+
+// Manually-developed SVA properties:
+// 1. If AWREADY is LOW and AWVALID is HIGH, then AWVALID remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWVALID)
+
+// 2. If WREADY is LOW and WVALID is HIGH, then WVALID remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WVALID)
+
+// 3. If BREADY is LOW and BVALID is HIGH, then BVALID remains stable in the next cycle.
+(BREADY == 1'b0) && (BVALID == 1'b1) |-> ##1 $stable(BVALID)
+
+// 4. If ARREADY is LOW and ARVALID is HIGH, then ARVALID remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARVALID)
+
+// 5. If RREADY is LOW and RVALID is HIGH, then RVALID remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RVALID)
+
+// 6. If AWREADY is LOW and AWVALID is HIGH, then AWID remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWID)
+
+// 7. If AWREADY is LOW and AWVALID is HIGH, then AWADDR remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWADDR)
+
+// 8. If AWREADY is LOW and AWVALID is HIGH, then AWLEN remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWLEN)
+
+// 9. If AWREADY is LOW and AWVALID is HIGH, then AWSIZE remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWSIZE)
+
+// 10. If AWREADY is LOW and AWVALID is HIGH, then AWBURST remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWBURST)
+
+// 11. If AWREADY is LOW and AWVALID is HIGH, then AWLOCK remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWLOCK)
+
+// 12. If AWREADY is LOW and AWVALID is HIGH, then AWCACHE remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWCACHE)
+
+// 13. If AWREADY is LOW and AWVALID is HIGH, then AWPROT remains stable in the next cycle.
+(AWREADY == 1'b0) && (AWVALID == 1'b1) |-> ##1 $stable(AWPROT)
+
+// 14. If WREADY is LOW and WVALID is HIGH, then WID remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WID)
+
+// 15. If WREADY is LOW and WVALID is HIGH, then WDATA remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WDATA)
+
+// 16. If WREADY is LOW and WVALID is HIGH, then WSTRB remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WSTRB)
+
+// 17. If WREADY is LOW and WVALID is HIGH, then WLAST remains stable in the next cycle.
+(WREADY == 1'b0) && (WVALID == 1'b1) |-> ##1 $stable(WLAST)
+
+// 18. If BREADY is LOW and BVALID is HIGH, then BID remains stable in the next cycle.
+(BREADY == 1'b0) && (BVALID == 1'b1) |-> ##1 $stable(BID)
+
+// 19. If BREADY is LOW and BVALID is HIGH, then BRESP remains stable in the next cycle.
+(BREADY == 1'b0) && (BVALID == 1'b1) |-> ##1 $stable(BRESP)
+
+// 20. If ARREADY is LOW and ARVALID is HIGH, then ARID remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARID)
+
+// 21. If ARREADY is LOW and ARVALID is HIGH, then ARADDR remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARADDR)
+
+// 22. If ARREADY is LOW and ARVALID is HIGH, then ARLEN remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARLEN)
+
+// 23. If ARREADY is LOW and ARVALID is HIGH, then ARSIZE remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARSIZE)
+
+// 24. If ARREADY is LOW and ARVALID is HIGH, then ARBURST remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARBURST)
+
+// 25. If ARREADY is LOW and ARVALID is HIGH, then ARLOCK remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARLOCK)
+
+// 26. If ARREADY is LOW and ARVALID is HIGH, then ARCACHE remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARCACHE)
+
+// 27. If ARREADY is LOW and ARVALID is HIGH, then ARPROT remains stable in the next cycle.
+(ARREADY == 1'b0) && (ARVALID == 1'b1) |-> ##1 $stable(ARPROT)
+
+// 28. If RREADY is LOW and RVALID is HIGH, then RID remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RID)
+
+// 29. If RREADY is LOW and RVALID is HIGH, then RDATA remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RDATA)
+
+// 30. If RREADY is LOW and RVALID is HIGH, then RRESP remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RRESP)
+
+// 31. If RREADY is LOW and RVALID is HIGH, then RLAST remains stable in the next cycle.
+(RREADY == 1'b0) && (RVALID == 1'b1) |-> ##1 $stable(RLAST)

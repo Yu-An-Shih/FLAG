@@ -1,0 +1,33 @@
+// LLM-generated SVA properties for P-Channel reset:
+// 1. If RESETn is LOW, then PACCEPT is LOW.
+(RESETn == 1'b0) |-> (PACCEPT == 1'b0)
+
+// 2. If RESETn is LOW, then PDENY is LOW.
+(RESETn == 1'b0) |-> (PDENY == 1'b0)
+
+// 3. If RESETn changes from LOW to HIGH, then PACCEPT is LOW.
+$rose(RESETn) |-> (PACCEPT == 1'b0)
+
+// 4. If RESETn changes from LOW to HIGH, then PDENY is LOW.
+$rose(RESETn) |-> (PDENY == 1'b0)
+
+// 5. If RESETn changes from HIGH to LOW, then PACCEPT is LOW.
+$fell(RESETn) |-> (PACCEPT == 1'b0)
+
+// 6. If RESETn changes from HIGH to LOW, then PDENY is LOW.
+$fell(RESETn) |-> (PDENY == 1'b0)
+
+
+// Manually-developed SVA properties:
+// 1. If RESETn is LOW, then PACCEPT is LOW.
+(RESETn == 1'b0) |-> (PACCEPT == 1'b0)
+
+// 2. If RESETn is LOW, then PDENY is LOW.
+(RESETn == 1'b0) |-> (PDENY == 1'b0)
+
+// 3. If RESETn changes from LOW to HIGH, then PACCEPT is LOW.
+$rose(RESETn) |-> (PACCEPT == 1'b0)
+
+// 4. If RESETn changes from LOW to HIGH, then PDENY is LOW.
+$rose(RESETn) |-> (PDENY == 1'b0)
+

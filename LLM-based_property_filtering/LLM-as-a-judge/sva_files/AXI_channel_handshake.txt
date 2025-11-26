@@ -1,0 +1,15 @@
+// LLM-generated SVA properties for AXI channel handshake:
+// 1. If READY is LOW and VALID is HIGH, then VALID remains stable in the next cycle.
+(READY == 1'b0) && (VALID == 1'b1) |-> ##1 $stable(VALID)
+
+// 2. If READY is LOW and VALID is HIGH, then INFORMATION remains stable in the next cycle.
+(READY == 1'b0) && (VALID == 1'b1) |-> ##1 $stable(INFORMATION)
+
+
+// Manually-developed SVA properties:
+// 1. If READY is LOW and VALID is HIGH, then VALID remains stable in the next cycle.
+(READY == 1'b0) && (VALID == 1'b1) |-> ##1 $stable(VALID)
+
+// 2. If READY is LOW and VALID is HIGH, then INFORMATION remains stable in the next cycle.
+(READY == 1'b0) && (VALID == 1'b1) |-> ##1 $stable(INFORMATION)
+

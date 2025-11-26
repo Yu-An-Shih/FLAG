@@ -1,0 +1,102 @@
+// LLM-generated SVA properties for P-Channel handshake:
+// 1. If PACCEPT is HIGH, then PDENY is LOW.
+(PACCEPT == 1'b1) |-> (PDENY == 1'b0)
+
+// 2. If PDENY is HIGH, then PACCEPT is LOW.
+(PDENY == 1'b1) |-> (PACCEPT == 1'b0)
+
+// 3. If PACCEPT changes from LOW to HIGH, then PREQ is HIGH.
+$rose(PACCEPT) |-> (PREQ == 1'b1)
+
+// 4. If PACCEPT changes from LOW to HIGH, then PDENY is LOW.
+$rose(PACCEPT) |-> (PDENY == 1'b0)
+
+// 5. If PDENY changes from LOW to HIGH, then PREQ is HIGH.
+$rose(PDENY) |-> (PREQ == 1'b1)
+
+// 6. If PDENY changes from LOW to HIGH, then PACCEPT is LOW.
+$rose(PDENY) |-> (PACCEPT == 1'b0)
+
+// 7. If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT remains stable in the next cycle.
+(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PACCEPT)
+
+// 8. If PDENY is HIGH and PREQ is HIGH, then PDENY remains stable in the next cycle.
+(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PDENY)
+
+// 9. If PACCEPT changes from HIGH to LOW, then PREQ is LOW.
+$fell(PACCEPT) |-> (PREQ == 1'b0)
+
+// 10. If PACCEPT changes from HIGH to LOW, then PDENY is LOW.
+$fell(PACCEPT) |-> (PDENY == 1'b0)
+
+// 11. If PDENY changes from HIGH to LOW, then PREQ is LOW.
+$fell(PDENY) |-> (PREQ == 1'b0)
+
+// 12. If PDENY changes from HIGH to LOW, then PACCEPT is LOW.
+$fell(PDENY) |-> (PACCEPT == 1'b0)
+
+// 13. If PREQ changes from LOW to HIGH, then PACCEPT is LOW.
+$rose(PREQ) |-> (PACCEPT == 1'b0)
+
+// 14. If PREQ changes from LOW to HIGH, then PDENY is LOW.
+$rose(PREQ) |-> (PDENY == 1'b0)
+
+// 15. If PREQ changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is HIGH.
+$fell(PREQ) |-> (PACCEPT == 1'b1) || (PDENY == 1'b1)
+
+// 16. If PDENY is LOW and PREQ is HIGH, then PSTATE remains stable in the next cycle.
+(PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PSTATE)
+
+// 17. If PACCEPT is HIGH, then PSTATE remains stable in the next cycle.
+(PACCEPT == 1'b1) |-> ##1 $stable(PSTATE)
+
+// 18. If PACCEPT is HIGH, then PDENY remains stable in the next cycle.
+(PACCEPT == 1'b1) |-> ##1 $stable(PDENY)
+
+// 19. If PDENY is HIGH, then PACCEPT remains stable in the next cycle.
+(PDENY == 1'b1) |-> ##1 $stable(PACCEPT)
+
+
+// Manually-developed SVA properties:
+// 1. If PREQ changes from LOW to HIGH, then PACCEPT is LOW.
+$rose(PREQ) |-> (PACCEPT == 1'b0)
+
+// 2. If PREQ changes from LOW to HIGH, then PDENY is LOW.
+$rose(PREQ) |-> (PDENY == 1'b0)
+
+// 3. If PREQ changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is HIGH.
+$fell(PREQ) |-> (PACCEPT == 1'b1) || (PDENY == 1'b1)
+
+// 4. If PACCEPT changes from LOW to HIGH, then PREQ is HIGH.
+$rose(PACCEPT) |-> (PREQ == 1'b1)
+
+// 5. If PACCEPT changes from LOW to HIGH, then PDENY is LOW.
+$rose(PACCEPT) |-> (PDENY == 1'b0)
+
+// 6. If PACCEPT changes from HIGH to LOW, then PREQ is LOW.
+$fell(PACCEPT) |-> (PREQ == 1'b0)
+
+// 7. If PACCEPT changes from HIGH to LOW, then PDENY is LOW.
+$fell(PACCEPT) |-> (PDENY == 1'b0)
+
+// 8. If PDENY changes from LOW to HIGH, then PREQ is HIGH.
+$rose(PDENY) |-> (PREQ == 1'b1)
+
+// 9. If PDENY changes from LOW to HIGH, then PACCEPT is LOW.
+$rose(PDENY) |-> (PACCEPT == 1'b0)
+
+// 10. If PDENY changes from HIGH to LOW, then PREQ is LOW.
+$fell(PDENY) |-> (PREQ == 1'b0)
+
+// 11. If PDENY changes from HIGH to LOW, then PACCEPT is LOW.
+$fell(PDENY) |-> (PACCEPT == 1'b0)
+
+// 12. If PDENY is LOW and PREQ is HIGH, then PSTATE remains stable in the next cycle.
+(PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PSTATE)
+
+// 13. If PACCEPT is HIGH and PREQ is LOW, then PSTATE remains stable in the next cycle.
+(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PSTATE)
+
+// 14. If PDENY is HIGH and PREQ is LOW, then PSTATE remains stable in the next cycle.
+(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PSTATE)
+

@@ -1,0 +1,21 @@
+// LLM-generated SVA properties for AXI reset:
+// 1. If ARESETn is LOW, then VALID is LOW.
+(ARESETn == 1'b0) |-> (VALID == 1'b0)
+
+// 2. If VALID is HIGH, then ARESETn is HIGH.
+(VALID == 1'b1) |-> (ARESETn == 1'b1)
+
+// 3. If ARESETn changes from LOW to HIGH, then VALID is LOW.
+$rose(ARESETn) |-> (VALID == 1'b0)
+
+// 4. If VALID changes from LOW to HIGH, then ARESETn is HIGH.
+$rose(VALID) |-> (ARESETn == 1'b1)
+
+
+// Manually-developed SVA properties:
+// 1. If ARESETn is LOW, then VALID is LOW.
+(ARESETn == 1'b0) |-> (VALID == 1'b0)
+
+// 2. If ARESETn changes from LOW to HIGH, then VALID is LOW.
+$rose(ARESETn) |-> (VALID == 1'b0)
+

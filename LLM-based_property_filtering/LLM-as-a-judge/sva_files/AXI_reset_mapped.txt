@@ -1,0 +1,93 @@
+// LLM-generated SVA properties for AXI reset:
+// 1. If ARESETn is LOW, then AWVALID is LOW.
+(ARESETn == 1'b0) |-> (AWVALID == 1'b0)
+
+// 2. If AWVALID is HIGH, then ARESETn is HIGH.
+(AWVALID == 1'b1) |-> (ARESETn == 1'b1)
+
+// 3. If ARESETn changes from LOW to HIGH, then AWVALID is LOW.
+$rose(ARESETn) |-> (AWVALID == 1'b0)
+
+// 4. If AWVALID changes from LOW to HIGH, then ARESETn is HIGH.
+$rose(AWVALID) |-> (ARESETn == 1'b1)
+
+// 5. If ARESETn is LOW, then WVALID is LOW.
+(ARESETn == 1'b0) |-> (WVALID == 1'b0)
+
+// 6. If WVALID is HIGH, then ARESETn is HIGH.
+(WVALID == 1'b1) |-> (ARESETn == 1'b1)
+
+// 7. If ARESETn changes from LOW to HIGH, then WVALID is LOW.
+$rose(ARESETn) |-> (WVALID == 1'b0)
+
+// 8. If WVALID changes from LOW to HIGH, then ARESETn is HIGH.
+$rose(WVALID) |-> (ARESETn == 1'b1)
+
+// 9. If ARESETn is LOW, then BVALID is LOW.
+(ARESETn == 1'b0) |-> (BVALID == 1'b0)
+
+// 10. If BVALID is HIGH, then ARESETn is HIGH.
+(BVALID == 1'b1) |-> (ARESETn == 1'b1)
+
+// 11. If ARESETn changes from LOW to HIGH, then BVALID is LOW.
+$rose(ARESETn) |-> (BVALID == 1'b0)
+
+// 12. If BVALID changes from LOW to HIGH, then ARESETn is HIGH.
+$rose(BVALID) |-> (ARESETn == 1'b1)
+
+// 13. If ARESETn is LOW, then ARVALID is LOW.
+(ARESETn == 1'b0) |-> (ARVALID == 1'b0)
+
+// 14. If ARVALID is HIGH, then ARESETn is HIGH.
+(ARVALID == 1'b1) |-> (ARESETn == 1'b1)
+
+// 15. If ARESETn changes from LOW to HIGH, then ARVALID is LOW.
+$rose(ARESETn) |-> (ARVALID == 1'b0)
+
+// 16. If ARVALID changes from LOW to HIGH, then ARESETn is HIGH.
+$rose(ARVALID) |-> (ARESETn == 1'b1)
+
+// 17. If ARESETn is LOW, then RVALID is LOW.
+(ARESETn == 1'b0) |-> (RVALID == 1'b0)
+
+// 18. If RVALID is HIGH, then ARESETn is HIGH.
+(RVALID == 1'b1) |-> (ARESETn == 1'b1)
+
+// 19. If ARESETn changes from LOW to HIGH, then RVALID is LOW.
+$rose(ARESETn) |-> (RVALID == 1'b0)
+
+// 20. If RVALID changes from LOW to HIGH, then ARESETn is HIGH.
+$rose(RVALID) |-> (ARESETn == 1'b1)
+
+
+// Manually-developed SVA properties:
+// 1. If ARESETn is LOW, then AWVALID is LOW.
+(ARESETn == 1'b0) |-> (AWVALID == 1'b0)
+
+// 2. If ARESETn changes from LOW to HIGH, then AWVALID is LOW.
+$rose(ARESETn) |-> (AWVALID == 1'b0)
+
+// 3. If ARESETn is LOW, then WVALID is LOW.
+(ARESETn == 1'b0) |-> (WVALID == 1'b0)
+
+// 4. If ARESETn changes from LOW to HIGH, then WVALID is LOW.
+$rose(ARESETn) |-> (WVALID == 1'b0)
+
+// 5. If ARESETn is LOW, then BVALID is LOW.
+(ARESETn == 1'b0) |-> (BVALID == 1'b0)
+
+// 6. If ARESETn changes from LOW to HIGH, then BVALID is LOW.
+$rose(ARESETn) |-> (BVALID == 1'b0)
+
+// 7. If ARESETn is LOW, then ARVALID is LOW.
+(ARESETn == 1'b0) |-> (ARVALID == 1'b0)
+
+// 8. If ARESETn changes from LOW to HIGH, then ARVALID is LOW.
+$rose(ARESETn) |-> (ARVALID == 1'b0)
+
+// 9. If ARESETn is LOW, then RVALID is LOW.
+(ARESETn == 1'b0) |-> (RVALID == 1'b0)
+
+// 10. If ARESETn changes from LOW to HIGH, then RVALID is LOW.
+$rose(ARESETn) |-> (RVALID == 1'b0)
+

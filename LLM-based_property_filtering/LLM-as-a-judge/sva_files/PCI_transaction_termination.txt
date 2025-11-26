@@ -1,0 +1,93 @@
+// LLM-generated SVA properties for PCI transaction termination:
+// 1. If FRAME# changes from LOW to HIGH, then IRDY# is LOW.
+$rose(FRAME#) |-> (IRDY# == 1'b0)
+
+// 2. If FRAME# changes from LOW to HIGH, then IRDY# is HIGH eventually.
+$rose(FRAME#) |-> ##[0:$] (IRDY# == 1'b1)
+
+// 3. If TRDY# is LOW, then DEVSEL# is LOW.
+(TRDY# == 1'b0) |-> (DEVSEL# == 1'b0)
+
+// 4. If TRDY# changes from HIGH to LOW, then DEVSEL# is LOW.
+$fell(TRDY#) |-> (DEVSEL# == 1'b0)
+
+// 5. If IRDY# is HIGH and TRDY# is LOW, then TRDY# remains stable in the next cycle.
+(IRDY# == 1'b1) && (TRDY# == 1'b0) |-> ##1 $stable(TRDY#)
+
+// 6. If IRDY# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.
+(IRDY# == 1'b1) && (TRDY# == 1'b0) |-> ##1 $stable(DEVSEL#)
+
+// 7. If IRDY# is HIGH and STOP# is LOW, then STOP# remains stable in the next cycle.
+(IRDY# == 1'b1) && (STOP# == 1'b0) |-> ##1 $stable(STOP#)
+
+// 8. If IRDY# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.
+(IRDY# == 1'b1) && (STOP# == 1'b0) |-> ##1 $stable(DEVSEL#)
+
+// 9. If FRAME# is LOW and STOP# is LOW, then STOP# remains stable in the next cycle.
+(FRAME# == 1'b0) && (STOP# == 1'b0) |-> ##1 $stable(STOP#)
+
+// 10. If STOP# changes from LOW to HIGH, then FRAME# is HIGH.
+$rose(STOP#) |-> (FRAME# == 1'b1)
+
+
+// Manually-developed SVA properties:
+// 1. If FRAME# changes from LOW to HIGH, then IRDY# is LOW.
+$rose(FRAME#) |-> (IRDY# == 1'b0)
+
+// 2. If IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then IRDY# remains stable in the next cycle.
+(IRDY# == 1'b0) && (STOP# == 1'b1) && (TRDY# == 1'b1) |-> ##1 $stable(IRDY#)
+
+// 3. If IRDY# is LOW and STOP# is HIGH and TRDY# is HIGH, then FRAME# remains stable in the next cycle.
+(IRDY# == 1'b0) && (STOP# == 1'b1) && (TRDY# == 1'b1) |-> ##1 $stable(FRAME#)
+
+// 4. If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then IRDY# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (TRDY# == 1'b0) |-> ##1 (IRDY# == 1'b1)
+
+// 5. If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then IRDY# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (STOP# == 1'b0) |-> ##1 (IRDY# == 1'b1)
+
+// 6. If FRAME# is LOW and STOP# is LOW, then STOP# remains stable in the next cycle.
+(FRAME# == 1'b0) && (STOP# == 1'b0) |-> ##1 $stable(STOP#)
+
+// 7. If FRAME# is HIGH and STOP# is LOW, then STOP# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (STOP# == 1'b0) |-> ##1 (STOP# == 1'b1)
+
+// 8. If IRDY# is HIGH and TRDY# is LOW, then TRDY# remains stable in the next cycle.
+(IRDY# == 1'b1) && (TRDY# == 1'b0) |-> ##1 $stable(TRDY#)
+
+// 9. If IRDY# is HIGH and TRDY# is LOW, then STOP# remains stable in the next cycle.
+(IRDY# == 1'b1) && (TRDY# == 1'b0) |-> ##1 $stable(STOP#)
+
+// 10. If IRDY# is HIGH and TRDY# is LOW, then DEVSEL# remains stable in the next cycle.
+(IRDY# == 1'b1) && (TRDY# == 1'b0) |-> ##1 $stable(DEVSEL#)
+
+// 11. If IRDY# is HIGH and STOP# is LOW, then TRDY# remains stable in the next cycle.
+(IRDY# == 1'b1) && (STOP# == 1'b0) |-> ##1 $stable(TRDY#)
+
+// 12. If IRDY# is HIGH and STOP# is LOW, then STOP# remains stable in the next cycle.
+(IRDY# == 1'b1) && (STOP# == 1'b0) |-> ##1 $stable(STOP#)
+
+// 13. If IRDY# is HIGH and STOP# is LOW, then DEVSEL# remains stable in the next cycle.
+(IRDY# == 1'b1) && (STOP# == 1'b0) |-> ##1 $stable(DEVSEL#)
+
+// 14. If STOP# is LOW, then FRAME# is HIGH or IRDY# is HIGH in the next cycle.
+(STOP# == 1'b0) |-> ##1 (FRAME# == 1'b1) || (IRDY# == 1'b1)
+
+// 15. If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then TRDY# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (TRDY# == 1'b0) |-> ##1 (TRDY# == 1'b1)
+
+// 16. If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then STOP# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (TRDY# == 1'b0) |-> ##1 (STOP# == 1'b1)
+
+// 17. If FRAME# is HIGH and IRDY# is LOW and TRDY# is LOW, then DEVSEL# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (TRDY# == 1'b0) |-> ##1 (DEVSEL# == 1'b1)
+
+// 18. If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then TRDY# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (STOP# == 1'b0) |-> ##1 (TRDY# == 1'b1)
+
+// 19. If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then STOP# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (STOP# == 1'b0) |-> ##1 (STOP# == 1'b1)
+
+// 20. If FRAME# is HIGH and IRDY# is LOW and STOP# is LOW, then DEVSEL# is HIGH in the next cycle.
+(FRAME# == 1'b1) && (IRDY# == 1'b0) && (STOP# == 1'b0) |-> ##1 (DEVSEL# == 1'b1)
+

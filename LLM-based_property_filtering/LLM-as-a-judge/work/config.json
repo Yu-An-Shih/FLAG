@@ -1,0 +1,86 @@
+[
+    {
+        "protocol": "AXI channel handshake",
+        "spec_file_id": "file-8Kne7KXdhcgcvFpxwyAkZv",
+        "rules": "../../../test_cases/AXI/channel_handshake/llm_filtered.json",
+        "targets": "../../../test_cases/AXI/channel_handshake/targets.json",
+        "sva_file": "sva_files/AXI_channel_handshake.txt"
+    },
+    {
+        "protocol": "AXI reset",
+        "spec_file_id": "file-8Kne7KXdhcgcvFpxwyAkZv",
+        "rules": "../../../test_cases/AXI/reset/llm_filtered.json",
+        "targets": "../../../test_cases/AXI/reset/targets.json",
+        "sva_file": "sva_files/AXI_reset.txt"
+    },
+    {
+        "protocol": "AXI low-power handshake",
+        "spec_file_id": "file-8Kne7KXdhcgcvFpxwyAkZv",
+        "rules": "../../../test_cases/AXI/low_power_handshake/llm_filtered.json",
+        "targets": "../../../test_cases/AXI/low_power_handshake/targets.json",
+        "sva_file": "sva_files/AXI_low_power_handshake.txt"
+    },
+    {
+        "protocol": "Q-Channel handshake",
+        "spec_file_id": "file-2aYovVdYj2zKMoHGVaSjaE",
+        "rules": "../../../test_cases/Q-Channel/handshake/llm_filtered.json",
+        "targets": "../../../test_cases/Q-Channel/handshake/targets.json",
+        "sva_file": "sva_files/Q-Channel_handshake.txt"
+    },
+    {
+        "protocol": "Q-Channel reset",
+        "spec_file_id": "file-2aYovVdYj2zKMoHGVaSjaE",
+        "rules": "../../../test_cases/Q-Channel/reset/llm_filtered.json",
+        "targets": "../../../test_cases/Q-Channel/reset/targets.json",
+        "sva_file": "sva_files/Q-Channel_reset.txt"
+    },
+    {
+        "protocol": "P-Channel handshake",
+        "spec_file_id": "file-2aYovVdYj2zKMoHGVaSjaE",
+        "rules": "../../../test_cases/P-Channel/handshake/llm_filtered.json",
+        "targets": "../../../test_cases/P-Channel/handshake/targets.json",
+        "sva_file": "sva_files/P-Channel_handshake.txt"
+    },
+    {
+        "protocol": "P-Channel reset",
+        "spec_file_id": "file-2aYovVdYj2zKMoHGVaSjaE",
+        "rules": "../../../test_cases/P-Channel/reset/llm_filtered.json",
+        "targets": "../../../test_cases/P-Channel/reset/targets.json",
+        "sva_file": "sva_files/P-Channel_reset.txt"
+    },
+    {
+        "protocol": "WISHBONE data transfer",
+        "spec_file_id": "file-6GrhLfg6bBETVfokhxvAia",
+        "rules": "../../../test_cases/WISHBONE/data_transfer/llm_filtered.json",
+        "targets": "../../../test_cases/WISHBONE/data_transfer/targets.json",
+        "sva_file": "sva_files/WISHBONE_data_transfer.txt"
+    },
+    {
+        "protocol": "WISHBONE reset",
+        "spec_file_id": "file-6GrhLfg6bBETVfokhxvAia",
+        "rules": "../../../test_cases/WISHBONE/reset/llm_filtered.json",
+        "targets": "../../../test_cases/WISHBONE/reset/targets.json",
+        "sva_file": "sva_files/WISHBONE_reset.txt"
+    },
+    {
+        "protocol": "APB transfers",
+        "spec_file_id": "file-H3ftP5n325ZE8i9dgHSSpM",
+        "rules": "../../../test_cases/APB/transfers/llm_filtered.json",
+        "targets": "../../../test_cases/APB/transfers/targets.json",
+        "sva_file": "sva_files/APB_transfers.txt"
+    },
+    {
+        "protocol": "PCI transaction termination",
+        "spec_file_id": "file-AXsE1uiqqH6UyzLDzgtdQw",
+        "rules": "../../../test_cases/PCI/transaction_termination/llm_filtered.json",
+        "targets": "../../../test_cases/PCI/transaction_termination/targets.json",
+        "sva_file": "sva_files/PCI_transaction_termination.txt"
+    },
+    {
+        "protocol": "PCI transaction termination batching",
+        "spec_file_id": "file-AXsE1uiqqH6UyzLDzgtdQw",
+        "rules": "../../../test_cases/PCI/transaction_termination/25_batches/llm_filtered.json",
+        "targets": "../../../test_cases/PCI/transaction_termination/targets.json",
+        "sva_file": "sva_files/PCI_transaction_termination_batching.txt"
+    }
+]

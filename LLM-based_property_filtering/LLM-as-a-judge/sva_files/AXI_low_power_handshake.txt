@@ -1,0 +1,39 @@
+// LLM-generated SVA properties for AXI low-power handshake:
+// 1. If CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.
+(CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)
+
+// 2. If CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.
+(CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)
+
+// 3. If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW in the next cycle.
+(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0)
+
+// 4. If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH in the next cycle.
+(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1)
+
+// 5. If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH.
+$rose(CSYSACK) |-> (CSYSREQ == 1'b1)
+
+// 6. If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW.
+$fell(CSYSACK) |-> (CSYSREQ == 1'b0)
+
+// 7. If CSYSREQ changes from LOW to HIGH, then CSYSACK is HIGH eventually.
+$rose(CSYSREQ) |-> ##[0:$] (CSYSACK == 1'b1)
+
+// 8. If CSYSREQ changes from HIGH to LOW, then CSYSACK is LOW eventually.
+$fell(CSYSREQ) |-> ##[0:$] (CSYSACK == 1'b0)
+
+
+// Manually-developed SVA properties:
+// 1. If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH.
+$fell(CSYSREQ) |-> (CSYSACK == 1'b1)
+
+// 2. If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW.
+$rose(CSYSREQ) |-> (CSYSACK == 1'b0)
+
+// 3. If CSYSACK changes from HIGH to LOW, then CSYSREQ is LOW.
+$fell(CSYSACK) |-> (CSYSREQ == 1'b0)
+
+// 4. If CSYSACK changes from LOW to HIGH, then CSYSREQ is HIGH.
+$rose(CSYSACK) |-> (CSYSREQ == 1'b1)
+
