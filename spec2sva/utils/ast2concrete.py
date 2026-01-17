@@ -22,9 +22,9 @@ def ast_to_sva(ast: dict) -> str:
             return f"{ast['operator']}({ast['operands'][0]['value']})"
         # Logical
         case 'And':
-            return " && ".join(ast_to_sva(operand) for operand in ast['operands'])
+            return "(" + " && ".join(ast_to_sva(operand) for operand in ast['operands']) + ")"
         case 'Or':
-            return " || ".join(ast_to_sva(operand) for operand in ast['operands'])
+            return "(" + " || ".join(ast_to_sva(operand) for operand in ast['operands']) + ")"
         case 'Implies':
             return f"{ast_to_sva(ast['operands'][0])} |-> {ast_to_sva(ast['operands'][1])}"
         # Temporal
