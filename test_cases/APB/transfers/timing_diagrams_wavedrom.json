@@ -1,0 +1,87 @@
+{
+    "signals": [
+        { "name": "PADDR", "type": "word", "width": 32 },
+        { "name": "PSEL", "type": "signal" },
+        { "name": "PENABLE", "type": "signal" },
+        { "name": "PWRITE", "type": "signal" },
+        { "name": "PWDATA", "type": "word", "width": 32 },
+        { "name": "PREADY", "type": "signal" },
+        { "name": "PRDATA", "type": "word", "width": 32 }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 3-1: Write transfer with no wait states",
+            "signal": [
+                { "name": "PADDR",   "wave": "x.=.x", "data": ["Addr 1"] },
+                { "name": "PWRITE",  "wave": "x.1.x" },
+                { "name": "PSEL",    "wave": "0.1.0" },
+                { "name": "PENABLE", "wave": "x.01x" },
+                { "name": "PRDATA",  "wave": "x...." },
+                { "name": "PWDATA",  "wave": "x.=.x", "data": ["Data 1"] },
+                { "name": "PREADY",  "wave": "x..1x" }
+            ]
+        },
+        {
+            "name": "Figure 3-2: Write transfer with wait states",
+            "signal": [
+                { "name": "PADDR",   "wave": "x.=...x", "data": ["Addr 1"] },
+                { "name": "PWRITE",  "wave": "x.1...x" },
+                { "name": "PSEL",    "wave": "0.1...0" },
+                { "name": "PENABLE", "wave": "x.01..x" },
+                { "name": "PRDATA",  "wave": "x......" },
+                { "name": "PWDATA",  "wave": "x.=...x", "data": ["Data 1"] },
+                { "name": "PREADY",  "wave": "x..0.1x" }
+            ]
+        },
+        {
+            "name": "Figure 3-4: Read transfer with no wait states",
+            "signal": [
+                { "name": "PADDR",   "wave": "x.=.x", "data": ["Addr 1"] },
+                { "name": "PWRITE",  "wave": "x.0.x" },
+                { "name": "PSEL",    "wave": "0.1.0" },
+                { "name": "PENABLE", "wave": "x.01x" },
+                { "name": "PRDATA",  "wave": "x..=x", "data": ["Data 1"] },
+                { "name": "PWDATA",  "wave": "x...." },
+                { "name": "PREADY",  "wave": "x..1x"  }
+            ]
+        },
+        {
+            "name": "Figure 3-5: Read transfer with wait states",
+            "signal": [
+                { "name": "PADDR",   "wave": "x.=...x", "data": ["Addr 1"] },
+                { "name": "PWRITE",  "wave": "x.0...x"},
+                { "name": "PSEL",    "wave": "0.1...0" },
+                { "name": "PENABLE", "wave": "x.01..x" },
+                { "name": "PRDATA",  "wave": "x....=x", "data": ["Data 1"] },
+                { "name": "PWDATA",  "wave": "x......" },
+                { "name": "PREADY",  "wave": "x..0.1x" }
+            ]
+        },
+        {
+            "name": "Figure 3-6: Example failing write transfer",
+            "signal": [
+                { "name": "PADDR",   "wave": "x.=..x", "data": ["Addr 1"] },
+                { "name": "PWRITE",  "wave": "x.1..x" },
+                { "name": "PSEL",    "wave": "0.1..0" },
+                { "name": "PENABLE", "wave": "x.01.x" },
+                { "name": "PRDATA",  "wave": "x....." },
+                { "name": "PWDATA",  "wave": "x.=..x", "data": ["Data 1"] },
+                { "name": "PREADY",  "wave": "x..01x" },
+                { "name": "PSLVERR", "wave": "x...1x" }
+            ]
+        },
+        {
+            "name": "Figure 3-7: Example failing read transfer",
+            "signal": [
+                { "name": "PADDR",   "wave": "x.=...x", "data": ["Addr 1"] },
+                { "name": "PWRITE",  "wave": "x.0...x" },
+                { "name": "PSEL",    "wave": "0.1...0" },
+                { "name": "PENABLE", "wave": "x.01..x" },
+                { "name": "PRDATA",  "wave": "x......" },
+                { "name": "PWDATA",  "wave": "x......" },
+                { "name": "PREADY",  "wave": "x..0.1x" },
+                { "name": "PSLVERR", "wave": "x....1x" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "signals": [
+        { "name": "VALID", "type": "signal" },
+        { "name": "READY", "type": "signal" },
+        { "name": "INFORMATION", "type": "word", "width": 2 }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 3-1: VALID/READY handshake (VALID before READY)",
+            "signal": [
+                { "name": "VALID",       "wave": "01.0" },
+                { "name": "READY",       "wave": "0.10" },
+                { "name": "INFORMATION", "wave": "x=.x" }
+            ]
+        },
+        {
+            "name": "Figure 3-2: VALID/READY handshake (READY before VALID)",
+            "signal": [
+                { "name": "VALID",       "wave": "0.10" },
+                { "name": "READY",       "wave": "1..0" },
+                { "name": "INFORMATION", "wave": "x.=x" }
+            ]
+        },
+        {
+            "name": "Figure 3-3: VALID/READY handshake (VALID with READY)",
+            "signal": [
+                { "name": "VALID",       "wave": "010." },
+                { "name": "READY",       "wave": "010." },
+                { "name": "INFORMATION", "wave": "x=x." }
+            ]
+        }
+    ]
+}

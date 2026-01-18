@@ -1,0 +1,131 @@
+{
+    "signals": [
+        { "name": "FRAME#", "type": "signal" },
+        { "name": "IRDY#", "type": "signal" },
+        { "name": "TRDY#", "type": "signal" },
+        { "name": "STOP#", "type": "signal" },
+        { "name": "DEVSEL#", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 3-5: Basic Read Operation",
+            "signal": [
+                { "name": "FRAME#",  "wave": "10.....1." },
+                { "name": "AD",      "wave": "x=x=x==.x", "data": ["ADDRESS", "DATA-1", "DATA-2", "DATA-3"] },
+                { "name": "C/BE#",   "wave": "x==.....x", "data": ["BUS CMD", "BE#'s"] },
+                { "name": "IRDY#",   "wave": "1.0...101" },
+                { "name": "TRDY#",   "wave": "1..010..1" },
+                { "name": "DEVSEL#", "wave": "1.x0....1" }
+            ]
+        },
+        {
+            "name": "Figure 3-6: Basic Write Operation",
+            "signal": [
+                { "name": "FRAME#",  "wave": "10...1..." },
+                { "name": "AD",      "wave": "x===x=..x", "data": ["ADDRESS", "DATA-1", "DATA-2", "DATA-3"] },
+                { "name": "C/BE#",   "wave": "x====...x", "data": ["BUS CMD", "BE#'s-1", "BE#'s-2", "BE#'s-3"] },
+                { "name": "IRDY#",   "wave": "1.0.10..1" },
+                { "name": "TRDY#",   "wave": "1.0.1..01" },
+                { "name": "DEVSEL#", "wave": "1.0.....1" }
+            ]
+        },
+        {
+            "name": "Figure 3-7: Master Initiated Termination (1)",
+            "signal": [
+                { "name": "GNT#",   "wave": "x1.." },
+                { "name": "FRAME#", "wave": "0.1." },
+                { "name": "IRDY#",  "wave": "x0.1" },
+                { "name": "TRDY#",  "wave": "10.1" }
+            ]
+        },
+        {
+            "name": "Figure 3-7: Master Initiated Termination (2)",
+            "signal": [
+                { "name": "GNT#",   "wave": "x1.." },
+                { "name": "FRAME#", "wave": "0.1." },
+                { "name": "IRDY#",  "wave": "0101" },
+                { "name": "TRDY#",  "wave": "0..1" }
+            ]
+        },
+        {
+            "name": "Figure 3-8: Master-Abort Termination",
+            "signal": [
+                { "name": "FRAME#",     "wave": "10....1." },
+                { "name": "IRDY#",      "wave": "1..0...1" },
+                { "name": "TRDY#",      "wave": "1......." },
+                { "name": "DEVSEL#",    "wave": "1......." },
+                { "name": "DATA_PHASE", "wave": "0.1....0" }
+            ]
+        },
+        {
+            "name": "Figure 3-9: Retry",
+            "signal": [
+                { "name": "FRAME#",  "wave": "10..1." },
+                { "name": "IRDY#",   "wave": "1.0..1" },
+                { "name": "TRDY#",   "wave": "1....." },
+                { "name": "STOP#",   "wave": "1..0.1" },
+                { "name": "DEVSEL#", "wave": "1..0.1" }
+            ]
+        },
+        {
+            "name": "Figure 3-10: Disconnect With Data (1)",
+            "signal": [
+                { "name": "FRAME#",  "wave": "0.1." },
+                { "name": "IRDY#",   "wave": "1.01" },
+                { "name": "TRDY#",   "wave": "10.1" },
+                { "name": "STOP#",   "wave": "10.1" },
+                { "name": "DEVSEL#", "wave": "0..1" }
+            ]
+        },
+        {
+            "name": "Figure 3-10: Disconnect With Data (2)",
+            "signal": [
+                { "name": "FRAME#",  "wave": "0.1." },
+                { "name": "IRDY#",   "wave": "0..1" },
+                { "name": "TRDY#",   "wave": "0.1." },
+                { "name": "STOP#",   "wave": "10.1" },
+                { "name": "DEVSEL#", "wave": "0..1" }
+            ]
+        },
+        {
+            "name": "Figure 3-11: Master Completion Termination",
+            "signal": [
+                { "name": "FRAME#",  "wave": "101.." },
+                { "name": "IRDY#",   "wave": "1.0.1" },
+                { "name": "TRDY#",   "wave": "1..01" },
+                { "name": "STOP#",   "wave": "1..01" },
+                { "name": "DEVSEL#", "wave": "1..01" }
+            ]
+        },
+        {
+            "name": "Figure 3-12: Disconnect-1 Without Data Termination",
+            "signal": [
+                { "name": "FRAME#",  "wave": "10....11" },
+                { "name": "IRDY#",   "wave": "1.0....1" },
+                { "name": "TRDY#",   "wave": "1..0.1.." },
+                { "name": "STOP#",   "wave": "1....0.1" },
+                { "name": "DEVSEL#", "wave": "1..0...1" }
+            ]
+        },
+        {
+            "name": "Figure 3-13: Disconnect-2 Without Data Termination",
+            "signal": [
+                { "name": "FRAME#",  "wave": "10....1." },
+                { "name": "IRDY#",   "wave": "1.0..101" },
+                { "name": "TRDY#",   "wave": "1..0.1.." },
+                { "name": "STOP#",   "wave": "1....0.1" },
+                { "name": "DEVSEL#", "wave": "1..0...1" }
+            ]
+        },
+        {
+            "name": "Figure 3-14: Target-Abort",
+            "signal": [
+                { "name": "FRAME#",  "wave": "0.1." },
+                { "name": "IRDY#",   "wave": "0..1" },
+                { "name": "TRDY#",   "wave": "1..." },
+                { "name": "STOP#",   "wave": "10.1" },
+                { "name": "DEVSEL#", "wave": "01.." }
+            ]
+        }
+    ]
+}

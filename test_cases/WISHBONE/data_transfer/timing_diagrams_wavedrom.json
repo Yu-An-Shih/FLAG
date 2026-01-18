@@ -1,0 +1,87 @@
+{
+    "signals": [
+        { "name": "ADR_O", "type": "word", "width": 32 },
+        { "name": "DAT_I", "type": "word", "width": 32 },
+        { "name": "DAT_O", "type": "word", "width": 32 },
+        { "name": "WE_O", "type": "signal" },
+        { "name": "SEL_O", "type": "word", "width": 4 },
+        { "name": "STB_O", "type": "signal" },
+        { "name": "ACK_I", "type": "signal" },
+        { "name": "CYC_O", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 3-3: SINGLE READ cycle",
+            "signal": [
+                { "name": "ADR_O", "wave": "x=..x" },
+                { "name": "DAT_I", "wave": "x..=x" },
+                { "name": "DAT_O", "wave": "x...." },
+                { "name": "WE_O" , "wave": "x0..x" },
+                { "name": "SEL_O", "wave": "x=..x" },
+                { "name": "STB_O", "wave": "01..0" },
+                { "name": "ACK_I", "wave": "0..10" },
+                { "name": "CYC_O", "wave": "01..0" }
+            ]
+        },
+        {
+            "name": "Figure 3-4: SINGLE WRITE cycle",
+            "signal": [
+                { "name": "ADR_O", "wave": "x=..x" },
+                { "name": "DAT_I", "wave": "x...." },
+                { "name": "DAT_O", "wave": "x=..x" },
+                { "name": "WE_O",  "wave": "x1..x" },
+                { "name": "SEL_O", "wave": "x=..x" },
+                { "name": "STB_O", "wave": "01..0" },
+                { "name": "ACK_I", "wave": "0..10"},
+                { "name": "CYC_O", "wave": "01..0" }
+            ]
+        },
+        {
+            "name": "Figure 3-5: Use of [CYC_O] signal during BLOCK cycles",
+            "signal": [
+                { "name": "CYC_O", "wave": "0.1.......0" },
+                { "name": "STB_O", "wave": "0.1..0.1.0." },
+                { "name": "ACK_I", "wave": "0...10..10." }
+            ]
+        },
+        {
+            "name": "Figure 3-6: BLOCK READ cycle",
+            "signal": [
+                { "name": "ADR_O", "wave": "x==x.===.x" },
+                { "name": "DAT_I", "wave": "x==x.==x=x" },
+                { "name": "DAT_O", "wave": "x........." },
+                { "name": "WE_O",  "wave": "x0.......x" },
+                { "name": "SEL_O", "wave": "x==x.===.x" },
+                { "name": "STB_O", "wave": "01.0.1...0" },
+                { "name": "ACK_I", "wave": "01.0.1.010" },
+                { "name": "CYC_O", "wave": "01.......0" }
+            ]
+        },
+        {
+            "name": "Figure 3-7: BLOCK WRITE cycle",
+            "signal": [
+                { "name": "ADR_O", "wave": "x==x.===.x" },
+                { "name": "DAT_I", "wave": "x........." },
+                { "name": "DAT_O", "wave": "x==x.===.x" },
+                { "name": "WE_O",  "wave": "x1.......x" },
+                { "name": "SEL_O", "wave": "x==x.===.x" },
+                { "name": "STB_O", "wave": "01.0.1...0" },
+                { "name": "ACK_I", "wave": "01.0.1.010" },
+                { "name": "CYC_O", "wave": "01.......0" }
+            ]
+        },
+        {
+            "name": "Figure 3-8: RMW cycle",
+            "signal": [
+                { "name": "ADR_O", "wave": "x=....x" },
+                { "name": "DAT_I", "wave": "x=x...." },
+                { "name": "DAT_O", "wave": "x...=.x" },
+                { "name": "WE_O",  "wave": "x0x.1.x" },
+                { "name": "SEL_O", "wave": "x=x.=.x" },
+                { "name": "STB_O", "wave": "010.1.0" },
+                { "name": "ACK_I", "wave": "010..10" },
+                { "name": "CYC_O", "wave": "01....0" }
+            ]
+        }
+    ]
+}

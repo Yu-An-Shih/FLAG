@@ -1,0 +1,81 @@
+{
+    "signals": [
+        { "name": "RESETn", "type": "signal" },
+        { "name": "PREQ", "type": "signal" },
+        { "name": "PACCEPT", "type": "signal" },
+        { "name": "PDENY", "type": "signal" },
+        { "name": "PSTATE", "type": "word", "width": 2 }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 3-4: P-Channel initialization with controller-timed tinit, followed by a reset assertion",
+            "signal": [
+                { "name": "RESETn",  "wave": "0.1.............0." },
+                { "name": "PSTATE",  "wave": "x.=...=...........", "data": ["STATE A", "STATE B"] },
+                { "name": "PREQ",    "wave": "0.....1....0......" },
+                { "name": "PACCEPT", "wave": "0.......1.....0..." },
+                { "name": "PDENY",   "wave": "0................." }
+            ]
+        },
+        {
+            "name": "Figure 3-5: P-Channel initialization with PREQ HIGH at reset deassertion",
+            "signal": [
+                { "name": "RESETn",  "wave": "0.1................." },
+                { "name": "PSTATE",  "wave": "x=........=.........", "data": ["STATE A", "STATE B"] },
+                { "name": "PREQ",    "wave": "01....0...1...0....." },
+                { "name": "PACCEPT", "wave": "0....1...0...1...0.." },
+                { "name": "PDENY",   "wave": "0..................." }
+            ]
+        },
+        {
+            "name": "Figure 3-6: P-Channel initialization with PREQ HIGH during tinit",
+            "signal": [
+                { "name": "RESETn",  "wave": "0.1............." },
+                { "name": "PSTATE",  "wave": "x.=......=......", "data": ["STATE A", "STATE B"] },
+                { "name": "PREQ",    "wave": "0..1..0..1..0..." },
+                { "name": "PACCEPT", "wave": "0....1..0..1..0." },
+                { "name": "PDENY",   "wave": "0..............." }
+            ]
+        },
+        {
+            "name": "Figure 3-2: P-Channel handshake sequence with accepted request",
+            "signal": [
+                { "name": "RESETn",  "wave": "1............." },
+                { "name": "PSTATE",  "wave": "=..=..........", "data": ["STATE A", "STATE B"] },
+                { "name": "PREQ",    "wave": "0..1...0......" },
+                { "name": "PACCEPT", "wave": "0....1....0..." },
+                { "name": "PDENY",   "wave": "0............." }
+            ]
+        },
+        {
+            "name": "Figure 3-3: P-Channel handshake sequence with denied request",
+            "signal": [
+                { "name": "RESETn",  "wave": "1............." },
+                { "name": "PSTATE",  "wave": "=..=...=......", "data": ["STATE A", "STATE B", "STATE A"] },
+                { "name": "PREQ",    "wave": "0..1...0......" },
+                { "name": "PACCEPT", "wave": "0............." },
+                { "name": "PDENY",   "wave": "0....1....0..." }
+            ]
+        },
+        {
+            "name": "Figure 3-7: Multiple state transitions",
+            "signal": [
+                { "name": "RESETn",  "wave": "1............." },
+                { "name": "PSTATE",  "wave": "=.=.....=.....", "data": ["STATE A", "STATE B", "STATE C"] },
+                { "name": "PREQ",    "wave": "0.1..0..1..0.." },
+                { "name": "PACCEPT", "wave": "0..1..0..1..0." },
+                { "name": "PDENY",   "wave": "0............." }
+            ]
+        },
+        {
+            "name": "Figure 3-14: Additional timing for PSTATE by asserting PSTATE before PREQ",
+            "signal": [
+                { "name": "RESETn",  "wave": "1................." },
+                { "name": "PSTATE",  "wave": "=..=..............", "data": ["STATE A", "STATE B"] },
+                { "name": "PREQ",    "wave": "0....1....0......." },
+                { "name": "PACCEPT", "wave": "0.......1....0...." },
+                { "name": "PDENY",   "wave": "0................." }
+            ]
+        }
+    ]
+}

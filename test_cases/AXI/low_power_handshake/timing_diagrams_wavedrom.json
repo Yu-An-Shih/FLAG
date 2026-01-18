@@ -1,0 +1,31 @@
+{
+    "signals": [
+        { "name": "CSYSREQ", "type": "signal" },
+        { "name": "CSYSACK", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 12-1: CSYREQ and CSYSACK handshake",
+            "signal": [
+                { "name": "CSYSREQ", "wave": "1.0....1..." },
+                { "name": "CSYSACK", "wave": "1...0....1." }
+            ]
+        },
+        {
+            "name": "Figure 12-2: Acceptance of a low-power request",
+            "signal": [
+                { "name": "CSYSREQ", "wave": "1.0........1......" },
+                { "name": "CACTIVE", "wave": "1.....0.......1..." },
+                { "name": "CSYSACK", "wave": "1.......0.......1." }
+            ]
+        },
+        {
+            "name": "Figure 12-3: Denial of a low-power request",
+            "signal": [
+                { "name": "CSYSREQ", "wave": "1..0.....1..." },
+                { "name": "CACTIVE", "wave": "1............" },
+                { "name": "CSYSACK", "wave": "1....0.....1." }
+            ]
+        }
+    ]
+}

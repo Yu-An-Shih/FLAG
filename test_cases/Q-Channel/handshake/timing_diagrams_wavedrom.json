@@ -1,0 +1,43 @@
+{
+    "signals": [
+        { "name": "QREQn", "type": "signal" },
+        { "name": "QACCEPTn", "type": "signal" },
+        { "name": "QDENY", "type": "signal" }
+    ],
+    "waveforms": [
+        {
+            "name": "Figure 2-2: Q-Channel accepted quiescence request sequence",
+            "signal": [
+                { "name": "QREQn",    "wave": "1..0.........1....." },
+                { "name": "QACCEPTn", "wave": "1.......0.......1.." },
+                { "name": "QDENY",    "wave": "0.................." }
+            ]
+        },
+        {
+            "name": "Figure 2-3: Q-Channel denied quiescence request sequence",
+            "signal": [
+                { "name": "QREQn",    "wave": "1..0........1......." },
+                { "name": "QACCEPTn", "wave": "1..................." },
+                { "name": "QDENY",    "wave": "0.......1........0.." }
+            ]
+        },
+        {
+            "name": "Figure 2-4: QREQn LOW at reset deassertion",
+            "signal": [
+                { "name": "RESETn",   "wave": "0..1.................0.." },
+                { "name": "QREQn",    "wave": "0.....1........0........" },
+                { "name": "QACCEPTn", "wave": "0........1........0....." },
+                { "name": "QDENY",    "wave": "0......................." }
+            ]
+        },
+        {
+            "name": "Figure 2-5: QREQn HIGH at reset deassertion",
+            "signal": [
+                { "name": "RESETn",   "wave": "0.....1..............0.." },
+                { "name": "QREQn",    "wave": "0..1...........0........" },
+                { "name": "QACCEPTn", "wave": "0........1........0....." },
+                { "name": "QDENY",    "wave": "0......................." }
+            ]
+        }
+    ]
+}
