@@ -52,7 +52,7 @@
     },
     {
         "nl": "If PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "(PREQ == 1'b0) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (== PREQ 0) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -123,7 +123,7 @@
     },
     {
         "nl": "If PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "(PREQ == 1'b0) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (== PREQ 0) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -194,7 +194,7 @@
     },
     {
         "nl": "If PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "(PREQ == 1'b0) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (== PREQ 0) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -265,7 +265,7 @@
     },
     {
         "nl": "If PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "(PREQ == 1'b1) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (== PREQ 1) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -336,7 +336,7 @@
     },
     {
         "nl": "If PACCEPT is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "(PACCEPT == 1'b0) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (== PACCEPT 0) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -407,7 +407,7 @@
     },
     {
         "nl": "If PACCEPT is LOW, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "(PACCEPT == 1'b0) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (== PACCEPT 0) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -478,7 +478,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "(PACCEPT == 1'b1) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (== PACCEPT 1) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -549,7 +549,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "(PACCEPT == 1'b1) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (== PACCEPT 1) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -620,7 +620,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "(PACCEPT == 1'b1) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (== PACCEPT 1) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -691,7 +691,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "(PACCEPT == 1'b1) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (== PACCEPT 1) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -762,7 +762,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "(PACCEPT == 1'b1) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (== PACCEPT 1) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -833,7 +833,7 @@
     },
     {
         "nl": "If PDENY is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "(PDENY == 1'b0) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (== PDENY 0) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -904,7 +904,7 @@
     },
     {
         "nl": "If PDENY is LOW, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "(PDENY == 1'b0) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (== PDENY 0) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -1069,7 +1069,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is LOW, then PACCEPT is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b0)) |-> ##1 (PACCEPT == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 0)) (X (== PACCEPT 0))))",
         "ast": {
             "type": "operator",
@@ -1140,7 +1140,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 (PDENY == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1211,7 +1211,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 (PREQ == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -1282,7 +1282,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 (PDENY == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1353,7 +1353,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 (PACCEPT == 1'b1)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (== PACCEPT 1))))",
         "ast": {
             "type": "operator",
@@ -1424,7 +1424,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 (PDENY == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1495,7 +1495,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is LOW, then PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 (PDENY == 1'b0)",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 0)) (X (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1566,7 +1566,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -1657,7 +1657,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -1748,7 +1748,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -1839,7 +1839,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -1930,7 +1930,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is LOW, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -2021,7 +2021,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -2112,7 +2112,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is LOW, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -2203,7 +2203,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -2294,7 +2294,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -2385,7 +2385,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is HIGH, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -2476,7 +2476,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is HIGH, then PDENY is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 1)) (X (Or (== PDENY 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -2567,7 +2567,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -2658,7 +2658,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -2749,7 +2749,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -2840,7 +2840,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -2931,7 +2931,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -3022,7 +3022,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -3113,7 +3113,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -3204,7 +3204,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -3295,7 +3295,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -3386,7 +3386,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -3477,7 +3477,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -3568,7 +3568,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -3659,7 +3659,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -3750,7 +3750,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -3841,7 +3841,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT is HIGH or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -3932,7 +3932,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -4023,7 +4023,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -4114,7 +4114,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -4205,7 +4205,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -4296,7 +4296,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -4387,7 +4387,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -4478,7 +4478,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is LOW, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -4569,7 +4569,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -4660,7 +4660,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is LOW, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -4751,7 +4751,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -4842,7 +4842,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is HIGH, then PACCEPT is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -4933,7 +4933,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is HIGH, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 1)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -5024,7 +5024,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PREQ is LOW, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PREQ == 1'b0) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PACCEPT == 1'b0) && (PREQ == 1'b0)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PREQ 0)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -5091,7 +5091,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PDENY remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 $stable(PDENY)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -5158,7 +5158,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW, then PSTATE remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) |-> ##1 $stable(PSTATE)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -5225,7 +5225,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PREQ remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PREQ)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PREQ)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X ($stable PREQ))))",
         "ast": {
             "type": "operator",
@@ -5292,7 +5292,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PDENY remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PDENY)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -5359,7 +5359,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is LOW, then PSTATE remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PSTATE)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 0)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -5426,7 +5426,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -5493,7 +5493,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PDENY remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PDENY)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -5560,7 +5560,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PREQ is HIGH, then PSTATE remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PSTATE)",
+        "sva": "((PACCEPT == 1'b1) && (PREQ == 1'b1)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PREQ 1)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -5627,7 +5627,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is LOW, then PDENY remains stable in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 $stable(PDENY)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 0)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -5694,7 +5694,7 @@
     },
     {
         "nl": "If PDENY is LOW and PREQ is HIGH, then PSTATE remains stable in the next cycle.",
-        "sva": "(PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PSTATE)",
+        "sva": "((PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PDENY 0) (== PREQ 1)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -5761,7 +5761,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PACCEPT is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 (PACCEPT == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (== PACCEPT 0))))",
         "ast": {
             "type": "operator",
@@ -5846,7 +5846,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 (PDENY == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -5931,7 +5931,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 (PREQ == 1'b1)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -6016,7 +6016,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 (PREQ == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -6101,7 +6101,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 (PDENY == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -6186,7 +6186,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PACCEPT is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 (PACCEPT == 1'b1)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (== PACCEPT 1))))",
         "ast": {
             "type": "operator",
@@ -6271,7 +6271,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 (PDENY == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -6356,7 +6356,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -6461,7 +6461,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -6566,7 +6566,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -6671,7 +6671,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -6776,7 +6776,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -6881,7 +6881,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -6986,7 +6986,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -7091,7 +7091,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -7196,7 +7196,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -7301,7 +7301,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PACCEPT is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -7406,7 +7406,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -7511,7 +7511,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PDENY is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X (Or (== PDENY 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -7616,7 +7616,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -7721,7 +7721,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -7826,7 +7826,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -7931,7 +7931,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -8036,7 +8036,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -8141,7 +8141,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -8246,7 +8246,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -8351,7 +8351,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -8456,7 +8456,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PACCEPT is HIGH or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -8561,7 +8561,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PACCEPT is HIGH or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -8666,7 +8666,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -8771,7 +8771,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PACCEPT is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -8876,7 +8876,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -8981,7 +8981,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PDENY is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X (Or (== PDENY 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -9086,7 +9086,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -9167,7 +9167,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is LOW, then PDENY remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 $stable(PDENY)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 0)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -9248,7 +9248,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PREQ remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PREQ)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 $stable(PREQ)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X ($stable PREQ))))",
         "ast": {
             "type": "operator",
@@ -9329,7 +9329,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is LOW and PREQ is HIGH, then PSTATE remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PSTATE)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 0) (== PREQ 1)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -9410,7 +9410,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PREQ remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 $stable(PREQ)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 $stable(PREQ)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X ($stable PREQ))))",
         "ast": {
             "type": "operator",
@@ -9491,7 +9491,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PDENY remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 $stable(PDENY)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -9572,7 +9572,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is LOW, then PSTATE remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0) |-> ##1 $stable(PSTATE)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b0)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 0)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -9653,7 +9653,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -9734,7 +9734,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PDENY remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PDENY)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -9815,7 +9815,7 @@
     },
     {
         "nl": "If PACCEPT is HIGH and PDENY is LOW and PREQ is HIGH, then PSTATE remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1) |-> ##1 $stable(PSTATE)",
+        "sva": "((PACCEPT == 1'b1) && (PDENY == 1'b0) && (PREQ == 1'b1)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PACCEPT 1) (== PDENY 0) (== PREQ 1)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -10060,7 +10060,7 @@
     },
     {
         "nl": "If PREQ changes from LOW to HIGH, then PACCEPT is LOW or PDENY is LOW.",
-        "sva": "$rose(PREQ) |-> (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "$rose(PREQ) |-> ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies ($rose PREQ) (Or (== PACCEPT 0) (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10121,7 +10121,7 @@
     },
     {
         "nl": "If PREQ changes from LOW to HIGH, then PACCEPT is LOW or PDENY is HIGH.",
-        "sva": "$rose(PREQ) |-> (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "$rose(PREQ) |-> ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies ($rose PREQ) (Or (== PACCEPT 0) (== PDENY 1))))",
         "ast": {
             "type": "operator",
@@ -10182,7 +10182,7 @@
     },
     {
         "nl": "If PREQ changes from LOW to HIGH, then PACCEPT is LOW or PREQ is LOW.",
-        "sva": "$rose(PREQ) |-> (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "$rose(PREQ) |-> ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($rose PREQ) (Or (== PACCEPT 0) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -10243,7 +10243,7 @@
     },
     {
         "nl": "If PREQ changes from LOW to HIGH, then PACCEPT is HIGH or PDENY is LOW.",
-        "sva": "$rose(PREQ) |-> (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "$rose(PREQ) |-> ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies ($rose PREQ) (Or (== PACCEPT 1) (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10304,7 +10304,7 @@
     },
     {
         "nl": "If PREQ changes from LOW to HIGH, then PDENY is LOW or PREQ is LOW.",
-        "sva": "$rose(PREQ) |-> (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "$rose(PREQ) |-> ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($rose PREQ) (Or (== PDENY 0) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -10365,7 +10365,7 @@
     },
     {
         "nl": "If PACCEPT changes from LOW to HIGH, then PACCEPT is LOW or PDENY is LOW.",
-        "sva": "$rose(PACCEPT) |-> (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "$rose(PACCEPT) |-> ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies ($rose PACCEPT) (Or (== PACCEPT 0) (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10426,7 +10426,7 @@
     },
     {
         "nl": "If PACCEPT changes from LOW to HIGH, then PACCEPT is LOW or PREQ is HIGH.",
-        "sva": "$rose(PACCEPT) |-> (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "$rose(PACCEPT) |-> ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($rose PACCEPT) (Or (== PACCEPT 0) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -10487,7 +10487,7 @@
     },
     {
         "nl": "If PACCEPT changes from LOW to HIGH, then PDENY is LOW or PREQ is LOW.",
-        "sva": "$rose(PACCEPT) |-> (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "$rose(PACCEPT) |-> ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($rose PACCEPT) (Or (== PDENY 0) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -10548,7 +10548,7 @@
     },
     {
         "nl": "If PACCEPT changes from LOW to HIGH, then PDENY is LOW or PREQ is HIGH.",
-        "sva": "$rose(PACCEPT) |-> (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "$rose(PACCEPT) |-> ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($rose PACCEPT) (Or (== PDENY 0) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -10609,7 +10609,7 @@
     },
     {
         "nl": "If PACCEPT changes from LOW to HIGH, then PDENY is HIGH or PREQ is HIGH.",
-        "sva": "$rose(PACCEPT) |-> (PDENY == 1'b1) || (PREQ == 1'b1)",
+        "sva": "$rose(PACCEPT) |-> ((PDENY == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($rose PACCEPT) (Or (== PDENY 1) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -10752,7 +10752,7 @@
     },
     {
         "nl": "If PREQ changes from HIGH to LOW, then PACCEPT is LOW or PDENY is LOW.",
-        "sva": "$fell(PREQ) |-> (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "$fell(PREQ) |-> ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies ($fell PREQ) (Or (== PACCEPT 0) (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10813,7 +10813,7 @@
     },
     {
         "nl": "If PREQ changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is HIGH.",
-        "sva": "$fell(PREQ) |-> (PACCEPT == 1'b1) || (PDENY == 1'b1)",
+        "sva": "$fell(PREQ) |-> ((PACCEPT == 1'b1) || (PDENY == 1'b1))",
         "ltl": "(G (Implies ($fell PREQ) (Or (== PACCEPT 1) (== PDENY 1))))",
         "ast": {
             "type": "operator",
@@ -10874,7 +10874,7 @@
     },
     {
         "nl": "If PACCEPT changes from HIGH to LOW, then PACCEPT is HIGH or PDENY is LOW.",
-        "sva": "$fell(PACCEPT) |-> (PACCEPT == 1'b1) || (PDENY == 1'b0)",
+        "sva": "$fell(PACCEPT) |-> ((PACCEPT == 1'b1) || (PDENY == 1'b0))",
         "ltl": "(G (Implies ($fell PACCEPT) (Or (== PACCEPT 1) (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10935,7 +10935,7 @@
     },
     {
         "nl": "If PACCEPT changes from HIGH to LOW, then PACCEPT is HIGH or PREQ is LOW.",
-        "sva": "$fell(PACCEPT) |-> (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "$fell(PACCEPT) |-> ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($fell PACCEPT) (Or (== PACCEPT 1) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -10996,7 +10996,7 @@
     },
     {
         "nl": "If PACCEPT changes from HIGH to LOW, then PDENY is LOW or PREQ is LOW.",
-        "sva": "$fell(PACCEPT) |-> (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "$fell(PACCEPT) |-> ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($fell PACCEPT) (Or (== PDENY 0) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -11057,7 +11057,7 @@
     },
     {
         "nl": "If PACCEPT changes from HIGH to LOW, then PDENY is LOW or PREQ is HIGH.",
-        "sva": "$fell(PACCEPT) |-> (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "$fell(PACCEPT) |-> ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($fell PACCEPT) (Or (== PDENY 0) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -11118,7 +11118,7 @@
     },
     {
         "nl": "If PACCEPT changes from HIGH to LOW, then PDENY is HIGH or PREQ is LOW.",
-        "sva": "$fell(PACCEPT) |-> (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "$fell(PACCEPT) |-> ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($fell PACCEPT) (Or (== PDENY 1) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -11792,7 +11792,7 @@
     },
     {
         "nl": "If PDENY is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "(PDENY == 1'b1) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (== PDENY 1) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -11863,7 +11863,7 @@
     },
     {
         "nl": "If PDENY is HIGH, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "(PDENY == 1'b1) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (== PDENY 1) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -11934,7 +11934,7 @@
     },
     {
         "nl": "If PDENY is HIGH, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "(PDENY == 1'b1) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (== PDENY 1) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -12005,7 +12005,7 @@
     },
     {
         "nl": "If PDENY is HIGH, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "(PDENY == 1'b1) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (== PDENY 1) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -12076,7 +12076,7 @@
     },
     {
         "nl": "If PDENY is HIGH, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "(PDENY == 1'b1) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (== PDENY 1) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -12194,7 +12194,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH, then PACCEPT is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1)) |-> ##1 (PACCEPT == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1)) (X (== PACCEPT 0))))",
         "ast": {
             "type": "operator",
@@ -12265,7 +12265,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 (PREQ == 1'b0)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -12336,7 +12336,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 (PACCEPT == 1'b0)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (== PACCEPT 0))))",
         "ast": {
             "type": "operator",
@@ -12407,7 +12407,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 (PACCEPT == 1'b0)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (== PACCEPT 0))))",
         "ast": {
             "type": "operator",
@@ -12478,7 +12478,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PDENY is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 (PDENY == 1'b1)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (== PDENY 1))))",
         "ast": {
             "type": "operator",
@@ -12549,7 +12549,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -12640,7 +12640,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1)) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -12731,7 +12731,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -12822,7 +12822,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -12913,7 +12913,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1)) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -13004,7 +13004,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -13095,7 +13095,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -13186,7 +13186,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -13277,7 +13277,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -13368,7 +13368,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -13459,7 +13459,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -13550,7 +13550,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -13641,7 +13641,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -13732,7 +13732,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -13823,7 +13823,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -13914,7 +13914,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -14005,7 +14005,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PACCEPT is HIGH or PDENY is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b1)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -14096,7 +14096,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -14187,7 +14187,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PDENY is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X (Or (== PDENY 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -14278,7 +14278,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -14345,7 +14345,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PREQ remains stable in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PREQ)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PREQ)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X ($stable PREQ))))",
         "ast": {
             "type": "operator",
@@ -14412,7 +14412,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -14479,7 +14479,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is LOW, then PSTATE remains stable in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PSTATE)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 0)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -14546,7 +14546,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -14613,7 +14613,7 @@
     },
     {
         "nl": "If PDENY is HIGH and PREQ is HIGH, then PDENY remains stable in the next cycle.",
-        "sva": "(PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PDENY)",
+        "sva": "((PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PDENY 1) (== PREQ 1)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -14680,7 +14680,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 (PREQ == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -14765,7 +14765,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 (PACCEPT == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (== PACCEPT 0))))",
         "ast": {
             "type": "operator",
@@ -14850,7 +14850,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 (PACCEPT == 1'b0)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (== PACCEPT 0))))",
         "ast": {
             "type": "operator",
@@ -14935,7 +14935,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 (PDENY == 1'b1)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (== PDENY 1))))",
         "ast": {
             "type": "operator",
@@ -15020,7 +15020,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -15125,7 +15125,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -15230,7 +15230,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -15335,7 +15335,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -15440,7 +15440,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PACCEPT is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (Or (== PACCEPT 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -15545,7 +15545,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PDENY is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (Or (== PDENY 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -15650,7 +15650,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -15755,7 +15755,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PDENY is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -15860,7 +15860,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -15965,7 +15965,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -16070,7 +16070,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PACCEPT is LOW or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 0) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -16175,7 +16175,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PACCEPT is HIGH or PDENY is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PACCEPT == 1'b1) || (PDENY == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PACCEPT == 1'b1) || (PDENY == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (Or (== PACCEPT 1) (== PDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -16280,7 +16280,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PDENY is HIGH or PREQ is LOW in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (Or (== PDENY 1) (== PREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -16385,7 +16385,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PDENY is HIGH or PREQ is HIGH in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 (PDENY == 1'b1) || (PREQ == 1'b1)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 ((PDENY == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X (Or (== PDENY 1) (== PREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -16490,7 +16490,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PREQ remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PREQ)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PREQ)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X ($stable PREQ))))",
         "ast": {
             "type": "operator",
@@ -16571,7 +16571,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -16652,7 +16652,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is LOW, then PSTATE remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0) |-> ##1 $stable(PSTATE)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b0)) |-> ##1 $stable(PSTATE)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 0)) (X ($stable PSTATE))))",
         "ast": {
             "type": "operator",
@@ -16733,7 +16733,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PACCEPT remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PACCEPT)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 $stable(PACCEPT)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X ($stable PACCEPT))))",
         "ast": {
             "type": "operator",
@@ -16814,7 +16814,7 @@
     },
     {
         "nl": "If PACCEPT is LOW and PDENY is HIGH and PREQ is HIGH, then PDENY remains stable in the next cycle.",
-        "sva": "(PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1) |-> ##1 $stable(PDENY)",
+        "sva": "((PACCEPT == 1'b0) && (PDENY == 1'b1) && (PREQ == 1'b1)) |-> ##1 $stable(PDENY)",
         "ltl": "(G (Implies (And (== PACCEPT 0) (== PDENY 1) (== PREQ 1)) (X ($stable PDENY))))",
         "ast": {
             "type": "operator",
@@ -16977,7 +16977,7 @@
     },
     {
         "nl": "If PDENY changes from LOW to HIGH, then PACCEPT is LOW or PDENY is LOW.",
-        "sva": "$rose(PDENY) |-> (PACCEPT == 1'b0) || (PDENY == 1'b0)",
+        "sva": "$rose(PDENY) |-> ((PACCEPT == 1'b0) || (PDENY == 1'b0))",
         "ltl": "(G (Implies ($rose PDENY) (Or (== PACCEPT 0) (== PDENY 0))))",
         "ast": {
             "type": "operator",
@@ -17038,7 +17038,7 @@
     },
     {
         "nl": "If PDENY changes from LOW to HIGH, then PACCEPT is LOW or PREQ is LOW.",
-        "sva": "$rose(PDENY) |-> (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "$rose(PDENY) |-> ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($rose PDENY) (Or (== PACCEPT 0) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -17099,7 +17099,7 @@
     },
     {
         "nl": "If PDENY changes from LOW to HIGH, then PACCEPT is LOW or PREQ is HIGH.",
-        "sva": "$rose(PDENY) |-> (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "$rose(PDENY) |-> ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($rose PDENY) (Or (== PACCEPT 0) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -17160,7 +17160,7 @@
     },
     {
         "nl": "If PDENY changes from LOW to HIGH, then PACCEPT is HIGH or PREQ is HIGH.",
-        "sva": "$rose(PDENY) |-> (PACCEPT == 1'b1) || (PREQ == 1'b1)",
+        "sva": "$rose(PDENY) |-> ((PACCEPT == 1'b1) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($rose PDENY) (Or (== PACCEPT 1) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -17221,7 +17221,7 @@
     },
     {
         "nl": "If PDENY changes from LOW to HIGH, then PDENY is LOW or PREQ is HIGH.",
-        "sva": "$rose(PDENY) |-> (PDENY == 1'b0) || (PREQ == 1'b1)",
+        "sva": "$rose(PDENY) |-> ((PDENY == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($rose PDENY) (Or (== PDENY 0) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -17364,7 +17364,7 @@
     },
     {
         "nl": "If PDENY changes from HIGH to LOW, then PACCEPT is LOW or PDENY is HIGH.",
-        "sva": "$fell(PDENY) |-> (PACCEPT == 1'b0) || (PDENY == 1'b1)",
+        "sva": "$fell(PDENY) |-> ((PACCEPT == 1'b0) || (PDENY == 1'b1))",
         "ltl": "(G (Implies ($fell PDENY) (Or (== PACCEPT 0) (== PDENY 1))))",
         "ast": {
             "type": "operator",
@@ -17425,7 +17425,7 @@
     },
     {
         "nl": "If PDENY changes from HIGH to LOW, then PACCEPT is LOW or PREQ is LOW.",
-        "sva": "$fell(PDENY) |-> (PACCEPT == 1'b0) || (PREQ == 1'b0)",
+        "sva": "$fell(PDENY) |-> ((PACCEPT == 1'b0) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($fell PDENY) (Or (== PACCEPT 0) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -17486,7 +17486,7 @@
     },
     {
         "nl": "If PDENY changes from HIGH to LOW, then PACCEPT is LOW or PREQ is HIGH.",
-        "sva": "$fell(PDENY) |-> (PACCEPT == 1'b0) || (PREQ == 1'b1)",
+        "sva": "$fell(PDENY) |-> ((PACCEPT == 1'b0) || (PREQ == 1'b1))",
         "ltl": "(G (Implies ($fell PDENY) (Or (== PACCEPT 0) (== PREQ 1))))",
         "ast": {
             "type": "operator",
@@ -17547,7 +17547,7 @@
     },
     {
         "nl": "If PDENY changes from HIGH to LOW, then PACCEPT is HIGH or PREQ is LOW.",
-        "sva": "$fell(PDENY) |-> (PACCEPT == 1'b1) || (PREQ == 1'b0)",
+        "sva": "$fell(PDENY) |-> ((PACCEPT == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($fell PDENY) (Or (== PACCEPT 1) (== PREQ 0))))",
         "ast": {
             "type": "operator",
@@ -17608,7 +17608,7 @@
     },
     {
         "nl": "If PDENY changes from HIGH to LOW, then PDENY is HIGH or PREQ is LOW.",
-        "sva": "$fell(PDENY) |-> (PDENY == 1'b1) || (PREQ == 1'b0)",
+        "sva": "$fell(PDENY) |-> ((PDENY == 1'b1) || (PREQ == 1'b0))",
         "ltl": "(G (Implies ($fell PDENY) (Or (== PDENY 1) (== PREQ 0))))",
         "ast": {
             "type": "operator",

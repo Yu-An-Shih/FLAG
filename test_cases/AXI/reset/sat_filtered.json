@@ -358,7 +358,7 @@
     },
     {
         "nl": "If ARESETn is LOW, then ARESETn is LOW or VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b0) |-> ##1 (ARESETn == 1'b0) || (VALID == 1'b0)",
+        "sva": "(ARESETn == 1'b0) |-> ##1 ((ARESETn == 1'b0) || (VALID == 1'b0))",
         "ltl": "(G (Implies (== ARESETn 0) (X (Or (== ARESETn 0) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -429,7 +429,7 @@
     },
     {
         "nl": "If ARESETn is LOW, then ARESETn is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "(ARESETn == 1'b0) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (== ARESETn 0) (X (Or (== ARESETn 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -500,7 +500,7 @@
     },
     {
         "nl": "If ARESETn is LOW, then ARESETn is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b1)",
+        "sva": "(ARESETn == 1'b0) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== ARESETn 0) (X (Or (== ARESETn 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -571,7 +571,7 @@
     },
     {
         "nl": "If ARESETn is HIGH, then ARESETn is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) |-> ##1 (ARESETn == 1'b0) || (VALID == 1'b1)",
+        "sva": "(ARESETn == 1'b1) |-> ##1 ((ARESETn == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== ARESETn 1) (X (Or (== ARESETn 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -642,7 +642,7 @@
     },
     {
         "nl": "If ARESETn is HIGH, then ARESETn is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b1) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "(ARESETn == 1'b1) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (== ARESETn 1) (X (Or (== ARESETn 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -713,7 +713,7 @@
     },
     {
         "nl": "If ARESETn is HIGH, then ARESETn is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b1)",
+        "sva": "(ARESETn == 1'b1) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== ARESETn 1) (X (Or (== ARESETn 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -784,7 +784,7 @@
     },
     {
         "nl": "If VALID is LOW, then ARESETn is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(VALID == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "(VALID == 1'b0) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (== VALID 0) (X (Or (== ARESETn 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -855,7 +855,7 @@
     },
     {
         "nl": "If VALID is LOW, then ARESETn is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(VALID == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b1)",
+        "sva": "(VALID == 1'b0) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== VALID 0) (X (Or (== ARESETn 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -926,7 +926,7 @@
     },
     {
         "nl": "If VALID is HIGH, then ARESETn is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(VALID == 1'b1) |-> ##1 (ARESETn == 1'b0) || (VALID == 1'b1)",
+        "sva": "(VALID == 1'b1) |-> ##1 ((ARESETn == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== VALID 1) (X (Or (== ARESETn 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -997,7 +997,7 @@
     },
     {
         "nl": "If VALID is HIGH, then ARESETn is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(VALID == 1'b1) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "(VALID == 1'b1) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (== VALID 1) (X (Or (== ARESETn 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -1068,7 +1068,7 @@
     },
     {
         "nl": "If VALID is HIGH, then ARESETn is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(VALID == 1'b1) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b1)",
+        "sva": "(VALID == 1'b1) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== VALID 1) (X (Or (== ARESETn 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -1327,7 +1327,7 @@
     },
     {
         "nl": "If ARESETn is LOW and VALID is LOW, then ARESETn is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b0) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b1)",
+        "sva": "((ARESETn == 1'b0) && (VALID == 1'b0)) |-> ##1 (ARESETn == 1'b1)",
         "ltl": "(G (Implies (And (== ARESETn 0) (== VALID 0)) (X (== ARESETn 1))))",
         "ast": {
             "type": "operator",
@@ -1398,7 +1398,7 @@
     },
     {
         "nl": "If ARESETn is LOW and VALID is LOW, then VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b0) && (VALID == 1'b0) |-> ##1 (VALID == 1'b0)",
+        "sva": "((ARESETn == 1'b0) && (VALID == 1'b0)) |-> ##1 (VALID == 1'b0)",
         "ltl": "(G (Implies (And (== ARESETn 0) (== VALID 0)) (X (== VALID 0))))",
         "ast": {
             "type": "operator",
@@ -1469,7 +1469,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is LOW, then ARESETn is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b0)) |-> ##1 (ARESETn == 1'b1)",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 0)) (X (== ARESETn 1))))",
         "ast": {
             "type": "operator",
@@ -1540,7 +1540,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is LOW, then VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b0) |-> ##1 (VALID == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b0)) |-> ##1 (VALID == 1'b1)",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 0)) (X (== VALID 1))))",
         "ast": {
             "type": "operator",
@@ -1611,7 +1611,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is HIGH, then ARESETn is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b1) |-> ##1 (ARESETn == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b1)) |-> ##1 (ARESETn == 1'b1)",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 1)) (X (== ARESETn 1))))",
         "ast": {
             "type": "operator",
@@ -1682,7 +1682,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is HIGH, then VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b1) |-> ##1 (VALID == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b1)) |-> ##1 (VALID == 1'b1)",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 1)) (X (== VALID 1))))",
         "ast": {
             "type": "operator",
@@ -1753,7 +1753,7 @@
     },
     {
         "nl": "If ARESETn is LOW and VALID is LOW, then ARESETn is LOW or VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b0) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b0) || (VALID == 1'b0)",
+        "sva": "((ARESETn == 1'b0) && (VALID == 1'b0)) |-> ##1 ((ARESETn == 1'b0) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== ARESETn 0) (== VALID 0)) (X (Or (== ARESETn 0) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -1844,7 +1844,7 @@
     },
     {
         "nl": "If ARESETn is LOW and VALID is LOW, then ARESETn is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b0) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "((ARESETn == 1'b0) && (VALID == 1'b0)) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== ARESETn 0) (== VALID 0)) (X (Or (== ARESETn 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -1935,7 +1935,7 @@
     },
     {
         "nl": "If ARESETn is LOW and VALID is LOW, then ARESETn is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b0) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b1)",
+        "sva": "((ARESETn == 1'b0) && (VALID == 1'b0)) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== ARESETn 0) (== VALID 0)) (X (Or (== ARESETn 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -2026,7 +2026,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is LOW, then ARESETn is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b0) || (VALID == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b0)) |-> ##1 ((ARESETn == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 0)) (X (Or (== ARESETn 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -2117,7 +2117,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is LOW, then ARESETn is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b0)) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 0)) (X (Or (== ARESETn 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -2208,7 +2208,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is LOW, then ARESETn is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b0) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b0)) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 0)) (X (Or (== ARESETn 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -2299,7 +2299,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is HIGH, then ARESETn is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b1) |-> ##1 (ARESETn == 1'b0) || (VALID == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b1)) |-> ##1 ((ARESETn == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 1)) (X (Or (== ARESETn 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -2390,7 +2390,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is HIGH, then ARESETn is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b1) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b1)) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 1)) (X (Or (== ARESETn 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -2481,7 +2481,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is HIGH, then ARESETn is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b1) |-> ##1 (ARESETn == 1'b1) || (VALID == 1'b1)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b1)) |-> ##1 ((ARESETn == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 1)) (X (Or (== ARESETn 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -2572,7 +2572,7 @@
     },
     {
         "nl": "If ARESETn is LOW and VALID is LOW, then VALID remains stable in the next cycle.",
-        "sva": "(ARESETn == 1'b0) && (VALID == 1'b0) |-> ##1 $stable(VALID)",
+        "sva": "((ARESETn == 1'b0) && (VALID == 1'b0)) |-> ##1 $stable(VALID)",
         "ltl": "(G (Implies (And (== ARESETn 0) (== VALID 0)) (X ($stable VALID))))",
         "ast": {
             "type": "operator",
@@ -2639,7 +2639,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is LOW, then ARESETn remains stable in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b0) |-> ##1 $stable(ARESETn)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b0)) |-> ##1 $stable(ARESETn)",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 0)) (X ($stable ARESETn))))",
         "ast": {
             "type": "operator",
@@ -2706,7 +2706,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is HIGH, then ARESETn remains stable in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b1) |-> ##1 $stable(ARESETn)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b1)) |-> ##1 $stable(ARESETn)",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 1)) (X ($stable ARESETn))))",
         "ast": {
             "type": "operator",
@@ -2773,7 +2773,7 @@
     },
     {
         "nl": "If ARESETn is HIGH and VALID is HIGH, then VALID remains stable in the next cycle.",
-        "sva": "(ARESETn == 1'b1) && (VALID == 1'b1) |-> ##1 $stable(VALID)",
+        "sva": "((ARESETn == 1'b1) && (VALID == 1'b1)) |-> ##1 $stable(VALID)",
         "ltl": "(G (Implies (And (== ARESETn 1) (== VALID 1)) (X ($stable VALID))))",
         "ast": {
             "type": "operator",
@@ -2922,7 +2922,7 @@
     },
     {
         "nl": "If ARESETn changes from LOW to HIGH, then ARESETn is LOW or VALID is LOW.",
-        "sva": "$rose(ARESETn) |-> (ARESETn == 1'b0) || (VALID == 1'b0)",
+        "sva": "$rose(ARESETn) |-> ((ARESETn == 1'b0) || (VALID == 1'b0))",
         "ltl": "(G (Implies ($rose ARESETn) (Or (== ARESETn 0) (== VALID 0))))",
         "ast": {
             "type": "operator",
@@ -2983,7 +2983,7 @@
     },
     {
         "nl": "If VALID changes from LOW to HIGH, then ARESETn is HIGH or VALID is LOW.",
-        "sva": "$rose(VALID) |-> (ARESETn == 1'b1) || (VALID == 1'b0)",
+        "sva": "$rose(VALID) |-> ((ARESETn == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies ($rose VALID) (Or (== ARESETn 1) (== VALID 0))))",
         "ast": {
             "type": "operator",

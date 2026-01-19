@@ -1,7 +1,7 @@
 [
     {
         "nl": "If VALID is HIGH, then READY is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(VALID == 1'b1) |-> ##1 (READY == 1'b0) || (VALID == 1'b1)",
+        "sva": "(VALID == 1'b1) |-> ##1 ((READY == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== VALID 1) (X (Or (== READY 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -72,7 +72,7 @@
     },
     {
         "nl": "If VALID is HIGH, then READY is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(VALID == 1'b1) |-> ##1 (READY == 1'b1) || (VALID == 1'b0)",
+        "sva": "(VALID == 1'b1) |-> ##1 ((READY == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (== VALID 1) (X (Or (== READY 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -143,7 +143,7 @@
     },
     {
         "nl": "If READY is LOW, then READY is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(READY == 1'b0) |-> ##1 (READY == 1'b0) || (VALID == 1'b1)",
+        "sva": "(READY == 1'b0) |-> ##1 ((READY == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (== READY 0) (X (Or (== READY 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -214,7 +214,7 @@
     },
     {
         "nl": "If READY is HIGH, then READY is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(READY == 1'b1) |-> ##1 (READY == 1'b1) || (VALID == 1'b0)",
+        "sva": "(READY == 1'b1) |-> ##1 ((READY == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (== READY 1) (X (Or (== READY 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -285,7 +285,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is HIGH, then VALID is HIGH in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b1) |-> ##1 (VALID == 1'b1)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b1)) |-> ##1 (VALID == 1'b1)",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 1)) (X (== VALID 1))))",
         "ast": {
             "type": "operator",
@@ -356,7 +356,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is HIGH, then READY is HIGH in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b1) |-> ##1 (READY == 1'b1)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b1)) |-> ##1 (READY == 1'b1)",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 1)) (X (== READY 1))))",
         "ast": {
             "type": "operator",
@@ -427,7 +427,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is HIGH, then VALID is LOW in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b1) |-> ##1 (VALID == 1'b0)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b1)) |-> ##1 (VALID == 1'b0)",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 1)) (X (== VALID 0))))",
         "ast": {
             "type": "operator",
@@ -498,7 +498,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is HIGH, then READY is LOW in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b1) |-> ##1 (READY == 1'b0)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b1)) |-> ##1 (READY == 1'b0)",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 1)) (X (== READY 0))))",
         "ast": {
             "type": "operator",
@@ -569,7 +569,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is LOW, then READY is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b0) |-> ##1 (READY == 1'b0) || (VALID == 1'b1)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b0)) |-> ##1 ((READY == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 0)) (X (Or (== READY 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -660,7 +660,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is HIGH, then READY is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b1) |-> ##1 (READY == 1'b0) || (VALID == 1'b1)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b1)) |-> ##1 ((READY == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 1)) (X (Or (== READY 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -751,7 +751,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is HIGH, then READY is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b1) |-> ##1 (READY == 1'b1) || (VALID == 1'b0)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b1)) |-> ##1 ((READY == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 1)) (X (Or (== READY 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -842,7 +842,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is HIGH, then READY is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b1) |-> ##1 (READY == 1'b1) || (VALID == 1'b1)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b1)) |-> ##1 ((READY == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 1)) (X (Or (== READY 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -933,7 +933,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is HIGH, then READY is LOW or VALID is LOW in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b1) |-> ##1 (READY == 1'b0) || (VALID == 1'b0)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b1)) |-> ##1 ((READY == 1'b0) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 1)) (X (Or (== READY 0) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -1024,7 +1024,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is HIGH, then READY is LOW or VALID is HIGH in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b1) |-> ##1 (READY == 1'b0) || (VALID == 1'b1)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b1)) |-> ##1 ((READY == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 1)) (X (Or (== READY 0) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -1115,7 +1115,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is HIGH, then READY is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b1) |-> ##1 (READY == 1'b1) || (VALID == 1'b0)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b1)) |-> ##1 ((READY == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 1)) (X (Or (== READY 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -1206,7 +1206,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is HIGH, then VALID remains stable in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b1) |-> ##1 $stable(VALID)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b1)) |-> ##1 $stable(VALID)",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 1)) (X ($stable VALID))))",
         "ast": {
             "type": "operator",
@@ -1273,7 +1273,7 @@
     },
     {
         "nl": "If READY is LOW and VALID is HIGH, then INFORMATION remains stable in the next cycle.",
-        "sva": "(READY == 1'b0) && (VALID == 1'b1) |-> ##1 $stable(INFORMATION)",
+        "sva": "((READY == 1'b0) && (VALID == 1'b1)) |-> ##1 $stable(INFORMATION)",
         "ltl": "(G (Implies (And (== READY 0) (== VALID 1)) (X ($stable INFORMATION))))",
         "ast": {
             "type": "operator",
@@ -1381,7 +1381,7 @@
     },
     {
         "nl": "If READY changes from LOW to HIGH, then READY is LOW or VALID is HIGH.",
-        "sva": "$rose(READY) |-> (READY == 1'b0) || (VALID == 1'b1)",
+        "sva": "$rose(READY) |-> ((READY == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies ($rose READY) (Or (== READY 0) (== VALID 1))))",
         "ast": {
             "type": "operator",
@@ -1524,7 +1524,7 @@
     },
     {
         "nl": "If VALID changes from HIGH to LOW, then READY is LOW or VALID is HIGH.",
-        "sva": "$fell(VALID) |-> (READY == 1'b0) || (VALID == 1'b1)",
+        "sva": "$fell(VALID) |-> ((READY == 1'b0) || (VALID == 1'b1))",
         "ltl": "(G (Implies ($fell VALID) (Or (== READY 0) (== VALID 1))))",
         "ast": {
             "type": "operator",
@@ -1585,7 +1585,7 @@
     },
     {
         "nl": "If READY changes from HIGH to LOW, then READY is HIGH or VALID is LOW.",
-        "sva": "$fell(READY) |-> (READY == 1'b1) || (VALID == 1'b0)",
+        "sva": "$fell(READY) |-> ((READY == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies ($fell READY) (Or (== READY 1) (== VALID 0))))",
         "ast": {
             "type": "operator",
@@ -2022,7 +2022,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is LOW, then READY is HIGH in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b0) |-> ##1 (READY == 1'b1)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b0)) |-> ##1 (READY == 1'b1)",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 0)) (X (== READY 1))))",
         "ast": {
             "type": "operator",
@@ -2093,7 +2093,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is LOW, then READY is HIGH or VALID is LOW in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b0) |-> ##1 (READY == 1'b1) || (VALID == 1'b0)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b0)) |-> ##1 ((READY == 1'b1) || (VALID == 1'b0))",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 0)) (X (Or (== READY 1) (== VALID 0)))))",
         "ast": {
             "type": "operator",
@@ -2184,7 +2184,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is LOW, then READY is HIGH or VALID is HIGH in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b0) |-> ##1 (READY == 1'b1) || (VALID == 1'b1)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b0)) |-> ##1 ((READY == 1'b1) || (VALID == 1'b1))",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 0)) (X (Or (== READY 1) (== VALID 1)))))",
         "ast": {
             "type": "operator",
@@ -2275,7 +2275,7 @@
     },
     {
         "nl": "If READY is HIGH and VALID is LOW, then READY remains stable in the next cycle.",
-        "sva": "(READY == 1'b1) && (VALID == 1'b0) |-> ##1 $stable(READY)",
+        "sva": "((READY == 1'b1) && (VALID == 1'b0)) |-> ##1 $stable(READY)",
         "ltl": "(G (Implies (And (== READY 1) (== VALID 0)) (X ($stable READY))))",
         "ast": {
             "type": "operator",

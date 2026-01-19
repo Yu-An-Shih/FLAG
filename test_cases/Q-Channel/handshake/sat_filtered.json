@@ -52,7 +52,7 @@
     },
     {
         "nl": "If QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "(QREQn == 1'b0) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (== QREQn 0) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -123,7 +123,7 @@
     },
     {
         "nl": "If QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "(QREQn == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (== QREQn 1) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -194,7 +194,7 @@
     },
     {
         "nl": "If QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "(QREQn == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (== QREQn 1) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -265,7 +265,7 @@
     },
     {
         "nl": "If QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "(QREQn == 1'b1) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (== QREQn 1) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -336,7 +336,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "(QACCEPTn == 1'b0) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (== QACCEPTn 0) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -407,7 +407,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "(QACCEPTn == 1'b0) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (== QACCEPTn 0) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -478,7 +478,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "(QACCEPTn == 1'b0) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (== QACCEPTn 0) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -549,7 +549,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "(QACCEPTn == 1'b0) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (== QACCEPTn 0) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -620,7 +620,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "(QACCEPTn == 1'b0) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (== QACCEPTn 0) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -691,7 +691,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "(QACCEPTn == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (== QACCEPTn 1) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -762,7 +762,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "(QACCEPTn == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (== QACCEPTn 1) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -833,7 +833,7 @@
     },
     {
         "nl": "If QDENY is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "(QDENY == 1'b0) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (== QDENY 0) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -904,7 +904,7 @@
     },
     {
         "nl": "If QDENY is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "(QDENY == 1'b0) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (== QDENY 0) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -1022,7 +1022,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW, then QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) |-> ##1 (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0)) |-> ##1 (QDENY == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0)) (X (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1093,7 +1093,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 (QACCEPTn == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (== QACCEPTn 0))))",
         "ast": {
             "type": "operator",
@@ -1164,7 +1164,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 (QDENY == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1235,7 +1235,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 (QREQn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -1306,7 +1306,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 (QDENY == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1377,7 +1377,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is HIGH, then QACCEPTn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b1)) |-> ##1 (QACCEPTn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 1)) (X (== QACCEPTn 1))))",
         "ast": {
             "type": "operator",
@@ -1448,7 +1448,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is HIGH, then QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 (QDENY == 1'b0)",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 1)) (X (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -1519,7 +1519,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0)) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -1610,7 +1610,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0)) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -1701,7 +1701,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -1792,7 +1792,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -1883,7 +1883,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -1974,7 +1974,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -2065,7 +2065,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn is LOW or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -2156,7 +2156,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -2247,7 +2247,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -2338,7 +2338,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -2429,7 +2429,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -2520,7 +2520,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -2611,7 +2611,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -2702,7 +2702,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -2793,7 +2793,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -2884,7 +2884,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -2975,7 +2975,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -3066,7 +3066,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -3157,7 +3157,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -3248,7 +3248,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -3339,7 +3339,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -3430,7 +3430,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -3521,7 +3521,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -3612,7 +3612,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -3703,7 +3703,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is LOW, then QDENY is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 0)) (X (Or (== QDENY 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -3794,7 +3794,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -3885,7 +3885,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -3976,7 +3976,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -4067,7 +4067,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -4158,7 +4158,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -4249,7 +4249,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is LOW, then QACCEPTn is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -4340,7 +4340,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -4431,7 +4431,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 0)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -4522,7 +4522,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is HIGH, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -4613,7 +4613,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -4704,7 +4704,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -4795,7 +4795,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -4886,7 +4886,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -4977,7 +4977,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW, then QDENY remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) |-> ##1 $stable(QDENY)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -5044,7 +5044,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -5111,7 +5111,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is LOW, then QDENY remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b0) |-> ##1 $stable(QDENY)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b0)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 0)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -5178,7 +5178,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QREQn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 $stable(QREQn)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 $stable(QREQn)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X ($stable QREQn))))",
         "ast": {
             "type": "operator",
@@ -5245,7 +5245,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QREQn is HIGH, then QDENY remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QREQn == 1'b1) |-> ##1 $stable(QDENY)",
+        "sva": "((QACCEPTn == 1'b0) && (QREQn == 1'b1)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QREQn 1)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -5312,7 +5312,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QREQn is HIGH, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QREQn == 1'b1) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QACCEPTn == 1'b1) && (QREQn == 1'b1)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QREQn 1)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -5379,7 +5379,7 @@
     },
     {
         "nl": "If QDENY is LOW and QREQn is HIGH, then QDENY remains stable in the next cycle.",
-        "sva": "(QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 $stable(QDENY)",
+        "sva": "((QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QDENY 0) (== QREQn 1)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -5446,7 +5446,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QACCEPTn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 (QACCEPTn == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (== QACCEPTn 0))))",
         "ast": {
             "type": "operator",
@@ -5531,7 +5531,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 (QDENY == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -5616,7 +5616,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 (QREQn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -5701,7 +5701,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 (QDENY == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -5786,7 +5786,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is LOW, then QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 (QREQn == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 0)) (X (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -5871,7 +5871,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 (QACCEPTn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (== QACCEPTn 1))))",
         "ast": {
             "type": "operator",
@@ -5956,7 +5956,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 (QDENY == 1'b0)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -6041,7 +6041,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -6146,7 +6146,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QACCEPTn is LOW or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -6251,7 +6251,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QACCEPTn is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -6356,7 +6356,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -6461,7 +6461,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -6566,7 +6566,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -6671,7 +6671,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -6776,7 +6776,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -6881,7 +6881,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -6986,7 +6986,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -7091,7 +7091,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -7196,7 +7196,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -7301,7 +7301,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -7406,7 +7406,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -7511,7 +7511,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is LOW, then QACCEPTn is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -7616,7 +7616,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -7721,7 +7721,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is LOW, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -7826,7 +7826,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is LOW, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 0)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -7931,7 +7931,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is LOW, then QDENY is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 0)) (X (Or (== QDENY 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -8036,7 +8036,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QACCEPTn is LOW or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -8141,7 +8141,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -8246,7 +8246,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -8351,7 +8351,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -8456,7 +8456,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -8561,7 +8561,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -8666,7 +8666,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -8771,7 +8771,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -8852,7 +8852,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is LOW, then QDENY remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 $stable(QDENY)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 0)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -8933,7 +8933,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QREQn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 $stable(QREQn)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 $stable(QREQn)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X ($stable QREQn))))",
         "ast": {
             "type": "operator",
@@ -9014,7 +9014,7 @@
     },
     {
         "nl": "If QACCEPTn is LOW and QDENY is LOW and QREQn is HIGH, then QDENY remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 $stable(QDENY)",
+        "sva": "((QACCEPTn == 1'b0) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QACCEPTn 0) (== QDENY 0) (== QREQn 1)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -9095,7 +9095,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is LOW, then QREQn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0) |-> ##1 $stable(QREQn)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b0)) |-> ##1 $stable(QREQn)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 0)) (X ($stable QREQn))))",
         "ast": {
             "type": "operator",
@@ -9176,7 +9176,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -9257,7 +9257,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is LOW and QREQn is HIGH, then QDENY remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1) |-> ##1 $stable(QDENY)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b0) && (QREQn == 1'b1)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 0) (== QREQn 1)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -9420,7 +9420,7 @@
     },
     {
         "nl": "If QREQn changes from LOW to HIGH, then QACCEPTn is LOW or QDENY is HIGH.",
-        "sva": "$rose(QREQn) |-> (QACCEPTn == 1'b0) || (QDENY == 1'b1)",
+        "sva": "$rose(QREQn) |-> ((QACCEPTn == 1'b0) || (QDENY == 1'b1))",
         "ltl": "(G (Implies ($rose QREQn) (Or (== QACCEPTn 0) (== QDENY 1))))",
         "ast": {
             "type": "operator",
@@ -9481,7 +9481,7 @@
     },
     {
         "nl": "If QREQn changes from LOW to HIGH, then QACCEPTn is HIGH or QDENY is LOW.",
-        "sva": "$rose(QREQn) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "$rose(QREQn) |-> ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies ($rose QREQn) (Or (== QACCEPTn 1) (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -9542,7 +9542,7 @@
     },
     {
         "nl": "If QACCEPTn changes from LOW to HIGH, then QACCEPTn is LOW or QDENY is LOW.",
-        "sva": "$rose(QACCEPTn) |-> (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "$rose(QACCEPTn) |-> ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies ($rose QACCEPTn) (Or (== QACCEPTn 0) (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -9603,7 +9603,7 @@
     },
     {
         "nl": "If QACCEPTn changes from LOW to HIGH, then QACCEPTn is LOW or QREQn is HIGH.",
-        "sva": "$rose(QACCEPTn) |-> (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "$rose(QACCEPTn) |-> ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($rose QACCEPTn) (Or (== QACCEPTn 0) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -9664,7 +9664,7 @@
     },
     {
         "nl": "If QACCEPTn changes from LOW to HIGH, then QDENY is LOW or QREQn is LOW.",
-        "sva": "$rose(QACCEPTn) |-> (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "$rose(QACCEPTn) |-> ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($rose QACCEPTn) (Or (== QDENY 0) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -9725,7 +9725,7 @@
     },
     {
         "nl": "If QACCEPTn changes from LOW to HIGH, then QDENY is LOW or QREQn is HIGH.",
-        "sva": "$rose(QACCEPTn) |-> (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "$rose(QACCEPTn) |-> ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($rose QACCEPTn) (Or (== QDENY 0) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -9786,7 +9786,7 @@
     },
     {
         "nl": "If QACCEPTn changes from LOW to HIGH, then QDENY is HIGH or QREQn is HIGH.",
-        "sva": "$rose(QACCEPTn) |-> (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "$rose(QACCEPTn) |-> ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($rose QACCEPTn) (Or (== QDENY 1) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -10011,7 +10011,7 @@
     },
     {
         "nl": "If QREQn changes from HIGH to LOW, then QACCEPTn is LOW or QDENY is LOW.",
-        "sva": "$fell(QREQn) |-> (QACCEPTn == 1'b0) || (QDENY == 1'b0)",
+        "sva": "$fell(QREQn) |-> ((QACCEPTn == 1'b0) || (QDENY == 1'b0))",
         "ltl": "(G (Implies ($fell QREQn) (Or (== QACCEPTn 0) (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10072,7 +10072,7 @@
     },
     {
         "nl": "If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH or QDENY is LOW.",
-        "sva": "$fell(QREQn) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "$fell(QREQn) |-> ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies ($fell QREQn) (Or (== QACCEPTn 1) (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10133,7 +10133,7 @@
     },
     {
         "nl": "If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH or QDENY is HIGH.",
-        "sva": "$fell(QREQn) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "$fell(QREQn) |-> ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies ($fell QREQn) (Or (== QACCEPTn 1) (== QDENY 1))))",
         "ast": {
             "type": "operator",
@@ -10194,7 +10194,7 @@
     },
     {
         "nl": "If QREQn changes from HIGH to LOW, then QACCEPTn is HIGH or QREQn is HIGH.",
-        "sva": "$fell(QREQn) |-> (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "$fell(QREQn) |-> ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($fell QREQn) (Or (== QACCEPTn 1) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -10255,7 +10255,7 @@
     },
     {
         "nl": "If QREQn changes from HIGH to LOW, then QDENY is LOW or QREQn is HIGH.",
-        "sva": "$fell(QREQn) |-> (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "$fell(QREQn) |-> ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($fell QREQn) (Or (== QDENY 0) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -10316,7 +10316,7 @@
     },
     {
         "nl": "If QACCEPTn changes from HIGH to LOW, then QACCEPTn is HIGH or QDENY is LOW.",
-        "sva": "$fell(QACCEPTn) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "$fell(QACCEPTn) |-> ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies ($fell QACCEPTn) (Or (== QACCEPTn 1) (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -10377,7 +10377,7 @@
     },
     {
         "nl": "If QACCEPTn changes from HIGH to LOW, then QACCEPTn is HIGH or QREQn is LOW.",
-        "sva": "$fell(QACCEPTn) |-> (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "$fell(QACCEPTn) |-> ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($fell QACCEPTn) (Or (== QACCEPTn 1) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -10438,7 +10438,7 @@
     },
     {
         "nl": "If QACCEPTn changes from HIGH to LOW, then QDENY is LOW or QREQn is LOW.",
-        "sva": "$fell(QACCEPTn) |-> (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "$fell(QACCEPTn) |-> ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($fell QACCEPTn) (Or (== QDENY 0) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -10499,7 +10499,7 @@
     },
     {
         "nl": "If QACCEPTn changes from HIGH to LOW, then QDENY is LOW or QREQn is HIGH.",
-        "sva": "$fell(QACCEPTn) |-> (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "$fell(QACCEPTn) |-> ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($fell QACCEPTn) (Or (== QDENY 0) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -10560,7 +10560,7 @@
     },
     {
         "nl": "If QACCEPTn changes from HIGH to LOW, then QDENY is HIGH or QREQn is LOW.",
-        "sva": "$fell(QACCEPTn) |-> (QDENY == 1'b1) || (QREQn == 1'b0)",
+        "sva": "$fell(QACCEPTn) |-> ((QDENY == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($fell QACCEPTn) (Or (== QDENY 1) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -11093,7 +11093,7 @@
     },
     {
         "nl": "If QDENY is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "(QDENY == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (== QDENY 1) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -11164,7 +11164,7 @@
     },
     {
         "nl": "If QDENY is HIGH, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "(QDENY == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (== QDENY 1) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -11235,7 +11235,7 @@
     },
     {
         "nl": "If QDENY is HIGH, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "(QDENY == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (== QDENY 1) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -11306,7 +11306,7 @@
     },
     {
         "nl": "If QDENY is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "(QDENY == 1'b1) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (== QDENY 1) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -11377,7 +11377,7 @@
     },
     {
         "nl": "If QDENY is HIGH, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "(QDENY == 1'b1) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (== QDENY 1) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -11495,7 +11495,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH, then QACCEPTn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1)) |-> ##1 (QACCEPTn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1)) (X (== QACCEPTn 1))))",
         "ast": {
             "type": "operator",
@@ -11566,7 +11566,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 (QACCEPTn == 1'b1)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (== QACCEPTn 1))))",
         "ast": {
             "type": "operator",
@@ -11637,7 +11637,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QDENY is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 (QDENY == 1'b1)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (== QDENY 1))))",
         "ast": {
             "type": "operator",
@@ -11708,7 +11708,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 (QREQn == 1'b1)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -11779,7 +11779,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 (QACCEPTn == 1'b1)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (== QACCEPTn 1))))",
         "ast": {
             "type": "operator",
@@ -11850,7 +11850,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -11941,7 +11941,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1)) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -12032,7 +12032,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -12123,7 +12123,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -12214,7 +12214,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1)) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -12305,7 +12305,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QACCEPTn is LOW or QDENY is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -12396,7 +12396,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -12487,7 +12487,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -12578,7 +12578,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -12669,7 +12669,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -12760,7 +12760,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QDENY is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (Or (== QDENY 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -12851,7 +12851,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -12942,7 +12942,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -13033,7 +13033,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -13124,7 +13124,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -13215,7 +13215,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -13306,7 +13306,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -13397,7 +13397,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -13488,7 +13488,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -13579,7 +13579,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -13646,7 +13646,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -13713,7 +13713,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is LOW, then QDENY remains stable in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 $stable(QDENY)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 0)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -13780,7 +13780,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QREQn remains stable in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 $stable(QREQn)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 $stable(QREQn)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X ($stable QREQn))))",
         "ast": {
             "type": "operator",
@@ -13847,7 +13847,7 @@
     },
     {
         "nl": "If QDENY is HIGH and QREQn is HIGH, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QDENY 1) (== QREQn 1)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -13914,7 +13914,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 (QACCEPTn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (== QACCEPTn 1))))",
         "ast": {
             "type": "operator",
@@ -13999,7 +13999,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 (QDENY == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (== QDENY 1))))",
         "ast": {
             "type": "operator",
@@ -14084,7 +14084,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 (QREQn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -14169,7 +14169,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 (QACCEPTn == 1'b1)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (== QACCEPTn 1))))",
         "ast": {
             "type": "operator",
@@ -14254,7 +14254,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QACCEPTn is LOW or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b0) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b0) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 0) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -14359,7 +14359,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -14464,7 +14464,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -14569,7 +14569,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -14674,7 +14674,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -14779,7 +14779,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QDENY is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (Or (== QDENY 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -14884,7 +14884,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -14989,7 +14989,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QACCEPTn is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -15094,7 +15094,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 0)))))",
         "ast": {
             "type": "operator",
@@ -15199,7 +15199,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QDENY is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QDENY 1)))))",
         "ast": {
             "type": "operator",
@@ -15304,7 +15304,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is LOW in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 0)))))",
         "ast": {
             "type": "operator",
@@ -15409,7 +15409,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QACCEPTn is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (Or (== QACCEPTn 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -15514,7 +15514,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QDENY is LOW or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b0) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (Or (== QDENY 0) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -15619,7 +15619,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QDENY is HIGH or QREQn is HIGH in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X (Or (== QDENY 1) (== QREQn 1)))))",
         "ast": {
             "type": "operator",
@@ -15724,7 +15724,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -15805,7 +15805,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is LOW, then QDENY remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0) |-> ##1 $stable(QDENY)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b0)) |-> ##1 $stable(QDENY)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 0)) (X ($stable QDENY))))",
         "ast": {
             "type": "operator",
@@ -15886,7 +15886,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QREQn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 $stable(QREQn)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 $stable(QREQn)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X ($stable QREQn))))",
         "ast": {
             "type": "operator",
@@ -15967,7 +15967,7 @@
     },
     {
         "nl": "If QACCEPTn is HIGH and QDENY is HIGH and QREQn is HIGH, then QACCEPTn remains stable in the next cycle.",
-        "sva": "(QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1) |-> ##1 $stable(QACCEPTn)",
+        "sva": "((QACCEPTn == 1'b1) && (QDENY == 1'b1) && (QREQn == 1'b1)) |-> ##1 $stable(QACCEPTn)",
         "ltl": "(G (Implies (And (== QACCEPTn 1) (== QDENY 1) (== QREQn 1)) (X ($stable QACCEPTn))))",
         "ast": {
             "type": "operator",
@@ -16130,7 +16130,7 @@
     },
     {
         "nl": "If QDENY changes from LOW to HIGH, then QACCEPTn is LOW or QREQn is LOW.",
-        "sva": "$rose(QDENY) |-> (QACCEPTn == 1'b0) || (QREQn == 1'b0)",
+        "sva": "$rose(QDENY) |-> ((QACCEPTn == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($rose QDENY) (Or (== QACCEPTn 0) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -16191,7 +16191,7 @@
     },
     {
         "nl": "If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH or QDENY is LOW.",
-        "sva": "$rose(QDENY) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b0)",
+        "sva": "$rose(QDENY) |-> ((QACCEPTn == 1'b1) || (QDENY == 1'b0))",
         "ltl": "(G (Implies ($rose QDENY) (Or (== QACCEPTn 1) (== QDENY 0))))",
         "ast": {
             "type": "operator",
@@ -16252,7 +16252,7 @@
     },
     {
         "nl": "If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH or QREQn is LOW.",
-        "sva": "$rose(QDENY) |-> (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "$rose(QDENY) |-> ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($rose QDENY) (Or (== QACCEPTn 1) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -16313,7 +16313,7 @@
     },
     {
         "nl": "If QDENY changes from LOW to HIGH, then QACCEPTn is HIGH or QREQn is HIGH.",
-        "sva": "$rose(QDENY) |-> (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "$rose(QDENY) |-> ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($rose QDENY) (Or (== QACCEPTn 1) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -16374,7 +16374,7 @@
     },
     {
         "nl": "If QDENY changes from LOW to HIGH, then QDENY is LOW or QREQn is LOW.",
-        "sva": "$rose(QDENY) |-> (QDENY == 1'b0) || (QREQn == 1'b0)",
+        "sva": "$rose(QDENY) |-> ((QDENY == 1'b0) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($rose QDENY) (Or (== QDENY 0) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -16517,7 +16517,7 @@
     },
     {
         "nl": "If QDENY changes from HIGH to LOW, then QACCEPTn is LOW or QREQn is HIGH.",
-        "sva": "$fell(QDENY) |-> (QACCEPTn == 1'b0) || (QREQn == 1'b1)",
+        "sva": "$fell(QDENY) |-> ((QACCEPTn == 1'b0) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($fell QDENY) (Or (== QACCEPTn 0) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -16578,7 +16578,7 @@
     },
     {
         "nl": "If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH or QDENY is HIGH.",
-        "sva": "$fell(QDENY) |-> (QACCEPTn == 1'b1) || (QDENY == 1'b1)",
+        "sva": "$fell(QDENY) |-> ((QACCEPTn == 1'b1) || (QDENY == 1'b1))",
         "ltl": "(G (Implies ($fell QDENY) (Or (== QACCEPTn 1) (== QDENY 1))))",
         "ast": {
             "type": "operator",
@@ -16639,7 +16639,7 @@
     },
     {
         "nl": "If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH or QREQn is LOW.",
-        "sva": "$fell(QDENY) |-> (QACCEPTn == 1'b1) || (QREQn == 1'b0)",
+        "sva": "$fell(QDENY) |-> ((QACCEPTn == 1'b1) || (QREQn == 1'b0))",
         "ltl": "(G (Implies ($fell QDENY) (Or (== QACCEPTn 1) (== QREQn 0))))",
         "ast": {
             "type": "operator",
@@ -16700,7 +16700,7 @@
     },
     {
         "nl": "If QDENY changes from HIGH to LOW, then QACCEPTn is HIGH or QREQn is HIGH.",
-        "sva": "$fell(QDENY) |-> (QACCEPTn == 1'b1) || (QREQn == 1'b1)",
+        "sva": "$fell(QDENY) |-> ((QACCEPTn == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($fell QDENY) (Or (== QACCEPTn 1) (== QREQn 1))))",
         "ast": {
             "type": "operator",
@@ -16761,7 +16761,7 @@
     },
     {
         "nl": "If QDENY changes from HIGH to LOW, then QDENY is HIGH or QREQn is HIGH.",
-        "sva": "$fell(QDENY) |-> (QDENY == 1'b1) || (QREQn == 1'b1)",
+        "sva": "$fell(QDENY) |-> ((QDENY == 1'b1) || (QREQn == 1'b1))",
         "ltl": "(G (Implies ($fell QDENY) (Or (== QDENY 1) (== QREQn 1))))",
         "ast": {
             "type": "operator",

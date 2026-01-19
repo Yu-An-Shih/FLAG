@@ -1,7 +1,7 @@
 [
     {
         "nl": "If PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "(PSEL == 1'b0) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (== PSEL 0) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -72,7 +72,7 @@
     },
     {
         "nl": "If PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "(PSEL == 1'b1) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (== PSEL 1) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -143,7 +143,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -214,7 +214,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -285,7 +285,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -356,7 +356,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -427,7 +427,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -518,7 +518,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -609,7 +609,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -700,7 +700,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -791,7 +791,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -882,7 +882,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -973,7 +973,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -1064,7 +1064,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -1155,7 +1155,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -1246,7 +1246,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -1337,7 +1337,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -1428,7 +1428,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -1519,7 +1519,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -1610,7 +1610,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -1701,7 +1701,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -1792,7 +1792,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -1883,7 +1883,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -1974,7 +1974,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -2065,7 +2065,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -2156,7 +2156,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -2247,7 +2247,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -2338,7 +2338,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -2429,7 +2429,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -2520,7 +2520,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -2611,7 +2611,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -2702,7 +2702,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -2793,7 +2793,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -2884,7 +2884,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -2975,7 +2975,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -3066,7 +3066,7 @@
     },
     {
         "nl": "If PSEL is LOW and PWRITE is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PSEL == 1'b0) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PSEL == 1'b0) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PSEL 0) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -3157,7 +3157,7 @@
     },
     {
         "nl": "If PSEL is LOW and PWRITE is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PSEL == 1'b0) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PSEL == 1'b0) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PSEL 0) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -3248,7 +3248,7 @@
     },
     {
         "nl": "If PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -3339,7 +3339,7 @@
     },
     {
         "nl": "If PSEL is HIGH and PWRITE is HIGH, then PSEL is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -3430,7 +3430,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PSEL remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PSEL)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -3497,7 +3497,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PWRITE)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -3564,7 +3564,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PADDR)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -3631,7 +3631,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PSEL remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PSEL)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -3698,7 +3698,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PWRITE)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -3765,7 +3765,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PADDR)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -3832,7 +3832,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -3917,7 +3917,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -4002,7 +4002,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -4087,7 +4087,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -4172,7 +4172,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -4257,7 +4257,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -4342,7 +4342,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 (PWRITE == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (== PWRITE 1))))",
         "ast": {
             "type": "operator",
@@ -4427,7 +4427,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is HIGH, then PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 (PSEL == 1'b0)",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 1)) (X (== PSEL 0))))",
         "ast": {
             "type": "operator",
@@ -4512,7 +4512,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -4597,7 +4597,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -4682,7 +4682,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 (PWRITE == 1'b1)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (== PWRITE 1))))",
         "ast": {
             "type": "operator",
@@ -4767,7 +4767,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -4872,7 +4872,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -4977,7 +4977,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -5082,7 +5082,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -5187,7 +5187,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -5292,7 +5292,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -5397,7 +5397,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -5502,7 +5502,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -5607,7 +5607,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -5712,7 +5712,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -5817,7 +5817,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -5922,7 +5922,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -6027,7 +6027,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -6132,7 +6132,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -6237,7 +6237,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -6342,7 +6342,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -6447,7 +6447,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -6552,7 +6552,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -6657,7 +6657,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -6762,7 +6762,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -6867,7 +6867,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -6972,7 +6972,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -7077,7 +7077,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -7182,7 +7182,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -7287,7 +7287,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is LOW and PWRITE is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 0) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -7392,7 +7392,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is LOW and PWRITE is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 0) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -7497,7 +7497,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -7602,7 +7602,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -7707,7 +7707,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -7812,7 +7812,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -7917,7 +7917,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -8022,7 +8022,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -8127,7 +8127,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -8232,7 +8232,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -8337,7 +8337,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -8442,7 +8442,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -8547,7 +8547,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -8652,7 +8652,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -8757,7 +8757,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -8862,7 +8862,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -8967,7 +8967,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -9072,7 +9072,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -9177,7 +9177,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -9282,7 +9282,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -9387,7 +9387,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -9492,7 +9492,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is HIGH, then PREADY is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 1)) (X (Or (== PREADY 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -9597,7 +9597,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is HIGH, then PREADY is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 1)) (X (Or (== PREADY 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -9702,7 +9702,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is HIGH, then PSEL is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 1)) (X (Or (== PSEL 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -9807,7 +9807,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PSEL is HIGH, then PSEL is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PSEL 1)) (X (Or (== PSEL 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -9912,7 +9912,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PWRITE is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -10017,7 +10017,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is HIGH and PWRITE is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 1) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -10122,7 +10122,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is LOW and PWRITE is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 0) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -10227,7 +10227,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is LOW and PWRITE is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 0) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -10332,7 +10332,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -10437,7 +10437,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is HIGH and PWRITE is HIGH, then PSEL is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -10542,7 +10542,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is LOW and PWRITE is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 0) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -10647,7 +10647,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is LOW and PWRITE is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b0) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 0) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -10752,7 +10752,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -10857,7 +10857,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -10962,7 +10962,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -11067,7 +11067,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -11172,7 +11172,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -11277,7 +11277,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -11382,7 +11382,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -11487,7 +11487,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -11592,7 +11592,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -11697,7 +11697,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -11802,7 +11802,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -11907,7 +11907,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PREADY is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PREADY == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PREADY 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -12012,7 +12012,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -12117,7 +12117,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -12222,7 +12222,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -12327,7 +12327,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is LOW and PWRITE is LOW, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 0) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -12432,7 +12432,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is LOW and PWRITE is HIGH, then PENABLE is LOW or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b0) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 0) (== PWRITE 1)) (X (Or (== PENABLE 0) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -12537,7 +12537,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is HIGH and PWRITE is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 1) (== PWRITE 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -12642,7 +12642,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is HIGH and PWRITE is HIGH, then PSEL is LOW or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 1) (== PWRITE 1)) (X (Or (== PSEL 0) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -12747,7 +12747,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PSEL remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PSEL)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -12828,7 +12828,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PWRITE)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -12909,7 +12909,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PADDR)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 0) (== PSEL 1)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -12990,7 +12990,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PSEL remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 $stable(PSEL)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -13071,7 +13071,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 $stable(PWRITE)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -13152,7 +13152,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PREADY is HIGH and PSEL is HIGH, then PADDR remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1) |-> ##1 $stable(PADDR)",
+        "sva": "((PENABLE == 1'b0) && (PREADY == 1'b1) && (PSEL == 1'b1)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PREADY 1) (== PSEL 1)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -13233,7 +13233,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PSEL)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -13314,7 +13314,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PWRITE remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PWRITE)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -13395,7 +13395,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PADDR remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PADDR)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -13476,7 +13476,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is HIGH, then PWDATA remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PWDATA)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PWDATA)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PWDATA))))",
         "ast": {
             "type": "operator",
@@ -13557,7 +13557,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PSEL remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PSEL)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -13638,7 +13638,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PWRITE remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PWRITE)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -13719,7 +13719,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PADDR remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PADDR)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -13800,7 +13800,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is HIGH, then PWDATA remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1) |-> ##1 $stable(PWDATA)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b1)) |-> ##1 $stable(PWDATA)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 1)) (X ($stable PWDATA))))",
         "ast": {
             "type": "operator",
@@ -13922,7 +13922,7 @@
     },
     {
         "nl": "If PSEL changes from LOW to HIGH, then PENABLE is LOW or PREADY is LOW.",
-        "sva": "$rose(PSEL) |-> (PENABLE == 1'b0) || (PREADY == 1'b0)",
+        "sva": "$rose(PSEL) |-> ((PENABLE == 1'b0) || (PREADY == 1'b0))",
         "ltl": "(G (Implies ($rose PSEL) (Or (== PENABLE 0) (== PREADY 0))))",
         "ast": {
             "type": "operator",
@@ -13983,7 +13983,7 @@
     },
     {
         "nl": "If PSEL changes from LOW to HIGH, then PENABLE is LOW or PREADY is HIGH.",
-        "sva": "$rose(PSEL) |-> (PENABLE == 1'b0) || (PREADY == 1'b1)",
+        "sva": "$rose(PSEL) |-> ((PENABLE == 1'b0) || (PREADY == 1'b1))",
         "ltl": "(G (Implies ($rose PSEL) (Or (== PENABLE 0) (== PREADY 1))))",
         "ast": {
             "type": "operator",
@@ -14044,7 +14044,7 @@
     },
     {
         "nl": "If PSEL changes from LOW to HIGH, then PENABLE is LOW or PSEL is LOW.",
-        "sva": "$rose(PSEL) |-> (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "$rose(PSEL) |-> ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies ($rose PSEL) (Or (== PENABLE 0) (== PSEL 0))))",
         "ast": {
             "type": "operator",
@@ -14105,7 +14105,7 @@
     },
     {
         "nl": "If PSEL changes from LOW to HIGH, then PENABLE is LOW or PWRITE is LOW.",
-        "sva": "$rose(PSEL) |-> (PENABLE == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "$rose(PSEL) |-> ((PENABLE == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies ($rose PSEL) (Or (== PENABLE 0) (== PWRITE 0))))",
         "ast": {
             "type": "operator",
@@ -14166,7 +14166,7 @@
     },
     {
         "nl": "If PSEL changes from LOW to HIGH, then PENABLE is LOW or PWRITE is HIGH.",
-        "sva": "$rose(PSEL) |-> (PENABLE == 1'b0) || (PWRITE == 1'b1)",
+        "sva": "$rose(PSEL) |-> ((PENABLE == 1'b0) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies ($rose PSEL) (Or (== PENABLE 0) (== PWRITE 1))))",
         "ast": {
             "type": "operator",
@@ -14227,7 +14227,7 @@
     },
     {
         "nl": "If PWRITE changes from LOW to HIGH, then PENABLE is LOW or PSEL is LOW.",
-        "sva": "$rose(PWRITE) |-> (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "$rose(PWRITE) |-> ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies ($rose PWRITE) (Or (== PENABLE 0) (== PSEL 0))))",
         "ast": {
             "type": "operator",
@@ -14288,7 +14288,7 @@
     },
     {
         "nl": "If PWRITE changes from HIGH to LOW, then PENABLE is LOW or PSEL is LOW.",
-        "sva": "$fell(PWRITE) |-> (PENABLE == 1'b0) || (PSEL == 1'b0)",
+        "sva": "$fell(PWRITE) |-> ((PENABLE == 1'b0) || (PSEL == 1'b0))",
         "ltl": "(G (Implies ($fell PWRITE) (Or (== PENABLE 0) (== PSEL 0))))",
         "ast": {
             "type": "operator",
@@ -15007,7 +15007,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -15092,7 +15092,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -15177,7 +15177,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -15282,7 +15282,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -15387,7 +15387,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -15492,7 +15492,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -15597,7 +15597,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -15702,7 +15702,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -15807,7 +15807,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -15912,7 +15912,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -16017,7 +16017,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -16122,7 +16122,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -16227,7 +16227,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -16332,7 +16332,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PSEL remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PSEL)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -16413,7 +16413,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PENABLE remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PENABLE)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PENABLE)",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X ($stable PENABLE))))",
         "ast": {
             "type": "operator",
@@ -16494,7 +16494,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PWRITE remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PWRITE)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -16575,7 +16575,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PREADY is LOW and PSEL is HIGH, then PADDR remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1) |-> ##1 $stable(PADDR)",
+        "sva": "((PENABLE == 1'b1) && (PREADY == 1'b0) && (PSEL == 1'b1)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PREADY 0) (== PSEL 1)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -16656,7 +16656,7 @@
     },
     {
         "nl": "If PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -16747,7 +16747,7 @@
     },
     {
         "nl": "If PSEL is HIGH and PWRITE is LOW, then PSEL is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -16838,7 +16838,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -16923,7 +16923,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -17008,7 +17008,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 (PWRITE == 1'b0)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (== PWRITE 0))))",
         "ast": {
             "type": "operator",
@@ -17093,7 +17093,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 (PSEL == 1'b1)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (== PSEL 1))))",
         "ast": {
             "type": "operator",
@@ -17178,7 +17178,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 (PENABLE == 1'b1)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (== PENABLE 1))))",
         "ast": {
             "type": "operator",
@@ -17263,7 +17263,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 (PWRITE == 1'b0)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (== PWRITE 0))))",
         "ast": {
             "type": "operator",
@@ -17348,7 +17348,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -17453,7 +17453,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -17558,7 +17558,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -17663,7 +17663,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -17768,7 +17768,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -17873,7 +17873,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -17978,7 +17978,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -18083,7 +18083,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -18188,7 +18188,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -18293,7 +18293,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -18398,7 +18398,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -18503,7 +18503,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -18608,7 +18608,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -18713,7 +18713,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -18818,7 +18818,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -18923,7 +18923,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -19028,7 +19028,7 @@
     },
     {
         "nl": "If PENABLE is HIGH and PSEL is HIGH and PWRITE is LOW, then PSEL is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PENABLE == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PENABLE 1) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -19133,7 +19133,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -19238,7 +19238,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -19343,7 +19343,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PREADY is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PREADY 0)))))",
         "ast": {
             "type": "operator",
@@ -19448,7 +19448,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PREADY is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PREADY == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PREADY == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PREADY 1)))))",
         "ast": {
             "type": "operator",
@@ -19553,7 +19553,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -19658,7 +19658,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -19763,7 +19763,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -19868,7 +19868,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -19973,7 +19973,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is LOW or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b0) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b0) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 0) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -20078,7 +20078,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -20183,7 +20183,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is HIGH or PSEL is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b1) || (PSEL == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b1) || (PSEL == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 1) (== PSEL 1)))))",
         "ast": {
             "type": "operator",
@@ -20288,7 +20288,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PREADY is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PREADY == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PREADY == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PREADY 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -20393,7 +20393,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -20498,7 +20498,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is HIGH or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 1) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -20603,7 +20603,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL is HIGH or PWRITE is HIGH in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b1) || (PWRITE == 1'b1)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b1) || (PWRITE == 1'b1))",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 1) (== PWRITE 1)))))",
         "ast": {
             "type": "operator",
@@ -20708,7 +20708,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is HIGH and PWRITE is LOW, then PENABLE is HIGH or PSEL is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PENABLE == 1'b1) || (PSEL == 1'b0)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PENABLE == 1'b1) || (PSEL == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 1) (== PWRITE 0)) (X (Or (== PENABLE 1) (== PSEL 0)))))",
         "ast": {
             "type": "operator",
@@ -20813,7 +20813,7 @@
     },
     {
         "nl": "If PREADY is HIGH and PSEL is HIGH and PWRITE is LOW, then PSEL is LOW or PWRITE is LOW in the next cycle.",
-        "sva": "(PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 (PSEL == 1'b0) || (PWRITE == 1'b0)",
+        "sva": "((PREADY == 1'b1) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 ((PSEL == 1'b0) || (PWRITE == 1'b0))",
         "ltl": "(G (Implies (And (== PREADY 1) (== PSEL 1) (== PWRITE 0)) (X (Or (== PSEL 0) (== PWRITE 0)))))",
         "ast": {
             "type": "operator",
@@ -20918,7 +20918,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 $stable(PSEL)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -20999,7 +20999,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PWRITE remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 $stable(PWRITE)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -21080,7 +21080,7 @@
     },
     {
         "nl": "If PENABLE is LOW and PSEL is HIGH and PWRITE is LOW, then PADDR remains stable in the next cycle.",
-        "sva": "(PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 $stable(PADDR)",
+        "sva": "((PENABLE == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PENABLE 0) (== PSEL 1) (== PWRITE 0)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",
@@ -21161,7 +21161,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PSEL remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 $stable(PSEL)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 $stable(PSEL)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X ($stable PSEL))))",
         "ast": {
             "type": "operator",
@@ -21242,7 +21242,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PWRITE remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 $stable(PWRITE)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 $stable(PWRITE)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X ($stable PWRITE))))",
         "ast": {
             "type": "operator",
@@ -21323,7 +21323,7 @@
     },
     {
         "nl": "If PREADY is LOW and PSEL is HIGH and PWRITE is LOW, then PADDR remains stable in the next cycle.",
-        "sva": "(PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0) |-> ##1 $stable(PADDR)",
+        "sva": "((PREADY == 1'b0) && (PSEL == 1'b1) && (PWRITE == 1'b0)) |-> ##1 $stable(PADDR)",
         "ltl": "(G (Implies (And (== PREADY 0) (== PSEL 1) (== PWRITE 0)) (X ($stable PADDR))))",
         "ast": {
             "type": "operator",

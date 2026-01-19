@@ -1,7 +1,7 @@
 [
     {
         "nl": "If CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.",
-        "sva": "(CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "sva": "(CSYSREQ == 1'b0) |-> ##1 ((CSYSACK == 1'b0) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies (== CSYSREQ 0) (X (Or (== CSYSACK 0) (== CSYSREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -72,7 +72,7 @@
     },
     {
         "nl": "If CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.",
-        "sva": "(CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "sva": "(CSYSREQ == 1'b1) |-> ##1 ((CSYSACK == 1'b1) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies (== CSYSREQ 1) (X (Or (== CSYSACK 1) (== CSYSREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -143,7 +143,7 @@
     },
     {
         "nl": "If CSYSACK is LOW, then CSYSACK is LOW or CSYSREQ is HIGH in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "sva": "(CSYSACK == 1'b0) |-> ##1 ((CSYSACK == 1'b0) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies (== CSYSACK 0) (X (Or (== CSYSACK 0) (== CSYSREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -214,7 +214,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH, then CSYSACK is HIGH or CSYSREQ is LOW in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "sva": "(CSYSACK == 1'b1) |-> ##1 ((CSYSACK == 1'b1) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies (== CSYSACK 1) (X (Or (== CSYSACK 1) (== CSYSREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -285,7 +285,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b0)) |-> ##1 (CSYSACK == 1'b0)",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X (== CSYSACK 0))))",
         "ast": {
             "type": "operator",
@@ -356,7 +356,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSREQ is HIGH in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 (CSYSREQ == 1'b1)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b1)) |-> ##1 (CSYSREQ == 1'b1)",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X (== CSYSREQ 1))))",
         "ast": {
             "type": "operator",
@@ -427,7 +427,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSREQ is LOW in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 (CSYSREQ == 1'b0)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b0)) |-> ##1 (CSYSREQ == 1'b0)",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X (== CSYSREQ 0))))",
         "ast": {
             "type": "operator",
@@ -498,7 +498,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b1)) |-> ##1 (CSYSACK == 1'b1)",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X (== CSYSACK 1))))",
         "ast": {
             "type": "operator",
@@ -569,7 +569,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b0)) |-> ##1 ((CSYSACK == 1'b0) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X (Or (== CSYSACK 0) (== CSYSREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -660,7 +660,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is HIGH in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b0)) |-> ##1 ((CSYSACK == 1'b0) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X (Or (== CSYSACK 0) (== CSYSREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -751,7 +751,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSACK is LOW or CSYSREQ is HIGH in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b1)) |-> ##1 ((CSYSACK == 1'b0) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X (Or (== CSYSACK 0) (== CSYSREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -842,7 +842,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b1)) |-> ##1 ((CSYSACK == 1'b1) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X (Or (== CSYSACK 1) (== CSYSREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -933,7 +933,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSACK is LOW or CSYSREQ is LOW in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b0)) |-> ##1 ((CSYSACK == 1'b0) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X (Or (== CSYSACK 0) (== CSYSREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -1024,7 +1024,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSACK is HIGH or CSYSREQ is LOW in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b0)) |-> ##1 ((CSYSACK == 1'b1) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X (Or (== CSYSACK 1) (== CSYSREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -1115,7 +1115,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is LOW in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b1)) |-> ##1 ((CSYSACK == 1'b1) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X (Or (== CSYSACK 1) (== CSYSREQ 0)))))",
         "ast": {
             "type": "operator",
@@ -1206,7 +1206,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK is HIGH or CSYSREQ is HIGH in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b1)) |-> ##1 ((CSYSACK == 1'b1) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X (Or (== CSYSACK 1) (== CSYSREQ 1)))))",
         "ast": {
             "type": "operator",
@@ -1297,7 +1297,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is LOW, then CSYSACK remains stable in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b0) |-> ##1 $stable(CSYSACK)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b0)) |-> ##1 $stable(CSYSACK)",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 0)) (X ($stable CSYSACK))))",
         "ast": {
             "type": "operator",
@@ -1364,7 +1364,7 @@
     },
     {
         "nl": "If CSYSACK is LOW and CSYSREQ is HIGH, then CSYSREQ remains stable in the next cycle.",
-        "sva": "(CSYSACK == 1'b0) && (CSYSREQ == 1'b1) |-> ##1 $stable(CSYSREQ)",
+        "sva": "((CSYSACK == 1'b0) && (CSYSREQ == 1'b1)) |-> ##1 $stable(CSYSREQ)",
         "ltl": "(G (Implies (And (== CSYSACK 0) (== CSYSREQ 1)) (X ($stable CSYSREQ))))",
         "ast": {
             "type": "operator",
@@ -1431,7 +1431,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is LOW, then CSYSREQ remains stable in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b0) |-> ##1 $stable(CSYSREQ)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b0)) |-> ##1 $stable(CSYSREQ)",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 0)) (X ($stable CSYSREQ))))",
         "ast": {
             "type": "operator",
@@ -1498,7 +1498,7 @@
     },
     {
         "nl": "If CSYSACK is HIGH and CSYSREQ is HIGH, then CSYSACK remains stable in the next cycle.",
-        "sva": "(CSYSACK == 1'b1) && (CSYSREQ == 1'b1) |-> ##1 $stable(CSYSACK)",
+        "sva": "((CSYSACK == 1'b1) && (CSYSREQ == 1'b1)) |-> ##1 $stable(CSYSACK)",
         "ltl": "(G (Implies (And (== CSYSACK 1) (== CSYSREQ 1)) (X ($stable CSYSACK))))",
         "ast": {
             "type": "operator",
@@ -1647,7 +1647,7 @@
     },
     {
         "nl": "If CSYSREQ changes from LOW to HIGH, then CSYSACK is LOW or CSYSREQ is LOW.",
-        "sva": "$rose(CSYSREQ) |-> (CSYSACK == 1'b0) || (CSYSREQ == 1'b0)",
+        "sva": "$rose(CSYSREQ) |-> ((CSYSACK == 1'b0) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies ($rose CSYSREQ) (Or (== CSYSACK 0) (== CSYSREQ 0))))",
         "ast": {
             "type": "operator",
@@ -1708,7 +1708,7 @@
     },
     {
         "nl": "If CSYSACK changes from LOW to HIGH, then CSYSACK is LOW or CSYSREQ is HIGH.",
-        "sva": "$rose(CSYSACK) |-> (CSYSACK == 1'b0) || (CSYSREQ == 1'b1)",
+        "sva": "$rose(CSYSACK) |-> ((CSYSACK == 1'b0) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies ($rose CSYSACK) (Or (== CSYSACK 0) (== CSYSREQ 1))))",
         "ast": {
             "type": "operator",
@@ -1851,7 +1851,7 @@
     },
     {
         "nl": "If CSYSREQ changes from HIGH to LOW, then CSYSACK is HIGH or CSYSREQ is HIGH.",
-        "sva": "$fell(CSYSREQ) |-> (CSYSACK == 1'b1) || (CSYSREQ == 1'b1)",
+        "sva": "$fell(CSYSREQ) |-> ((CSYSACK == 1'b1) || (CSYSREQ == 1'b1))",
         "ltl": "(G (Implies ($fell CSYSREQ) (Or (== CSYSACK 1) (== CSYSREQ 1))))",
         "ast": {
             "type": "operator",
@@ -1912,7 +1912,7 @@
     },
     {
         "nl": "If CSYSACK changes from HIGH to LOW, then CSYSACK is HIGH or CSYSREQ is LOW.",
-        "sva": "$fell(CSYSACK) |-> (CSYSACK == 1'b1) || (CSYSREQ == 1'b0)",
+        "sva": "$fell(CSYSACK) |-> ((CSYSACK == 1'b1) || (CSYSREQ == 1'b0))",
         "ltl": "(G (Implies ($fell CSYSACK) (Or (== CSYSACK 1) (== CSYSREQ 0))))",
         "ast": {
             "type": "operator",
