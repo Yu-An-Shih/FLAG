@@ -5,13 +5,11 @@
 ### 1. Grammar-based Template Generation & Template-based Property Generation & SAT-based Property Filtering
 
 ```
-python spec2sva.py all -g <grammar_file> -w <tds_file> [-o <output_dir>] [-v]
+python spec2sva.py all -g <grammar_file> -w <tds_file> [-wd] [-o <output_dir>] [-v]
 ```
 For example: `python spec2sva.py -g grammar/complete.json -w test_cases/AXI/channel_handshake/timing_diagrams.json -o results/`
 
-Our framework first generates a template set based on the user-defined grammar in `<grammar_file>`. Then, the candidate properties are generated and filtered based on the timing diagrams (`<tds_file>`) for the target mechanism.
-
-The `<info_file>` consists of the signal information and timing diagrams of the functionality group. This command generates candidate properties according to the `<grammar_file>` and signal information, and performs the SAT-based property check with respect to the timing diagrams.
+Our framework first generates a template set based on the user-defined grammar in `<grammar_file>`. Then, the candidate properties are generated and filtered based on the timing diagrams (`<tds_file>`) for the target mechanism. The `-wd` flag indicates that the timing diagrams are provided in WaveDrom format instead of our self-defined JSON format. Note that we only support a subset of WaveDrom syntax for now.
 
 The following files will be generated in `<output_dir>`:
 - `sat_filtered_*.json`: The SAT-filtered properties in various formats.
