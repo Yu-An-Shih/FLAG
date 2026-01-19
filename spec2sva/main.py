@@ -7,6 +7,7 @@ import time
 from spec2sva.gram2temp import Gram2Temp
 from spec2sva.temp2prop import Temp2Prop
 from spec2sva.smtchecker import SMTChecker
+from spec2sva.utils.tdformats import wavedrom_to_json
 
 def read_json_file(file_path):
     assert os.path.isfile(file_path), f"File not found: {file_path}"
@@ -41,12 +42,14 @@ def main():
     parser_t2p = subparsers.add_parser('t2p', parents=[shared_parser], help='Generate candidate properties and perform SAT-based filtering')
     parser_t2p.add_argument('-t', '--templates', type=str, required=True, help='Template file')
     parser_t2p.add_argument('-w', '--timing-diagrams', type=str, required=True, help='Timing diagrams file')
+    parser_t2p.add_argument('-wd', '--wavedrom', action='store_true', help='Indicates that the timing diagrams are in WaveDrom format')
     
     # Sub-command: all
     parser_all = subparsers.add_parser('all', parents=[shared_parser], help='Full pipeline: grammar to templates, templates to candidate properties, and SAT-based filtering')
     parser_all.add_argument('-g', '--grammar', type=str, required=True, help='Grammar file')
     parser_all.add_argument('-w', '--timing-diagrams', type=str, required=True, help='Timing diagrams file')
-    
+    parser_all.add_argument('-wd', '--wavedrom', action='store_true', help='Indicates that the timing diagrams are in WaveDrom format')
+
     args = parser.parse_args()
 
     # Create output directory
@@ -68,6 +71,9 @@ def main():
     elif args.command == 't2p':
         templates = read_json_file(args.templates)
         tds_info = read_json_file(args.timing_diagrams)
+
+        if args.wavedrom:
+            tds_info = wavedrom_to_json(tds_info)
 
         # Template-based property generation
         t2p = Temp2Prop(tds_info['signals'], templates)
@@ -93,6 +99,9 @@ def main():
     elif args.command == 'all':
         grammar = read_json_file(args.grammar)
         tds_info = read_json_file(args.timing_diagrams)
+
+        if args.wavedrom:
+            tds_info = wavedrom_to_json(tds_info)
 
         # Grammar-based template generation
         g2t = Gram2Temp(grammar)
